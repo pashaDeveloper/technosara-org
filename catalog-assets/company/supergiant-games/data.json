@@ -1,0 +1,22 @@
+{
+  "name": "Supergiant Games",
+  "slug": "supergiant-games",
+  "country_code": "US",
+  "founded_year": 2009,
+  "type": "developer_publisher",
+  "website": "https://www.supergiantgames.com/",
+  "founderSlugs": [
+    "amir-rao",
+    "gavin-simon"
+  ],
+  "memberSlugs": [
+    [
+      "greg-kasavin",
+      "نویسنده و طراح"
+    ],
+    [
+      "jen-zee",
+      "مدیر هنری"
+    ]
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Wii",
+  "slug": "wii",
+  "code": "wii",
+  "generation": 7,
+  "release_date": "2006-11-19",
+  "brandSlug": "nintendo",
+  "website_url": "https://www.nintendo.com/",
+  "sort_order": 2,
+  "device_type": "console"
+}

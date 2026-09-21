@@ -1,0 +1,39 @@
+{
+  "type": "standard",
+  "title": "Real-time strategy game",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Real-time strategy game</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q208189",
+  "titles": {
+    "canonical": "Real-time_strategy_game",
+    "normalized": "Real-time strategy game",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Real-time strategy game</span></span>"
+  },
+  "pageid": 77251,
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1367753814",
+  "tid": "c9afc95b-9066-11f1-bb0b-e9f853326d8a",
+  "timestamp": "2026-08-05T00:44:17Z",
+  "description": "Strategy video game sub-genre",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Real-time_strategy_game",
+      "revisions": "https://en.wikipedia.org/wiki/Real-time_strategy_game?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Real-time_strategy_game?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Real-time_strategy_game"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Real-time_strategy_game",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Real-time_strategy_game",
+      "edit": "https://en.wikipedia.org/wiki/Real-time_strategy_game?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Real-time_strategy_game"
+    }
+  },
+  "extract": "A real-time strategy (RTS) game is a subgenre of strategy video games where players manage resources and command units to achieve objectives continuously in real time, rather than taking turns. By contrast, in turn-based strategy (TBS) games, players take turns to play. The term \"real-time strategy\" was coined by Brett Sperry to market Dune II in the early 1990s.",
+  "extract_html": "<p>A <b>real-time strategy</b> (<b>RTS</b>) <b>game</b> is a subgenre of strategy video games where players manage resources and command units to achieve objectives continuously in real time, rather than taking turns. By contrast, in turn-based strategy (TBS) games, players take turns to play. The term \"real-time strategy\" was coined by Brett Sperry to market <i>Dune II</i> in the early 1990s.</p>"
+}

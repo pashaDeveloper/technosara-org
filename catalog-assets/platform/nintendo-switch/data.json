@@ -1,0 +1,11 @@
+{
+  "name": "Nintendo Switch",
+  "slug": "nintendo-switch",
+  "code": "nintendo-switch",
+  "generation": 8,
+  "release_date": "2017-03-03",
+  "brandSlug": "nintendo",
+  "website_url": "https://www.nintendo.com/us/gaming-systems/switch/",
+  "sort_order": 6,
+  "device_type": "console"
+}

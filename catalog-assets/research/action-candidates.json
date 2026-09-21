@@ -1,0 +1,472 @@
+[
+  {
+    "pageid": 76113204,
+    "ns": 6,
+    "title": "File:OpenArena 0.8.8 rocket.jpg",
+    "index": 1,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/OpenArena_0.8.8_rocket.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 1200,
+        "thumbheight": 900,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/a/a0/OpenArena_0.8.8_rocket.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1200,
+          "height": 900
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/OpenArena_0.8.8_rocket.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:OpenArena_0.8.8_rocket.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=76113204",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2019-01-26 15:33:35",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "OpenArena 0.8.8 rocket",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "GPL|Free screenshots|Screenshots of OpenArena",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "This is a screenshot of a free game OpenArena version 0.8.8, taken by myself.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2019-01-26",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "Screenshot",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "OpenArena developers",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "GPL",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "GNU General Public License",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://www.gnu.org/licenses/gpl.html",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "pageid": 44430310,
+    "ns": 6,
+    "title": "File:OpenArena 0.7.7 screenshot.png",
+    "index": 2,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/3/34/OpenArena_0.7.7_screenshot.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 1200,
+        "thumbheight": 900,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/3/34/OpenArena_0.7.7_screenshot.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1200,
+          "height": 900
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/OpenArena_0.7.7_screenshot.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:OpenArena_0.7.7_screenshot.png",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=44430310",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2015-10-24 00:35:19",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "OpenArena 0.7.7 screenshot",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "GPL|Free screenshots|Screenshots of OpenArena",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "OpenArena (0.7.7+dfsg1-1) screenshot",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2015-10-24",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://screenshots.debian.net/package/openarena\">https://screenshots.debian.net/package/openarena</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "Unknown (who taken the screenshot)",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "GPL",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "GNU General Public License",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://www.gnu.org/licenses/gpl.html",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "pageid": 42249405,
+    "ns": 6,
+    "title": "File:OpenArena 0.8.8 arena select menu.png",
+    "index": 3,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/OpenArena_0.8.8_arena_select_menu.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 1200,
+        "thumbheight": 900,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/c/cf/OpenArena_0.8.8_arena_select_menu.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1200,
+          "height": 900
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/OpenArena_0.8.8_arena_select_menu.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:OpenArena_0.8.8_arena_select_menu.png",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=42249405",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2015-10-23 14:49:47",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "OpenArena 0.8.8 arena select menu",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "GPL|Free screenshots|Screenshots of OpenArena",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "OpenArena 0.8.8-14 Arena select menu, under Debian GNU/Linux",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2015-04-10",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "Screenshot",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "OpenArena developers",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "GPL",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "GNU General Public License",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://www.gnu.org/licenses/gpl.html",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "pageid": 138457332,
+    "ns": 6,
+    "title": "File:OpenArena Grism.png",
+    "index": 4,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/2/25/OpenArena_Grism.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 1200,
+        "thumbheight": 1413,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/2/25/OpenArena_Grism.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1200,
+          "height": 1413
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/25/OpenArena_Grism.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:OpenArena_Grism.png",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=138457332",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2023-10-04 09:13:02",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "OpenArena Grism",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "OpenArena|GPL|Video game characters|Free screenshots",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "player model in <a href=\"//commons.wikimedia.org/wiki/OpenArena\" title=\"OpenArena\">OpenArena</a>",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "8. Feb. 2007",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://openarena.fandom.com/wiki/File:Grism.png\">https://openarena.fandom.com/wiki/File:Grism.png</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "OpenArena developers",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "GPL",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "GNU General Public License",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://www.gnu.org/licenses/gpl.html",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "pageid": 42249382,
+    "ns": 6,
+    "title": "File:OpenArena 0.8.8 main menu.png",
+    "index": 5,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/OpenArena_0.8.8_main_menu.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 1200,
+        "thumbheight": 900,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/e/e8/OpenArena_0.8.8_main_menu.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1200,
+          "height": 900
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/OpenArena_0.8.8_main_menu.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:OpenArena_0.8.8_main_menu.png",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=42249382",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2015-10-23 14:50:36",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "OpenArena 0.8.8 main menu",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "GPL|Free screenshots|Screenshots of OpenArena",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "OpenArena 0.8.8-14 main menu screenshot, under Debian GNU/Linux",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2015-08-10",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "Screenshot",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "OpenArena developers",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "GPL",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "GNU General Public License",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://www.gnu.org/licenses/gpl.html",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          }
+        }
+      }
+    ]
+  }
+]

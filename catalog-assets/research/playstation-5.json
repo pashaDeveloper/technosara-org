@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "PlayStation 5",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">PlayStation 5</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q63184502",
+  "titles": {
+    "canonical": "PlayStation_5",
+    "normalized": "PlayStation 5",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">PlayStation 5</span></span>"
+  },
+  "pageid": 59309871,
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png/330px-Black_and_white_Playstation_5_base_edition_with_controller.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 598
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/7/77/Black_and_white_Playstation_5_base_edition_with_controller.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 1941,
+    "height": 3515
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1375268358",
+  "tid": "4230ab47-b20d-11f1-ab99-e5d00800b629",
+  "timestamp": "2026-09-16T20:29:04Z",
+  "description": "Home video game console by Sony",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/PlayStation_5",
+      "revisions": "https://en.wikipedia.org/wiki/PlayStation_5?action=history",
+      "edit": "https://en.wikipedia.org/wiki/PlayStation_5?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:PlayStation_5"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/PlayStation_5",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/PlayStation_5",
+      "edit": "https://en.wikipedia.org/wiki/PlayStation_5?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:PlayStation_5"
+    }
+  },
+  "extract": "The PlayStation 5 (PS5) is a home video game console developed by Sony Interactive Entertainment as the fifth iteration of their PlayStation brand. It was announced as the successor to the PlayStation 4 in April 2019, and was launched in Australia, Japan, New Zealand, North America, and South Korea on November 12, 2020, and worldwide a week later. The PS5 is part of the ninth generation of video game consoles, along with Microsoft's Xbox Series X/S consoles, which were released the same month.",
+  "extract_html": "<p>The <b>PlayStation 5</b> (<b>PS5</b>) is a home video game console developed by Sony Interactive Entertainment as the fifth iteration of their PlayStation brand. It was announced as the successor to the PlayStation 4 in April 2019, and was launched in Australia, Japan, New Zealand, North America, and South Korea on November 12, 2020, and worldwide a week later. The PS5 is part of the ninth generation of video game consoles, along with Microsoft's Xbox Series X/S consoles, which were released the same month.</p>"
+}

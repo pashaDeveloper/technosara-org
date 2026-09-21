@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Bill Gates",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Bill Gates</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q5284",
+  "titles": {
+    "canonical": "Bill_Gates",
+    "normalized": "Bill Gates",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Bill Gates</span></span>"
+  },
+  "pageid": 3747,
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg/330px-Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 441
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 1000,
+    "height": 1335
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1375887317",
+  "tid": "09e6dfc5-b51d-11f1-b367-ca5b269cd757",
+  "timestamp": "2026-09-20T17:59:35Z",
+  "description": "American businessman and philanthropist (born 1955)",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Bill_Gates",
+      "revisions": "https://en.wikipedia.org/wiki/Bill_Gates?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Bill_Gates?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Bill_Gates"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Bill_Gates",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Bill_Gates",
+      "edit": "https://en.wikipedia.org/wiki/Bill_Gates?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Bill_Gates"
+    }
+  },
+  "extract": "William Henry Gates III is an American businessman and philanthropist. A pioneer of the microcomputer revolution of the 1970s and 1980s, he co-founded the software company Microsoft in 1975 with his childhood friend Paul Allen. Following Microsoft's initial public offering in 1986 and the subsequent increase in its stock price, Gates became the world's then-youngest billionaire in 1987, at age 31. Forbes magazine ranked him as the world's wealthiest person in their The World's Billionaires list for 18 out of 24 years between 1995 and 2017, including 13 years consecutively from 1995 to 2007. Gates became the first centibillionaire in 1999, when his net worth briefly surpassed US$100 billion. According to Forbes, as of July 2026, his net worth stood at US$106.5 billion, making him the 19th-wealthiest individual in the world.",
+  "extract_html": "<p><b>William Henry Gates III</b> is an American businessman and philanthropist. A pioneer of the microcomputer revolution of the 1970s and 1980s, he co-founded the software company Microsoft in 1975 with his childhood friend Paul Allen. Following Microsoft's initial public offering in 1986 and the subsequent increase in its stock price, Gates became the world's then-youngest billionaire in 1987, at age 31. <i>Forbes</i> magazine ranked him as the world's wealthiest person in their <i>The World's Billionaires</i> list for 18 out of 24 years between 1995 and 2017, including 13 years consecutively from 1995 to 2007. Gates became the first centibillionaire in 1999, when his net worth briefly surpassed US$100 billion. According to <i>Forbes</i>, as of July 2026, his net worth stood at US$106.5 billion, making him the 19th-wealthiest individual in the world.</p>"
+}

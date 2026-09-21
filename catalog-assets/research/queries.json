@@ -1,0 +1,162 @@
+[
+  {
+    "slug": "action",
+    "q": "OpenArena screenshot"
+  },
+  {
+    "slug": "adventure",
+    "q": "ScummVM Beneath Steel Sky screenshot"
+  },
+  {
+    "slug": "action-adventure",
+    "q": "Minetest screenshot"
+  },
+  {
+    "slug": "role-playing",
+    "q": "Battle for Wesnoth screenshot"
+  },
+  {
+    "slug": "action-role-playing",
+    "q": "Flare game screenshot"
+  },
+  {
+    "slug": "strategy",
+    "q": "Freeciv screenshot"
+  },
+  {
+    "slug": "real-time-strategy",
+    "q": "0 A.D. screenshot"
+  },
+  {
+    "slug": "turn-based-strategy",
+    "q": "Battle for Wesnoth screenshot"
+  },
+  {
+    "slug": "simulation",
+    "q": "FlightGear screenshot"
+  },
+  {
+    "slug": "sports",
+    "q": "Yoda Soccer screenshot"
+  },
+  {
+    "slug": "racing",
+    "q": "SuperTuxKart screenshot"
+  },
+  {
+    "slug": "fighting",
+    "q": "OpenMortal screenshot"
+  },
+  {
+    "slug": "first-person-shooter",
+    "q": "Xonotic screenshot"
+  },
+  {
+    "slug": "third-person-shooter",
+    "q": "Third person shooter screenshot"
+  },
+  {
+    "slug": "platformer",
+    "q": "SuperTux screenshot"
+  },
+  {
+    "slug": "puzzle",
+    "q": "Frozen Bubble screenshot"
+  },
+  {
+    "slug": "survival-horror",
+    "q": "Survival horror screenshot"
+  },
+  {
+    "slug": "survival",
+    "q": "Minetest screenshot"
+  },
+  {
+    "slug": "stealth",
+    "q": "Stealth game screenshot"
+  },
+  {
+    "slug": "rhythm",
+    "q": "StepMania screenshot"
+  },
+  {
+    "slug": "bill-gates",
+    "q": "Bill Gates portrait"
+  },
+  {
+    "slug": "paul-allen",
+    "q": "Paul Allen portrait"
+  },
+  {
+    "slug": "fusajiro-yamauchi",
+    "q": "Fusajiro Yamauchi portrait"
+  },
+  {
+    "slug": "shigeru-miyamoto",
+    "q": "Shigeru Miyamoto portrait"
+  },
+  {
+    "slug": "ken-kutaragi",
+    "q": "Ken Kutaragi portrait"
+  },
+  {
+    "slug": "microsoft",
+    "q": "Microsoft logo"
+  },
+  {
+    "slug": "nintendo",
+    "q": "Nintendo logo"
+  },
+  {
+    "slug": "sony-computer-entertainment",
+    "q": "Sony Computer Entertainment logo"
+  },
+  {
+    "slug": "sony-interactive-entertainment",
+    "q": "Sony Interactive Entertainment logo"
+  },
+  {
+    "slug": "xbox-360",
+    "q": "Xbox 360 console"
+  },
+  {
+    "slug": "playstation-3",
+    "q": "PlayStation 3 console"
+  },
+  {
+    "slug": "wii",
+    "q": "Wii console"
+  },
+  {
+    "slug": "wii-u",
+    "q": "Wii U console"
+  },
+  {
+    "slug": "playstation-4",
+    "q": "PlayStation 4 console"
+  },
+  {
+    "slug": "xbox-one",
+    "q": "Xbox One console"
+  },
+  {
+    "slug": "nintendo-switch",
+    "q": "Nintendo Switch console"
+  },
+  {
+    "slug": "xbox-series-x",
+    "q": "Xbox Series X console"
+  },
+  {
+    "slug": "xbox-series-s",
+    "q": "Xbox Series S console"
+  },
+  {
+    "slug": "playstation-5",
+    "q": "PlayStation 5 console"
+  },
+  {
+    "slug": "nintendo-switch-2",
+    "q": "Nintendo Switch 2 console"
+  }
+]

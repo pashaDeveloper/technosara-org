@@ -1,0 +1,39 @@
+{
+  "type": "standard",
+  "title": "Fusajiro Yamauchi",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Fusajiro Yamauchi</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q456052",
+  "titles": {
+    "canonical": "Fusajiro_Yamauchi",
+    "normalized": "Fusajiro Yamauchi",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Fusajiro Yamauchi</span></span>"
+  },
+  "pageid": 617337,
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1358705722",
+  "tid": "9f0c1dc4-64c2-11f1-8ba7-63504490bd75",
+  "timestamp": "2026-06-10T11:50:48Z",
+  "description": "Japanese businessman (1859–1940)",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Fusajiro_Yamauchi",
+      "revisions": "https://en.wikipedia.org/wiki/Fusajiro_Yamauchi?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Fusajiro_Yamauchi?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Fusajiro_Yamauchi"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Fusajiro_Yamauchi",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Fusajiro_Yamauchi",
+      "edit": "https://en.wikipedia.org/wiki/Fusajiro_Yamauchi?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Fusajiro_Yamauchi"
+    }
+  },
+  "extract": "Fusajirō Yamauchi , originally born as Fusajirō Fukui , was a Japanese entrepreneur who founded Yamauchi Nintendo, later known as Nintendo. Yamauchi lived in Kyoto, Japan, and had a wife and two daughters—one of whom was Tei Yamauchi, who later married Sekiryō Kaneda, the successor and second president of Nintendo.",
+  "extract_html": "<p><b>Fusajirō Yamauchi</b><span style=\"font-weight:normal\"> </span>, originally born as <b>Fusajirō Fukui</b><span style=\"font-weight:normal\"> </span>, was a Japanese entrepreneur who founded Yamauchi Nintendo, later known as Nintendo. Yamauchi lived in Kyoto, Japan, and had a wife and two daughters—one of whom was Tei Yamauchi, who later married Sekiryō Kaneda, the successor and second president of Nintendo.</p>"
+}

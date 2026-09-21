@@ -1,0 +1,11 @@
+{
+  "name": "Xbox 360",
+  "slug": "xbox-360",
+  "code": "xbox-360",
+  "generation": 7,
+  "release_date": "2005-11-22",
+  "brandSlug": "microsoft",
+  "website_url": "https://www.xbox.com/",
+  "sort_order": 0,
+  "device_type": "console"
+}

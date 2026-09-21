@@ -1,0 +1,11 @@
+{
+  "name": "Xbox One",
+  "slug": "xbox-one",
+  "code": "xbox-one",
+  "generation": 8,
+  "release_date": "2013-11-22",
+  "brandSlug": "microsoft",
+  "website_url": "https://www.xbox.com/",
+  "sort_order": 5,
+  "device_type": "console"
+}

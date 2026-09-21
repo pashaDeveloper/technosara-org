@@ -1,0 +1,420 @@
+[
+  {
+    "pageid": 75366683,
+    "ns": 6,
+    "title": "File:SCP-049 (SCP - Containment Breach).png",
+    "index": 1,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/6/60/SCP-049_%28SCP_-_Containment_Breach%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 1200,
+        "thumbheight": 3091,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/6/60/SCP-049_%28SCP_-_Containment_Breach%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1200,
+          "height": 3091
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/SCP-049_%28SCP_-_Containment_Breach%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:SCP-049_(SCP_-_Containment_Breach).png",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=75366683",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2018-12-27 21:02:44",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "SCP-049 (SCP - Containment Breach)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "SCP-049|Images from SCP - Containment Breach Wiki|Screenshots of SCP – Containment Breach",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "SCP-049 from the 2012 supernatural horror game SCP - Containment Breach",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2013-10-11",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://scpcb.gamepedia.com/File:SCP-049.png\">SCP-449.png</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<bdi><a href=\"https://www.wikidata.org/wiki/Q60161231\" class=\"extiw\" title=\"d:Q60161231\"><span title=\"Finnish video game developer\">Joonas Rikkonen</span></a></bdi>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 3.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 3.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Attribution": {
+            "value": "Joonas Rikkonen",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/3.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-3.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "pageid": 63921540,
+    "ns": 6,
+    "title": "File:SCP-096 (SCP - Containment Breach).jpg",
+    "index": 2,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/SCP-096_%28SCP_-_Containment_Breach%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 1200,
+        "thumbheight": 750,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/3/3f/SCP-096_%28SCP_-_Containment_Breach%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1200,
+          "height": 750
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/SCP-096_%28SCP_-_Containment_Breach%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:SCP-096_(SCP_-_Containment_Breach).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=63921540",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2017-11-07 16:43:28",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "SCP-096 (SCP - Containment Breach)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "SCP-096|Images with annotations|Files from external sources with reviewed licenses|Images from SCP - Containment Breach Wiki|Screenshots of SCP – Containment Breach",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "SCP – Containment Breach screenshot",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2017-11-07",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external free\" href=\"http://villains.wikia.com/wiki/File:Scper.jpg\">http://villains.wikia.com/wiki/File:Scper.jpg</a> (CC By-SA) / game is CC BY-SA (<a rel=\"nofollow\" class=\"external free\" href=\"https://github.com/Regalis11/scpcb\">https://github.com/Regalis11/scpcb</a>)",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "SCPCB",
+            "source": "commons-desc-page"
+          },
+          "Permission": {
+            "value": "SCP609 SCP",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 3.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 3.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Attribution": {
+            "value": "Joonas Rikkonen",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/3.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-3.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "pageid": 75315695,
+    "ns": 6,
+    "title": "File:SCP-914 (SCP - Containment Breach).png",
+    "index": 3,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/SCP-914_%28SCP_-_Containment_Breach%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 1200,
+        "thumbheight": 450,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/a/aa/SCP-914_%28SCP_-_Containment_Breach%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1200,
+          "height": 450
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/SCP-914_%28SCP_-_Containment_Breach%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:SCP-914_(SCP_-_Containment_Breach).png",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=75315695",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2018-12-25 18:17:26",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "SCP-914 (SCP - Containment Breach)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Images with annotations|SCP-914|Fictional machines|Images from SCP - Containment Breach Wiki|Screenshots of SCP – Containment Breach",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "SCP – Containment Breach screenshot",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2013-10-10",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://scpcb.gamepedia.com/SCP-914\">https://scpcb.gamepedia.com/SCP-914</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "Image by Cridone. Taken from SCP – Containment Breach by Joonas \"Regalis\" Rikkonen.",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 3.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 3.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Attribution": {
+            "value": "Joonas Rikkonen",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/3.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-3.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "pageid": 190546049,
+    "ns": 6,
+    "title": "File:SCP- Containment Breach - The Movie - SCP-173 Live Action.webm",
+    "index": 4,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/SCP-_Containment_Breach_-_The_Movie_-_SCP-173_Live_Action.webm/1280px--SCP-_Containment_Breach_-_The_Movie_-_SCP-173_Live_Action.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo",
+        "thumbwidth": 1200,
+        "thumbheight": 675,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/SCP-_Containment_Breach_-_The_Movie_-_SCP-173_Live_Action.webm/3840px--SCP-_Containment_Breach_-_The_Movie_-_SCP-173_Live_Action.webm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo"
+        },
+        "thumbattribs": [],
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/SCP-_Containment_Breach_-_The_Movie_-_SCP-173_Live_Action.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:SCP-_Containment_Breach_-_The_Movie_-_SCP-173_Live_Action.webm",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=190546049",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2026-04-27 14:45:29",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "SCP- Containment Breach - The Movie - SCP-173 Live Action",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Media from YouTube|SCP – Containment Breach|Videos from YouTube|License review needed (video)|Creative Commons Attribution 4.0 missing SDC copyright license|Creative Commons Attribution missing SDC copyright status|Uploaded with video2commons|Videos in English|Files without recognized closed captioning|Videos of short films from 2025",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "The first 10 minutes of a full-length SCP - Containment Breach movie is here! With live-action appearances of iconic anomalies like SCP-173, SCP-079, SCP-963, and more. Inspired by the SCP: CB video game and based on the SCP Foundation wiki, this proof-of-concept short film follows a routine day inside Site-19 that shatters when multiple anomalies break loose, plunging the facility into chaos.\n<p>This short introduces the feature film's two main protagonists: Dr. Elias Shaw (played here by Zach Lona)—the immortal &amp; eccentric director of Site-19—and SCP-181 (Charlie Bain)—a D-Class with anomalous luck—as they each attempt to survive mounting threats, bureaucratic nausea, a hostile conspiracy, and horrifying paranormal phenomena that weaponize human attention.\n</p><p>Our goal at Keter Labs is to finance &amp; produce the feature-length version of this SCP: CB adaptation. Many SCP fans have long dreamt of a studio-quality Foundation movie or series, but Hollywood will never do it. So it's up to us as a community to make it happen! Subscribe, sign up, and back our Kickstarter launching in 2026 to help us finish this cinematic SCP Foundation story while we work to screen the finished product in movie theaters worldwide.\n</p><p>Unlike a traditional studio film, a crowdfunded movie means the filmmakers and fans get to be in control. Kickstarter backers will have access to many exclusive behind-the-scenes experiences, including the opportunity to participate &amp; vote on curated creative decisions.\n</p><p>👉 We've also partnered with the nonprofit Decentralized Pictures to finance *two* additional SCP short films as a part of our Kickstarter!\n</p><p>CHAPTERS\n00:00 SCP-1981 (Film Start)\n01:31 Foundation Orientation Tape\n03:02 Dr. Shaw's Predicament\n03:48 SCP-173 and SCP-689\n06:58 The Breach Begins\n08:34 Meanwhile, Upstairs...\n10:12 To Be Continued...\n10:40 A Message from the Director\n</p><p><br>\nInspired by films like CABIN IN THE WOODS, EvanRoyalty's SCP: OVERLORD, MrKlay's 096, Dark Math Films' SCP ACADEMY, EphrimTV's SCP: THE HALLWAYS, Kane Pixels' BACKROOMS, as well as directors like Sam Raimi, Panos Cosmatos, Terry Gilliam, David Lynch, &amp; more.\n</p><p>Written &amp; Directed by Zach Lona\nProduced by August Gibson\nCinematography by Dom Udell\nMusic by Zack Lewand\nPost-production sound by NoiseFloor, LTD\n</p>\n<ol><li>SCP #scifi #horror #thescpmovie #scpcontainmentbreach</li></ol>\nContent relating to the SCP Foundation, including the SCP Foundation logo, is licensed under Creative Commons Sharealike 3.0 and concepts originate from <a rel=\"nofollow\" class=\"external free\" href=\"http://www.scpwiki.com/\">http://www.scpwiki.com/</a> and its authors. This video, being derived from this content, is hereby also released under Creative Commons Sharealike 3.0.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2025-11-17",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<bdi lang=\"en\" dir=\"ltr\"><a href=\"//commons.wikimedia.org/wiki/Commons:YouTube_files\" title=\"Commons:YouTube files\">YouTube</a>: <a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/watch?v=Fw4lLEfgQuo\"><bdi lang=\"\">SCP: Containment Breach - The Movie | SCP-173 Live Action</bdi></a> – View/save archived versions on <a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/*/https://www.youtube.com/watch?v=Fw4lLEfgQuo\">archive.org</a></bdi>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/@KeterLabs\">Keter Labs</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY 4.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution 4.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Attribution": {
+            "value": "Keter Labs",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by/4.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-4.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      }
+    ]
+  }
+]

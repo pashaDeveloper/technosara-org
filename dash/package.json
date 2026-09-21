@@ -1,0 +1,40 @@
+{
+  "name": "technosara-dashboard",
+  "version": "15.4.0",
+  "description": "Technosara store administration dashboard",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@heroicons/vue": "2.2.0",
+    "@tailwindcss/forms": "0.5.11",
+    "@vueuse/core": "14.4.0",
+    "apexcharts": "7.4.0",
+    "ofetch": "1.5.1",
+    "pinia": "4.0.3",
+    "reka-ui": "2.10.4",
+    "ufo": "1.6.4",
+    "vue": "3.5.42",
+    "vue3-apexcharts": "1.11.1",
+    "vue-router": "5.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.3",
+    "tailwindcss": "3.4.19",
+    "typescript": "5.9.3",
+    "vue-tsc": "3.3.11",
+    "vite": "8.3.0",
+    "@vitejs/plugin-vue": "6.0.9",
+    "postcss": "8.5.28",
+    "autoprefixer": "10.6.1"
+  },
+  "engines": {
+    "node": "^22.19.0 || ^24.11.0 || >=26.0.0"
+  }
+}

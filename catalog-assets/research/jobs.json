@@ -1,0 +1,202 @@
+[
+  {
+    "group": "genres",
+    "slug": "action",
+    "title": "Action_game"
+  },
+  {
+    "group": "genres",
+    "slug": "adventure",
+    "title": "Adventure_game"
+  },
+  {
+    "group": "genres",
+    "slug": "action-adventure",
+    "title": "Action-adventure_game"
+  },
+  {
+    "group": "genres",
+    "slug": "role-playing",
+    "title": "Role-playing_video_game"
+  },
+  {
+    "group": "genres",
+    "slug": "action-role-playing",
+    "title": "Action_role-playing_game"
+  },
+  {
+    "group": "genres",
+    "slug": "strategy",
+    "title": "Strategy_video_game"
+  },
+  {
+    "group": "genres",
+    "slug": "real-time-strategy",
+    "title": "Real-time_strategy"
+  },
+  {
+    "group": "genres",
+    "slug": "turn-based-strategy",
+    "title": "Turn-based_strategy"
+  },
+  {
+    "group": "genres",
+    "slug": "simulation",
+    "title": "Simulation_video_game"
+  },
+  {
+    "group": "genres",
+    "slug": "sports",
+    "title": "Sports_video_game"
+  },
+  {
+    "group": "genres",
+    "slug": "racing",
+    "title": "Racing_game"
+  },
+  {
+    "group": "genres",
+    "slug": "fighting",
+    "title": "Fighting_game"
+  },
+  {
+    "group": "genres",
+    "slug": "first-person-shooter",
+    "title": "First-person_shooter"
+  },
+  {
+    "group": "genres",
+    "slug": "third-person-shooter",
+    "title": "Third-person_shooter"
+  },
+  {
+    "group": "genres",
+    "slug": "platformer",
+    "title": "Platformer"
+  },
+  {
+    "group": "genres",
+    "slug": "puzzle",
+    "title": "Puzzle_video_game"
+  },
+  {
+    "group": "genres",
+    "slug": "survival-horror",
+    "title": "Survival_horror"
+  },
+  {
+    "group": "genres",
+    "slug": "survival",
+    "title": "Survival_game"
+  },
+  {
+    "group": "genres",
+    "slug": "stealth",
+    "title": "Stealth_game"
+  },
+  {
+    "group": "genres",
+    "slug": "rhythm",
+    "title": "Rhythm_game"
+  },
+  {
+    "group": "people",
+    "slug": "bill-gates",
+    "title": "Bill_Gates"
+  },
+  {
+    "group": "people",
+    "slug": "paul-allen",
+    "title": "Paul_Allen"
+  },
+  {
+    "group": "people",
+    "slug": "fusajiro-yamauchi",
+    "title": "Fusajiro_Yamauchi"
+  },
+  {
+    "group": "people",
+    "slug": "shigeru-miyamoto",
+    "title": "Shigeru_Miyamoto"
+  },
+  {
+    "group": "people",
+    "slug": "ken-kutaragi",
+    "title": "Ken_Kutaragi"
+  },
+  {
+    "group": "companies",
+    "slug": "microsoft",
+    "title": "Microsoft"
+  },
+  {
+    "group": "companies",
+    "slug": "nintendo",
+    "title": "Nintendo"
+  },
+  {
+    "group": "companies",
+    "slug": "sony-computer-entertainment",
+    "title": "Sony_Computer_Entertainment"
+  },
+  {
+    "group": "companies",
+    "slug": "sony-interactive-entertainment",
+    "title": "Sony_Interactive_Entertainment"
+  },
+  {
+    "group": "platforms",
+    "slug": "xbox-360",
+    "title": "Xbox_360"
+  },
+  {
+    "group": "platforms",
+    "slug": "playstation-3",
+    "title": "PlayStation_3"
+  },
+  {
+    "group": "platforms",
+    "slug": "wii",
+    "title": "Wii"
+  },
+  {
+    "group": "platforms",
+    "slug": "wii-u",
+    "title": "Wii_U"
+  },
+  {
+    "group": "platforms",
+    "slug": "playstation-4",
+    "title": "PlayStation_4"
+  },
+  {
+    "group": "platforms",
+    "slug": "xbox-one",
+    "title": "Xbox_One"
+  },
+  {
+    "group": "platforms",
+    "slug": "nintendo-switch",
+    "title": "Nintendo_Switch"
+  },
+  {
+    "group": "platforms",
+    "slug": "xbox-series-x",
+    "title": "Xbox_Series_X_and_Series_S"
+  },
+  {
+    "group": "platforms",
+    "slug": "xbox-series-s",
+    "title": "Xbox_Series_X_and_Series_S"
+  },
+  {
+    "group": "platforms",
+    "slug": "playstation-5",
+    "title": "PlayStation_5"
+  },
+  {
+    "group": "platforms",
+    "slug": "nintendo-switch-2",
+    "title": "Nintendo_Switch_2"
+  }
+]

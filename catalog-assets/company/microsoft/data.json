@@ -1,0 +1,12 @@
+{
+  "name": "Microsoft",
+  "slug": "microsoft",
+  "type": "developer_publisher",
+  "country_code": "US",
+  "founded_date": "1975-04-04",
+  "website": "https://www.microsoft.com/",
+  "founderSlugs": [
+    "bill-gates",
+    "paul-allen"
+  ]
+}

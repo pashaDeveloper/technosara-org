@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Platformer",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Platformer</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q828322",
+  "titles": {
+    "canonical": "Platformer",
+    "normalized": "Platformer",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Platformer</span></span>"
+  },
+  "pageid": 32394,
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Supertux010.jpg/330px-Supertux010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 248
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/3/38/Supertux010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 640,
+    "height": 480
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1375193585",
+  "tid": "2c44c9bc-b1b8-11f1-a3ea-07b6cac27272",
+  "timestamp": "2026-09-16T10:20:00Z",
+  "description": "Video game genre",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Platformer",
+      "revisions": "https://en.wikipedia.org/wiki/Platformer?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Platformer?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Platformer"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Platformer",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Platformer",
+      "edit": "https://en.wikipedia.org/wiki/Platformer?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Platformer"
+    }
+  },
+  "extract": "A platformer, also known as a jump 'n' run, is a subgenre of an action video game in which the core objective is to move the player character between points in an environment. Platform games are characterized by levels with uneven terrain and suspended platforms that require jumping and climbing to traverse. Other acrobatic maneuvers may factor into the gameplay, such as swinging from vines or grappling hooks, jumping off walls, gliding through the air, or bouncing from springboards or trampolines.",
+  "extract_html": "<p>A <b>platformer</b>, also known as a <b>jump 'n' run</b>, is a subgenre of an action video game in which the core objective is to move the player character between points in an environment. Platform games are characterized by levels with uneven terrain and suspended platforms that require jumping and climbing to traverse. Other acrobatic maneuvers may factor into the gameplay, such as swinging from vines or grappling hooks, jumping off walls, gliding through the air, or bouncing from springboards or trampolines.</p>"
+}

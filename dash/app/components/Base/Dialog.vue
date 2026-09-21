@@ -1,0 +1,49 @@
+<template>
+  <DialogRoot :modal="true" :open="open" @update:open="updateOpen">
+    <DialogTrigger :class="triggerClass"><slot name="trigger" /></DialogTrigger>
+    <DialogPortal>
+      <DialogOverlay
+        class="fixed inset-0 z-30 bg-gray-500 opacity-75 dark:bg-black dark:opacity-50"
+      />
+      <DialogContent
+        class="fixed left-1/2 top-1/2 z-[100] max-h-[85vh] w-[90vw] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-md bg-white p-6 shadow-2xl focus:outline-none dark:bg-neutral-700"
+      >
+        <DialogTitle
+          class="m-0 text-lg font-semibold text-gray-900 dark:text-neutral-200"
+        >
+          <slot name="title" />
+        </DialogTitle>
+        <DialogDescription
+          class="mb-5 mt-2 text-sm leading-normal text-gray-500 dark:text-neutral-300"
+        >
+          <slot name="description" />
+        </DialogDescription>
+        <slot name="content" />
+        <div class="mt-6 flex flex-wrap justify-end gap-2">
+          <slot name="actions" />
+        </div>
+      </DialogContent>
+    </DialogPortal>
+  </DialogRoot>
+</template>
+
+<script lang="ts" setup>
+import { DialogRoot } from 'reka-ui';
+import { DialogTrigger } from 'reka-ui';
+import { DialogPortal } from 'reka-ui';
+import { DialogOverlay } from 'reka-ui';
+import { DialogContent } from 'reka-ui';
+import { DialogTitle } from 'reka-ui';
+import { DialogDescription } from 'reka-ui';
+withDefaults(defineProps<{ triggerClass?: string; open?: boolean }>(), {
+  open: undefined,
+});
+
+const emit = defineEmits<{
+  'update:open': [open: boolean];
+}>();
+
+function updateOpen(open: boolean) {
+  emit('update:open', open);
+}
+</script>

@@ -1,0 +1,11 @@
+{
+  "name": "PlayStation 3",
+  "slug": "playstation-3",
+  "code": "playstation-3",
+  "generation": 7,
+  "release_date": "2006-11-11",
+  "brandSlug": "sony",
+  "website_url": "https://www.playstation.com/",
+  "sort_order": 1,
+  "device_type": "console"
+}

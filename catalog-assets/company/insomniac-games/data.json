@@ -1,0 +1,12 @@
+{
+  "name": "Insomniac Games",
+  "slug": "insomniac-games",
+  "country_code": "US",
+  "founded_year": 1994,
+  "type": "developer",
+  "website": "https://insomniac.games/",
+  "founderSlugs": [
+    "ted-price"
+  ],
+  "memberSlugs": []
+}

@@ -1,0 +1,975 @@
+{
+  "people": [
+    {
+      "name": "Gabe Newell",
+      "slug": "gabe-newell",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "توسعهٔ نرم‌افزار",
+        "مدیریت تولید بازی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار ولو"
+      ],
+      "biography": "گیب نیوئل از بنیان‌گذاران ولو است. او پس از فعالیت در مایکروسافت، در سال ۱۹۹۶ همراه مایک هریگتون این شرکت بازی‌سازی را تأسیس کرد.",
+      "sources": [
+        "https://www.valvesoftware.com/company/Valve_Handbook_LowRes.pdf"
+      ],
+      "name_fa": "گیب نیوئل"
+    },
+    {
+      "name": "Mike Harrington",
+      "slug": "mike-harrington",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "برنامه‌نویسی بازی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار ولو"
+      ],
+      "biography": "مایک هریگتون برنامه‌نویس و هم‌بنیان‌گذار ولو است. او در سال ۱۹۹۶ همراه گیب نیوئل شرکت را پایه‌گذاری کرد.",
+      "sources": [
+        "https://www.valvesoftware.com/company/Valve_Handbook_LowRes.pdf"
+      ],
+      "name_fa": "مایک هریگتون"
+    },
+    {
+      "name": "Hideo Kojima",
+      "slug": "hideo-kojima",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "طراحی بازی",
+        "کارگردانی",
+        "نویسندگی"
+      ],
+      "positions": [
+        "بنیان‌گذار کوجیما پروداکشنز"
+      ],
+      "biography": "هیدئو کوجیما بازی‌ساز ژاپنی و خالق مجموعهٔ Metal Gear است. او استودیوی مستقل کوجیما پروداکشنز را در سال ۲۰۱۵ تأسیس کرد و ساخت Death Stranding را هدایت کرد.",
+      "sources": [
+        "https://www.kojimaproductions.jp/en/company",
+        "https://kojimaproductions.jp/en/kojima-productions-celebrates-its-5th-anniversary"
+      ],
+      "name_fa": "هیدئو کوجیما"
+    },
+    {
+      "name": "Hidetaka Miyazaki",
+      "slug": "hidetaka-miyazaki",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "کارگردانی",
+        "طراحی بازی"
+      ],
+      "positions": [
+        "کارگردان Elden Ring در فرام‌سافتور"
+      ],
+      "biography": "هیدتاکا میازاکی از کارگردانان شاخص فرام‌سافتور است. او در توسعهٔ Elden Ring و شکل‌گیری جهان آن، با همکاری جرج آر. آر. مارتین، نقش محوری داشت.",
+      "sources": [
+        "https://www.fromsoftware.jp/ww/company_about.html",
+        "https://www.fromsoftware.jp/ww/pressrelease/20190610_eldenring_debut.html"
+      ],
+      "name_fa": "هیدتاکا میازاکی"
+    },
+    {
+      "name": "Shinji Mikami",
+      "slug": "shinji-mikami",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "کارگردانی",
+        "طراحی بازی‌های ترسناک"
+      ],
+      "positions": [
+        "کارگردان نخستین Resident Evil در کپکام"
+      ],
+      "biography": "شینجی میکامی بازی‌ساز ژاپنی و کارگردان نخستین Resident Evil است. فعالیت او در کپکام از عوامل مهم شکل‌گیری هویت این مجموعهٔ ترس و بقا بود.",
+      "sources": [
+        "https://game.capcom.com/residentevil/en/umbrella-20220819110000.html"
+      ],
+      "name_fa": "شینجی میکامی"
+    },
+    {
+      "name": "Andy Gavin",
+      "slug": "andy-gavin",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "توسعهٔ بازی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار ناتی داگ"
+      ],
+      "biography": "اندی گوین همراه جیسون روبین در سال ۱۹۸۴ شرکت JAM Software را تأسیس کرد؛ شرکتی که بعدها ناتی داگ نام گرفت.",
+      "sources": [
+        "https://www.naughtydog.com/blog/the_art_of_naughty_dog_celebrating_30_years_of_games"
+      ],
+      "name_fa": "اندی گوین"
+    },
+    {
+      "name": "Jason Rubin",
+      "slug": "jason-rubin",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "توسعهٔ بازی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار ناتی داگ"
+      ],
+      "biography": "جیسون روبین همراه اندی گوین در سال ۱۹۸۴ شرکت JAM Software را پایه‌گذاری کرد. این شرکت بعدها با نام ناتی داگ به فعالیت بازی‌سازی ادامه داد.",
+      "sources": [
+        "https://www.naughtydog.com/blog/the_art_of_naughty_dog_celebrating_30_years_of_games"
+      ],
+      "name_fa": "جیسون روبین"
+    },
+    {
+      "name": "Neil Druckmann",
+      "slug": "neil-druckmann",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "کارگردانی خلاق"
+      ],
+      "positions": [
+        "کارگردان خلاق The Last of Us در ناتی داگ"
+      ],
+      "biography": "نیل دراکمن از بازی‌سازان ناتی داگ است. او کارگردانی خلاق بازی The Last of Us را در کنار بروس استریلی، کارگردان بازی، بر عهده داشت.",
+      "sources": [
+        "https://www.naughtydog.com/blog/834h472kmfs8"
+      ],
+      "name_fa": "نیل دراکمن"
+    },
+    {
+      "name": "Marcin Iwiński",
+      "slug": "marcin-iwinski",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "مدیریت تولید بازی",
+        "نشر بازی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار سی‌دی پراجکت"
+      ],
+      "biography": "مارچین ایوینسکی همراه میخاو کیچینسکی در سال ۱۹۹۴ سی‌دی پراجکت را پایه‌گذاری کرد. این مجموعه در سال ۲۰۰۲ استودیوی سی‌دی پراجکت رد را برای ورود به توسعهٔ بازی ایجاد کرد.",
+      "sources": [
+        "https://www.cdprojekt.com/en/capital-group/history/"
+      ],
+      "name_fa": "مارچین ایوینسکی"
+    },
+    {
+      "name": "Michał Kiciński",
+      "slug": "michal-kicinski",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "نشر بازی",
+        "کارآفرینی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار سی‌دی پراجکت"
+      ],
+      "biography": "میخاو کیچینسکی از بنیان‌گذاران سی‌دی پراجکت است. او همراه مارچین ایوینسکی فعالیت شرکت را در سال ۱۹۹۴ با واردات و توزیع بازی آغاز کرد.",
+      "sources": [
+        "https://www.cdprojekt.com/en/capital-group/history/"
+      ],
+      "name_fa": "میخاو کیچینسکی"
+    },
+    {
+      "name": "Sam Lake",
+      "slug": "sam-lake",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "نویسندگی",
+        "کارگردانی خلاق"
+      ],
+      "positions": [
+        "بازی‌ساز و نویسندهٔ مرتبط با Max Payne و Alan Wake"
+      ],
+      "biography": "سم لیک نویسنده و کارگردان خلاق فنلاندی در رمدی است. او با روایت داستانی مجموعه‌های Max Payne و Alan Wake شناخته می‌شود.",
+      "sources": [
+        "https://www.remedygames.com/article/wrapping-up-2021",
+        "https://www.pcgamer.com/sam-lake-quantum-break-alan-wake-max-payne-interview/"
+      ],
+      "name_fa": "سم لیک"
+    },
+    {
+      "name": "Swen Vincke",
+      "slug": "swen-vincke",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "طراحی بازی",
+        "مدیریت تولید"
+      ],
+      "positions": [
+        "بنیان‌گذار لاریان استودیوز"
+      ],
+      "biography": "سون وینکه لاریان استودیوز را در سال ۱۹۹۶ تأسیس کرد. او هدایت پروژه‌های Divine Divinity و Beyond Divinity را بر عهده داشته است.",
+      "sources": [
+        "https://forums.larian.com/ubbthreads.php?Number=152630&ubb=showthreaded"
+      ],
+      "name_fa": "سون وینکه"
+    },
+    {
+      "name": "Tim Sweeney",
+      "slug": "tim-sweeney",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "توسعهٔ نرم‌افزار",
+        "فناوری بازی"
+      ],
+      "positions": [
+        "بنیان‌گذار اپیک گیمز"
+      ],
+      "biography": "تیم سوئینی بنیان‌گذار اپیک گیمز است؛ شرکتی آمریکایی که در سال ۱۹۹۱ شکل گرفت و در توسعهٔ بازی و فناوری‌های مورد استفادهٔ بازی‌سازان فعالیت دارد.",
+      "sources": [
+        "https://www.epicgames.com/site/about"
+      ],
+      "name_fa": "تیم سوئینی"
+    },
+    {
+      "name": "Yves Guillemot",
+      "slug": "yves-guillemot",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "نشر بازی",
+        "مدیریت تولید"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار یوبیسافت"
+      ],
+      "biography": "ایو گیومو یکی از پنج برادری است که یوبیسافت را در سال ۱۹۸۶ تأسیس کردند. فعالیت اولیهٔ آن‌ها بر نشر و توزیع بازی متمرکز بود.",
+      "sources": [
+        "https://www.ubisoft.com/en-us/company/about-us/our-story",
+        "https://news.ubisoft.com/en-us/article/SMtnr8joN2PMcBfRpQUgG/ceo-yves-guillemot-on-ubisofts-35th-anniversary-game-makers-podcast"
+      ],
+      "name_fa": "ایو گیومو"
+    },
+    {
+      "name": "Sam Houser",
+      "slug": "sam-houser",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "تهیه‌کنندگی",
+        "مدیریت تولید بازی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار راک‌استار گیمز"
+      ],
+      "biography": "سم هاوزر از بنیان‌گذاران راک‌استار گیمز است؛ شرکتی که در سال ۱۹۹۸ شکل گرفت و با مجموعهٔ Grand Theft Auto شناخته می‌شود.",
+      "sources": [
+        "https://www.rockstargames.com/newswire/article/4kok877a13aa32/a-message-from-rockstar-games",
+        "https://en.wikipedia.org/wiki/Rockstar_Games"
+      ],
+      "name_fa": "سم هاوزر"
+    },
+    {
+      "name": "Brandon Beck",
+      "slug": "brandon-beck",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "توسعهٔ بازی‌های آنلاین",
+        "مدیریت تولید"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار رایوت گیمز"
+      ],
+      "biography": "برندون بک همراه مارک مریل رایوت گیمز را در سال ۲۰۰۶ تأسیس کرد. چشم‌انداز اولیهٔ آن‌ها به شکل‌گیری League of Legends و پشتیبانی مستمر از بازیکنان آن منجر شد.",
+      "sources": [
+        "https://www.riotgames.com/ko/who-we-are/riot-games-leadership/brandon-beck"
+      ],
+      "name_fa": "برندون بک"
+    },
+    {
+      "name": "Marc Merrill",
+      "slug": "marc-merrill",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "توسعهٔ بازی‌های آنلاین",
+        "مدیریت تولید"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار رایوت گیمز"
+      ],
+      "biography": "مارک مریل همراه برندون بک از بنیان‌گذاران رایوت گیمز است. این شرکت در سال ۲۰۰۶ با هدف ساخت و پشتیبانی از بازی‌های آنلاین شکل گرفت.",
+      "sources": [
+        "https://www.riotgames.com/ko/who-we-are/riot-games-leadership/brandon-beck"
+      ],
+      "name_fa": "مارک مریل"
+    },
+    {
+      "name": "Mike Morhaime",
+      "slug": "mike-morhaime",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "توسعهٔ بازی",
+        "مدیریت استودیو"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار بلیزارد انترتینمنت"
+      ],
+      "biography": "مایک مورهایم همراه آلن ادهام و فرانک پیرس در سال ۱۹۹۱ شرکت Silicon & Synapse را تأسیس کرد؛ شرکتی که بعدها بلیزارد انترتینمنت نام گرفت.",
+      "sources": [
+        "https://worldofwarcraft.blizzard.com/en-us/news/6922987"
+      ],
+      "name_fa": "مایک مورهایم"
+    },
+    {
+      "name": "Allen Adham",
+      "slug": "allen-adham",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "توسعهٔ بازی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار بلیزارد انترتینمنت"
+      ],
+      "biography": "آلن ادهام از سه بنیان‌گذار Silicon & Synapse در سال ۱۹۹۱ است. این شرکت بعدها با نام بلیزارد انترتینمنت به فعالیت ادامه داد.",
+      "sources": [
+        "https://worldofwarcraft.blizzard.com/en-us/news/6922987"
+      ],
+      "name_fa": "آلن ادهام"
+    },
+    {
+      "name": "Frank Pearce",
+      "slug": "frank-pearce",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "توسعهٔ بازی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار بلیزارد انترتینمنت"
+      ],
+      "biography": "فرانک پیرس همراه مایک مورهایم و آلن ادهام در سال ۱۹۹۱ Silicon & Synapse، شرکت پیشین بلیزارد انترتینمنت، را تأسیس کرد.",
+      "sources": [
+        "https://worldofwarcraft.blizzard.com/en-us/news/6922987"
+      ],
+      "name_fa": "فرانک پیرس"
+    },
+    {
+      "name": "Todd Howard",
+      "slug": "todd-howard",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "کارگردانی",
+        "تهیه‌کنندگی",
+        "طراحی جهان باز"
+      ],
+      "positions": [
+        "کارگردان و تهیه‌کنندهٔ بازی در بتسدا گیم استودیوز"
+      ],
+      "biography": "تاد هاوارد فعالیت خود در بتسدا را در سال ۱۹۹۴ آغاز کرد. او به‌خاطر کارگردانی و تهیه‌کنندگی بازی‌های جهان‌باز شناخته می‌شود و در سال ۲۰۱۷ به تالار مشاهیر آکادمی هنرها و علوم تعاملی راه یافت.",
+      "sources": [
+        "https://www.interactive.org/images/press_release/20th-DICE-Awards-HOF-Todd-Howard-FINAL-12-14-16.pdf"
+      ],
+      "name_fa": "تاد هاوارد"
+    },
+    {
+      "name": "Ted Price",
+      "slug": "ted-price",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "مدیریت استودیو",
+        "توسعهٔ بازی"
+      ],
+      "positions": [
+        "بنیان‌گذار اینسامنیاک گیمز"
+      ],
+      "biography": "تد پرایس اینسامنیاک گیمز را در سال ۱۹۹۴ تأسیس کرد. این استودیو با بازی‌هایی مانند Ratchet & Clank و Marvel’s Spider-Man شناخته می‌شود.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Insomniac_Games",
+        "https://sonyinteractive.com/en/press-releases/sony-interactive-entertainment-to-acquire-insomniac-games-developer-of-playstation4-top-selling-marvels--spider-man-ratchet--clank/"
+      ],
+      "name_fa": "تد پرایس"
+    },
+    {
+      "name": "Amir Rao",
+      "slug": "amir-rao",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "طراحی بازی",
+        "مدیریت تولید"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار سوپرجاینت گیمز"
+      ],
+      "biography": "امیر رائو طراح بازی و هم‌بنیان‌گذار سوپرجاینت گیمز است. او همراه گوین سایمون این استودیو را در سال ۲۰۰۹ تأسیس کرد.",
+      "sources": [
+        "https://www.supergiantgames.com/team/"
+      ],
+      "name_fa": "امیر رائو"
+    },
+    {
+      "name": "Gavin Simon",
+      "slug": "gavin-simon",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "برنامه‌نویسی",
+        "طراحی بازی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار سوپرجاینت گیمز"
+      ],
+      "biography": "گوین سایمون هم‌بنیان‌گذار سوپرجاینت گیمز است و در توسعهٔ موتور، ابزارها و سیستم‌های بازی‌های استودیو فعالیت دارد.",
+      "sources": [
+        "https://www.supergiantgames.com/team/"
+      ],
+      "name_fa": "گوین سایمون"
+    },
+    {
+      "name": "Greg Kasavin",
+      "slug": "greg-kasavin",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "نویسندگی",
+        "طراحی روایت"
+      ],
+      "positions": [
+        "نویسنده و طراح در سوپرجاینت گیمز"
+      ],
+      "biography": "گرگ کساوین نویسنده و طراح بازی در سوپرجاینت گیمز است. او در شکل‌گیری جهان، شخصیت‌ها و داستان بازی‌های این استودیو نقش دارد.",
+      "sources": [
+        "https://www.supergiantgames.com/team/"
+      ],
+      "name_fa": "گرگ کساوین"
+    },
+    {
+      "name": "Jen Zee",
+      "slug": "jen-zee",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "کارگردانی هنری",
+        "طراحی شخصیت"
+      ],
+      "positions": [
+        "مدیر هنری در سوپرجاینت گیمز"
+      ],
+      "biography": "جن زی هنرمند و مدیر هنری سوپرجاینت گیمز است. طراحی جهان‌ها و شخصیت‌های نقاشی‌شده از زمینه‌های اصلی فعالیت اوست.",
+      "sources": [
+        "https://www.supergiantgames.com/team/"
+      ],
+      "name_fa": "جن زی"
+    },
+    {
+      "name": "Trip Hawkins",
+      "slug": "trip-hawkins",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "نشر بازی",
+        "کارآفرینی"
+      ],
+      "positions": [
+        "بنیان‌گذار الکترونیک آرتس"
+      ],
+      "biography": "تریپ هاوکینز بنیان‌گذار الکترونیک آرتس است. او در سال ۱۹۸۲ این شرکت را برای فعالیت در صنعت بازی‌های ویدئویی تأسیس کرد.",
+      "sources": [
+        "https://www.gamedeveloper.com/business/we-see-farther---a-history-of-electronic-arts"
+      ],
+      "name_fa": "تریپ هاوکینز"
+    },
+    {
+      "name": "Yoshinori Kitase",
+      "slug": "yoshinori-kitase",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "تهیه‌کنندگی"
+      ],
+      "positions": [
+        "تهیه‌کنندهٔ Final Fantasy VII Remake"
+      ],
+      "biography": "یوشینوری کیتاسه از بازی‌سازان اسکوئر انیکس و تهیه‌کنندهٔ Final Fantasy VII Remake است.",
+      "sources": [
+        "https://www.jp.square-enix.com/ffvii_remake/about/index.html"
+      ],
+      "name_fa": "یوشینوری کیتاسه"
+    },
+    {
+      "name": "Yu Suzuki",
+      "slug": "yu-suzuki",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "طراحی بازی",
+        "کارگردانی"
+      ],
+      "positions": [
+        "سازندهٔ بازی‌های شاخص سگا؛ همکاری تاریخی"
+      ],
+      "biography": "یو سوزوکی از بازی‌سازان باسابقهٔ مرتبط با سگا است. از آثار شناخته‌شدهٔ او می‌توان به After Burner، Shenmue و Virtua Fighter اشاره کرد.",
+      "sources": [
+        "https://www.segasammy.co.jp/cms/wp-content/uploads/pdf/ja/ir/sega_annual_tuuki_2002.pdf"
+      ],
+      "name_fa": "یو سوزوکی"
+    },
+    {
+      "name": "Katsuhiro Harada",
+      "slug": "katsuhiro-harada",
+      "activity_fields": [
+        "بازی‌های ویدئویی"
+      ],
+      "specialties": [
+        "کارگردانی",
+        "تهیه‌کنندگی بازی‌های مبارزه‌ای"
+      ],
+      "positions": [
+        "کارگردان Tekken 7؛ نقش تاریخی در باندای نامکو"
+      ],
+      "biography": "کاتسوهیرو هارادا از چهره‌های شناخته‌شدهٔ مجموعهٔ Tekken است. او هدایت توسعهٔ Tekken 7 را در باندای نامکو بر عهده داشت.",
+      "sources": [
+        "https://www.bandainamcoent.com/news/tekken-7-xbox-pc"
+      ],
+      "name_fa": "کاتسوهیرو هارادا"
+    }
+  ],
+  "companies": [
+    {
+      "name": "Valve",
+      "slug": "valve",
+      "country_code": "US",
+      "founded_year": 1996,
+      "type": "developer_publisher",
+      "website": "https://www.valvesoftware.com/",
+      "founderSlugs": [
+        "gabe-newell",
+        "mike-harrington"
+      ],
+      "memberSlugs": [],
+      "sources": [
+        "https://www.valvesoftware.com/company/Valve_Handbook_LowRes.pdf",
+        "https://www.valvesoftware.com/en/press"
+      ]
+    },
+    {
+      "name": "Kojima Productions",
+      "slug": "kojima-productions",
+      "country_code": "JP",
+      "founded_date": "2015-12-16",
+      "founded_year": 2015,
+      "type": "developer",
+      "website": "https://www.kojimaproductions.jp/",
+      "founderSlugs": [
+        "hideo-kojima"
+      ],
+      "memberSlugs": [
+        [
+          "hideo-kojima",
+          "کارگردان و بنیان‌گذار"
+        ]
+      ],
+      "sources": [
+        "https://www.kojimaproductions.jp/en/company",
+        "https://kojimaproductions.jp/en/kojima-productions-celebrates-its-5th-anniversary"
+      ]
+    },
+    {
+      "name": "FromSoftware",
+      "slug": "fromsoftware",
+      "country_code": "JP",
+      "founded_date": "1986-11-01",
+      "founded_year": 1986,
+      "type": "developer_publisher",
+      "website": "https://www.fromsoftware.jp/",
+      "founderSlugs": [],
+      "memberSlugs": [
+        [
+          "hidetaka-miyazaki",
+          "کارگردان Elden Ring"
+        ]
+      ],
+      "sources": [
+        "https://www.fromsoftware.jp/ww/company_about.html",
+        "https://www.fromsoftware.jp/ww/pressrelease/20190610_eldenring_debut.html"
+      ]
+    },
+    {
+      "name": "Capcom",
+      "slug": "capcom",
+      "country_code": "JP",
+      "founded_date": "1983-06-11",
+      "founded_year": 1983,
+      "type": "developer_publisher",
+      "website": "https://www.capcom.com/",
+      "founderSlugs": [],
+      "memberSlugs": [
+        [
+          "shinji-mikami",
+          "کارگردان نخستین Resident Evil؛ همکاری تاریخی"
+        ]
+      ],
+      "sources": [
+        "https://www.capcom.co.jp/ir/english/company/info.html",
+        "https://game.capcom.com/residentevil/en/umbrella-20220819110000.html"
+      ]
+    },
+    {
+      "name": "Naughty Dog",
+      "slug": "naughty-dog",
+      "country_code": "US",
+      "founded_year": 1984,
+      "type": "developer",
+      "website": "https://www.naughtydog.com/",
+      "founderSlugs": [
+        "andy-gavin",
+        "jason-rubin"
+      ],
+      "memberSlugs": [
+        [
+          "neil-druckmann",
+          "کارگردان خلاق The Last of Us"
+        ]
+      ],
+      "sources": [
+        "https://www.naughtydog.com/blog/the_art_of_naughty_dog_celebrating_30_years_of_games",
+        "https://www.naughtydog.com/blog/834h472kmfs8"
+      ]
+    },
+    {
+      "name": "CD PROJEKT RED",
+      "slug": "cd-projekt-red",
+      "country_code": "PL",
+      "founded_year": 2002,
+      "type": "developer_publisher",
+      "website": "https://www.cdprojektred.com/",
+      "founderSlugs": [],
+      "memberSlugs": [
+        [
+          "marcin-iwinski",
+          "هم‌بنیان‌گذار گروه سی‌دی پراجکت"
+        ],
+        [
+          "michal-kicinski",
+          "هم‌بنیان‌گذار گروه سی‌دی پراجکت"
+        ]
+      ],
+      "sources": [
+        "https://www.cdprojekt.com/en/capital-group/history/"
+      ]
+    },
+    {
+      "name": "Remedy Entertainment",
+      "slug": "remedy-entertainment",
+      "country_code": "FI",
+      "founded_year": 1995,
+      "type": "developer_publisher",
+      "website": "https://www.remedygames.com/",
+      "founderSlugs": [],
+      "memberSlugs": [
+        [
+          "sam-lake",
+          "نویسنده و کارگردان خلاق"
+        ]
+      ],
+      "sources": [
+        "https://www.remedygames.com/article/we-celebrate-30-years-of-making-games-with-new-merch-a-new-book-and-new-art",
+        "https://www.remedygames.com/article/wrapping-up-2021"
+      ]
+    },
+    {
+      "name": "Larian Studios",
+      "slug": "larian-studios",
+      "country_code": "BE",
+      "founded_year": 1996,
+      "type": "developer_publisher",
+      "website": "https://larian.com/",
+      "founderSlugs": [
+        "swen-vincke"
+      ],
+      "memberSlugs": [
+        [
+          "swen-vincke",
+          "بازی‌ساز و بنیان‌گذار"
+        ]
+      ],
+      "sources": [
+        "https://larian.com/",
+        "https://forums.larian.com/ubbthreads.php?Number=152630&ubb=showthreaded"
+      ]
+    },
+    {
+      "name": "Epic Games",
+      "slug": "epic-games",
+      "country_code": "US",
+      "founded_year": 1991,
+      "type": "developer_publisher",
+      "website": "https://www.epicgames.com/",
+      "founderSlugs": [
+        "tim-sweeney"
+      ],
+      "memberSlugs": [],
+      "sources": [
+        "https://www.epicgames.com/site/about"
+      ]
+    },
+    {
+      "name": "Ubisoft",
+      "slug": "ubisoft",
+      "country_code": "FR",
+      "founded_year": 1986,
+      "type": "developer_publisher",
+      "website": "https://www.ubisoft.com/",
+      "founderSlugs": [
+        "yves-guillemot"
+      ],
+      "memberSlugs": [],
+      "sources": [
+        "https://www.ubisoft.com/en-us/company/about-us/our-story",
+        "https://news.ubisoft.com/en-us/article/SMtnr8joN2PMcBfRpQUgG/ceo-yves-guillemot-on-ubisofts-35th-anniversary-game-makers-podcast"
+      ]
+    },
+    {
+      "name": "Rockstar Games",
+      "slug": "rockstar-games",
+      "country_code": "US",
+      "founded_year": 1998,
+      "type": "developer_publisher",
+      "website": "https://www.rockstargames.com/",
+      "founderSlugs": [
+        "sam-houser"
+      ],
+      "memberSlugs": [],
+      "sources": [
+        "https://www.rockstargames.com/newswire/article/4kok877a13aa32/a-message-from-rockstar-games",
+        "https://en.wikipedia.org/wiki/Rockstar_Games"
+      ]
+    },
+    {
+      "name": "Riot Games",
+      "slug": "riot-games",
+      "country_code": "US",
+      "founded_year": 2006,
+      "type": "developer_publisher",
+      "website": "https://www.riotgames.com/",
+      "founderSlugs": [
+        "brandon-beck",
+        "marc-merrill"
+      ],
+      "memberSlugs": [],
+      "sources": [
+        "https://www.riotgames.com/ko/who-we-are/riot-games-leadership/brandon-beck"
+      ]
+    },
+    {
+      "name": "Blizzard Entertainment",
+      "slug": "blizzard-entertainment",
+      "country_code": "US",
+      "founded_year": 1991,
+      "type": "developer_publisher",
+      "website": "https://www.blizzard.com/",
+      "founderSlugs": [
+        "mike-morhaime",
+        "allen-adham",
+        "frank-pearce"
+      ],
+      "memberSlugs": [],
+      "sources": [
+        "https://worldofwarcraft.blizzard.com/en-us/news/6922987"
+      ]
+    },
+    {
+      "name": "Bethesda Game Studios",
+      "slug": "bethesda-game-studios",
+      "country_code": "US",
+      "founded_year": 2001,
+      "type": "developer",
+      "website": "https://bethesdagamestudios.com/",
+      "founderSlugs": [],
+      "memberSlugs": [
+        [
+          "todd-howard",
+          "کارگردان و تهیه‌کننده"
+        ]
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Bethesda_Game_Studios",
+        "https://www.interactive.org/images/press_release/20th-DICE-Awards-HOF-Todd-Howard-FINAL-12-14-16.pdf"
+      ]
+    },
+    {
+      "name": "Insomniac Games",
+      "slug": "insomniac-games",
+      "country_code": "US",
+      "founded_year": 1994,
+      "type": "developer",
+      "website": "https://insomniac.games/",
+      "founderSlugs": [
+        "ted-price"
+      ],
+      "memberSlugs": [],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Insomniac_Games",
+        "https://sonyinteractive.com/en/press-releases/sony-interactive-entertainment-to-acquire-insomniac-games-developer-of-playstation4-top-selling-marvels--spider-man-ratchet--clank/"
+      ]
+    },
+    {
+      "name": "Supergiant Games",
+      "slug": "supergiant-games",
+      "country_code": "US",
+      "founded_year": 2009,
+      "type": "developer_publisher",
+      "website": "https://www.supergiantgames.com/",
+      "founderSlugs": [
+        "amir-rao",
+        "gavin-simon"
+      ],
+      "memberSlugs": [
+        [
+          "greg-kasavin",
+          "نویسنده و طراح"
+        ],
+        [
+          "jen-zee",
+          "مدیر هنری"
+        ]
+      ],
+      "sources": [
+        "https://www.supergiantgames.com/team/"
+      ]
+    },
+    {
+      "name": "Electronic Arts",
+      "slug": "electronic-arts",
+      "country_code": "US",
+      "founded_year": 1982,
+      "type": "developer_publisher",
+      "website": "https://www.ea.com/",
+      "founderSlugs": [
+        "trip-hawkins"
+      ],
+      "memberSlugs": [],
+      "sources": [
+        "https://www.gamedeveloper.com/business/we-see-farther---a-history-of-electronic-arts"
+      ]
+    },
+    {
+      "name": "Square Enix",
+      "slug": "square-enix",
+      "country_code": "JP",
+      "founded_date": "2008-10-01",
+      "founded_year": 2008,
+      "type": "developer_publisher",
+      "website": "https://www.square-enix.com/",
+      "founderSlugs": [],
+      "memberSlugs": [
+        [
+          "yoshinori-kitase",
+          "تهیه‌کنندهٔ Final Fantasy VII Remake"
+        ]
+      ],
+      "sources": [
+        "https://web.jp.square-enix.com/company/en/outline/",
+        "https://www.jp.square-enix.com/ffvii_remake/about/index.html"
+      ]
+    },
+    {
+      "name": "SEGA",
+      "slug": "sega",
+      "country_code": "JP",
+      "founded_date": "1960-06-03",
+      "founded_year": 1960,
+      "type": "developer_publisher",
+      "website": "https://www.sega.com/",
+      "founderSlugs": [],
+      "memberSlugs": [
+        [
+          "yu-suzuki",
+          "طراح و کارگردان؛ همکاری تاریخی"
+        ]
+      ],
+      "sources": [
+        "https://www.sega.co.jp/en/company/outline/index.html",
+        "https://www.segasammy.co.jp/cms/wp-content/uploads/pdf/ja/ir/sega_annual_tuuki_2002.pdf"
+      ]
+    },
+    {
+      "name": "Konami Digital Entertainment",
+      "slug": "konami-digital-entertainment",
+      "country_code": "JP",
+      "founded_date": "2006-03-31",
+      "founded_year": 2006,
+      "type": "developer_publisher",
+      "website": "https://www.konami.com/games/",
+      "founderSlugs": [],
+      "memberSlugs": [
+        [
+          "hideo-kojima",
+          "خالق Metal Gear؛ همکاری تاریخی"
+        ]
+      ],
+      "sources": [
+        "https://www.konami.com/games/corporate/en/",
+        "https://www.kojimaproductions.jp/en/company"
+      ]
+    },
+    {
+      "name": "Bandai Namco Entertainment",
+      "slug": "bandai-namco-entertainment",
+      "country_code": "JP",
+      "founded_date": "1955-06-01",
+      "founded_year": 1955,
+      "type": "developer_publisher",
+      "website": "https://www.bandainamcoent.com/",
+      "founderSlugs": [],
+      "memberSlugs": [
+        [
+          "katsuhiro-harada",
+          "کارگردان Tekken 7؛ نقش تاریخی"
+        ]
+      ],
+      "sources": [
+        "https://www.bandainamcoent.co.jp/english/overview",
+        "https://www.bandainamcoent.com/news/tekken-7-xbox-pc"
+      ]
+    }
+  ]
+}

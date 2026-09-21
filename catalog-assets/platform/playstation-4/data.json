@@ -1,0 +1,11 @@
+{
+  "name": "PlayStation 4",
+  "slug": "playstation-4",
+  "code": "playstation-4",
+  "generation": 8,
+  "release_date": "2013-11-15",
+  "brandSlug": "sony",
+  "website_url": "https://www.playstation.com/",
+  "sort_order": 4,
+  "device_type": "console"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Wii U",
+  "slug": "wii-u",
+  "code": "wii-u",
+  "generation": 8,
+  "release_date": "2012-11-18",
+  "brandSlug": "nintendo",
+  "website_url": "https://www.nintendo.com/",
+  "sort_order": 3,
+  "device_type": "console"
+}

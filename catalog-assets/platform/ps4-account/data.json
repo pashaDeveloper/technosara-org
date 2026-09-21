@@ -1,0 +1,10 @@
+{
+  "name": "PS4 Account",
+  "slug": "ps4-account",
+  "code": "ps4-account",
+  "parentSlug": "playstation-4",
+  "brandSlug": "sony",
+  "device_type": "console",
+  "generation": 8,
+  "sort_order": 12
+}

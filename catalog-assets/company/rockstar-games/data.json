@@ -1,0 +1,12 @@
+{
+  "name": "Rockstar Games",
+  "slug": "rockstar-games",
+  "country_code": "US",
+  "founded_year": 1998,
+  "type": "developer_publisher",
+  "website": "https://www.rockstargames.com/",
+  "founderSlugs": [
+    "sam-houser"
+  ],
+  "memberSlugs": []
+}

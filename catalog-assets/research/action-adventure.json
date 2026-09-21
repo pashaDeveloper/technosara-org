@@ -1,0 +1,39 @@
+{
+  "type": "standard",
+  "title": "Action-adventure game",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Action-adventure game</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q343568",
+  "titles": {
+    "canonical": "Action-adventure_game",
+    "normalized": "Action-adventure game",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Action-adventure game</span></span>"
+  },
+  "pageid": 547483,
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1373729464",
+  "tid": "da29e6a5-aad9-11f1-b7c5-f74f168e5f3d",
+  "timestamp": "2026-09-07T16:33:27Z",
+  "description": "Video game genre",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Action-adventure_game",
+      "revisions": "https://en.wikipedia.org/wiki/Action-adventure_game?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Action-adventure_game?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Action-adventure_game"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Action-adventure_game",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Action-adventure_game",
+      "edit": "https://en.wikipedia.org/wiki/Action-adventure_game?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Action-adventure_game"
+    }
+  },
+  "extract": "An action-adventure game is a video game hybrid genre that combines core elements from both the action game and adventure game genres.",
+  "extract_html": "<p>An <b>action-adventure game</b> is a video game hybrid genre that combines core elements from both the action game and adventure game genres.</p>"
+}

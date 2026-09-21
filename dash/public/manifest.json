@@ -1,0 +1,12 @@
+{
+  "name": "Technosara",
+  "display": "standalone",
+  "background_color": "#fff",
+  "icons": [
+    {
+      "src": "./favicon.png",
+      "type": "image/png"
+    }
+  ],
+  "short_name": "Technosara"
+}

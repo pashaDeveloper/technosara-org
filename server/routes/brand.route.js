@@ -1,0 +1,16 @@
+const router = require('express').Router();
+const controller = require('../controllers/brand.controller');
+const verify = require('../middleware/verifyAdmin.middleware');
+const authorize = require('../middleware/authorize.middleware');
+const arvanUpload = require('../middleware/arvanUpload.middleware');
+const cloudinaryUpload = require('../middleware/cloudinaryUpload.middleware');
+const access = [verify, authorize('superAdmin', 'admin')];
+const upload = [arvanUpload('brand').fields([{ name: 'logo', maxCount: 1 }]), cloudinaryUpload('brand').fields([{ name: 'logo', maxCount: 1 }])];
+router.get('/all', controller.options);
+router.get('/countries', controller.countries);
+router.get('/', controller.list);
+router.get('/:id', controller.get);
+router.post('/', ...access, ...upload, controller.create);
+router.patch('/:id', ...access, ...upload, controller.update);
+router.delete('/:id', ...access, controller.remove);
+module.exports = router;

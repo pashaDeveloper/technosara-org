@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Fighting game",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Fighting game</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q846224",
+  "titles": {
+    "canonical": "Fighting_game",
+    "normalized": "Fighting game",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Fighting game</span></span>"
+  },
+  "pageid": 32398,
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Generic_Fighting_Video_Game_%28with_outline%29.svg/330px-Generic_Fighting_Video_Game_%28with_outline%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 264
+  },
+  "originalimage": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Generic_Fighting_Video_Game_%28with_outline%29.svg/500px-Generic_Fighting_Video_Game_%28with_outline%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 500,
+    "height": 400
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1375855273",
+  "tid": "0d1da292-b4fc-11f1-9939-629b092475d6",
+  "timestamp": "2026-09-20T14:03:27Z",
+  "description": "Video game genre",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Fighting_game",
+      "revisions": "https://en.wikipedia.org/wiki/Fighting_game?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Fighting_game?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Fighting_game"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Fighting_game",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Fighting_game",
+      "edit": "https://en.wikipedia.org/wiki/Fighting_game?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Fighting_game"
+    }
+  },
+  "extract": "The fighting game genre involves combat between characters, often one-on-one battles. The mechanics of combat in fighting games often features blocking, grappling, counter-attacking, and the ability to chain attacks together into \"combos\". Characters generally engage in hand-to-hand combat, often incorporating martial arts, but some may include weaponry. Battles are usually set in a fixed-size arena along a two-dimensional plane, where characters navigate horizontally by walking or dashing, and vertically by jumping. Some games allow limited movement in 3D space, such as Tekken, Soul Edge and Dead or Alive, while some are set in fully three-dimensional environments without restricting characters' movement, such as Dragon Ball Z: Budokai Tenkaichi, Jump Force, Kill la Kill: If, My Hero: One's Justice, Naruto: Ultimate Ninja Storm, One Piece: Burning Blood and Power Stone; these are sometimes referred to as \"3D arena\" fighting games.",
+  "extract_html": "<p>The <b>fighting game</b> genre involves combat between characters, often one-on-one battles. The mechanics of combat in fighting games often features blocking, grappling, counter-attacking, and the ability to chain attacks together into \"combos\". Characters generally engage in hand-to-hand combat, often incorporating martial arts, but some may include weaponry. Battles are usually set in a fixed-size arena along a two-dimensional plane, where characters navigate horizontally by walking or dashing, and vertically by jumping. Some games allow limited movement in 3D space, such as <i>Tekken</i>, <i>Soul Edge</i> and <i>Dead or Alive</i>, while some are set in fully three-dimensional environments without restricting characters' movement, such as <i>Dragon Ball Z: Budokai Tenkaichi</i>, <i>Jump Force</i>, <i>Kill la Kill: If</i>, <i>My Hero: One's Justice</i>, <i>Naruto: Ultimate Ninja Storm</i>, <i>One Piece: Burning Blood</i> and <span><i>Power Stone</i></span>; these are sometimes referred to as \"3D arena\" fighting games.</p>"
+}

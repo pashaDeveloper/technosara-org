@@ -1,0 +1,16 @@
+{
+  "name": "Square Enix",
+  "slug": "square-enix",
+  "country_code": "JP",
+  "founded_date": "2008-10-01",
+  "founded_year": 2008,
+  "type": "developer_publisher",
+  "website": "https://www.square-enix.com/",
+  "founderSlugs": [],
+  "memberSlugs": [
+    [
+      "yoshinori-kitase",
+      "تهیه‌کنندهٔ Final Fantasy VII Remake"
+    ]
+  ]
+}

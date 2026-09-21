@@ -1,0 +1,17 @@
+{
+  "name": "Larian Studios",
+  "slug": "larian-studios",
+  "country_code": "BE",
+  "founded_year": 1996,
+  "type": "developer_publisher",
+  "website": "https://larian.com/",
+  "founderSlugs": [
+    "swen-vincke"
+  ],
+  "memberSlugs": [
+    [
+      "swen-vincke",
+      "بازی‌ساز و بنیان‌گذار"
+    ]
+  ]
+}

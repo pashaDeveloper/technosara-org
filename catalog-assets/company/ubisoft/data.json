@@ -1,0 +1,12 @@
+{
+  "name": "Ubisoft",
+  "slug": "ubisoft",
+  "country_code": "FR",
+  "founded_year": 1986,
+  "type": "developer_publisher",
+  "website": "https://www.ubisoft.com/",
+  "founderSlugs": [
+    "yves-guillemot"
+  ],
+  "memberSlugs": []
+}

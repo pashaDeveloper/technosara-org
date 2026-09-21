@@ -1,0 +1,66 @@
+const { test } = require('node:test');
+const assert = require('node:assert/strict');
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const dashboardRouter = require('../routes/admin.route');
+const fixture = require('./fixtures/dashboard');
+
+test('dashboard cookies, setup, error messages and current account authorization', async t => {
+  const dependencies = fixture();
+  const app = express();
+  app.use(express.json(), cookieParser());
+  app.locals.dashboardDependencies = dependencies;
+  app.use('/api', dashboardRouter);
+  const server = app.listen(0, '127.0.0.1');
+  await new Promise(resolve => server.once('listening', resolve));
+  t.after(() => new Promise(resolve => { server.closeAllConnections(); server.close(resolve); }));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  const request = (path, body, headers = {}, method) => fetch(base + '/api' + path, {
+    method: method || (body ? 'POST' : 'GET'), headers: { 'content-type': 'application/json', ...headers },
+    ...(body ? { body: JSON.stringify(body) } : {}),
+  });
+  const credentials = { username: 'admin@example.com', password: 'password-123', confirmPassword: 'password-123', remember: true };
+  assert.deepEqual(await (await request('/account/setup')).json(), { required: true });
+  assert.equal((await request('/setup/2', { ...credentials, confirmPassword: 'wrong' })).status, 400);
+  assert.equal((await request('/setup/2', credentials)).status, 201);
+  assert.equal(dependencies.state.registrations[0].email, credentials.username);
+  assert.match(dependencies.state.registrations[0].avatarUrl, /\/favicon\.png$/);
+  assert.equal((await request('/setup/2', credentials)).status, 409);
+  const invalid = await request('/auth/password', { ...credentials, password: 'wrong' });
+  assert.equal(invalid.status, 401);
+  assert.equal((await invalid.json()).message, 'Invalid credentials');
+  assert.equal((await request('/auth/password', credentials, { origin: 'https://foreign.example' })).status, 403);
+  const login = await request('/auth/password', credentials);
+  assert.deepEqual(await login.json(), { status: 'success' });
+  const cookie = login.headers.get('set-cookie');
+  assert.match(cookie, /HttpOnly/i);
+  assert.match(cookie, /SameSite=Lax/i);
+  assert.match(cookie, /Max-Age=3600/i);
+  const headers = { cookie: cookie.split(';')[0] };
+  assert.equal((await request('/translations', { text: 'سلام' })).status, 401);
+  assert.equal((await request('/translations', { text: '' }, headers)).status, 400);
+  assert.equal((await request('/translations', { text: 'سلام' }, { ...headers, origin: 'https://foreign.example' })).status, 403);
+  const sessionLogin = await request('/account/login', { email: credentials.username, password: credentials.password });
+  assert.doesNotMatch(sessionLogin.headers.get('set-cookie'), /Max-Age/i);
+  assert.deepEqual(await sessionLogin.json(), { status: 'success' });
+  assert.equal((await request('/account/me')).status, 401);
+  assert.equal((await (await request('/account/me', undefined, headers)).json()).data.email, credentials.username);
+  assert.equal((await (await request('/session', undefined, headers)).json()).adminRole, 'superAdmin');
+  assert.equal((await request('/admin/users', credentials)).status, 401);
+  assert.equal((await request('/admin/users', credentials, headers)).status, 201);
+  assert.equal((await request('/admin/users', credentials, { ...headers, origin: 'https://foreign.example' })).status, 403);
+  assert.equal((await request('/account/register', { email: 'next@example.com', password: 'password-123' })).status, 201);
+  assert.equal((await request('/account/register', { ...credentials, confirmPassword: 'wrong' })).status, 400);
+  assert.equal((await request('/account/register', credentials, { origin: 'https://foreign.example' })).status, 403);
+  dependencies.state.role = 'admin';
+  assert.equal((await request('/admin/users', credentials, headers)).status, 403);
+  assert.equal((await request('/account/register', { email: 'next@example.com', password: 'password-123' }, headers)).status, 201);
+  dependencies.state.active = false;
+  const expired = await request('/account/me', undefined, headers);
+  assert.equal(expired.status, 401);
+  assert.match(expired.headers.get('set-cookie'), /Expires=Thu, 01 Jan 1970/i);
+  const logout = await request('/session', undefined, headers, 'DELETE');
+  assert.equal(logout.status, 200);
+  assert.match(logout.headers.get('set-cookie'), /Expires=Thu, 01 Jan 1970/i);
+  assert.equal(await (await request('/session')).json(), null);
+});

@@ -1,0 +1,10 @@
+{
+  "name": "PS4 Jailbreak",
+  "slug": "ps4-jailbreak",
+  "code": "ps4-jailbreak",
+  "parentSlug": "playstation-4",
+  "brandSlug": "sony",
+  "device_type": "console",
+  "generation": 8,
+  "sort_order": 11
+}

@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "Xbox Series X and Series S",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Xbox Series X and Series S</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q98973368",
+  "titles": {
+    "canonical": "Xbox_Series_X_and_Series_S",
+    "normalized": "Xbox Series X and Series S",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Xbox Series X and Series S</span></span>"
+  },
+  "pageid": 62570979,
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Xbox_Series_X_S_color.svg/330px-Xbox_Series_X_S_color.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 162
+  },
+  "originalimage": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Xbox_Series_X_S_color.svg/120px-Xbox_Series_X_S_color.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 110,
+    "height": 54
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1375843441",
+  "tid": "67176ca6-b4ee-11f1-b672-77477a663758",
+  "timestamp": "2026-09-20T12:25:45Z",
+  "description": "Home video game consoles",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Xbox_Series_X_and_Series_S",
+      "revisions": "https://en.wikipedia.org/wiki/Xbox_Series_X_and_Series_S?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Xbox_Series_X_and_Series_S?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Xbox_Series_X_and_Series_S"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Xbox_Series_X_and_Series_S",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Xbox_Series_X_and_Series_S",
+      "edit": "https://en.wikipedia.org/wiki/Xbox_Series_X_and_Series_S?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Xbox_Series_X_and_Series_S"
+    }
+  },
+  "extract": "The Xbox Series X and Xbox Series S are the fourth generation of consoles in Microsoft's Xbox series, succeeding the previous generation's Xbox One. Released on November 10, 2020, the higher-end Series X and lower-end Series S are part of the ninth generation of video game consoles, which also includes Sony's PlayStation 5, released the same month.",
+  "extract_html": "<p>The <b>Xbox Series X</b> and <b>Xbox Series S</b> are the fourth generation of consoles in Microsoft's Xbox series, succeeding the previous generation's Xbox One. Released on November 10, 2020, the higher-end Series X and lower-end Series S are part of the ninth generation of video game consoles, which also includes Sony's PlayStation 5, released the same month.</p>"
+}

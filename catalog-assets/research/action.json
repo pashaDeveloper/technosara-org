@@ -1,0 +1,39 @@
+{
+  "type": "standard",
+  "title": "Action game",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Action game</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q270948",
+  "titles": {
+    "canonical": "Action_game",
+    "normalized": "Action game",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">Action game</span></span>"
+  },
+  "pageid": 417849,
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1367795216",
+  "tid": "254679f0-9098-11f1-9059-980e595a0f80",
+  "timestamp": "2026-08-05T06:37:36Z",
+  "description": "Video game genre",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Action_game",
+      "revisions": "https://en.wikipedia.org/wiki/Action_game?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Action_game?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Action_game"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/Action_game",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/Action_game",
+      "edit": "https://en.wikipedia.org/wiki/Action_game?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Action_game"
+    }
+  },
+  "extract": "An action game is a video game genre that emphasizes physical challenges, including hand–eye coordination and reaction time. The genre includes a large variety of sub-genres, such as fighting games, beat 'em ups, shooter games, rhythm games and platform games. Multiplayer online battle arena and some real-time strategy games are also considered action games.",
+  "extract_html": "<p>An <b>action game</b> is a video game genre that emphasizes physical challenges, including hand–eye coordination and reaction time. The genre includes a large variety of sub-genres, such as fighting games, beat 'em ups, shooter games, rhythm games and platform games. Multiplayer online battle arena and some real-time strategy games are also considered action games.</p>"
+}

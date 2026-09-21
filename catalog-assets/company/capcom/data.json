@@ -1,0 +1,16 @@
+{
+  "name": "Capcom",
+  "slug": "capcom",
+  "country_code": "JP",
+  "founded_date": "1983-06-11",
+  "founded_year": 1983,
+  "type": "developer_publisher",
+  "website": "https://www.capcom.com/",
+  "founderSlugs": [],
+  "memberSlugs": [
+    [
+      "shinji-mikami",
+      "کارگردان نخستین Resident Evil؛ همکاری تاریخی"
+    ]
+  ]
+}

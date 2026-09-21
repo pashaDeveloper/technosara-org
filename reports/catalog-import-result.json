@@ -1,0 +1,12 @@
+{
+  "applied": true,
+  "database": "technosara",
+  "created": {
+    "people": 30,
+    "companies": 21
+  },
+  "skipped": {
+    "people": 5,
+    "companies": 4
+  }
+}

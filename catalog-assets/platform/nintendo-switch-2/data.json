@@ -1,0 +1,11 @@
+{
+  "name": "Nintendo Switch 2",
+  "slug": "nintendo-switch-2",
+  "code": "nintendo-switch-2",
+  "generation": 9,
+  "release_date": "2025-06-05",
+  "brandSlug": "nintendo",
+  "website_url": "https://www.nintendo.com/us/gaming-systems/switch-2/",
+  "sort_order": 10,
+  "device_type": "console"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Valve",
+  "slug": "valve",
+  "country_code": "US",
+  "founded_year": 1996,
+  "type": "developer_publisher",
+  "website": "https://www.valvesoftware.com/",
+  "founderSlugs": [
+    "gabe-newell",
+    "mike-harrington"
+  ],
+  "memberSlugs": []
+}

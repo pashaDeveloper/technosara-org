@@ -1,0 +1,525 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "930925": {
+        "pageid": 930925,
+        "ns": 6,
+        "title": "File:Supertux010.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Supertux010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+            "thumbwidth": 1200,
+            "thumbheight": 900,
+            "thumbattribs": {
+              "src": "https://upload.wikimedia.org/wikipedia/commons/3/38/Supertux010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 1200,
+              "height": 900
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Supertux010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Supertux010.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=930925",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2006-07-08 05:29:53",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Supertux010",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "GPL|Files with no machine-readable author|Files with no machine-readable source|Free screenshots|Media missing infobox template|Screenshots of SuperTux",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "LicenseShortName": {
+                "value": "GPL",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "GNU General Public License",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://www.gnu.org/licenses/gpl.html",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      },
+      "26491255": {
+        "pageid": 26491255,
+        "ns": 6,
+        "title": "File:Paul G. Allen.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Paul_G._Allen.jpg/1280px-Paul_G._Allen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "thumbwidth": 1200,
+            "thumbheight": 1680,
+            "responsiveUrls": {
+              "2": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Paul_G._Allen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+            },
+            "thumbattribs": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Paul_G._Allen.jpg/1280px-Paul_G._Allen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 1200,
+              "height": 1680,
+              "srcset": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Paul_G._Allen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Paul_G._Allen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Paul_G._Allen.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=26491255",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2013-06-04 21:50:27",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Paul G. Allen",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Taken with Canon EOS 50D|Paul Allen|Self-published work|Images with extracted images|2013 in aviation in the United States|Polikarpov I-16 in 2013|Polikarpov I-16 at the Flying Heritage Collection",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "<a href=\"https://en.wikipedia.org/wiki/Paul_Allen\" class=\"extiw\" title=\"en:Paul Allen\">Paul G. Allen</a> at Flying Heritage Collection, located at Paine Field, Everett, Washington, United States.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2013-04-02 22:50:56",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Miles_H&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Miles H (page does not exist)\">Miles Harris</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 3.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 3.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-3.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      },
+      "83818799": {
+        "pageid": 83818799,
+        "ns": 6,
+        "title": "File:Shigeru Miyamoto 20150610 (cropped).jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Shigeru_Miyamoto_20150610_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+            "thumbwidth": 1200,
+            "thumbheight": 1599,
+            "thumbattribs": {
+              "src": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Shigeru_Miyamoto_20150610_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 1200,
+              "height": 1599
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Shigeru_Miyamoto_20150610_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Shigeru_Miyamoto_20150610_(cropped).jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=83818799",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2023-04-01 15:51:13",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Shigeru Miyamoto 20150610 (cropped)",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "GJSTU-2.0|Personality rights warning|Files from external sources with reviewed licenses|Images with extracted images|Extracted images|Taken on missing SDC inception|Photographs taken on 2015-06-10|Shigeru Miyamoto in 2015",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "<a href=\"https://en.wikipedia.org/wiki/en:Shigeru_Miyamoto\" class=\"extiw\" title=\"w:en:Shigeru Miyamoto\">Shigeru Miyamoto</a>, Fellow of <a href=\"https://en.wikipedia.org/wiki/en:Nintendo\" class=\"extiw\" title=\"w:en:Nintendo\">Nintendo Co., Ltd.</a>, received the <a href=\"https://en.wikipedia.org/wiki/en:Person_of_Cultural_Merit\" class=\"extiw\" title=\"w:en:Person of Cultural Merit\">Person of Cultural Merit</a> on June 10, 2015.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "Taken on 10 June 2015, 13:32:31 (according to <span lang=\"en\" dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Exif\" class=\"extiw\" title=\"en:Exif\">Exif</a></span> data)",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.mext.go.jp/b_menu/houdou/31/11/attach/1422025.htm\">令和元年度　文化功労者：文部科学省</a>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "Minister's Secretariat Personnel Division",
+                "source": "commons-desc-page"
+              },
+              "Permission": {
+                "value": "This file, which was originally posted to\n<a rel=\"nofollow\" class=\"external text\" href=\"http://www.mext.go.jp/b_menu/houdou/31/11/attach/1422025.htm\">令和元年度　文化功労者：文部科学省</a>, was reviewed on 15 January 2020 by <a href=\"//commons.wikimedia.org/wiki/Commons:License_review#Reviewers\" title=\"Commons:License review\">reviewer</a> <b><a href=\"//commons.wikimedia.org/wiki/User:Leoboudv\" title=\"User:Leoboudv\">Leoboudv</a></b>, who confirmed that it was available there under the stated license on that date.",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseShortName": {
+                "value": "CC BY 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Attribution": {
+                "value": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.mext.go.jp/b_menu/1351168.htm\">文部科学省ホームページ</a>",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "personality",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      },
+      "167727615": {
+        "pageid": 167727615,
+        "ns": 6,
+        "title": "File:Sony Computer Entertainment logo.svg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Sony_Computer_Entertainment_logo_%28No_Trademark%29.svg/1280px-Sony_Computer_Entertainment_logo_%28No_Trademark%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "thumbwidth": 1200,
+            "thumbheight": 1669,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Sony_Computer_Entertainment_logo_%28No_Trademark%29.svg/3840px-Sony_Computer_Entertainment_logo_%28No_Trademark%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+            },
+            "thumbattribs": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Sony_Computer_Entertainment_logo_%28No_Trademark%29.svg/1280px-Sony_Computer_Entertainment_logo_%28No_Trademark%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 1200,
+              "height": 1669,
+              "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Sony_Computer_Entertainment_logo_%28No_Trademark%29.svg/3840px-Sony_Computer_Entertainment_logo_%28No_Trademark%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Sony_Computer_Entertainment_logo_%28No_Trademark%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Sony_Computer_Entertainment_logo_(No_Trademark).svg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=110236938",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2024-01-04 16:21:03",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Sony Computer Entertainment logo (No Trademark)",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "With trademark|PD textlogo|SVG text logos|SVG logos of Sony|Sony Computer Entertainment logos",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Sony Computer Entertainment logo since Mon 20, 2021.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2021-09-20",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Gameposo\" class=\"mw-redirect\" title=\"User:Gameposo\">Gameposo</a> - Masaki Yamada",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "Public domain",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Public domain",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Copyrighted": {
+                "value": "False",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "trademarked",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "pd",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      },
+      "187056847": {
+        "pageid": 187056847,
+        "ns": 6,
+        "title": "File:Bill Gates at the European Commission - P067383-987995 (cropped) 5.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+            "thumbwidth": 1200,
+            "thumbheight": 1602,
+            "thumbattribs": {
+              "src": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 1200,
+              "height": 1602
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bill_Gates_at_the_European_Commission_-_P067383-987995_(cropped)_5.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=187056847",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2026-03-26 00:15:43",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Bill Gates at the European Commission - P067383-987995 (cropped) 5",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Extracted images|Bill Gates in 2025|June 2025 in Brussels|Admin reviewed EC-Audiovisual Center images|Media from the European Commission",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "On 25 June 2025, Ursula von der Leyen, President of the European Commission, receives Bill Gates, Co-Chair of the Gates Foundation, Founder of Gates Ventures, and Chairman of Breakthrough Energy, ahead of the Gavi High-Level Pledging Summit 2025.\nThe day after, some more College members receive him, indeed Wopke Hoekstra, European Commissioner for Climate, Net Zero and Clean Growth, Hadja Lahbib, European Commissioner for Equality, and European Commissioner for Preparedness and Crisis Management, Ekaterina Zaharieva, European Commissioner for Startups, Research and Innovation and  Christophe Hansen, European Commissioner for Agriculture and Food.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2025-06-25",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://audiovisual.ec.europa.eu/en/photo/P-067383~2F00-01\">https://audiovisual.ec.europa.eu/en/photo/P-067383~2F00-01</a>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "Bogdan Hoyaux / European Union",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Attribution": {
+                "value": "© European Union, 2026",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      },
+      "-1": {
+        "ns": 6,
+        "title": "File:Ken Kutaragi.jpg",
+        "missing": "",
+        "imagerepository": ""
+      },
+      "-2": {
+        "ns": 6,
+        "title": "File:Fusajiro Yamauchi.jpg",
+        "missing": "",
+        "imagerepository": ""
+      },
+      "-3": {
+        "ns": 6,
+        "title": "File:PS3-Consoles-Set.png",
+        "missing": "",
+        "imagerepository": ""
+      },
+      "-4": {
+        "ns": 6,
+        "title": "File:SuperTuxKart 1.4 screenshot.jpg",
+        "missing": "",
+        "imagerepository": ""
+      },
+      "-5": {
+        "ns": 6,
+        "title": "File:Frozen Bubble screenshot.png",
+        "missing": "",
+        "imagerepository": ""
+      }
+    }
+  }
+}

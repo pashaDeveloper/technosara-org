@@ -1,0 +1,49 @@
+{
+  "type": "standard",
+  "title": "First-person shooter",
+  "displaytitle": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">First-person shooter</span></span>",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q185029",
+  "titles": {
+    "canonical": "First-person_shooter",
+    "normalized": "First-person shooter",
+    "display": "<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">First-person shooter</span></span>"
+  },
+  "pageid": 25395149,
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/S.T.A.L.K.E.R.-_Call_of_Pripyat.jpg/330px-S.T.A.L.K.E.R.-_Call_of_Pripyat.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 206
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/5/52/S.T.A.L.K.E.R.-_Call_of_Pripyat.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "width": 1680,
+    "height": 1050
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1375478534",
+  "tid": "15f45612-b2fd-11f1-9e8a-675ceecec034",
+  "timestamp": "2026-09-18T01:05:49Z",
+  "description": "Video game genre",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/First-person_shooter",
+      "revisions": "https://en.wikipedia.org/wiki/First-person_shooter?action=history",
+      "edit": "https://en.wikipedia.org/wiki/First-person_shooter?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:First-person_shooter"
+    },
+    "mobile": {
+      "page": "https://en.wikipedia.org/wiki/First-person_shooter",
+      "revisions": "https://en.wikipedia.org/wiki/Special:History/First-person_shooter",
+      "edit": "https://en.wikipedia.org/wiki/First-person_shooter?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:First-person_shooter"
+    }
+  },
+  "extract": "A first-person shooter (FPS) is a video game focused on weapon-based combat seen from a first-person perspective, with the player experiencing the action directly through the eyes of the main character. This genre shares multiple common traits with other shooter games, and in turn falls under the action games category. Since the genre's inception, advanced 3D and pseudo-3D graphics have proven fundamental to allow a reasonable level of immersion in the game world, and this type of game helped to push technology progressively further, challenging hardware developers worldwide to introduce numerous innovations in the field of graphics processing units. Multiplayer gaming has been an integral part of the experience and became even more prominent with the diffusion of internet connectivity in recent years.",
+  "extract_html": "<p>A <b>first-person shooter</b> (<b>FPS</b>) is a video game focused on weapon-based combat seen from a first-person perspective, with the player experiencing the action directly through the eyes of the main character. This genre shares multiple common traits with other shooter games, and in turn falls under the action games category. Since the genre's inception, advanced 3D and pseudo-3D graphics have proven fundamental to allow a reasonable level of immersion in the game world, and this type of game helped to push technology progressively further, challenging hardware developers worldwide to introduce numerous innovations in the field of graphics processing units. Multiplayer gaming has been an integral part of the experience and became even more prominent with the diffusion of internet connectivity in recent years.</p>"
+}
