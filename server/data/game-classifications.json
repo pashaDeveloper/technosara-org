@@ -1,0 +1,356 @@
+{
+  "gameModes": [
+    {
+      "name": "تک‌نفره",
+      "name_en": "Single Player",
+      "slug": "single-player",
+      "description": "تجربه‌ای که یک بازیکن به‌تنهایی پیش می‌برد؛ مستقل از نیاز بازی به اتصال اینترنت.",
+      "sort_order": 0,
+      "is_active": true
+    },
+    {
+      "name": "چندنفره آنلاین",
+      "name_en": "Online Multiplayer",
+      "slug": "online-multiplayer",
+      "description": "چند بازیکن از طریق اینترنت در یک محیط یا مسابقه مشترک بازی می‌کنند.",
+      "sort_order": 1,
+      "is_active": true
+    },
+    {
+      "name": "چندنفره محلی",
+      "name_en": "Local Multiplayer",
+      "slug": "local-multiplayer",
+      "description": "چند بازیکن روی یک دستگاه در کنار یکدیگر بازی می‌کنند.",
+      "sort_order": 2,
+      "is_active": true
+    },
+    {
+      "name": "همکاری آنلاین",
+      "name_en": "Online Co-op",
+      "slug": "online-co-op",
+      "description": "بازیکنان از طریق اینترنت برای پیشروی یا رسیدن به هدف مشترک همکاری می‌کنند.",
+      "sort_order": 3,
+      "is_active": true
+    },
+    {
+      "name": "همکاری محلی",
+      "name_en": "Local Co-op",
+      "slug": "local-co-op",
+      "description": "بازیکنان روی یک دستگاه برای عبور از مراحل یا انجام هدف مشترک همکاری می‌کنند.",
+      "sort_order": 4,
+      "is_active": true
+    },
+    {
+      "name": "رقابت بازیکنان",
+      "name_en": "Player vs Player",
+      "slug": "player-vs-player",
+      "description": "بازیکنان مستقیماً در برابر یکدیگر رقابت می‌کنند.",
+      "sort_order": 5,
+      "is_active": true
+    },
+    {
+      "name": "بازیکن در برابر محیط",
+      "name_en": "Player vs Environment",
+      "slug": "player-vs-environment",
+      "description": "چالش اصلی رویارویی با محیط، مأموریت‌ها یا دشمنان کنترل‌شده توسط بازی است.",
+      "sort_order": 6,
+      "is_active": true
+    },
+    {
+      "name": "رقابت تیمی",
+      "name_en": "Team Competition",
+      "slug": "team-competition",
+      "description": "بازیکنان در قالب تیم‌های جداگانه برای پیروزی بر تیم مقابل رقابت می‌کنند.",
+      "sort_order": 7,
+      "is_active": true
+    },
+    {
+      "name": "صفحه تقسیم‌شده",
+      "name_en": "Split Screen",
+      "slug": "split-screen",
+      "description": "چند بازیکن با دیدهای جداگانه روی بخش‌های تقسیم‌شده یک نمایشگر بازی می‌کنند.",
+      "sort_order": 8,
+      "is_active": true
+    },
+    {
+      "name": "بازی از طریق شبکه محلی",
+      "name_en": "LAN Multiplayer",
+      "slug": "lan-multiplayer",
+      "description": "چند دستگاه متصل به یک شبکه محلی در یک جلسه بازی شرکت می‌کنند.",
+      "sort_order": 9,
+      "is_active": true
+    }
+  ],
+  "gameSeries": [
+    {
+      "name": "Grand Theft Auto",
+      "name_en": "Grand Theft Auto",
+      "slug": "grand-theft-auto",
+      "description": "مجموعه بازی‌های اکشن با محوریت ماجراهای جنایی، رانندگی و زندگی در شهرهای خیالی.",
+      "sort_order": 0,
+      "is_active": true,
+      "short_name": "GTA"
+    },
+    {
+      "name": "Red Dead",
+      "name_en": "Red Dead",
+      "slug": "red-dead",
+      "description": "مجموعه‌ای با حال‌وهوای وسترن و روایت‌هایی از زندگی، درگیری و بقا در غرب آمریکا.",
+      "sort_order": 1,
+      "is_active": true,
+      "short_name": "Red Dead"
+    },
+    {
+      "name": "Assassin’s Creed",
+      "name_en": "Assassin’s Creed",
+      "slug": "assassins-creed",
+      "description": "مجموعه‌ای از ماجراجویی‌های تاریخی با محوریت نبرد اساسین‌ها و تمپلارها.",
+      "sort_order": 2,
+      "is_active": true,
+      "short_name": "AC"
+    },
+    {
+      "name": "God of War",
+      "name_en": "God of War",
+      "slug": "god-of-war",
+      "description": "مجموعه ماجراجویی‌های کریتوس در جهان‌های برگرفته از اسطوره‌ها.",
+      "sort_order": 3,
+      "is_active": true,
+      "short_name": "GoW"
+    },
+    {
+      "name": "Uncharted",
+      "name_en": "Uncharted",
+      "slug": "uncharted",
+      "description": "ماجراجویی‌هایی با محوریت جست‌وجوی گنج، اکتشاف و رویارویی‌های سینمایی.",
+      "sort_order": 4,
+      "is_active": true,
+      "short_name": "Uncharted"
+    },
+    {
+      "name": "The Last of Us",
+      "name_en": "The Last of Us",
+      "slug": "the-last-of-us",
+      "description": "مجموعه‌ای داستان‌محور درباره بقا و روابط انسانی در جهانی پس از فروپاشی.",
+      "sort_order": 5,
+      "is_active": true,
+      "short_name": "TLOU"
+    },
+    {
+      "name": "Resident Evil",
+      "name_en": "Resident Evil",
+      "slug": "resident-evil",
+      "description": "مجموعه‌ای با محوریت تهدیدهای زیستی، موجودات جهش‌یافته و تلاش برای بقا.",
+      "sort_order": 6,
+      "is_active": true,
+      "short_name": "RE"
+    },
+    {
+      "name": "Silent Hill",
+      "name_en": "Silent Hill",
+      "slug": "silent-hill",
+      "description": "مجموعه بازی‌های ترسناک با تأکید بر اضطراب روانی، رازها و فضاهای کابوس‌وار.",
+      "sort_order": 7,
+      "is_active": true,
+      "short_name": "SH"
+    },
+    {
+      "name": "Call of Duty",
+      "name_en": "Call of Duty",
+      "slug": "call-of-duty",
+      "description": "مجموعه بازی‌های تیراندازی با مضامین جنگی و عملیات نظامی در دوره‌ها و جهان‌های مختلف.",
+      "sort_order": 8,
+      "is_active": true,
+      "short_name": "CoD"
+    },
+    {
+      "name": "Battlefield",
+      "name_en": "Battlefield",
+      "slug": "battlefield",
+      "description": "مجموعه تیراندازی با تمرکز بر نبردهای تیمی و حضور نیروهای پیاده و وسایل نقلیه.",
+      "sort_order": 9,
+      "is_active": true,
+      "short_name": "BF"
+    },
+    {
+      "name": "Halo",
+      "name_en": "Halo",
+      "slug": "halo",
+      "description": "مجموعه‌ای علمی‌تخیلی با محوریت نبردهای بشریت و نیروهای فرازمینی.",
+      "sort_order": 10,
+      "is_active": true,
+      "short_name": "Halo"
+    },
+    {
+      "name": "Gears of War",
+      "name_en": "Gears of War",
+      "slug": "gears-of-war",
+      "description": "مجموعه تیراندازی سوم‌شخص با محوریت مبارزات سنگرگیری و نبرد برای بقا.",
+      "sort_order": 11,
+      "is_active": true,
+      "short_name": "Gears"
+    },
+    {
+      "name": "Forza Horizon",
+      "name_en": "Forza Horizon",
+      "slug": "forza-horizon",
+      "description": "مجموعه مسابقه‌ای با حال‌وهوای جشنواره خودرو و رانندگی در محیط‌های جهان‌باز.",
+      "sort_order": 12,
+      "is_active": true,
+      "short_name": "FH"
+    },
+    {
+      "name": "Forza Motorsport",
+      "name_en": "Forza Motorsport",
+      "slug": "forza-motorsport",
+      "description": "مجموعه مسابقه‌ای با تمرکز بر رانندگی و رقابت خودروها در پیست.",
+      "sort_order": 13,
+      "is_active": true,
+      "short_name": "FM"
+    },
+    {
+      "name": "Gran Turismo",
+      "name_en": "Gran Turismo",
+      "slug": "gran-turismo",
+      "description": "مجموعه مسابقه‌ای با محوریت خودروها، مهارت رانندگی و رقابت در مسیرهای مختلف.",
+      "sort_order": 14,
+      "is_active": true,
+      "short_name": "GT"
+    },
+    {
+      "name": "Need for Speed",
+      "name_en": "Need for Speed",
+      "slug": "need-for-speed",
+      "description": "مجموعه بازی‌های مسابقه‌ای با تمرکز بر سرعت و رقابت خودروها.",
+      "sort_order": 15,
+      "is_active": true,
+      "short_name": "NFS"
+    },
+    {
+      "name": "Tekken",
+      "name_en": "Tekken",
+      "slug": "tekken",
+      "description": "مجموعه مبارزه‌ای با شخصیت‌های متنوع و مبارزات مبتنی بر حرکات و ترکیب ضربه‌ها.",
+      "sort_order": 16,
+      "is_active": true,
+      "short_name": "Tekken"
+    },
+    {
+      "name": "Mortal Kombat",
+      "name_en": "Mortal Kombat",
+      "slug": "mortal-kombat",
+      "description": "مجموعه مبارزه‌ای با شخصیت‌های شناخته‌شده و نبردهای خشن و خیال‌پردازانه.",
+      "sort_order": 17,
+      "is_active": true,
+      "short_name": "MK"
+    },
+    {
+      "name": "Street Fighter",
+      "name_en": "Street Fighter",
+      "slug": "street-fighter",
+      "description": "مجموعه مبارزه‌ای با تمرکز بر رقابت تن‌به‌تن، حرکات ویژه و مهارت بازیکن.",
+      "sort_order": 18,
+      "is_active": true,
+      "short_name": "SF"
+    },
+    {
+      "name": "Final Fantasy",
+      "name_en": "Final Fantasy",
+      "slug": "final-fantasy",
+      "description": "مجموعه نقش‌آفرینی با جهان‌ها، شخصیت‌ها و داستان‌های گوناگون.",
+      "sort_order": 19,
+      "is_active": true,
+      "short_name": "FF"
+    },
+    {
+      "name": "The Elder Scrolls",
+      "name_en": "The Elder Scrolls",
+      "slug": "the-elder-scrolls",
+      "description": "مجموعه نقش‌آفرینی فانتزی با محوریت کاوش و ماجراجویی در جهان تامریل.",
+      "sort_order": 20,
+      "is_active": true,
+      "short_name": "TES"
+    },
+    {
+      "name": "Fallout",
+      "name_en": "Fallout",
+      "slug": "fallout",
+      "description": "مجموعه‌ای نقش‌آفرینی در جهانی پساآخرالزمانی با حال‌وهوای آینده‌نگری کلاسیک.",
+      "sort_order": 21,
+      "is_active": true,
+      "short_name": "Fallout"
+    },
+    {
+      "name": "The Witcher",
+      "name_en": "The Witcher",
+      "slug": "the-witcher",
+      "description": "مجموعه‌ای فانتزی با محوریت شکار هیولا، انتخاب‌های اخلاقی و درگیری‌های انسانی.",
+      "sort_order": 22,
+      "is_active": true,
+      "short_name": "TW"
+    },
+    {
+      "name": "Dark Souls",
+      "name_en": "Dark Souls",
+      "slug": "dark-souls",
+      "description": "مجموعه نقش‌آفرینی اکشن با جهان‌های تاریک، مبارزات دقیق و روایت محیطی.",
+      "sort_order": 23,
+      "is_active": true,
+      "short_name": "DS"
+    },
+    {
+      "name": "Tomb Raider",
+      "name_en": "Tomb Raider",
+      "slug": "tomb-raider",
+      "description": "ماجراجویی‌های لارا کرافت با محوریت کاوش، کشف آثار باستانی و حل معما.",
+      "sort_order": 24,
+      "is_active": true,
+      "short_name": "TR"
+    },
+    {
+      "name": "Metal Gear",
+      "name_en": "Metal Gear",
+      "slug": "metal-gear",
+      "description": "مجموعه‌ای با محوریت عملیات مخفی، جاسوسی و درگیری‌های نظامی.",
+      "sort_order": 25,
+      "is_active": true,
+      "short_name": "MG"
+    },
+    {
+      "name": "Prince of Persia",
+      "name_en": "Prince of Persia",
+      "slug": "prince-of-persia",
+      "description": "مجموعه ماجراجویی‌هایی با محوریت حرکات آکروباتیک، عبور از تله‌ها و مبارزه.",
+      "sort_order": 26,
+      "is_active": true,
+      "short_name": "PoP"
+    },
+    {
+      "name": "Super Mario",
+      "name_en": "Super Mario",
+      "slug": "super-mario",
+      "description": "مجموعه ماجراجویی‌های ماریو با محوریت سکوبازی و عبور از مراحل متنوع.",
+      "sort_order": 27,
+      "is_active": true,
+      "short_name": "Mario"
+    },
+    {
+      "name": "The Legend of Zelda",
+      "name_en": "The Legend of Zelda",
+      "slug": "the-legend-of-zelda",
+      "description": "مجموعه ماجراجویی‌هایی با محوریت کاوش، حل معما و نبرد در جهان‌های فانتزی.",
+      "sort_order": 28,
+      "is_active": true,
+      "short_name": "Zelda"
+    },
+    {
+      "name": "Pokémon",
+      "name_en": "Pokémon",
+      "slug": "pokemon",
+      "description": "مجموعه‌ای با محوریت کشف، جمع‌آوری، پرورش و نبرد موجودات پوکمون.",
+      "sort_order": 29,
+      "is_active": true,
+      "short_name": "Pokémon"
+    }
+  ]
+}

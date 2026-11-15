@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 ﻿import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
@@ -6,6 +7,7 @@ import { useGetGenreQuery, useUpdateGenreMutation } from '../../../services/genr
 import GenreForm from '../GenreForm';
 
 export default function StepUpdateGenre() {
+  const { search: listQuery } = useLocation();
   const { id } = useParams();
   const navigate = useNavigate();
   const record = useGetGenreQuery({ id }, { skip: !id });
@@ -15,7 +17,7 @@ export default function StepUpdateGenre() {
       const result = await updateGenre({ id, body }).unwrap();
       if (result.acknowledgement === false) throw result;
       toast.success(result.description || 'ژانر ذخیره شد.');
-      navigate('/genres');
+      navigate('/genres' + listQuery);
     } catch (error) {
       toast.error(error.data?.message || error.description || 'ذخیره ژانر ناموفق بود.');
     }

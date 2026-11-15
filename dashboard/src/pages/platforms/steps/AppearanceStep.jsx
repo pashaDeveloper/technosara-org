@@ -2,7 +2,7 @@ import React from 'react';
 import PlatformInput from '../components/PlatformInput';
 import { definition } from '../definitions';
 
-const fields = definition.fields.filter(field => ["website_url","icon"].includes(field.key));
+const fields = definition.fields.filter(field => field.key === 'website_url');
 
 export default function AppearanceStep({ register, errors, getValues, parents, countries, id }) {
   return <>

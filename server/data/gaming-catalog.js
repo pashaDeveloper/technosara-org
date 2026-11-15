@@ -47,18 +47,19 @@ const platforms = [
   ['ایکس‌باکس سری اس', 'Xbox Series S', 'xbox-series-s', 9, '2020-11-10', 'microsoft', 'https://www.xbox.com/en-US/consoles/xbox-series-s'],
   ['پلی‌استیشن ۵', 'PlayStation 5', 'playstation-5', 9, '2020-11-12', 'sony-interactive-entertainment', 'https://www.playstation.com/en-us/ps5/'],
   ['نینتندو سوییچ ۲', 'Nintendo Switch 2', 'nintendo-switch-2', 9, '2025-06-05', 'nintendo', 'https://www.nintendo.com/us/gaming-systems/switch-2/'],
-].map(([, name, slug, generation, release_date, manufacturer, website_url], sort_order) => ({ name, slug, code: slug, generation, release_date, brandSlug: manufacturer.startsWith('sony') ? 'sony' : manufacturer, website_url, sort_order, device_type: 'console' }));
+].map(([, name, slug, generation, release_date, manufacturer, website_url], sort_order) => ({ name, slug, code: slug, generation, release_date, brandSlug: manufacturer.startsWith('sony') ? 'playstation' : manufacturer === 'microsoft' ? 'xbox' : manufacturer, website_url, sort_order, device_type: 'console' }));
 platforms.push(
-  { name: 'PS4 Jailbreak', slug: 'ps4-jailbreak', code: 'ps4-jailbreak', parentSlug: 'playstation-4', brandSlug: 'sony', device_type: 'console', generation: 8, sort_order: 11 },
-  { name: 'PS4 Account', slug: 'ps4-account', code: 'ps4-account', parentSlug: 'playstation-4', brandSlug: 'sony', device_type: 'console', generation: 8, sort_order: 12 },
+  { name: 'PS4 Jailbreak', slug: 'ps4-jailbreak', code: 'ps4-jailbreak', parentSlug: 'playstation-4', brandSlug: 'playstation', device_type: 'console', generation: 8, sort_order: 11 },
+  { name: 'PS4 Account', slug: 'ps4-account', code: 'ps4-account', parentSlug: 'playstation-4', brandSlug: 'playstation', device_type: 'console', generation: 8, sort_order: 12 },
 );
-const brands = ['Sony', 'Microsoft', 'Nintendo'].map(name => ({ name, slug: name.toLowerCase() }));
+const brandDetails = require('./brand-details.json');
+const brands = brandDetails.brands;
 const developers = require('./game-developers.json');
 const withoutSources = ({ sources, ...record }) => record;
 module.exports = {
   genres,
   brands,
-  people: [...people, ...developers.people.map(withoutSources)],
+  people: [...people, ...brandDetails.people, ...developers.people.map(withoutSources)],
   companies: [...companies, ...developers.companies.map(withoutSources)],
   platforms,
 };

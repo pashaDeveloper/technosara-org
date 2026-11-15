@@ -2,6 +2,20 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { translatePersian } = require('../services/translation.service');
 
+test('English descriptions are chunked and translated to Persian', async () => {
+  let calls = 0;
+  const result = await translatePersian('A long description. '.repeat(70), async (url, options) => {
+    calls++;
+    assert.equal(url.searchParams.get('from'), 'en');
+    assert.equal(url.searchParams.get('to'), 'fa');
+    assert.ok(Buffer.byteLength(JSON.parse(options.body)[0], 'utf8') <= 500);
+    return { ok: true, json: async () => [{ translations: [{ text: 'ترجمه', to: 'fa' }] }] };
+  }, {sourceLanguage:'en',targetLanguage:'fa',longText:true});
+  assert.ok(calls > 1);
+  assert.equal(result.targetLanguage, 'fa');
+  assert.ok(result.translation.includes('ترجمه'));
+});
+
 test('all genre names use the provider response without manual equivalents', async () => {
   let calls = 0;
   const provider = async () => {

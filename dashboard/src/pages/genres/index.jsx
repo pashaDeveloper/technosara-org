@@ -1,3 +1,5 @@
+import useCatalogListState from '@/hooks/useCatalogListState';
+import CatalogImage from "@/components/shared/CatalogImage";
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
@@ -14,9 +16,7 @@ import { definition } from './definitions';
 
 export default function GenreList() {
   const resource = "genres";
-  const [page, setPage] = useState(1);
-  const [search, setSearch] = useState('');
-  const [status, setStatus] = useState('all');
+  const { page, setPage, search, setSearch, status, setStatus, listQuery } = useCatalogListState();
   const [draggedId, setDraggedId] = useState(null);
   const [targetId, setTargetId] = useState(null);
   const savingOrder = useRef(false);
@@ -37,7 +37,7 @@ export default function GenreList() {
       toast.error(error.data?.message || error.description || 'ذخیره ترتیب ناموفق بود');
     } finally { savingOrder.current = false; }
   }
-  useEffect(() => { if (result && page > totalPages) setPage(totalPages); }, [result, page, totalPages]);
+  useEffect(() => { if (result && page > totalPages) setPage(totalPages, { replace: true }); }, [result, page, totalPages]);
   async function removeRecord(id) {
     if (savingOrder.current) return;
     const toastId = 'remove-' + resource;
@@ -51,9 +51,9 @@ export default function GenreList() {
   return <ControlPanel>
     <Search
       searchTerm={search}
-      setSearchTerm={value => { setPage(1); setSearch(value.slice(0, 100)); }}
-      onStatusFilterChange={value => { setPage(1); setStatus(value); }}
-      actions={<AddButton link={`/${resource}/add`} />}
+      setSearchTerm={value => { setSearch(value.slice(0, 100)); }}
+      onStatusFilterChange={value => { setStatus(value); }}
+      actions={<AddButton link={`/${resource}/add${listQuery}`} />}
     />
     {isReordering && <p className="mt-4 text-sm text-slate-500" role="status">در حال ذخیره ترتیب…</p>}
     {error ? <div role="alert" className="mt-4 text-red-500">{error?.data?.message || 'دریافت اطلاعات ناموفق بود.'}<button type="button" onClick={refetch}>تلاش دوباره</button></div> : <>
@@ -127,13 +127,10 @@ export default function GenreList() {
                   >⠿</button>
                   <StatusIndicator isActive={category.is_active} />
                   <div className="py-2 flex justify-center items-center gap-x-2 text-right">
-                    <img
-                      src={
-                        category?.creator?.avatar?.url ||
-                        (category.preview_url || category.image || category.logo_url || category.logo) ||
-                        "/placeholder.png"
-                      }
-                      alt={``}
+                    <CatalogImage
+                      src={category.image || category.logo_url || category.logo}
+                      creator={category.creator}
+                      alt={title}
                       height={100}
                       width={100}
                       className="h-[60px] w-[60px] rounded-full object-cover"
@@ -184,7 +181,7 @@ export default function GenreList() {
 
                 <div className="col-span-2 md:col-span-1 gap-2 text-center flex justify-center items-center">
                   <article className="lg:flex-row flex flex-col justify-center gap-x-2  gap-y-2">
-                    <Link className="edit-button" aria-label={`ویرایش ${category.name}`} to={`/${resource}/update/${category._id}`}><Edit className="w-5 h-5" /></Link>
+                    <Link className="edit-button" aria-label={`ویرایش ${category.name}`} to={`/${resource}/update/${category._id}${listQuery}`}><Edit className="w-5 h-5" /></Link>
                     <DeleteModal
                       message={`آیا از حذف ${definition.singular} «${category.name}» اطمینان دارید؟`}
                       isLoading={removeState.isLoading || isReordering}

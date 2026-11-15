@@ -4,7 +4,7 @@ const translationApi = nabApi.injectEndpoints({
   endpoints: (builder) => ({
     translateText: builder.mutation({
       query: (body) => ({
-        url: "/translate",
+        url: "/translations",
         method: "POST",
         body
       })

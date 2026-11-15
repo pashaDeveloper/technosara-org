@@ -8,6 +8,7 @@ const platformController = require("../controllers/platform.controller");
 const router = express.Router();
 const platformUploadFields = [
   { name: "logo", maxCount: 1 },
+  { name: "thumbnail", maxCount: 1 },
 ];
 
 router.get(

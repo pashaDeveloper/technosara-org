@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 const baseSchema = require('./baseSchema.model');
-
 const schema = new mongoose.Schema({
   ...baseSchema.obj,
+  value: {
+    type: String,
+    trim: true,
+    default: undefined
+  },
   name: {
     type: String,
     required: true,
@@ -20,14 +24,8 @@ const schema = new mongoose.Schema({
     trim: true,
     lowercase: true
   },
-  image: {
-    type: String,
-    default: '',
-    validate: {
-      validator: value => !value || require('../utils/catalogImage').localImage(value) || require('validator').isURL(value, { protocols: ['https'], require_protocol: true }) || (Buffer.byteLength(value) <= 7 * 1024 * 1024 && /^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/]+={0,2}$/.test(value)),
-      message: 'عکس باید PNG، JPEG یا WebP با حجم حداکثر ۵ مگابایت باشد.'
-    }
-  },
+  thumbnail: { type: String, trim: true, default: null },
+  preview: { type: String, trim: true, default: null },
   description: {
     type: String,
     default: ''
@@ -39,10 +37,18 @@ const schema = new mongoose.Schema({
   is_active: {
     type: Boolean,
     default: true
-  },
+  }
 }, {
   timestamps: true
 });
-
-schema.plugin(require('../utils/catalogImage').catalogImage, { category: 'genres', field: 'image' });
+schema.index({
+  value: 1
+}, {
+  unique: true,
+  partialFilterExpression: {
+    value: {
+      $type: 'string'
+    }
+  }
+});
 module.exports = mongoose.model('Genre', schema);

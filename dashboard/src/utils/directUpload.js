@@ -1,3 +1,6 @@
+import React from 'react';
+import { toast } from 'react-hot-toast';
+
 export const getUploadErrorMessage = (error) => {
   if (!error) return "Upload failed";
   if (typeof error === "string") return error;
@@ -27,6 +30,9 @@ export const uploadFilesToArvan = async ({
   fieldName,
   folder = "uploads",
   options = {},
+  endpoint,
+  onProgress,
+  showProgressToast = true,
 }) => {
   const fileList = Array.isArray(files) ? files : [files].filter(Boolean);
 
@@ -44,13 +50,29 @@ export const uploadFilesToArvan = async ({
   });
 
   const token = localStorage.getItem("accessToken");
-  const response = await fetch(`${import.meta.env.VITE_BASE_URL}/upload/${folder}`, {
-    method: "POST",
-    headers: token ? { Authorization: `Bearer ${token}` } : {},
-    body: formData,
-  });
-
-  const responseText = await response.text();
+  const toastId = showProgressToast ? toast.loading('در حال ارسال فایل…') : null;
+  let response, responseText;
+  try {
+    const result = await new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', `/api${endpoint || `/upload/${folder}`}`);
+      xhr.timeout = 240000;
+      if (token) xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+      xhr.upload.onprogress = event => {
+        if (!event.lengthComputable) return;
+        const progress = Math.round(event.loaded / event.total * 100);
+        onProgress?.(progress);
+        if (!showProgressToast) return;
+        toast.loading(React.createElement('div', { dir: 'rtl' }, progress === 100 ? 'در حال فشرده‌سازی و ذخیره…' : `ارسال فایل: ${progress}٪`, React.createElement('progress', { max: 100, value: progress, 'aria-label': 'پیشرفت ارسال فایل', style: { display: 'block', width: '100%' } })), { id: toastId });
+      };
+      xhr.onload = () => resolve({ ok: xhr.status >= 200 && xhr.status < 300, status: xhr.status, text: xhr.responseText });
+      xhr.onerror = () => reject(new Error('ارتباط هنگام آپلود قطع شد.'));
+      xhr.ontimeout = () => reject(new Error('زمان آپلود به پایان رسید.'));
+      xhr.onabort = () => reject(new Error('آپلود لغو شد.'));
+      xhr.send(formData);
+    });
+    response = result; responseText = result.text;
+  } finally { if (toastId) toast.dismiss(toastId); }
   let result = {};
 
   try {
@@ -78,7 +100,7 @@ export const deleteUploadedFileFromArvan = async (file) => {
   }
 
   const token = localStorage.getItem("accessToken");
-  const response = await fetch(`${import.meta.env.VITE_BASE_URL}/upload`, {
+  const response = await fetch('/api/upload', {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

@@ -9,6 +9,7 @@ exports.addGenre = async (req, res) => {
       ...req.uploadedImageValues,
     status: body.status,
       name: body.name,
+      name_fa: body.name_fa,
       name_en: body.name_en,
       image: body.image,
       slug: body.slug,
@@ -96,6 +97,7 @@ exports.updateGenre = async (req, res) => {
     ...req.uploadedImageValues,
     status: body.status,
     name: body.name,
+      name_fa: body.name_fa,
     name_en: body.name_en,
     ...(body.image !== undefined ? { image: body.image } : {}),
     slug: body.slug,
@@ -105,7 +107,7 @@ exports.updateGenre = async (req, res) => {
 
   const saved = await Genre.findByIdAndUpdate(req.params.id, updatedGenre, { runValidators: true });
   if (!saved) return res.status(404).json({ acknowledgement: false, message: "Record not found" });
-  req.commitUploads?.();
+  await require('../utils/imageUpload').finishImageReplacement(req, res, saved.image_storage);
 
   res.status(200).json({
     acknowledgement: true,
@@ -138,7 +140,7 @@ exports.deleteGenre = async (req, res) => {
 };
 
 exports.getGenreOptions = async (req, res) => {
-  const genres = await Genre.find().sort({ sort_order: 1, _id: 1 }).select("name slug");
+  const genres = await Genre.find().sort({ sort_order: 1, _id: 1 }).select("name name_fa name_en slug");
   res.status(200).json({
     acknowledgement: true,
     message: "Ok",

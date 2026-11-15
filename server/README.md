@@ -1,5 +1,7 @@
 # Server Base
 
+Game catalog, product offers, prices and synchronization: see [CATALOG.md](CATALOG.md).
+
 داشبورد جدید React/Vite در پوشهٔ `dashboard` است. مسیرهای کوکی و حساب کاربری در
 `routes/admin.route.js` اجرا می‌شوند. برای نسخهٔ نهایی، ابتدا در `dashboard`
 دستور `npm run build` و سپس در این پوشه `npm start` را اجرا کنید؛ Express
@@ -86,3 +88,21 @@ Services call req.commitUploads() only after a successful database write. Failed
 Run the focused checks with: node --test test/upload.test.js test/catalog-storage.test.js
 
 Image object names use model/slug/12-character-random-id.webp, for example genre/action/aB3dE5fG7hJ9.webp. Previews use the same ID with -preview-64.webp. Folder labels prefer slug, english_name, then name; image-only updates without these use the record ID. Existing object URLs are unchanged.
+
+### Game relationship tags
+
+Game tags are separate from SEO tags and curated collections. Manage them through `/api/game-tags` (list/create), `/api/game-tags/:id` (read/update/soft delete), `/api/game-tags/all` (options), and `/api/game-tags/reorder`. Mutations require an admin.
+
+The `game_ids` array stores membership; a game can belong to multiple tags. Omit it on update to preserve membership, or send `[]` to clear it. IDs must refer to existing, non-deleted games.
+
+- `GET /api/games?game_tag_id=<tag-id>`: games in an active tag.
+- `GET /api/games?related_to=<game-id>`: games sharing any active tag, excluding the source game.
+- These filters support existing pagination/search and intersect with `collection_id`. Deleted tags and games are excluded by the soft-delete model hooks.
+
+### Game modes and series
+
+Physical box art: `POST /api/games/media/boxart` accepts `{ title, platform_id }` and requires an admin. Set `THEGAMESDB_API_KEY` in the server environment to search TheGamesDB by exact title and console. Without a key, supported older consoles use the public Libretro thumbnail archive (coverage is limited, especially for PS4). PS5, Xbox One/Series and Switch require the TheGamesDB key. Responses contain front-cover URLs; these are not guaranteed to be full printable wraps. The dashboard's “دریافت کاور جعبه” button fills empty cover slots and preserves existing images. A no-key test example is `Dark Souls III` with PlayStation 4 (Japanese front cover).
+
+Manage game modes at `/api/game-modes` and game series at `/api/game-series`. Both follow the genre API: list/create at the root, read/update/soft delete at `/:id`, options at `/all`, and ordering at `/reorder`. Mutations require an admin. Dashboard pages use the same paths.
+
+Games accept `game_mode_ids` and `game_series_ids` as arrays of existing, non-deleted IDs (or JSON arrays in multipart requests). Omitted fields preserve membership; empty arrays clear it. Duplicate IDs are removed. Game detail returns IDs for editing; the game list populates names and slugs. Filter games with `game_mode_id` and/or `game_series_id`. Series membership is independent of curated collections and parent-game relationships.

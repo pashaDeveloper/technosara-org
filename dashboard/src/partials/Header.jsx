@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import SearchModal from '../components/ModalSearch';
 import Notifications from '../components/DropdownNotifications';
+import ApiTokens from '../components/ApiTokens';
+import UploadSettingsMenu from '../components/UploadSettingsMenu';
 import Help from '../components/DropdownHelp';
 import UserMenu from '../components/DropdownProfile';
 import ThemeToggle from '../components/ThemeToggle';
@@ -62,6 +64,8 @@ function Header({
               <SearchModal id="search-modal" searchId="search" modalOpen={searchModalOpen} setModalOpen={setSearchModalOpen} />
             </div>
             <Notifications align="right" />
+            <ApiTokens />
+            <UploadSettingsMenu />
             <Help align="right" />
             <ThemeToggle />
             {/*  Divider */}

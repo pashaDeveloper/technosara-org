@@ -1,13 +1,53 @@
 const service = require('../services/brand.service');
-for (const name of ['list', 'options', 'countries', 'get', 'create', 'update', 'remove']) {
-  exports[name] = async (req, res, next) => {
-    try { await service[name](req, res); }
-    catch (error) {
-      if (req.rollbackUploads) await req.rollbackUploads().catch(err => console.error('[upload] rollback failed', err));
-      if (error.code === 11000) return res.status(409).json({ message: 'این اسلاگ قبلاً استفاده شده است' });
-      if (error.name === 'ValidationError') return res.status(400).json({ message: 'اطلاعات برند معتبر نیست' });
-      if (error.status) return res.status(error.status).json({ acknowledgement: false, message: error.message });
-      next(error);
-    }
-  };
-}
+exports.getBrandOptions = async (req, res, next) => {
+  try {
+    await service.getBrandOptions(req, res);
+  } catch (error) {
+    next(error);
+  }
+};
+exports.getBrands = async (req, res, next) => {
+  try {
+    await service.getBrands(req, res);
+  } catch (error) {
+    next(error);
+  }
+};
+exports.createBrand = async (req, res, next) => {
+  try {
+    await service.createBrand(req, res);
+  } catch (error) {
+    if (req.rollbackUploads) await req.rollbackUploads().catch(cleanupError => console.error("[upload] rollback failed", cleanupError));
+    next(error);
+  }
+};
+exports.updateBrand = async (req, res, next) => {
+  try {
+    await service.updateBrand(req, res);
+  } catch (error) {
+    if (req.rollbackUploads) await req.rollbackUploads().catch(cleanupError => console.error("[upload] rollback failed", cleanupError));
+    next(error);
+  }
+};
+exports.deleteBrand = async (req, res, next) => {
+  try {
+    await service.deleteBrand(req, res);
+  } catch (error) {
+    next(error);
+  }
+};
+exports.getBrand = async (req, res, next) => {
+  try {
+    await service.getBrand(req, res);
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.getBrandCountries = async (req, res, next) => {
+  try {
+    await service.getBrandCountries(req, res);
+  } catch (error) {
+    next(error);
+  }
+};

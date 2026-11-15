@@ -21,18 +21,21 @@ router.post(
   "/",
   verify,
   authorize("superAdmin", "admin"),
+  require('../middleware/catalogValidate.middleware')('media'),
   mediaController.addMedia,
 );
 router.patch(
   "/:id",
   verify,
   authorize("superAdmin", "admin"),
+  require('../middleware/catalogValidate.middleware')('media'),
   mediaController.updateMedia,
 );
 router.delete(
   "/:id",
   verify,
   authorize("superAdmin", "admin"),
+  require('../middleware/catalogValidate.middleware')('media'),
   mediaController.deleteMedia,
 );
 

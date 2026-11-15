@@ -15,6 +15,8 @@ async function serve(t, app) {
   return "http://127.0.0.1:" + server.address().port;
 }
 function fakeStorage(t) {
+  const settings = require('../services/uploadSettings.service');
+  t.mock.method(settings, 'read', async () => ({ ...settings.defaults }));
   const files = new Map();
   const state = { fail: false, removeFailures: 0, puts: 0 };
   const clients = Object.fromEntries(["arvan", "cloudinary"].map(provider => [provider, {
@@ -140,7 +142,10 @@ test("six resource routes save images and roll back failed creates and updates",
     const updatePath = "/" + name + (name === "admin" ? "/me" : "/" + id);
     const updated = await fetch(base + updatePath, { method: "PATCH", headers: updateHeaders, body: form(field, image) });
     assert.equal(updated.status, 200, name + ": " + await updated.text());
-    assert.equal(files.size, before + 4);
+    assert.equal(files.size, before);
+    for (const [provider, copies] of Object.entries(stored)) {
+      for (const copy of Object.values(copies)) assert.equal(files.has(provider + '/' + copy.key), false, name + ': old image removed');
+    }
     const current = await Model.findById(id);
     const currentUrl = name === "admin" ? current.avatar.url : current[field];
     assert.notEqual(currentUrl, originalUrl);

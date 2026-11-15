@@ -46,9 +46,6 @@ const GalleryUpload = ({
         folder,
         options: {
           uploadName,
-          width: cropWidth,
-          height: cropHeight,
-          fit: "cover",
         },
       });
       setGallery(uploadedFiles);

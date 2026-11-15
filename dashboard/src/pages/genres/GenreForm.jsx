@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
@@ -9,6 +10,7 @@ import { definition, formValues } from './definitions';
 import { englishSlug, genreBody } from './genreFormUtils';
 
 export default function GenreForm({ record, isLoading, onSubmit }) {
+  const { search: listQuery } = useLocation();
   const { control, register, watch, setValue, handleSubmit, formState: { errors } } = useForm({ defaultValues: formValues(definition, record), mode: 'onChange' });
   const [translating, setTranslating] = useState(false);
   const [readingImage, setReadingImage] = useState(false);
@@ -46,7 +48,7 @@ export default function GenreForm({ record, isLoading, onSubmit }) {
     </fieldset>
     <div className="flex items-center justify-between mt-8">
       <fieldset disabled={busy}><SendButton isLoading={isLoading} /></fieldset>
-      <Link to="/genres" className="reject-button rounded-md px-4 py-2">انصراف</Link>
+      <Link to={'/genres' + listQuery} className="reject-button rounded-md px-4 py-2">انصراف</Link>
     </div>
   </form>;
 }

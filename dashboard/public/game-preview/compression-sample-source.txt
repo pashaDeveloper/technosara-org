@@ -1,0 +1,12 @@
+Sample photo: https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fm=jpg&w=4000&q=100
+Provider: Unsplash (https://unsplash.com/license)
+Downloaded as an actual JPEG, without artificial padding or upscaling.
+Dimensions: 4000 x 2667
+Original bytes: 4375498 (4.17 MiB)
+
+Verified using server/utils/compressImage.js and the default upload settings:
+Quality 88, maximum dimension 1600: 351624 bytes, 1600 x 1067, 91.96% reduction.
+Quality 65, maximum dimension 1600: 172806 bytes, 96.05% reduction.
+Quality 45, maximum dimension 1600: 131814 bytes, 96.99% reduction.
+Default 64 x 64 blurred preview: 298 bytes.
+These reductions include both resizing and WebP encoding.

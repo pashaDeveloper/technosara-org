@@ -1,0 +1,3691 @@
+{
+  "search": {
+    "path": "/games?query=God%20of%20War&limit=2&generate-filter-options=true",
+    "status": 200,
+    "body": {
+      "sorting": {
+        "key": null,
+        "direction": null
+      },
+      "active_filter_options": [
+        {
+          "key": "tag",
+          "connection": "AND",
+          "values": [
+            {
+              "match": "war",
+              "value": "war"
+            }
+          ]
+        }
+      ],
+      "query": "god of war",
+      "total_results": 9129,
+      "limit": 2,
+      "offset": 0,
+      "results": [
+        {
+          "id": 238442,
+          "year": 2018,
+          "name": "God of War",
+          "genre": "Hack and Slash",
+          "image": "https://img.gamebrain.co/games/865/god_of_war_santamonica_2018_1.jpg",
+          "link": "https://gamebrain.co/game/god-of-war",
+          "rating": {
+            "mean": 0.945242737437217,
+            "count": 79321
+          },
+          "adult_only": true,
+          "screenshots": [
+            "https://img.gamebrain.co/games/918/god_of_war_santamonica_2022_38.jpg",
+            "https://img.gamebrain.co/games/240/god_of_war_siesantamonica_2018_25.jpg",
+            "https://img.gamebrain.co/games/238/god_of_war_siesantamonica_2018_50.jpg",
+            "https://img.gamebrain.co/games/170/game_kinguin_152417_2.jpg",
+            "https://img.gamebrain.co/games/865/god_of_war_santamonica_2022_6.jpg",
+            "https://img.gamebrain.co/games/243/god_of_war_siesantamonica_2018_46.jpg",
+            "https://img.gamebrain.co/games/910/god_of_war_santamonica_2022_12.jpg",
+            "https://img.gamebrain.co/games/20/god_of_war_digital_siesantamonica_2018_6.jpg",
+            "https://img.gamebrain.co/games/868/god_of_war_santamonica_2022_9.jpg",
+            "https://img.gamebrain.co/games/913/god_of_war_santamonica_2022_15.jpg",
+            "https://img.gamebrain.co/games/909/god_of_war_santamonica_2022_11.jpg",
+            "https://img.gamebrain.co/games/243/god_of_war_siesantamonica_2018_28.jpg",
+            "https://img.gamebrain.co/games/917/god_of_war_santamonica_2022_37.jpg",
+            "https://img.gamebrain.co/games/866/god_of_war_santamonica_2022_7.jpg",
+            "https://img.gamebrain.co/games/174/game_kinguin_152417_6.jpg",
+            "https://img.gamebrain.co/games/920/god_of_war_santamonica_2022_49.jpg",
+            "https://img.gamebrain.co/games/242/god_of_war_siesantamonica_2018_45.jpg",
+            "https://img.gamebrain.co/games/245/god_of_war_siesantamonica_2018_53.png",
+            "https://img.gamebrain.co/games/173/game_kinguin_152417_5.jpg",
+            "https://img.gamebrain.co/games/23/god_of_war_digital_siesantamonica_2018_9.jpg",
+            "https://img.gamebrain.co/games/912/god_of_war_santamonica_2022_14.jpg",
+            "https://img.gamebrain.co/games/242/god_of_war_siesantamonica_2018_27.jpg",
+            "https://img.gamebrain.co/games/171/game_kinguin_152417_3.jpg",
+            "https://img.gamebrain.co/games/916/god_of_war_santamonica_2022_36.jpg",
+            "https://img.gamebrain.co/games/245/god_of_war_siesantamonica_2018_48.jpg",
+            "https://img.gamebrain.co/games/244/god_of_war_siesantamonica_2018_52.png",
+            "https://img.gamebrain.co/games/241/god_of_war_siesantamonica_2018_26.jpg",
+            "https://img.gamebrain.co/games/870/god_of_war_santamonica_2018_2.png",
+            "https://img.gamebrain.co/games/246/god_of_war_siesantamonica_2018_54.png",
+            "https://img.gamebrain.co/games/218/game_kinguin_152417_11.jpg",
+            "https://img.gamebrain.co/games/217/game_kinguin_152417_10.jpg",
+            "https://img.gamebrain.co/games/239/god_of_war_siesantamonica_2018_24.jpg",
+            "https://img.gamebrain.co/games/244/god_of_war_siesantamonica_2018_47.jpg",
+            "https://img.gamebrain.co/games/908/god_of_war_santamonica_2022_10.jpg",
+            "https://img.gamebrain.co/games/867/god_of_war_santamonica_2022_8.jpg",
+            "https://img.gamebrain.co/games/912/god_of_war_santamonica_2022_50.jpg",
+            "https://img.gamebrain.co/games/911/god_of_war_santamonica_2022_13.jpg"
+          ],
+          "micro_trailer": "https://cdn.akamai.steamstatic.com/steam/apps/256852991/microtrailer.webm",
+          "gameplay": "https://www.youtube-nocookie.com/embed/_oOZG5-tqpA",
+          "short_description": null
+        },
+        {
+          "id": 622478,
+          "year": 2019,
+          "name": "Totally Accurate Battle Simulator",
+          "genre": "Strategy",
+          "image": "https://img.gamebrain.co/games/779/totally_accurate_battle_simulator_landfall_2019_31.jpg",
+          "link": "https://gamebrain.co/game/totally-accurate-battle-simulator",
+          "rating": {
+            "mean": 0.9418458333333333,
+            "count": 82890
+          },
+          "adult_only": false,
+          "screenshots": [
+            "https://img.gamebrain.co/games/773/totally_accurate_battle_simulator_landfall_2021_14.jpg",
+            "https://img.gamebrain.co/games/894/totally_accurate_battle_simulator_landfall_2019_46.webp",
+            "https://img.gamebrain.co/games/782/totally_accurate_battle_simulator_landfall_2019_30.png",
+            "https://img.gamebrain.co/games/897/totally_accurate_battle_simulator_landfall_2019_49.webp",
+            "https://img.gamebrain.co/games/771/totally_accurate_battle_simulator_landfall_2021_12.jpg",
+            "https://img.gamebrain.co/games/785/totally_accurate_battle_simulator_landfall_2019_19.jpg",
+            "https://img.gamebrain.co/games/778/totally_accurate_battle_simulator_landfall_2019_21.jpg",
+            "https://img.gamebrain.co/games/770/totally_accurate_battle_simulator_landfall_2021_11.jpg",
+            "https://img.gamebrain.co/games/460/totally_accurate_battle_simulator_landfalland24bit_2019_5.jpg",
+            "https://img.gamebrain.co/games/462/totally_accurate_battle_simulator_landfalland24bit_2019_7.jpg",
+            "https://img.gamebrain.co/games/781/totally_accurate_battle_simulator_landfall_2019_42.jpg",
+            "https://img.gamebrain.co/games/459/totally_accurate_battle_simulator_landfalland24bit_2019_4.jpg",
+            "https://img.gamebrain.co/games/895/totally_accurate_battle_simulator_landfall_2019_47.webp",
+            "https://img.gamebrain.co/games/785/totally_accurate_battle_simulator_landfall_2019_37.jpg",
+            "https://img.gamebrain.co/games/779/totally_accurate_battle_simulator_landfall_2019_40.jpg",
+            "https://img.gamebrain.co/games/896/totally_accurate_battle_simulator_landfall_2019_48.webp",
+            "https://img.gamebrain.co/games/780/totally_accurate_battle_simulator_landfall_2019_41.jpg",
+            "https://img.gamebrain.co/games/779/totally_accurate_battle_simulator_landfall_2019_22.jpg",
+            "https://img.gamebrain.co/games/893/totally_accurate_battle_simulator_landfall_2019_45.webp",
+            "https://img.gamebrain.co/games/461/totally_accurate_battle_simulator_landfalland24bit_2019_6.jpg",
+            "https://img.gamebrain.co/games/463/totally_accurate_battle_simulator_landfalland24bit_2019_8.jpg",
+            "https://img.gamebrain.co/games/782/totally_accurate_battle_simulator_landfall_2019_25.jpg",
+            "https://img.gamebrain.co/games/784/totally_accurate_battle_simulator_landfall_2019_18.jpg",
+            "https://img.gamebrain.co/games/777/totally_accurate_battle_simulator_landfall_2019_20.jpg",
+            "https://img.gamebrain.co/games/774/totally_accurate_battle_simulator_landfall_2021_15.jpg",
+            "https://img.gamebrain.co/games/889/totally_accurate_battle_simulator_landfall_2019_50.webp"
+          ],
+          "micro_trailer": "https://cdn.akamai.steamstatic.com/steam/apps/256828204/microtrailer.webm",
+          "gameplay": "https://www.youtube-nocookie.com/embed/jP9vYpTUOq8",
+          "short_description": null
+        }
+      ],
+      "filter_options": [
+        {
+          "name": "Review Rating",
+          "key": "review_rating",
+          "values": [
+            {
+              "name": "Brilliant (95+)",
+              "key": "brilliant",
+              "count": 77
+            },
+            {
+              "name": "Amazing (90+)",
+              "key": "amazing",
+              "count": 250
+            },
+            {
+              "name": "Great (80+)",
+              "key": "great",
+              "count": 891
+            },
+            {
+              "name": "Good (70+)",
+              "key": "good",
+              "count": 1365
+            }
+          ],
+          "filter_type": "COLLECTION",
+          "filter_connection": "XOR"
+        },
+        {
+          "name": "Release Date",
+          "key": "release_date",
+          "values": [
+            {
+              "name": "Next Month",
+              "key": "next_month",
+              "count": 84
+            },
+            {
+              "name": "Last Month",
+              "key": "last_month",
+              "count": 98
+            },
+            {
+              "name": "Last Year",
+              "key": "last_year",
+              "count": 897
+            },
+            {
+              "name": "Last 5 Years",
+              "key": "last_5_years",
+              "count": 4604
+            }
+          ],
+          "filter_type": "COLLECTION",
+          "filter_connection": "XOR"
+        },
+        {
+          "name": "Platform",
+          "key": "platform",
+          "values": [
+            {
+              "name": "Amazon Fire TV",
+              "key": "amazon_fire_tv",
+              "count": 1
+            },
+            {
+              "name": "Amazon Luna",
+              "key": "amazon_luna",
+              "count": 3
+            },
+            {
+              "name": "Amiga",
+              "key": "amiga",
+              "count": 20
+            },
+            {
+              "name": "Amstrad CPC",
+              "key": "amstrad_cpc",
+              "count": 6
+            },
+            {
+              "name": "Android",
+              "key": "android",
+              "count": 417
+            },
+            {
+              "name": "Apple II",
+              "key": "apple_ii",
+              "count": 4
+            },
+            {
+              "name": "Atari 8-Bit",
+              "key": "atari_8_bit",
+              "count": 4
+            },
+            {
+              "name": "Atari ST",
+              "key": "atari_st",
+              "count": 10
+            },
+            {
+              "name": "Cloud Platform",
+              "key": "cloud_platform",
+              "count": 140
+            },
+            {
+              "name": "Commodore C 64/128",
+              "key": "commodore_c64",
+              "count": 9
+            },
+            {
+              "name": "EA Origin",
+              "key": "ea_origin",
+              "count": 2
+            },
+            {
+              "name": "Epic Games",
+              "key": "epic_games",
+              "count": 19
+            },
+            {
+              "name": "Game Boy Advance",
+              "key": "game_boy_advance",
+              "count": 3
+            },
+            {
+              "name": "Gog Com",
+              "key": "gog_com",
+              "count": 3
+            },
+            {
+              "name": "iOS",
+              "key": "ios",
+              "count": 207
+            },
+            {
+              "name": "iPad",
+              "key": "ipad",
+              "count": 207
+            },
+            {
+              "name": "Linux",
+              "key": "linux",
+              "count": 1066
+            },
+            {
+              "name": "Mac OS",
+              "key": "mac_os",
+              "count": 1299
+            },
+            {
+              "name": "Mobile Phone",
+              "key": "mobile_platform",
+              "count": 777
+            },
+            {
+              "name": "MS DOS",
+              "key": "ms_dos",
+              "count": 36
+            },
+            {
+              "name": "Msx",
+              "key": "msx",
+              "count": 4
+            },
+            {
+              "name": "Nintendo 3DS",
+              "key": "nintendo_3ds",
+              "count": 2
+            },
+            {
+              "name": "Nintendo DS",
+              "key": "nintendo_ds",
+              "count": 1
+            },
+            {
+              "name": "Nintendo Gamecube",
+              "key": "nintendo_gamecube",
+              "count": 2
+            },
+            {
+              "name": "Nintendo Switch",
+              "key": "nintendo_switch",
+              "count": 204
+            },
+            {
+              "name": "Nintendo Switch 2",
+              "key": "nintendo_switch-2",
+              "count": 10
+            },
+            {
+              "name": "Nvidia Geforce Now",
+              "key": "nvidia_geforce_now",
+              "count": 70
+            },
+            {
+              "name": "Oculus Quest",
+              "key": "oculus_quest",
+              "count": 23
+            },
+            {
+              "name": "Oculus Rift",
+              "key": "oculus_rift",
+              "count": 13
+            },
+            {
+              "name": "Oculus VR",
+              "key": "oculus_vr",
+              "count": 7
+            },
+            {
+              "name": "PC",
+              "key": "pc",
+              "count": 6449
+            },
+            {
+              "name": "Phone",
+              "key": "phone",
+              "count": 515
+            },
+            {
+              "name": "Playdate",
+              "key": "playdate",
+              "count": 3
+            },
+            {
+              "name": "Playstation 2",
+              "key": "playstation_2",
+              "count": 12
+            },
+            {
+              "name": "Playstation 3",
+              "key": "playstation_3",
+              "count": 39
+            },
+            {
+              "name": "Playstation 4",
+              "key": "playstation_4",
+              "count": 204
+            },
+            {
+              "name": "Playstation 5",
+              "key": "playstation_5",
+              "count": 184
+            },
+            {
+              "name": "Playstation Portable",
+              "key": "playstation_portable",
+              "count": 5
+            },
+            {
+              "name": "Playstation Vita",
+              "key": "playstation_vita",
+              "count": 12
+            },
+            {
+              "name": "PlayStation VR",
+              "key": "playstation_vr",
+              "count": 7
+            },
+            {
+              "name": "Playstation VR2",
+              "key": "playstation_vr2",
+              "count": 8
+            },
+            {
+              "name": "Sega Game Gear",
+              "key": "sega_game_gear",
+              "count": 1
+            },
+            {
+              "name": "Sega Master System",
+              "key": "sega_master_system",
+              "count": 1
+            },
+            {
+              "name": "Sega Mega Drive",
+              "key": "sega_mega_drive",
+              "count": 5
+            },
+            {
+              "name": "Sega Saturn",
+              "key": "sega_saturn",
+              "count": 2
+            },
+            {
+              "name": "Steam Deck",
+              "key": "steam_deck",
+              "count": 180
+            },
+            {
+              "name": "Super Nintendo",
+              "key": "super_nintendo",
+              "count": 4
+            },
+            {
+              "name": "Tablet",
+              "key": "tablet",
+              "count": 485
+            },
+            {
+              "name": "UPlay",
+              "key": "uplay",
+              "count": 3
+            },
+            {
+              "name": "Virtual Reality",
+              "key": "virtual_reality",
+              "count": 246
+            },
+            {
+              "name": "Browser",
+              "key": "web_browser",
+              "count": 1360
+            },
+            {
+              "name": "Wii",
+              "key": "wii",
+              "count": 8
+            },
+            {
+              "name": "Wii U",
+              "key": "wii_u",
+              "count": 4
+            },
+            {
+              "name": "Windows",
+              "key": "windows",
+              "count": 7466
+            },
+            {
+              "name": "Windows Mixed Reality",
+              "key": "windows_mixed_reality",
+              "count": 11
+            },
+            {
+              "name": "Windows Phone",
+              "key": "windows_phone",
+              "count": 3
+            },
+            {
+              "name": "Wonderswan",
+              "key": "wonderswan",
+              "count": 1
+            },
+            {
+              "name": "Xbox Cloud Gaming",
+              "key": "x_box_cloud_gaming",
+              "count": 58
+            },
+            {
+              "name": "Xbox Game Pass",
+              "key": "x_box_game_pass",
+              "count": 43
+            },
+            {
+              "name": "XBox 360",
+              "key": "xbox_360",
+              "count": 37
+            },
+            {
+              "name": "XBox One",
+              "key": "xbox_one",
+              "count": 206
+            },
+            {
+              "name": "Xbox Series X|S",
+              "key": "xbox_series_xs",
+              "count": 213
+            },
+            {
+              "name": "ZX Spectrum",
+              "key": "zx_spectrum",
+              "count": 15
+            }
+          ],
+          "filter_type": "COLLECTION",
+          "filter_connection": "OR"
+        },
+        {
+          "name": "Genre",
+          "key": "genre",
+          "values": [
+            {
+              "name": "2D Platformer",
+              "key": "2d_platformer",
+              "count": 290
+            },
+            {
+              "name": "3D Platformer",
+              "key": "3d_platformer",
+              "count": 184
+            },
+            {
+              "name": "4X",
+              "key": "4x",
+              "count": 344
+            },
+            {
+              "name": "Action",
+              "key": "action",
+              "count": 4810
+            },
+            {
+              "name": "Action-Adventure",
+              "key": "action_adventure",
+              "count": 737
+            },
+            {
+              "name": "Action RTS",
+              "key": "action_rts",
+              "count": 352
+            },
+            {
+              "name": "Adventure",
+              "key": "adventure",
+              "count": 2500
+            },
+            {
+              "name": "Arcade",
+              "key": "arcade",
+              "count": 1077
+            },
+            {
+              "name": "Arena Shooter",
+              "key": "arena_shooter",
+              "count": 329
+            },
+            {
+              "name": "Automobile Simulator",
+              "key": "automobile_simulator",
+              "count": 42
+            },
+            {
+              "name": "Card Game",
+              "key": "card_game",
+              "count": 266
+            },
+            {
+              "name": "Casual",
+              "key": "casual",
+              "count": 2421
+            },
+            {
+              "name": "City Builder",
+              "key": "city_builder",
+              "count": 291
+            },
+            {
+              "name": "Dating Simulator",
+              "key": "dating_simulator",
+              "count": 57
+            },
+            {
+              "name": "Extraction Shooter",
+              "key": "extraction_shooter",
+              "count": 22
+            },
+            {
+              "name": "Farming Simulator",
+              "key": "farming_simulator",
+              "count": 22
+            },
+            {
+              "name": "Fighting",
+              "key": "fighting",
+              "count": 268
+            },
+            {
+              "name": "First Person Shooter",
+              "key": "first_person_shooter",
+              "count": 1154
+            },
+            {
+              "name": "Hack and Slash",
+              "key": "hack_and_slash",
+              "count": 239
+            },
+            {
+              "name": "Interactive Fiction",
+              "key": "interactive_fiction",
+              "count": 229
+            },
+            {
+              "name": "Job Simulator",
+              "key": "job_simulator",
+              "count": 5
+            },
+            {
+              "name": "JRPG",
+              "key": "jrpg",
+              "count": 115
+            },
+            {
+              "name": "Looter Shooter",
+              "key": "looter_shooter",
+              "count": 100
+            },
+            {
+              "name": "Management",
+              "key": "management",
+              "count": 1309
+            },
+            {
+              "name": "Musical",
+              "key": "musical",
+              "count": 55
+            },
+            {
+              "name": "On-Rails Shooter",
+              "key": "on_rails_shooter",
+              "count": 59
+            },
+            {
+              "name": "Open World",
+              "key": "open_world",
+              "count": 521
+            },
+            {
+              "name": "Party",
+              "key": "party",
+              "count": 182
+            },
+            {
+              "name": "Pinball",
+              "key": "pinball",
+              "count": 3
+            },
+            {
+              "name": "Platformer",
+              "key": "platformer",
+              "count": 624
+            },
+            {
+              "name": "Point and Click",
+              "key": "point_and_click",
+              "count": 190
+            },
+            {
+              "name": "Political Simulator",
+              "key": "political_simulator",
+              "count": 294
+            },
+            {
+              "name": "Puzzle",
+              "key": "puzzle",
+              "count": 378
+            },
+            {
+              "name": "Quiz",
+              "key": "quiz",
+              "count": 28
+            },
+            {
+              "name": "Racing",
+              "key": "racing",
+              "count": 145
+            },
+            {
+              "name": "Real Time Strategy",
+              "key": "real_time_strategy",
+              "count": 1479
+            },
+            {
+              "name": "Real Time Tactics",
+              "key": "real_time_tactical",
+              "count": 1015
+            },
+            {
+              "name": "Role Playing",
+              "key": "role_playing",
+              "count": 1702
+            },
+            {
+              "name": "Sandbox",
+              "key": "sandbox",
+              "count": 621
+            },
+            {
+              "name": "Shoot 'Em Up",
+              "key": "shoot_em_up",
+              "count": 569
+            },
+            {
+              "name": "Shooter",
+              "key": "shooter",
+              "count": 3106
+            },
+            {
+              "name": "Side Scroller",
+              "key": "side_scroller",
+              "count": 235
+            },
+            {
+              "name": "Simulation",
+              "key": "simulation",
+              "count": 3009
+            },
+            {
+              "name": "Space Simulator",
+              "key": "space_simulator",
+              "count": 149
+            },
+            {
+              "name": "Sport",
+              "key": "sport",
+              "count": 116
+            },
+            {
+              "name": "Stealth",
+              "key": "stealth",
+              "count": 309
+            },
+            {
+              "name": "Strategy",
+              "key": "strategy",
+              "count": 2583
+            },
+            {
+              "name": "Survival",
+              "key": "survival",
+              "count": 959
+            },
+            {
+              "name": "Survival Horror",
+              "key": "survival_horror",
+              "count": 144
+            },
+            {
+              "name": "Tactical",
+              "key": "tactical",
+              "count": 3213
+            },
+            {
+              "name": "Third Person Shooter",
+              "key": "third_person_shooter",
+              "count": 550
+            },
+            {
+              "name": "Top-Down Shooter",
+              "key": "top_down_shooter",
+              "count": 354
+            },
+            {
+              "name": "Trading Card Game",
+              "key": "trading_card_game",
+              "count": 57
+            },
+            {
+              "name": "Turn Based Strategy",
+              "key": "turn_based_strategy",
+              "count": 1271
+            },
+            {
+              "name": "Turn-Based Tactics",
+              "key": "turn_based_tactical",
+              "count": 1146
+            },
+            {
+              "name": "Visual Novel",
+              "key": "visual_novel",
+              "count": 408
+            },
+            {
+              "name": "Walking Simulator",
+              "key": "walking_simulator",
+              "count": 106
+            },
+            {
+              "name": "Word Game",
+              "key": "word_game",
+              "count": 34
+            }
+          ],
+          "filter_type": "COLLECTION",
+          "filter_connection": "OR"
+        },
+        {
+          "name": "Theme",
+          "key": "theme",
+          "values": [
+            {
+              "name": "Anime",
+              "key": "anime",
+              "count": 370
+            },
+            {
+              "name": "Business",
+              "key": "business",
+              "count": 17
+            },
+            {
+              "name": "Comedy",
+              "key": "comedy",
+              "count": 300
+            },
+            {
+              "name": "Dark Fantasy",
+              "key": "dark_fantasy",
+              "count": 280
+            },
+            {
+              "name": "Drama",
+              "key": "drama",
+              "count": 93
+            },
+            {
+              "name": "Economy",
+              "key": "economy",
+              "count": 477
+            },
+            {
+              "name": "Erotic",
+              "key": "erotic",
+              "count": 160
+            },
+            {
+              "name": "Fantasy",
+              "key": "fantasy",
+              "count": 1152
+            },
+            {
+              "name": "Historical",
+              "key": "historical",
+              "count": 2381
+            },
+            {
+              "name": "Horror",
+              "key": "horror",
+              "count": 531
+            },
+            {
+              "name": "Kids",
+              "key": "kids",
+              "count": 62
+            },
+            {
+              "name": "Medieval",
+              "key": "medieval",
+              "count": 904
+            },
+            {
+              "name": "Mystery",
+              "key": "mystery",
+              "count": 198
+            },
+            {
+              "name": "Post-apocalyptic",
+              "key": "post_apocalyptic",
+              "count": 399
+            },
+            {
+              "name": "Romance",
+              "key": "romance",
+              "count": 99
+            },
+            {
+              "name": "Science Fiction",
+              "key": "science_fiction",
+              "count": 1173
+            },
+            {
+              "name": "Thriller",
+              "key": "thriller",
+              "count": 92
+            },
+            {
+              "name": "Violence",
+              "key": "violence",
+              "count": 696
+            },
+            {
+              "name": "Warfare",
+              "key": "warfare",
+              "count": 520
+            }
+          ],
+          "filter_type": "COLLECTION",
+          "filter_connection": "OR"
+        },
+        {
+          "name": "Play Mode",
+          "key": "play_mode",
+          "values": [
+            {
+              "name": "Asynchronous Multiplayer",
+              "key": "asynchronous_multiplayer",
+              "count": 75
+            },
+            {
+              "name": "Co-Op",
+              "key": "co_op",
+              "count": 1373
+            },
+            {
+              "name": "4 Player Local",
+              "key": "four_player_local",
+              "count": 46
+            },
+            {
+              "name": "Local Co-Op",
+              "key": "local_co_op",
+              "count": 141
+            },
+            {
+              "name": "Local Multi-Player",
+              "key": "local_multiplayer",
+              "count": 487
+            },
+            {
+              "name": "Massively Multiplayer",
+              "key": "massively_multiplayer",
+              "count": 566
+            },
+            {
+              "name": "Multi-Player",
+              "key": "multiplayer",
+              "count": 2968
+            },
+            {
+              "name": "Online Co-Op",
+              "key": "online_co_op",
+              "count": 962
+            },
+            {
+              "name": "PvE",
+              "key": "pve",
+              "count": 1078
+            },
+            {
+              "name": "PvP",
+              "key": "pvp",
+              "count": 1880
+            },
+            {
+              "name": "Single-Player",
+              "key": "single_player",
+              "count": 8299
+            },
+            {
+              "name": "Split Screen",
+              "key": "splitscreen",
+              "count": 482
+            },
+            {
+              "name": "2-Players",
+              "key": "two_players",
+              "count": 1705
+            }
+          ],
+          "filter_type": "COLLECTION",
+          "filter_connection": "OR"
+        },
+        {
+          "name": "Age Rating",
+          "key": "content_rating_normalized",
+          "values": [
+            {
+              "name": "Adults Only",
+              "key": "age_rating_adults_only",
+              "count": 517
+            },
+            {
+              "name": "Everybody",
+              "key": "age_rating_everybody",
+              "count": 95
+            },
+            {
+              "name": "Teenager",
+              "key": "age_rating_teens",
+              "count": 2517
+            }
+          ],
+          "filter_type": "COLLECTION",
+          "filter_connection": "OR"
+        },
+        {
+          "name": "Input Mode",
+          "key": "input_mode",
+          "values": [
+            {
+              "name": "Controller",
+              "key": "controller",
+              "count": 6747
+            },
+            {
+              "name": "Mouse and Keyboard",
+              "key": "mouse_and_keyboard",
+              "count": 8218
+            },
+            {
+              "name": "Mouse only",
+              "key": "mouse_only",
+              "count": 496
+            },
+            {
+              "name": "Touch",
+              "key": "touch",
+              "count": 957
+            }
+          ],
+          "filter_type": "COLLECTION",
+          "filter_connection": "OR"
+        },
+        {
+          "name": "Price",
+          "key": "price",
+          "values": [
+            {
+              "name": "Free",
+              "key": "free",
+              "count": 1754
+            },
+            {
+              "name": "under $5",
+              "key": "under_5",
+              "count": 2131
+            },
+            {
+              "name": "under $15",
+              "key": "under_15",
+              "count": 3478
+            },
+            {
+              "name": "under $25",
+              "key": "under_25",
+              "count": 3765
+            },
+            {
+              "name": "under $40",
+              "key": "under_40",
+              "count": 3861
+            }
+          ],
+          "filter_type": "COLLECTION",
+          "filter_connection": "XOR"
+        },
+        {
+          "name": "Tag",
+          "key": "tag",
+          "values": [
+            {
+              "name": "1980s",
+              "key": "1980s",
+              "count": 198
+            },
+            {
+              "name": "1990's",
+              "key": "1990s",
+              "count": 269
+            },
+            {
+              "name": "2.5D",
+              "key": "2_5d",
+              "count": 235
+            },
+            {
+              "name": "2D",
+              "key": "2d",
+              "count": 2583
+            },
+            {
+              "name": "2D Fighter",
+              "key": "2d_fighter",
+              "count": 88
+            },
+            {
+              "name": "3D",
+              "key": "3d",
+              "count": 3212
+            },
+            {
+              "name": "3D Fighter",
+              "key": "3d_fighter",
+              "count": 151
+            },
+            {
+              "name": "3D Vision",
+              "key": "3d_vision",
+              "count": 13
+            },
+            {
+              "name": "6DOF",
+              "key": "6dof",
+              "count": 48
+            },
+            {
+              "name": "Abstract",
+              "key": "abstract",
+              "count": 80
+            },
+            {
+              "name": "Action Roguelike",
+              "key": "action_roguelike",
+              "count": 266
+            },
+            {
+              "name": "Action RPG",
+              "key": "action_rpg",
+              "count": 341
+            },
+            {
+              "name": "Addictive",
+              "key": "addictive",
+              "count": 42
+            },
+            {
+              "name": "Agriculture",
+              "key": "agriculture",
+              "count": 30
+            },
+            {
+              "name": "Aliens",
+              "key": "aliens",
+              "count": 292
+            },
+            {
+              "name": "Alternate History",
+              "key": "alternate_history",
+              "count": 653
+            },
+            {
+              "name": "Ambient",
+              "key": "ambient",
+              "count": 5
+            },
+            {
+              "name": "America",
+              "key": "america",
+              "count": 24
+            },
+            {
+              "name": "Play Now",
+              "key": "arcade_enabled",
+              "count": 538
+            },
+            {
+              "name": "Archery",
+              "key": "archery",
+              "count": 33
+            },
+            {
+              "name": "Artificial Intelligence",
+              "key": "artificial_intelligence",
+              "count": 230
+            },
+            {
+              "name": "Assassin",
+              "key": "assassin",
+              "count": 9
+            },
+            {
+              "name": "Asymmetric VR",
+              "key": "asymmetric_vr",
+              "count": 7
+            },
+            {
+              "name": "Atmospheric",
+              "key": "atmospheric",
+              "count": 1078
+            },
+            {
+              "name": "ATV",
+              "key": "atv",
+              "count": 3
+            },
+            {
+              "name": "Audio Production",
+              "key": "audio_production",
+              "count": 1
+            },
+            {
+              "name": "Auto Battler",
+              "key": "auto_battler",
+              "count": 268
+            },
+            {
+              "name": "Automation",
+              "key": "automation",
+              "count": 84
+            },
+            {
+              "name": "Base Building",
+              "key": "base_building",
+              "count": 655
+            },
+            {
+              "name": "Baseball",
+              "key": "baseball",
+              "count": 5
+            },
+            {
+              "name": "Based On A Novel",
+              "key": "based_on_a_novel",
+              "count": 4
+            },
+            {
+              "name": "Basketball",
+              "key": "basketball",
+              "count": 3
+            },
+            {
+              "name": "Battle Royale",
+              "key": "battle_royale",
+              "count": 137
+            },
+            {
+              "name": "Beautiful",
+              "key": "beautiful",
+              "count": 14
+            },
+            {
+              "name": "Bikes",
+              "key": "bikes",
+              "count": 3
+            },
+            {
+              "name": "Birds",
+              "key": "birds",
+              "count": 2
+            },
+            {
+              "name": "Blood",
+              "key": "blood",
+              "count": 10
+            },
+            {
+              "name": "BMX",
+              "key": "bmx",
+              "count": 1
+            },
+            {
+              "name": "Board Game",
+              "key": "board_game",
+              "count": 349
+            },
+            {
+              "name": "Boomer Shooter",
+              "key": "boomer_shooter",
+              "count": 72
+            },
+            {
+              "name": "Boss Rush",
+              "key": "boss_rush",
+              "count": 3
+            },
+            {
+              "name": "Boxing",
+              "key": "boxing",
+              "count": 6
+            },
+            {
+              "name": "Building",
+              "key": "building",
+              "count": 961
+            },
+            {
+              "name": "Bullet Hell",
+              "key": "bullet_hell",
+              "count": 404
+            },
+            {
+              "name": "Bullet Time",
+              "key": "bullet_time",
+              "count": 86
+            },
+            {
+              "name": "Capitalism",
+              "key": "capitalism",
+              "count": 116
+            },
+            {
+              "name": "Card Battler",
+              "key": "card_battler",
+              "count": 155
+            },
+            {
+              "name": "Cartoon",
+              "key": "cartoon",
+              "count": 206
+            },
+            {
+              "name": "Cartoony",
+              "key": "cartoony",
+              "count": 300
+            },
+            {
+              "name": "Cats",
+              "key": "cats",
+              "count": 31
+            },
+            {
+              "name": "Character Action Game",
+              "key": "character_action_game",
+              "count": 20
+            },
+            {
+              "name": "Character Customization",
+              "key": "character_customization",
+              "count": 454
+            },
+            {
+              "name": "Chess",
+              "key": "chess",
+              "count": 40
+            },
+            {
+              "name": "Choices Matter",
+              "key": "choices_matter",
+              "count": 568
+            },
+            {
+              "name": "Choose Your Own Adventure",
+              "key": "choose_your_own_adventure",
+              "count": 192
+            },
+            {
+              "name": "Cinematic",
+              "key": "cinematic",
+              "count": 248
+            },
+            {
+              "name": "Class-Based",
+              "key": "class_based",
+              "count": 130
+            },
+            {
+              "name": "Classic",
+              "key": "classic",
+              "count": 172
+            },
+            {
+              "name": "Clicker",
+              "key": "clicker",
+              "count": 46
+            },
+            {
+              "name": "Co-op Campaign",
+              "key": "co_op_campaign",
+              "count": 66
+            },
+            {
+              "name": "Cold War",
+              "key": "cold_war",
+              "count": 610
+            },
+            {
+              "name": "Collectathon",
+              "key": "collectathon",
+              "count": 32
+            },
+            {
+              "name": "Colony Sim",
+              "key": "colony_sim",
+              "count": 118
+            },
+            {
+              "name": "Colorful",
+              "key": "colorful",
+              "count": 683
+            },
+            {
+              "name": "Combat",
+              "key": "combat",
+              "count": 2899
+            },
+            {
+              "name": "Combat Racing",
+              "key": "combat_racing",
+              "count": 43
+            },
+            {
+              "name": "Comic Book",
+              "key": "comic_book",
+              "count": 75
+            },
+            {
+              "name": "Competitive",
+              "key": "competitive",
+              "count": 112
+            },
+            {
+              "name": "Conspiracy",
+              "key": "conspiracy",
+              "count": 87
+            },
+            {
+              "name": "Conversation",
+              "key": "conversation",
+              "count": 7
+            },
+            {
+              "name": "Cooking",
+              "key": "cooking",
+              "count": 18
+            },
+            {
+              "name": "Cozy",
+              "key": "cozy",
+              "count": 18
+            },
+            {
+              "name": "Crafting",
+              "key": "crafting",
+              "count": 212
+            },
+            {
+              "name": "Creature Collector",
+              "key": "creature_collector",
+              "count": 29
+            },
+            {
+              "name": "Crime",
+              "key": "crime",
+              "count": 65
+            },
+            {
+              "name": "CRPG",
+              "key": "crpg",
+              "count": 83
+            },
+            {
+              "name": "Cult Classic",
+              "key": "cult_classic",
+              "count": 12
+            },
+            {
+              "name": "Cute",
+              "key": "cute",
+              "count": 344
+            },
+            {
+              "name": "Cyberpunk",
+              "key": "cyberpunk",
+              "count": 152
+            },
+            {
+              "name": "Cycling",
+              "key": "cycling",
+              "count": 2
+            },
+            {
+              "name": "Dark",
+              "key": "dark",
+              "count": 745
+            },
+            {
+              "name": "Dark Comedy",
+              "key": "dark_comedy",
+              "count": 51
+            },
+            {
+              "name": "Dark Humor",
+              "key": "dark_humor",
+              "count": 150
+            },
+            {
+              "name": "Deckbuilding",
+              "key": "deckbuilding",
+              "count": 156
+            },
+            {
+              "name": "Demons",
+              "key": "demons",
+              "count": 90
+            },
+            {
+              "name": "Destruction",
+              "key": "destruction",
+              "count": 333
+            },
+            {
+              "name": "Detective",
+              "key": "detective",
+              "count": 59
+            },
+            {
+              "name": "Dice",
+              "key": "dice",
+              "count": 29
+            },
+            {
+              "name": "Difficult",
+              "key": "difficult",
+              "count": 250
+            },
+            {
+              "name": "Dinosaurs",
+              "key": "dinosaurs",
+              "count": 32
+            },
+            {
+              "name": "Diplomacy",
+              "key": "diplomacy",
+              "count": 293
+            },
+            {
+              "name": "Documentary",
+              "key": "documentary",
+              "count": 4
+            },
+            {
+              "name": "Dog",
+              "key": "dog",
+              "count": 6
+            },
+            {
+              "name": "Dragons",
+              "key": "dragons",
+              "count": 83
+            },
+            {
+              "name": "Driving",
+              "key": "driving",
+              "count": 122
+            },
+            {
+              "name": "Dungeon Crawler",
+              "key": "dungeon_crawler",
+              "count": 67
+            },
+            {
+              "name": "Dungeons & Dragons",
+              "key": "dungeons_dragons",
+              "count": 2
+            },
+            {
+              "name": "Dwarf",
+              "key": "dwarf",
+              "count": 2
+            },
+            {
+              "name": "Dynamic Narration",
+              "key": "dynamic_narration",
+              "count": 44
+            },
+            {
+              "name": "Dystopian",
+              "key": "dystopian",
+              "count": 229
+            },
+            {
+              "name": "Early Access",
+              "key": "early_access",
+              "count": 1018
+            },
+            {
+              "name": "Educational",
+              "key": "educational",
+              "count": 189
+            },
+            {
+              "name": "Electronic",
+              "key": "electronic",
+              "count": 2
+            },
+            {
+              "name": "Electronic Music",
+              "key": "electronic_music",
+              "count": 1
+            },
+            {
+              "name": "Emotional",
+              "key": "emotional",
+              "count": 178
+            },
+            {
+              "name": "Epic",
+              "key": "epic",
+              "count": 41
+            },
+            {
+              "name": "Episodic",
+              "key": "episodic",
+              "count": 6
+            },
+            {
+              "name": "Escape Room",
+              "key": "escape_room",
+              "count": 10
+            },
+            {
+              "name": "eSports",
+              "key": "esports",
+              "count": 69
+            },
+            {
+              "name": "Experience",
+              "key": "experience",
+              "count": 3
+            },
+            {
+              "name": "Experimental",
+              "key": "experimental",
+              "count": 58
+            },
+            {
+              "name": "Exploration",
+              "key": "exploration",
+              "count": 641
+            },
+            {
+              "name": "Faith",
+              "key": "faith",
+              "count": 36
+            },
+            {
+              "name": "Family Friendly",
+              "key": "family_friendly",
+              "count": 182
+            },
+            {
+              "name": "Farming",
+              "key": "farming",
+              "count": 23
+            },
+            {
+              "name": "Fast-Paced",
+              "key": "fast_paced",
+              "count": 144
+            },
+            {
+              "name": "Female Protagonist",
+              "key": "female_protagonist",
+              "count": 311
+            },
+            {
+              "name": "First-Person",
+              "key": "first_person",
+              "count": 1408
+            },
+            {
+              "name": "Fishing",
+              "key": "fishing",
+              "count": 6
+            },
+            {
+              "name": "Flight",
+              "key": "flight",
+              "count": 453
+            },
+            {
+              "name": "FMV",
+              "key": "fmv",
+              "count": 26
+            },
+            {
+              "name": "Football (American)",
+              "key": "football_american",
+              "count": 1
+            },
+            {
+              "name": "Football (Soccer)",
+              "key": "football_soccer",
+              "count": 3
+            },
+            {
+              "name": "Foreign",
+              "key": "foreign",
+              "count": 6
+            },
+            {
+              "name": "Fox",
+              "key": "fox",
+              "count": 1
+            },
+            {
+              "name": "Free to Play",
+              "key": "free_to_play",
+              "count": 1754
+            },
+            {
+              "name": "Funny",
+              "key": "funny",
+              "count": 569
+            },
+            {
+              "name": "Futuristic",
+              "key": "futuristic",
+              "count": 582
+            },
+            {
+              "name": "Gambling",
+              "key": "gambling",
+              "count": 13
+            },
+            {
+              "name": "Gaming",
+              "key": "gaming",
+              "count": 81
+            },
+            {
+              "name": "God Game",
+              "key": "god_game",
+              "count": 87
+            },
+            {
+              "name": "Golf",
+              "key": "golf",
+              "count": 3
+            },
+            {
+              "name": "Gothic",
+              "key": "gothic",
+              "count": 20
+            },
+            {
+              "name": "Grand Strategy",
+              "key": "grand_strategy",
+              "count": 718
+            },
+            {
+              "name": "Great Soundtrack",
+              "key": "great_soundtrack",
+              "count": 142
+            },
+            {
+              "name": "Grid-Based Movement",
+              "key": "grid_based_movement",
+              "count": 139
+            },
+            {
+              "name": "Gun Customization",
+              "key": "gun_customization",
+              "count": 191
+            },
+            {
+              "name": "Hacking",
+              "key": "hacking",
+              "count": 21
+            },
+            {
+              "name": "Hand-drawn",
+              "key": "hand_drawn",
+              "count": 266
+            },
+            {
+              "name": "Heist",
+              "key": "heist",
+              "count": 22
+            },
+            {
+              "name": "Hentai",
+              "key": "hentai",
+              "count": 79
+            },
+            {
+              "name": "Hero Shooter",
+              "key": "hero_shooter",
+              "count": 155
+            },
+            {
+              "name": "Hex Grid",
+              "key": "hex_grid",
+              "count": 235
+            },
+            {
+              "name": "Hidden Object",
+              "key": "hidden_object",
+              "count": 72
+            },
+            {
+              "name": "Hobby Sim",
+              "key": "hobby_sim",
+              "count": 1
+            },
+            {
+              "name": "Hockey",
+              "key": "hockey",
+              "count": 4
+            },
+            {
+              "name": "Horses",
+              "key": "horses",
+              "count": 24
+            },
+            {
+              "name": "Hunting",
+              "key": "hunting",
+              "count": 24
+            },
+            {
+              "name": "Idler",
+              "key": "idler",
+              "count": 110
+            },
+            {
+              "name": "Illuminati",
+              "key": "illuminati",
+              "count": 7
+            },
+            {
+              "name": "Immersive",
+              "key": "immersive",
+              "count": 373
+            },
+            {
+              "name": "Immersive Sim",
+              "key": "immersive_sim",
+              "count": 331
+            },
+            {
+              "name": "Indie",
+              "key": "indie",
+              "count": 5735
+            },
+            {
+              "name": "Instrumental Music",
+              "key": "instrumental_music",
+              "count": 1
+            },
+            {
+              "name": "Intentionally Awkward Controls",
+              "key": "intentionally_awkward_controls",
+              "count": 1
+            },
+            {
+              "name": "Inventory Management",
+              "key": "inventory_management",
+              "count": 128
+            },
+            {
+              "name": "Investigation",
+              "key": "investigation",
+              "count": 84
+            },
+            {
+              "name": "Isometric",
+              "key": "isometric",
+              "count": 332
+            },
+            {
+              "name": "Jet",
+              "key": "jet",
+              "count": 18
+            },
+            {
+              "name": "LEGO",
+              "key": "lego",
+              "count": 3
+            },
+            {
+              "name": "Lemmings",
+              "key": "lemmings",
+              "count": 4
+            },
+            {
+              "name": "LGBTQ+",
+              "key": "lgbtq",
+              "count": 70
+            },
+            {
+              "name": "Life Sim",
+              "key": "life_sim",
+              "count": 73
+            },
+            {
+              "name": "Linear",
+              "key": "linear",
+              "count": 345
+            },
+            {
+              "name": "Logic",
+              "key": "logic",
+              "count": 149
+            },
+            {
+              "name": "Loot",
+              "key": "loot",
+              "count": 93
+            },
+            {
+              "name": "Lore-Rich",
+              "key": "lore_rich",
+              "count": 211
+            },
+            {
+              "name": "Lovecraftian",
+              "key": "lovecraftian",
+              "count": 34
+            },
+            {
+              "name": "Magic",
+              "key": "magic",
+              "count": 358
+            },
+            {
+              "name": "Mahjong",
+              "key": "mahjong",
+              "count": 1
+            },
+            {
+              "name": "Mars",
+              "key": "mars",
+              "count": 34
+            },
+            {
+              "name": "Martial Arts",
+              "key": "martial_arts",
+              "count": 38
+            },
+            {
+              "name": "Match 3",
+              "key": "match_3",
+              "count": 18
+            },
+            {
+              "name": "Mature",
+              "key": "mature",
+              "count": 31
+            },
+            {
+              "name": "Mechs",
+              "key": "mechs",
+              "count": 209
+            },
+            {
+              "name": "Medical Sim",
+              "key": "medical_sim",
+              "count": 15
+            },
+            {
+              "name": "Memes",
+              "key": "memes",
+              "count": 79
+            },
+            {
+              "name": "Metroidvania",
+              "key": "metroidvania",
+              "count": 30
+            },
+            {
+              "name": "Military",
+              "key": "military",
+              "count": 2609
+            },
+            {
+              "name": "Minigames",
+              "key": "minigames",
+              "count": 26
+            },
+            {
+              "name": "Minimalist",
+              "key": "minimalist",
+              "count": 358
+            },
+            {
+              "name": "Mining",
+              "key": "mining",
+              "count": 37
+            },
+            {
+              "name": "MOBA",
+              "key": "moba",
+              "count": 101
+            },
+            {
+              "name": "Modern",
+              "key": "modern",
+              "count": 291
+            },
+            {
+              "name": "Motocross",
+              "key": "motocross",
+              "count": 2
+            },
+            {
+              "name": "Motorbike",
+              "key": "motorbike",
+              "count": 5
+            },
+            {
+              "name": "Multiple Endings",
+              "key": "multiple_endings",
+              "count": 379
+            },
+            {
+              "name": "Music-Based Procedural Generation",
+              "key": "music_based_procedural_generation",
+              "count": 1
+            },
+            {
+              "name": "Musou",
+              "key": "musou",
+              "count": 6
+            },
+            {
+              "name": "Mystery Dungeon",
+              "key": "mystery_dungeon",
+              "count": 14
+            },
+            {
+              "name": "Mythology",
+              "key": "mythology",
+              "count": 111
+            },
+            {
+              "name": "Narration",
+              "key": "narration",
+              "count": 61
+            },
+            {
+              "name": "Narrative",
+              "key": "narrative",
+              "count": 101
+            },
+            {
+              "name": "Nature",
+              "key": "nature",
+              "count": 92
+            },
+            {
+              "name": "Naval",
+              "key": "naval",
+              "count": 299
+            },
+            {
+              "name": "Naval Combat",
+              "key": "naval_combat",
+              "count": 203
+            },
+            {
+              "name": "Ninja",
+              "key": "ninja",
+              "count": 43
+            },
+            {
+              "name": "Noir",
+              "key": "noir",
+              "count": 53
+            },
+            {
+              "name": "Nonlinear",
+              "key": "nonlinear",
+              "count": 115
+            },
+            {
+              "name": "Nostalgia",
+              "key": "nostalgia",
+              "count": 16
+            },
+            {
+              "name": "NSFW",
+              "key": "nsfw",
+              "count": 10
+            },
+            {
+              "name": "Offroad",
+              "key": "offroad",
+              "count": 11
+            },
+            {
+              "name": "Old School",
+              "key": "old_school",
+              "count": 370
+            },
+            {
+              "name": "Open World Survival Craft",
+              "key": "open_world_survival_craft",
+              "count": 15
+            },
+            {
+              "name": "Otome",
+              "key": "otome",
+              "count": 7
+            },
+            {
+              "name": "Outbreak Sim",
+              "key": "outbreak_sim",
+              "count": 27
+            },
+            {
+              "name": "Parkour",
+              "key": "parkour",
+              "count": 30
+            },
+            {
+              "name": "Parody",
+              "key": "parody",
+              "count": 45
+            },
+            {
+              "name": "Party-Based RPG",
+              "key": "party_based_rpg",
+              "count": 113
+            },
+            {
+              "name": "Perma Death",
+              "key": "perma_death",
+              "count": 147
+            },
+            {
+              "name": "Philosophical",
+              "key": "philosophical",
+              "count": 57
+            },
+            {
+              "name": "Physics",
+              "key": "physics",
+              "count": 442
+            },
+            {
+              "name": "Pirates",
+              "key": "pirates",
+              "count": 40
+            },
+            {
+              "name": "Pixel Graphics",
+              "key": "pixel_graphics",
+              "count": 871
+            },
+            {
+              "name": "Politics",
+              "key": "politics",
+              "count": 392
+            },
+            {
+              "name": "Pool",
+              "key": "pool",
+              "count": 1
+            },
+            {
+              "name": "Precision Platformer",
+              "key": "precision_platformer",
+              "count": 22
+            },
+            {
+              "name": "Procedural Generation",
+              "key": "procedural_generation",
+              "count": 304
+            },
+            {
+              "name": "Psychedelic",
+              "key": "psychedelic",
+              "count": 36
+            },
+            {
+              "name": "Psychological",
+              "key": "psychological",
+              "count": 271
+            },
+            {
+              "name": "Psychological Horror",
+              "key": "psychological_horror",
+              "count": 217
+            },
+            {
+              "name": "Puzzle Platformer",
+              "key": "puzzle_platformer",
+              "count": 48
+            },
+            {
+              "name": "Quick-Time Events",
+              "key": "quick_time_events",
+              "count": 61
+            },
+            {
+              "name": "Real-Time",
+              "key": "real_time",
+              "count": 277
+            },
+            {
+              "name": "Real-Time with Pause",
+              "key": "real_time_with_pause",
+              "count": 102
+            },
+            {
+              "name": "Realistic",
+              "key": "realistic",
+              "count": 1074
+            },
+            {
+              "name": "Relaxing",
+              "key": "relaxing",
+              "count": 196
+            },
+            {
+              "name": "Remake",
+              "key": "remake",
+              "count": 27
+            },
+            {
+              "name": "Replay Value",
+              "key": "replay_value",
+              "count": 217
+            },
+            {
+              "name": "Resource Management",
+              "key": "resource_management",
+              "count": 709
+            },
+            {
+              "name": "Retro",
+              "key": "retro",
+              "count": 757
+            },
+            {
+              "name": "Robots",
+              "key": "robots",
+              "count": 297
+            },
+            {
+              "name": "Roguelike",
+              "key": "roguelike",
+              "count": 552
+            },
+            {
+              "name": "Roguelike Deckbuilder",
+              "key": "roguelike_deckbuilder",
+              "count": 25
+            },
+            {
+              "name": "Roguelite",
+              "key": "roguelite",
+              "count": 385
+            },
+            {
+              "name": "Roguevania",
+              "key": "roguevania",
+              "count": 2
+            },
+            {
+              "name": "Rome",
+              "key": "rome",
+              "count": 65
+            },
+            {
+              "name": "Runner",
+              "key": "runner",
+              "count": 47
+            },
+            {
+              "name": "Sailing",
+              "key": "sailing",
+              "count": 36
+            },
+            {
+              "name": "Satire",
+              "key": "satire",
+              "count": 73
+            },
+            {
+              "name": "Science",
+              "key": "science",
+              "count": 242
+            },
+            {
+              "name": "Score Attack",
+              "key": "score_attack",
+              "count": 168
+            },
+            {
+              "name": "Sequel",
+              "key": "sequel",
+              "count": 15
+            },
+            {
+              "name": "Shop Keeper",
+              "key": "shop_keeper",
+              "count": 19
+            },
+            {
+              "name": "Short",
+              "key": "short",
+              "count": 171
+            },
+            {
+              "name": "Silent Protagonist",
+              "key": "silent_protagonist",
+              "count": 4
+            },
+            {
+              "name": "Skating",
+              "key": "skating",
+              "count": 1
+            },
+            {
+              "name": "Skiing",
+              "key": "skiing",
+              "count": 1
+            },
+            {
+              "name": "Sniper",
+              "key": "sniper",
+              "count": 156
+            },
+            {
+              "name": "Snow",
+              "key": "snow",
+              "count": 26
+            },
+            {
+              "name": "Snowboarding",
+              "key": "snowboarding",
+              "count": 1
+            },
+            {
+              "name": "Social Deduction",
+              "key": "social_deduction",
+              "count": 2
+            },
+            {
+              "name": "Sokoban",
+              "key": "sokoban",
+              "count": 6
+            },
+            {
+              "name": "Solitaire",
+              "key": "solitaire",
+              "count": 26
+            },
+            {
+              "name": "Souls-like",
+              "key": "souls_like",
+              "count": 69
+            },
+            {
+              "name": "Soundtrack",
+              "key": "soundtrack",
+              "count": 165
+            },
+            {
+              "name": "Space",
+              "key": "space",
+              "count": 720
+            },
+            {
+              "name": "Spaceships",
+              "key": "spaceships",
+              "count": 27
+            },
+            {
+              "name": "Spectacle fighter",
+              "key": "spectacle_fighter",
+              "count": 94
+            },
+            {
+              "name": "Spelling",
+              "key": "spelling",
+              "count": 4
+            },
+            {
+              "name": "Steampunk",
+              "key": "steampunk",
+              "count": 69
+            },
+            {
+              "name": "Story Rich",
+              "key": "story_rich",
+              "count": 990
+            },
+            {
+              "name": "Strategy RPG",
+              "key": "strategy_rpg",
+              "count": 474
+            },
+            {
+              "name": "Stylized",
+              "key": "stylized",
+              "count": 781
+            },
+            {
+              "name": "Submarine",
+              "key": "submarine",
+              "count": 83
+            },
+            {
+              "name": "Superhero",
+              "key": "superhero",
+              "count": 52
+            },
+            {
+              "name": "Supernatural",
+              "key": "supernatural",
+              "count": 69
+            },
+            {
+              "name": "Surreal",
+              "key": "surreal",
+              "count": 103
+            },
+            {
+              "name": "Swordplay",
+              "key": "swordplay",
+              "count": 114
+            },
+            {
+              "name": "Tabletop",
+              "key": "tabletop",
+              "count": 283
+            },
+            {
+              "name": "Tactical RPG",
+              "key": "tactical_rpg",
+              "count": 398
+            },
+            {
+              "name": "Tanks",
+              "key": "tanks",
+              "count": 672
+            },
+            {
+              "name": "Team-Based",
+              "key": "team_based",
+              "count": 358
+            },
+            {
+              "name": "Tennis",
+              "key": "tennis",
+              "count": 5
+            },
+            {
+              "name": "Text-Based",
+              "key": "text_based",
+              "count": 177
+            },
+            {
+              "name": "Third Person",
+              "key": "third_person",
+              "count": 898
+            },
+            {
+              "name": "Time Attack",
+              "key": "time_attack",
+              "count": 16
+            },
+            {
+              "name": "Time Management",
+              "key": "time_management",
+              "count": 100
+            },
+            {
+              "name": "Time Manipulation",
+              "key": "time_manipulation",
+              "count": 29
+            },
+            {
+              "name": "Time Travel",
+              "key": "time_travel",
+              "count": 43
+            },
+            {
+              "name": "Top-Down",
+              "key": "top_down",
+              "count": 1580
+            },
+            {
+              "name": "Tower Defense",
+              "key": "tower_defense",
+              "count": 692
+            },
+            {
+              "name": "TrackIR",
+              "key": "trackir",
+              "count": 8
+            },
+            {
+              "name": "Trading",
+              "key": "trading",
+              "count": 574
+            },
+            {
+              "name": "Traditional Roguelike",
+              "key": "traditional_roguelike",
+              "count": 14
+            },
+            {
+              "name": "Trains",
+              "key": "trains",
+              "count": 23
+            },
+            {
+              "name": "Transhumanism",
+              "key": "transhumanism",
+              "count": 16
+            },
+            {
+              "name": "Transportation",
+              "key": "transportation",
+              "count": 29
+            },
+            {
+              "name": "Turn-Based",
+              "key": "turn_based",
+              "count": 1570
+            },
+            {
+              "name": "Tutorial",
+              "key": "tutorial",
+              "count": 145
+            },
+            {
+              "name": "Twin Stick Shooter",
+              "key": "twin_stick_shooter",
+              "count": 98
+            },
+            {
+              "name": "Typing",
+              "key": "typing",
+              "count": 18
+            },
+            {
+              "name": "Underground",
+              "key": "underground",
+              "count": 33
+            },
+            {
+              "name": "Underwater",
+              "key": "underwater",
+              "count": 39
+            },
+            {
+              "name": "Vampire",
+              "key": "vampire",
+              "count": 6
+            },
+            {
+              "name": "Vehicular Combat",
+              "key": "vehicular_combat",
+              "count": 406
+            },
+            {
+              "name": "Vikings",
+              "key": "vikings",
+              "count": 14
+            },
+            {
+              "name": "Villain Protagonist",
+              "key": "villain_protagonist",
+              "count": 21
+            },
+            {
+              "name": "Voice Control",
+              "key": "voice_control",
+              "count": 7
+            },
+            {
+              "name": "Voxel",
+              "key": "voxel",
+              "count": 68
+            },
+            {
+              "name": "War",
+              "key": "war",
+              "count": 9083
+            },
+            {
+              "name": "Wargame",
+              "key": "wargame",
+              "count": 2137
+            },
+            {
+              "name": "Warhammer 40K",
+              "key": "warhammer_40k",
+              "count": 9
+            },
+            {
+              "name": "Werewolves",
+              "key": "werewolves",
+              "count": 8
+            },
+            {
+              "name": "Western",
+              "key": "western",
+              "count": 34
+            },
+            {
+              "name": "Wholesome",
+              "key": "wholesome",
+              "count": 9
+            },
+            {
+              "name": "World War I",
+              "key": "world_war_i",
+              "count": 426
+            },
+            {
+              "name": "World War II",
+              "key": "world_war_ii",
+              "count": 1319
+            },
+            {
+              "name": "Wrestling",
+              "key": "wrestling",
+              "count": 6
+            },
+            {
+              "name": "Zombies",
+              "key": "zombies",
+              "count": 330
+            }
+          ],
+          "filter_type": "COLLECTION",
+          "filter_connection": "OR"
+        },
+        {
+          "name": "Important",
+          "key": "feature",
+          "values": [
+            {
+              "name": "Free",
+              "key": "free",
+              "count": 1754
+            },
+            {
+              "name": "50h+ playtime",
+              "key": "50h_playtime",
+              "count": 304
+            },
+            {
+              "name": "Great Story",
+              "key": "great_story",
+              "count": 197
+            },
+            {
+              "name": "Beautiful Graphics",
+              "key": "beautiful_graphics",
+              "count": 416
+            },
+            {
+              "name": "Hilarious",
+              "key": "hilarious",
+              "count": 409
+            },
+            {
+              "name": "Good Gameplay",
+              "key": "good_gameplay",
+              "count": 340
+            },
+            {
+              "name": "Emotional",
+              "key": "emotional",
+              "count": 217
+            },
+            {
+              "name": "Atmospheric",
+              "key": "atmospheric",
+              "count": 168
+            },
+            {
+              "name": "Wonderful Music",
+              "key": "wonderful_music",
+              "count": 266
+            },
+            {
+              "name": "High Replayability",
+              "key": "high_replayability",
+              "count": 120
+            }
+          ],
+          "filter_type": "COLLECTION",
+          "filter_connection": "AND"
+        }
+      ],
+      "sorting_options": [
+        {
+          "name": "Rating",
+          "sort": "DESC",
+          "key": "computed_rating"
+        },
+        {
+          "name": "Price",
+          "sort": "ASC",
+          "key": "price"
+        },
+        {
+          "name": "Release Date",
+          "sort": "DESC",
+          "key": "release_date"
+        }
+      ]
+    }
+  },
+  "details": {
+    "path": "/games/1273796",
+    "status": 200,
+    "body": {
+      "id": 942601,
+      "name": "Kingdom Come: Deliverance II",
+      "image": "https://img.gamebrain.co/games/534/kingdom_come_deliverance_2_warhorse_2024_21.jpg",
+      "image_aspect_ratio": 2.13953,
+      "gameplay": "https://cdn.akamai.steamstatic.com/steam/apps/257029338/microtrailer.webm",
+      "link": "https://gamebrain.co/game/kingdom-come-deliverance-2",
+      "rating": {
+        "mean": 0.935117445807245,
+        "count": 73949,
+        "mean_players": 0.935117445807245,
+        "count_players": 73949,
+        "mean_critics": null,
+        "count_critics": 0
+      },
+      "description": "Discover Kingdom Come: Deliverance II on the official PlayStation website. Check out the latest trailers, gameplay features, screenshots and more, and choose your PS5 edition of this historical action-RPG.",
+      "short_description": "Discover Kingdom Come: Deliverance II on the official PlayStation website. Check out the latest trailers, gameplay features, screenshots and more, and choose your PS5 edition of this historical action-RPG.",
+      "release_date": "2025-02-04",
+      "developer": "Warhorse Studios",
+      "playtime": {
+        "percentiles": [
+          3,
+          8,
+          14,
+          30,
+          42,
+          60,
+          87,
+          107,
+          157,
+          1000
+        ],
+        "mentions": 683,
+        "min": 1,
+        "max": 1000,
+        "mean": 71.91800878477308,
+        "median": 51
+      },
+      "platforms": [
+        {
+          "value": "xbox_series_xs",
+          "name": "Xbox Series X|S"
+        },
+        {
+          "value": "pc",
+          "name": "PC"
+        },
+        {
+          "value": "x_box_game_pass",
+          "name": "Xbox Game Pass"
+        },
+        {
+          "value": "playstation_5",
+          "name": "Playstation 5"
+        },
+        {
+          "value": "cloud_platform",
+          "name": "Cloud Platform"
+        },
+        {
+          "value": "x_box_cloud_gaming",
+          "name": "Xbox Cloud Gaming"
+        },
+        {
+          "value": "xbox",
+          "name": "XBox"
+        },
+        {
+          "value": "nvidia_geforce_now",
+          "name": "Nvidia Geforce Now"
+        },
+        {
+          "value": "windows",
+          "name": "Windows"
+        },
+        {
+          "value": "playstation",
+          "name": "Playstation"
+        }
+      ],
+      "tags": [
+        {
+          "value": "first_person",
+          "name": "First-Person"
+        },
+        {
+          "value": "politics",
+          "name": "Politics"
+        },
+        {
+          "value": "lgbtq",
+          "name": "LGBTQ+"
+        },
+        {
+          "value": "gaming",
+          "name": "Gaming"
+        },
+        {
+          "value": "mature",
+          "name": "Mature"
+        },
+        {
+          "value": "swordplay",
+          "name": "Swordplay"
+        },
+        {
+          "value": "combat",
+          "name": "Combat"
+        },
+        {
+          "value": "3d",
+          "name": "3D"
+        },
+        {
+          "value": "realistic",
+          "name": "Realistic"
+        },
+        {
+          "value": "alternate_history",
+          "name": "Alternate History"
+        },
+        {
+          "value": "choices_matter",
+          "name": "Choices Matter"
+        },
+        {
+          "value": "immersive",
+          "name": "Immersive"
+        },
+        {
+          "value": "atmospheric",
+          "name": "Atmospheric"
+        },
+        {
+          "value": "story_rich",
+          "name": "Story Rich"
+        }
+      ],
+      "genres": [
+        {
+          "value": "role_playing",
+          "name": "Role Playing"
+        },
+        {
+          "value": "open_world",
+          "name": "Open World"
+        },
+        {
+          "value": "simulation",
+          "name": "Simulation"
+        },
+        {
+          "value": "action",
+          "name": "Action"
+        },
+        {
+          "value": "adventure",
+          "name": "Adventure"
+        },
+        {
+          "value": "action_adventure",
+          "name": "Action-Adventure"
+        }
+      ],
+      "genre": "Open World Role Playing",
+      "themes": [
+        {
+          "value": "medieval",
+          "name": "Medieval"
+        },
+        {
+          "value": "historical",
+          "name": "Historical"
+        }
+      ],
+      "adult_only": true,
+      "play_modes": [
+        {
+          "value": "single_player",
+          "name": "Single-Player"
+        }
+      ],
+      "screenshots": [
+        "https://img.gamebrain.co/games/644/kingdom_come_deliverance_2_warhorse_2024_40.webp",
+        "https://img.gamebrain.co/games/648/kingdom_come_deliverance_2_warhorse_2024_44.webp",
+        "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2025_19.webp",
+        "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2024_38.webp",
+        "https://img.gamebrain.co/games/649/kingdom_come_deliverance_2_warhorse_2024_27.webp",
+        "https://img.gamebrain.co/games/644/kingdom_come_deliverance_2_warhorse_2024_31.webp",
+        "https://img.gamebrain.co/games/643/kingdom_come_deliverance_2_warhorse_2024_30.webp",
+        "https://img.gamebrain.co/games/646/kingdom_come_deliverance_2_warhorse_2024_33.webp",
+        "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2024_29.webp",
+        "https://img.gamebrain.co/games/650/kingdom_come_deliverance_2_warhorse_2024_46.webp",
+        "https://img.gamebrain.co/games/648/kingdom_come_deliverance_2_warhorse_2024_35.webp",
+        "https://img.gamebrain.co/games/645/kingdom_come_deliverance_2_warhorse_2024_41.webp",
+        "https://img.gamebrain.co/games/539/kingdom_come_deliverance_2_warhorse_2024_26.jpg",
+        "https://img.gamebrain.co/games/647/kingdom_come_deliverance_2_warhorse_2024_43.webp",
+        "https://img.gamebrain.co/games/652/kingdom_come_deliverance_2_warhorse_2024_39.webp",
+        "https://img.gamebrain.co/games/649/kingdom_come_deliverance_2_warhorse_2024_45.webp",
+        "https://img.gamebrain.co/games/645/kingdom_come_deliverance_2_warhorse_2024_32.webp",
+        "https://img.gamebrain.co/games/103/kingdom_come_warhorse_2025_9.png",
+        "https://img.gamebrain.co/games/650/kingdom_come_deliverance_2_warhorse_2024_37.webp",
+        "https://img.gamebrain.co/games/644/kingdom_come_deliverance_2_warhorse_2025_21.webp",
+        "https://img.gamebrain.co/games/643/kingdom_come_deliverance_2_warhorse_2025_20.webp",
+        "https://img.gamebrain.co/games/650/kingdom_come_deliverance_2_warhorse_2024_28.webp",
+        "https://img.gamebrain.co/games/646/kingdom_come_deliverance_2_warhorse_2024_42.webp",
+        "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2024_47.webp",
+        "https://img.gamebrain.co/games/649/kingdom_come_deliverance_2_warhorse_2024_36.webp"
+      ],
+      "videos": [
+        "https://cdn.akamai.steamstatic.com/steam/apps/257029338/movie480_vp9.webm",
+        "https://youtube-nocookie.com/embed/wMZFM6JC47Q?si=0kmOIcWijUoMB1s4",
+        "https://www.youtube-nocookie.com/embed/BQu-uuQYrXY",
+        "https://cdn.akamai.steamstatic.com/steam/apps/257015290/movie480_vp9.webm",
+        "https://www.youtube-nocookie.com/embed/EnxCq19C9dA"
+      ],
+      "offers": [
+        {
+          "price": {
+            "value": 59.99,
+            "currency": "USD",
+            "initial": 59.99,
+            "discount_percent": 0
+          },
+          "store_name": "steam",
+          "platform": "PC",
+          "url": "https://store.steampowered.com/app/1771300"
+        },
+        {
+          "price": {
+            "value": 31.49,
+            "currency": "USD"
+          },
+          "store_name": "playstation",
+          "platform": "PS5",
+          "title": "Kingdom Come: Deliverance II",
+          "url": "https://www.playstation.com/en-us/games/kingdom-come-deliverance-ii/"
+        }
+      ],
+      "official_stores": [
+        {
+          "source": "steam",
+          "url": "https://store.steampowered.com/app/1771300"
+        },
+        {
+          "source": "xbox",
+          "url": "https://www.xbox.com/en-US/games/store/kingdom-come-deliverance-ii/9N4W31HSMVVD"
+        },
+        {
+          "source": "xbox",
+          "url": "https://www.xbox.com/en-US/games/store/kingdom-come-deliverance-ii-gold-edition/9PBHX1S4DGZ4"
+        },
+        {
+          "source": "playstation",
+          "url": "https://www.playstation.com/en-us/games/kingdom-come-deliverance-ii/"
+        }
+      ],
+      "micro_trailer": "https://cdn.akamai.steamstatic.com/steam/apps/257029338/microtrailer.webm"
+    }
+  },
+  "suggestions": {
+    "path": "/games/suggestions?query=god&limit=3",
+    "status": 200,
+    "body": {
+      "results": [
+        {
+          "id": 238442,
+          "year": 2018,
+          "name": "God of War",
+          "genre": "Hack and Slash",
+          "image": "https://img.gamebrain.co/games/865/god_of_war_santamonica_2018_1.jpg",
+          "link": "https://gamebrain.co/game/god-of-war",
+          "rating": {
+            "mean": 0.945242737437217,
+            "count": 79321
+          },
+          "adult_only": true
+        },
+        {
+          "id": 1740083,
+          "year": 2021,
+          "name": "God of World",
+          "genre": "Simulation",
+          "image": "https://img.gamebrain.co/games/472/god_of_world_pixio_2021_1.png",
+          "link": "https://gamebrain.co/game/god-of-world",
+          "rating": {
+            "mean": 0.9309999999999999,
+            "count": 41105
+          },
+          "adult_only": false
+        },
+        {
+          "id": 1051615,
+          "year": 2024,
+          "name": "God of War Ragnarök",
+          "genre": "Role Playing",
+          "image": "https://img.gamebrain.co/games/382/god_of_war_ragnarok_jetpack_2024_1.jpg",
+          "link": "https://gamebrain.co/game/god-of-war-ragnarok-2024",
+          "rating": {
+            "mean": 0.893556999647372,
+            "count": 19851
+          },
+          "adult_only": true
+        }
+      ]
+    }
+  },
+  "similar": {
+    "path": "/games/1273796/similar?limit=2",
+    "status": 200,
+    "body": {
+      "results": []
+    }
+  },
+  "news": {
+    "path": "/games/1273796/news?limit=2",
+    "status": 200,
+    "body": {
+      "news": [
+        {
+          "title": "Kingdom Come: Deliverance 2 lead says Nvidia DLSS 5 backlash is \"really funny,\" and that \"most talented people I know\" use AI",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-lead-says-nvidia-dlss-5-backlash-is-really-funny-and-that-most-talented-people-i-know-use-ai",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/kCQpdSfWxtvBYcqmyZru7n-1920-80.jpg",
+          "published": "2026-09-01"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 director not wowed by GTA 6 – \"Two uninteresting sociopaths chaotically committing mass murders\"",
+          "url": "https://www.gamesradar.com/games/grand-theft-auto/kingdom-come-deliverance-2-director-not-wowed-by-gta-6-two-uninteresting-sociopaths-chaotically-committing-mass-murders",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/osjJbDJU3hizuNLChNig4J-1920-80.jpg",
+          "published": "2026-08-28"
+        },
+        {
+          "title": "Proving Kingdom Come: Deliverance 2's authenticity, Warhorse's biggest fan hikes through Czechia \"by foot\" to make 3D maps of the RPG's historical locations",
+          "url": "https://www.gamesradar.com/games/action-rpg/proving-kingdom-come-deliverance-2s-authenticity-warhorses-biggest-fan-hikes-through-czechia-by-foot-to-make-3d-maps-of-the-rpgs-historical-locations",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/PNCgM4VHt2xuX7WYjHM6GP-1920-80.jpg",
+          "published": "2026-08-26"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 is \"the eternal game,\" says Final Fantasy 15 actor: \"The perfect encapsulation of what a roleplaying game should be\"",
+          "url": "https://www.gamesradar.com/games/action-rpg/kingdom-come-deliverance-2-is-the-eternal-game-says-final-fantasy-15-actor-the-perfect-encapsulation-of-what-a-roleplaying-game-should-be",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/MBhJdN2VDMtnrUHtv82nhR-1920-80.jpg",
+          "published": "2026-08-24"
+        },
+        {
+          "title": "Ray Chase, the voice of Cyclops in X-Men '97, has '1,000 freaking hours' in Slay the Spire and is running a 'smell build' in Kingdom Come: Deliverance 2: ' I wear perfumes and walk into battle with my fancy boy outfit'",
+          "url": "https://www.pcgamer.com/gaming-industry/ray-chase-the-voice-of-cyclops-in-x-men-97-has-1-000-freaking-hours-in-slay-the-spire-and-is-running-a-smell-build-in-kingdom-come-deliverance-2-i-wear-perfumes-and-walk-into-battle-with-my-fancy-boy-outfit",
+          "source": "pcgamer.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/Sfz85jsUosZLnAqaoUukbY-2560-80.png",
+          "published": "2026-08-23"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2's \"excellent storytelling\" praised by Red Dead Redemption 2 lead actor Roger Clark as he finally sits down to play Warhorse's RPG",
+          "url": "https://www.gamesradar.com/games/red-dead/kingdom-come-deliverance-2s-excellent-storytelling-praised-by-red-dead-redemption-2-lead-actor-roger-clark-as-he-finally-sits-down-to-play-warhorses-rpg",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/HRdzT2fqMrfK35Hz3cz9N5-1920-80.jpg",
+          "published": "2026-08-19"
+        },
+        {
+          "title": "Helldivers 2 is Out Now on PS Plus Extra/Premium, Kingdom Come: Deliverance 2 Coming Next Week",
+          "url": "https://gamingbolt.com/helldivers-2-is-out-now-on-ps-plus-extra-premium-kingdom-come-deliverance-2-coming-next-week",
+          "source": "gamingbolt.com",
+          "image": "https://gamingbolt.com/wp-content/uploads/2026/08/Helldivers-2.jpg",
+          "published": "2026-08-12"
+        },
+        {
+          "title": "Kingdom: Come Deliverance 2's Hans actor takes his role so seriously that he's opening a real \"medieval-inspired bar\" in the Czech capital, Prague",
+          "url": "https://www.gamesradar.com/games/action-rpg/kingdom-come-deliverance-2s-hans-actor-takes-his-role-so-seriously-that-hes-opening-a-real-medieval-inspired-bar-in-the-czech-capital-prague",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/XgWdkgRZT8hx3ydRet3Rrf-1920-80.jpg",
+          "published": "2026-08-04"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 star begs Rockstar Games to \"make me a cowboy\" as fans urge the studio to cast him in Red Dead Redemption 3",
+          "url": "https://www.gamesradar.com/games/red-dead/kingdom-come-deliverance-2-star-begs-rockstar-games-to-make-me-a-cowboy-as-fans-urge-the-studio-to-cast-him-in-red-dead-redemption-3",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/BMicjTXUijfTskiiVc8iLW-1920-80.jpg",
+          "published": "2026-07-10"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2's Hans Capon actor says the RPG's success hasn't led to more work, even though \"Warhorse have been absolute gems\"",
+          "url": "https://www.gamesradar.com/games/action-rpg/kingdom-come-deliverance-2s-hans-capon-actor-says-the-rpgs-success-hasnt-led-to-more-work-even-though-warhorse-have-been-absolute-gems",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/by4vnGSQwHAtHAeuViQ8UR-1920-80.jpg",
+          "published": "2026-07-06"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 team reminds you it's got another Kingdom Come and a Middle-earth game on the way as it tops 6,000,000 sales",
+          "url": "https://www.pcgamer.com/games/rpg/kingdom-come-deliverance-2-team-reminds-you-its-got-another-kingdom-come-and-a-middle-earth-game-on-the-way-as-it-tops-6-000-000-sales",
+          "source": "pcgamer.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/Bijh78rSfBJ3dx6K49q634-1920-80.jpg",
+          "published": "2026-06-30"
+        },
+        {
+          "title": "In under a year and a half, Kingdom Come: Deliverance 2 is over halfway to beating its predecessor's sales as it hits 6 million copies sold",
+          "url": "https://www.gamesradar.com/games/rpg/in-under-a-year-and-a-half-kingdom-come-deliverance-2-is-over-halfway-to-beating-its-predecessors-sales-as-it-hits-6-million-copies-sold",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/LqRWc4Xqgz9iSkRMTGbVSK-2560-80.jpg",
+          "published": "2026-06-29"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 sells 6 million copies worldwide",
+          "url": "https://www.eurogamer.net/kingdom-come-deliverance-2-6-million-copies-sold",
+          "source": "eurogamer.net",
+          "image": "https://assetsio.gnwcdn.com/KCDII_Standard_KA_Unbranded.png?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+          "published": "2026-06-28"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 Crosses 6 Million Sales, Adds Balatro-Themed Quest in New Update",
+          "url": "https://gamingbolt.com/kingdom-come-deliverance-2-crosses-6-million-sales-adds-balatro-themed-quest-in-new-update",
+          "source": "gamingbolt.com",
+          "image": "https://gamingbolt.com/wp-content/uploads/2024/12/kingdom-come-deliverance-2.jpg",
+          "published": "2026-06-25"
+        },
+        {
+          "title": "Kingdom Come Deliverance 2 adds Balatro's Jimbo in a surprise new quest with a huge addition to the RPG's best minigame",
+          "url": "https://www.gamesradar.com/games/action-rpg/kingdom-come-deliverance-2-adds-balatros-jimbo-in-a-surprise-new-quest-with-a-huge-addition-to-the-rpgs-best-minigame",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/8fYZCMJNUcswA53M6uzhAJ-1920-80.jpg",
+          "published": "2026-06-25"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 player figures out where the water in the game's most famous fountain comes from, and it's actually part of a \"nightmare\" for Warhorse",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-player-figures-out-where-the-water-in-the-games-most-famous-fountain-comes-from-and-its-actually-part-of-a-nightmare-for-warhorse",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/MBhJdN2VDMtnrUHtv82nhR-1920-80.jpg",
+          "published": "2026-06-16"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 devs hope to be the \"new kings\" of the RPG genre once they release their next medieval game and open-world Lord of the Rings project",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-devs-hope-to-be-the-new-kings-of-the-rpg-genre-once-they-release-their-next-medieval-game-and-open-world-lord-of-the-rings-project",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/6adF5xge5Bk4MPBxtvdxGa-1920-80.jpg",
+          "published": "2026-05-28"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 devs tease that their Lord of the Rings RPG will be \"deeply immersive\" with a \"strong narrative focus\"",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-devs-tease-that-their-lord-of-the-rings-rpg-will-be-deeply-immersive-with-a-strong-narrative-focus",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/kCQpdSfWxtvBYcqmyZru7n-1920-80.jpg",
+          "published": "2026-05-27"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 director says Ubisoft is the size of \"70 Warhorse sized studios\" even \"after layoffs,\" and it could make \"10 KCD2 sized games, each developed for 7 years, released every year\"",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-director-says-ubisoft-is-the-size-of-70-warhorse-sized-studios-even-after-layoffs-and-it-could-make-10-kcd2-sized-games-each-developed-for-7-years-released-every-year",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/djUdQuHcUwfeVYjDNYLpaD-1920-80.jpg",
+          "published": "2026-05-23"
+        },
+        {
+          "title": "An open-world Lord of the Rings RPG from the Kingdom Come: Deliverance 2 studio feels even more perfect when you spot all the Tolkien references in Warhorse's latest game",
+          "url": "https://www.gamesradar.com/games/rpg/an-open-world-lord-of-the-rings-rpg-from-the-kingdom-come-deliverance-2-studio-feels-even-more-perfect-when-you-spot-all-the-tolkien-references-in-warhorses-latest-game",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/on3m7nvuCo2tbaSCvRNPMN-1920-80.jpg",
+          "published": "2026-05-22"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 studio confirms Lord of the Rings rumors, Warhorse is making an \"open world Middle-earth RPG\"",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-studio-confirms-lord-of-the-rings-rumors-warhorse-is-making-an-open-world-middle-earth-rpg",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/XgWdkgRZT8hx3ydRet3Rrf-1920-80.jpg",
+          "published": "2026-05-20"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 studio Warhorse raises $65,000 to help preserve the real-life medieval castle that's Henry's homebase in the first RPG",
+          "url": "https://www.gamesradar.com/games/action-rpg/kingdom-come-deliverance-2-studio-warhorse-raises-usd65-000-to-help-preserve-the-real-life-medieval-castle-thats-henrys-homebase-in-the-first-rpg",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/dM7cf9et39gUqr7KpNAU6X-1920-80.jpg",
+          "published": "2026-05-14"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2's Henry actor recorded voice lines just to prevent you from cheating",
+          "url": "https://www.gamesradar.com/games/action-rpg/kingdom-come-deliverance-2s-henry-actor-recorded-voice-lines-just-to-prevent-you-from-cheating",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/epETH29XeDorPZUPFEy2cW-1920-80.jpg",
+          "published": "2026-05-12"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2’s Former Senior Game Designer Joins CD Projekt RED",
+          "url": "https://gamingbolt.com/kingdom-come-deliverance-2s-former-senior-game-designer-joins-cd-projekt-red",
+          "source": "gamingbolt.com",
+          "image": "https://gamingbolt.com/wp-content/uploads/2022/10/cd-projekt-red-logo.jpg",
+          "published": "2026-05-12"
+        },
+        {
+          "title": "Yet another Kingdom Come: Deliverance 2 lead joins CD Projekt Red as it juggles development on The Witcher 4, Cyberpunk 2, and more",
+          "url": "https://www.gamesradar.com/games/the-witcher/yet-another-kingdom-come-deliverance-2-lead-joins-cd-projekt-red-as-it-juggles-development-on-the-witcher-4-cyberpunk-2-and-more",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/dFfU3JzmjWSqiYjhb2qbSb-1920-80.jpg",
+          "published": "2026-05-11"
+        },
+        {
+          "title": "If you've ever had your shoes stolen in Kingdom Come Deliverance 2, that was apparently PC Gamer's fault, sorry",
+          "url": "https://www.pcgamer.com/games/rpg/if-youve-ever-had-your-shoes-stolen-in-kingdom-come-deliverance-2-that-was-apparently-pc-gamers-fault-sorry",
+          "source": "pcgamer.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/cNLtiQgGqKpJwS8aeAvNUX-1920-80.jpg",
+          "published": "2026-05-11"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 lead designer says \"friction is intentionally\" in the RPG because when \"you overcome the friction, you feel better about yourself\"",
+          "url": "https://www.gamesradar.com/games/action-rpg/kingdom-come-deliverance-2-lead-designer-says-friction-is-intentionally-in-the-rpg-because-when-you-overcome-the-friction-you-feel-better-about-yourself",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/kCQpdSfWxtvBYcqmyZru7n-1920-80.jpg",
+          "published": "2026-05-08"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 is getting its own €155 perfume",
+          "url": "https://www.videogameschronicle.com/news/kingdom-come-deliverance-2-is-getting-its-own-e155-perfume",
+          "source": "videogameschronicle.com",
+          "image": "https://www.videogameschronicle.com/files/2026/05/DSC01214-768x432.jpg",
+          "published": "2026-05-07"
+        },
+        {
+          "title": "Kingdom Come Deliverance 2 developer won't confirm whether it's working on a Lord of the Rings game, but has said whatever comes next, it will be \"an RPG true to our colours\"",
+          "url": "https://www.eurogamer.net/kingdom-come-deliverance-2-warhorse-lord-of-the-rings-rpg-rumour",
+          "source": "eurogamer.net",
+          "image": "https://assetsio.gnwcdn.com/Martin-Freeman-as-Bilbo-Baggins-in-the-Hobbit-films-with-an-image-of-Henry-from-Kingdom-Come-Deliverance-2-overlaid-to-the-left-hand-side.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+          "published": "2026-05-01"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 studio insists AI used in \"early stages of production\" only, dodges questions about translator allegedly replaced by AI but says \"we do not see AI as a substitute for human work\"",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-studio-insists-ai-used-in-early-stages-of-production-only-dodges-questions-about-translator-allegedly-replaced-by-ai-but-says-we-do-not-see-ai-as-a-substitute-for-human-work",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/kCQpdSfWxtvBYcqmyZru7n-1920-80.jpg",
+          "published": "2026-04-30"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 devs won't confirm or deny making a Lord of the Rings game, but are definitely making an \"immersive RPG rich with details\" that's \"hopefully not so buggy\"",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-devs-wont-confirm-or-deny-making-a-lord-of-the-rings-game-but-are-definitely-making-an-immersive-rpg-rich-with-details-thats-hopefully-not-so-buggy",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/76qPWdjm65qsv8KywnprBR-1920-80.jpg",
+          "published": "2026-04-30"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 boss sympathizes with \"struggle for survival\" of GTA-inspired crime game from Just Cause lead, says it \"could easily have happened\" to Warhorse's RPG",
+          "url": "https://www.gamesradar.com/games/action/kingdom-come-deliverance-2-boss-sympathizes-with-struggle-for-survival-of-gta-inspired-crime-game-from-just-cause-lead-says-it-could-easily-have-happened-to-warhorses-rpg",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/f2RpRLXkxpRKYksuyfDWqR-1920-80.jpg",
+          "published": "2026-04-29"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 star fan-casts himself as Aragorn in rumored Lord of the Rings game, would \"nudge it away\" from being anything like RPG hero Henry",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-star-fan-casts-himself-as-aragorn-in-rumored-lord-of-the-rings-game-would-nudge-it-away-from-being-anything-like-rpg-hero-henry",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/djUdQuHcUwfeVYjDNYLpaD-1920-80.jpg",
+          "published": "2026-04-23"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 director \"really proud\" the gay romance he pushed for, which is somehow totally different to \"woke\" games' representation, is up for awards",
+          "url": "https://www.rockpapershotgun.com/kingdom-come-deliverance-2-director-really-proud-the-gay-romance-he-pushed-for-which-is-somehow-totally-different-to-woke-games-representation-is-up-for-awards",
+          "source": "rockpapershotgun.com",
+          "image": "https://assetsio.gnwcdn.com/kingdom-come-deliverance-2-director-lgbt-award-not-woke-01.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+          "published": "2026-04-17"
+        },
+        {
+          "title": "10 Best open world RPGs to play in 2026, from Kingdom Come: Deliverance 2 to Elden Ring",
+          "url": "https://www.gamesradar.com/best-open-world-rpgs",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/RfFCR5SnLMLj477KiA9Djn-1920-80.jpg",
+          "published": "2026-04-17"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 chief \"really proud\" of LGBT Gayming Awards nom, insists Henry and Hans' gay romance isn't \"woke\" like other RPGs",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-chief-really-proud-of-lgbt-gayming-awards-nom-insists-henry-and-hans-gay-romance-isnt-woke-like-other-rpgs",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/zpiTGxGd87KNbjfic4XXZL-1920-80.jpg",
+          "published": "2026-04-17"
+        },
+        {
+          "title": "Baldur's Gate 3 and Clair Obscur: Expedition 33 may make Kingdom Come: Deliverance 2 look like the \"small kids in the playground,\" but star hopes it'll \"live in people's memory\" anyway",
+          "url": "https://www.gamesradar.com/games/rpg/baldurs-gate-3-and-clair-obscur-expedition-33-may-make-kingdom-come-deliverance-2-look-like-the-small-kids-in-the-playground-but-star-hopes-itll-live-in-peoples-memory-anyway",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/VvTdrtKH7gD2ptt4ZxxUbR-1920-80.jpg",
+          "published": "2026-04-15"
+        },
+        {
+          "title": "Kingdom Come Deliverance 2's full edition is massively discounted on Fanatical, but not for long",
+          "url": "https://www.pcgamesn.com/kingdom-come-deliverance-2/royal-edition-cheapest-price",
+          "source": "pcgamesn.com",
+          "image": "https://www.pcgamesn.com/wp-content/sites/pcgamesn/2026/04/kingdom-come-deliverance-2-royal-edition-fanatical.jpg",
+          "published": "2026-04-14"
+        },
+        {
+          "title": "Kingdom Come: Deliverance II DLC | Legacy of the Forge Review | Spawning Point",
+          "url": "https://newsboiler-www-website.azurewebsites.net/news/2687433/kingdom-come-deliverance-ii-dlc-legacy-of-the-forge-review-spawning-point",
+          "source": "azurewebsites.net",
+          "image": "https://newsboilerstorage.blob.core.windows.net/news/2687433_2_lg.png",
+          "published": "2026-04-09"
+        },
+        {
+          "title": "Kingdom Come: Deliverance II DLC | Brushes with Death Review | Spawning Point",
+          "url": "https://newsboiler-www-website.azurewebsites.net/news/2687414/kingdom-come-deliverance-ii-dlc-brushes-with-death-review-spawning-point",
+          "source": "azurewebsites.net",
+          "image": "https://newsboilerstorage.blob.core.windows.net/news/2687414_0_lg.png",
+          "published": "2026-04-09"
+        },
+        {
+          "title": "Kingdom Come Deliverance 2 translator claims they have been \"replaced with AI\"; Warhorse says they \"deeply value the people who shape our work\"",
+          "url": "https://www.pcgamesn.com/kingdom-come-deliverance-2/translator-ai-claims",
+          "source": "pcgamesn.com",
+          "image": "https://www.pcgamesn.com/wp-content/sites/pcgamesn/2026/03/kingdom-come-deliverance-2-translator-max-h-statement.jpg",
+          "published": "2026-03-31"
+        },
+        {
+          "title": "Rumours point to Kingdom Come: Deliverance 2 developer Warhorse Studios working on a big Lord of the Rings game",
+          "url": "https://www.eurogamer.net/kingdom-come-deliverance-2-developer-warhorse-studios-reportedly-working-on-lord-of-the-rings-game",
+          "source": "eurogamer.net",
+          "image": "https://assetsio.gnwcdn.com/return_of_the_king_-_h_-_2003.png?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+          "published": "2026-03-31"
+        },
+        {
+          "title": "Kingdom Come Deliverance 2 translator says he was “fired… and replaced with AI”",
+          "url": "https://stevivor.com/news/kingdom-come-deliverance-2-translator-says-he-was-fired-and-replaced-with-ai/",
+          "source": "stevivor.com",
+          "image": "https://stevivor.com/wp-content/uploads/2024/04/kingdom-come-deliverance-2.webp",
+          "published": "2026-03-29"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 Translator Laid Off After Studio Seemingly Pivots to AI",
+          "url": "https://gamingbolt.com/kingdom-come-deliverance-2-translator-laid-off-after-studio-seemingly-pivots-to-ai",
+          "source": "gamingbolt.com",
+          "image": "https://gamingbolt.com/wp-content/uploads/2024/12/kingdom-come-deliverance-2.jpg",
+          "published": "2026-03-29"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 translator says he was 'fired from Warhorse Studios and replaced with AI'",
+          "url": "https://www.pcgamer.com/games/rpg/kingdom-come-deliverance-2-translator-says-he-was-fired-from-warhorse-studios-and-replaced-with-ai/",
+          "source": "pcgamer.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/eRbmrygt4wdi7DqFdMufUa-1099-80.jpg",
+          "published": "2026-03-29"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 devs were \"experimenting\" for the first game, but came armed with knowledge and about 100 more staff members for the sequel: \"It had to stand taller\"",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-devs-were-experimenting-for-the-first-game-but-came-armed-with-knowledge-and-about-100-more-staff-members-for-the-sequel-it-had-to-stand-taller/",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/on3m7nvuCo2tbaSCvRNPMN-1920-80.jpg",
+          "published": "2026-03-29"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 translator claims Warhorse have laid him off in preference of using AI going forward",
+          "url": "https://www.rockpapershotgun.com/kingdom-come-deliverance-2-translator-claims-warhorse-have-laid-him-off-in-preference-of-using-ai-going-forward",
+          "source": "rockpapershotgun.com",
+          "image": "https://assetsio.gnwcdn.com/kingdom-come-deliverance-2_oWeHYYh.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+          "published": "2026-03-28"
+        },
+        {
+          "title": "New report claims Kingdom Come: Deliverance 2 studio fired translator to replace them with AI and \"save finances\"",
+          "url": "https://www.eurogamer.net/new-report-claims-kingdom-come-deliverance-2-studio-fired-translator-to-replace-them-with-ai-and-save-finances",
+          "source": "eurogamer.net",
+          "image": "https://assetsio.gnwcdn.com/KCDII_Standard_KA_Unbranded.png?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+          "published": "2026-03-28"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 dev says he was \"fired\" and replaced with AI: \"I feel incredibly betrayed by the management of the company I've come to care about\"",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-dev-says-he-was-fired-and-replaced-with-ai-i-feel-incredibly-betrayed-by-the-management-of-the-company-ive-come-to-care-about/",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/epETH29XeDorPZUPFEy2cW-1920-80.jpg",
+          "published": "2026-03-28"
+        },
+        {
+          "title": "Kingdom Come Deliverance 2 Director Speaks in Support of NVIDIA DLSS 5",
+          "url": "https://insider-gaming.com/kingdom-come-deliverance-2-director-speaks-in-support-of-nvidia-dlss-5/",
+          "source": "insider-gaming.com",
+          "image": "https://insider-gaming.com/wp-content/uploads/2025/04/kingdom-come-henry.jpg",
+          "published": "2026-03-26"
+        },
+        {
+          "title": "\"No way haters will stop this\": Kingdom Come: Deliverance 2 lead says AI tech like Nvidia DLSS 5 will \"replace expensive raytracing\" someday, and \"this is just a little uncanny beginning\"",
+          "url": "https://www.gamesradar.com/games/rpg/no-way-haters-will-stop-this-kingdom-come-deliverance-2-lead-says-ai-tech-like-nvidia-dlss-5-will-replace-expensive-raytracing-someday-and-this-is-just-a-little-uncanny-beginning/",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/on3m7nvuCo2tbaSCvRNPMN-1920-80.jpg",
+          "published": "2026-03-25"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 director defends DLSS 5: 'No way haters will stop this'",
+          "url": "https://www.pcgamer.com/software/ai/kingdom-come-deliverance-2-director-defends-dlss-5-no-way-haters-will-stop-this/",
+          "source": "pcgamer.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/nJzN67L9h77sWBRbzfauYU-1434-80.png",
+          "published": "2026-03-25"
+        },
+        {
+          "title": "\"Haters\" won't stop DLSS 5, says Kingdom Come Deliverance 2 director",
+          "url": "https://www.pcgamesn.com/kingdom-come-deliverance-2/daniel-vavra-dlss5",
+          "source": "pcgamesn.com",
+          "image": "https://www.pcgamesn.com/wp-content/sites/pcgamesn/2026/03/character-from-kingdom-come-deliverance-2.jpg",
+          "published": "2026-03-24"
+        },
+        {
+          "title": "March on Xbox Game Pass is a whopper, boasting Kingdom Come: Deliverance 2, Cyberpunk 2077, Planet of Lana 2 and more",
+          "url": "https://www.eurogamer.net/march-2026-xbox-game-pass-is-a-big-one",
+          "source": "eurogamer.net",
+          "image": "https://assetsio.gnwcdn.com/judy-cyberpunk.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+          "published": "2026-03-03"
+        },
+        {
+          "title": "Heroic madlad is working multiplayer into Kingdom Come: Deliverance 2, and the brass ring of the whole thing is functional 2-player Farkle",
+          "url": "https://www.pcgamer.com/games/rpg/heroic-madlad-is-working-multiplayer-into-kingdom-come-deliverance-2-and-the-brass-ring-of-the-whole-thing-is-functional-2-player-farkle/",
+          "source": "pcgamer.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/eRbmrygt4wdi7DqFdMufUa-1099-80.jpg",
+          "published": "2026-03-02"
+        },
+        {
+          "title": "A Kingdom Come: Deliverance 2 multiplayer mod is in the works, and you can try an experimental version already",
+          "url": "https://www.rockpapershotgun.com/a-kingdom-come-deliverance-2-multiplayer-mod-is-in-the-works-and-you-can-try-an-experimental-version-already",
+          "source": "rockpapershotgun.com",
+          "image": "https://assetsio.gnwcdn.com/kingdom-come-deliverance-2-multiplayer-mod-work-in-progress-01.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+          "published": "2026-02-27"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 studio co-founder reportedly steps down as creative director to focus on turning the RPG series into a movie or show",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-studio-co-founder-reportedly-steps-down-as-creative-director-to-focus-on-turning-the-rpg-series-into-a-movie-or-show/",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/on3m7nvuCo2tbaSCvRNPMN-1920-80.jpg",
+          "published": "2026-02-24"
+        },
+        {
+          "title": "Controversial Kingdom Come Deliverance 2 director Daniel Vavra steps down, and he's making a KCD movie",
+          "url": "https://www.pcgamesn.com/kingdom-come-deliverance-2/daniel-vavra-steps-down",
+          "source": "pcgamesn.com",
+          "image": "https://www.pcgamesn.com/wp-content/sites/pcgamesn/2026/02/daniel-vavra-ex-creative-director-of-warhorse-studios.jpg",
+          "published": "2026-02-24"
+        },
+        {
+          "title": "“Unapologetic honesty”: The craft behind the Kingdom Come: Deliverance 2 trailers",
+          "url": "https://www.escapistmagazine.com/kingdom-come-deliverance-2-trailer-interview/",
+          "source": "escapistmagazine.com",
+          "image": "https://www.escapistmagazine.com/wp-content/uploads/2026/02/Inside-the-Making-of-the-Kingdom-Come-Deliverance-2-Cinematic-and-BTS-Trailers.jpg",
+          "published": "2026-02-23"
+        },
+        {
+          "title": "Xbox Game Pass adds The Witcher 3, Kingdom Come: Deliverance II, and more",
+          "url": "https://www.videogamer.com/news/xbox-game-pass-adds-the-witcher-3-kingdom-come-deliverance-ii-and-more/",
+          "source": "videogamer.com",
+          "image": "https://www.videogamer.com/wp-content/uploads/Untitled-design-2026-01-08T174334.599.jpg",
+          "published": "2026-02-19"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 is scratching my Knight of the Seven Kingdoms itch",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-is-scratching-my-knight-of-the-seven-kingdoms-itch/",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/epETH29XeDorPZUPFEy2cW-1920-80.jpg",
+          "published": "2026-02-18"
+        },
+        {
+          "title": "Your Xbox Game Pass library is getting a serious upgrade with The Witcher 3, Kingdom Come: Deliverance II, and more - Digital Trends",
+          "url": "https://www.digitaltrends.com/gaming/your-xbox-game-pass-library-is-getting-a-serious-upgrade-with-the-witcher-3-kingdom-come-deliverance-ii-and-more/",
+          "source": "digitaltrends.com",
+          "image": "https://www.digitaltrends.com/tachyon/2026/02/Xbox-Console-Green-Image.jpg?resize=1200%2C630",
+          "published": "2026-02-18"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 is Coming to Game Pass in March",
+          "url": "https://gamingbolt.com/kingdom-come-deliverance-2-is-coming-to-game-pass-in-march",
+          "source": "gamingbolt.com",
+          "image": "https://gamingbolt.com/wp-content/uploads/2024/12/kingdom-come-deliverance-2.jpg",
+          "published": "2026-02-17"
+        },
+        {
+          "title": "Microsoft Announces Xbox Game Pass February 2026 Wave 2 Lineup, Including Witcher 3 and Kingdom Come Deliverance 2",
+          "url": "https://www.ign.com/articles/microsoft-announces-xbox-game-pass-february-2026-wave-2-lineup-including-witcher-3-and-kingdom-come-deliverance-2",
+          "source": "ign.com",
+          "image": "https://assets-prd.ignimgs.com/2023/10/11/game-pass-deal-ign-prime-day-2-2023-new-october-1697037530962.png?width=1280&format=jpg&auto=webp&quality=80",
+          "published": "2026-02-17"
+        },
+        {
+          "title": "Xbox has announced the rest of February’s Game Pass titles, including Kingdom Come: Deliverance 2",
+          "url": "https://www.videogameschronicle.com/news/xbox-has-announced-the-rest-of-februarys-game-pass-titles-including-kingdom-come-deliverance-2/",
+          "source": "videogameschronicle.com",
+          "image": "https://www.videogameschronicle.com/files/2025/02/KCD2_Announce_10_Clinch-1920-768x432.jpg",
+          "published": "2026-02-17"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 Is Likely Coming To Xbox Game Pass",
+          "url": "https://www.thegamer.com/kingdom-come-deliverance-2-kcd2-on-game-pass/",
+          "source": "thegamer.com",
+          "image": "https://static0.thegamerimages.com/wordpress/wp-content/uploads/2025/08/kingdom-come-deliverance-2.jpg?w=1600&h=900&fit=crop",
+          "published": "2026-02-17"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 Teased For Xbox Game Pass",
+          "url": "https://insider-gaming.com/kingdom-come-deliverance-2-xbox-game-pass/",
+          "source": "insider-gaming.com",
+          "image": "https://insider-gaming.com/wp-content/uploads/2025/02/Does-Kingdom-Come-Deliverance-2-Have-Difficulty-Settings-guide-captain.jpg",
+          "published": "2026-02-16"
+        },
+        {
+          "title": "Kingdom Come Deliverance II Surpasses Five Million Sales",
+          "url": "https://newsboiler-www-website.azurewebsites.net/news/2684904/kingdom-come-deliverance-ii-surpasses-five-million-sales",
+          "source": "azurewebsites.net",
+          "image": "https://newsboilerstorage.blob.core.windows.net/news/2684904_0_lg.jpg",
+          "published": "2026-02-13"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 has sold 5 million copies",
+          "url": "https://www.shacknews.com/article/147855/kcd2-5-million-copies-sold",
+          "source": "shacknews.com",
+          "image": "https://d1lss44hh2trtw.cloudfront.net/assets/article/2026/02/12/kcd2-5-million-copies_feature.jpg",
+          "published": "2026-02-12"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 Has Sold 5 Million Copies",
+          "url": "https://gamingbolt.com/kingdom-come-deliverance-2-has-sold-5-million-copies",
+          "source": "gamingbolt.com",
+          "image": "https://gamingbolt.com/wp-content/uploads/2024/12/kingdom-come-deliverance-2.jpg",
+          "published": "2026-02-12"
+        },
+        {
+          "title": "Kingdom Come Deliverance 2's director thinks gen-AI is \"an opportunity,\" but I worry his pursuit of tech could spoil the RPG's special sauce",
+          "url": "https://www.pcgamesn.com/kingdom-come-deliverance-2/director-daniel-vavra-gen-ai-opportunity",
+          "source": "pcgamesn.com",
+          "image": "https://www.pcgamesn.com/wp-content/sites/pcgamesn/2026/02/kingdom-come-deliverance-2-director-gen-ai-comments-daniel-vavra-an-opportunity-kcd2-dialogue.jpg",
+          "published": "2026-02-05"
+        },
+        {
+          "title": "Warhorse reveals Kingdom Come: Deliverance 2 players have killed 5.4 million enemies while drunk, and I'm just surprised that number isn't higher because Drinking is the best skill",
+          "url": "https://www.pcgamer.com/games/rpg/warhorse-reveals-kingdom-come-deliverance-2-players-have-killed-5-4-million-enemies-while-drunk-and-im-just-surprised-that-number-isnt-higher-because-drinking-is-the-best-skill/",
+          "source": "pcgamer.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/Egw2YFdaXFnRByg57dCMbF-1920-80.png",
+          "published": "2026-02-04"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 players have already killed more NPCs than there were people on Earth in the real 15th century",
+          "url": "https://www.gamesradar.com/games/action-rpg/kingdom-come-deliverance-2-players-have-already-killed-more-npcs-than-there-were-people-on-earth-in-the-real-15th-century/",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/zpiTGxGd87KNbjfic4XXZL-1920-80.jpg",
+          "published": "2026-02-04"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 Players Killed 5.4 Million Enemies While Drunk",
+          "url": "https://www.gamespot.com/articles/kingdom-come-deliverance-2-players-killed-5-4-million-enemies-while-drunk/1100-6537928/?ftag=CAD-01-10abi2f",
+          "source": "gamespot.com",
+          "image": "https://www.gamespot.com/a/uploads/original/1837/18375603/4646657-kingdomcomedeliverance2.jpg",
+          "published": "2026-02-04"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 couldn't compete with Assassin's Creed or Dragon Age: The Veilguard's budgets, so Warhorse had to \"change the rules of the game\"",
+          "url": "https://www.gamesradar.com/games/action-rpg/kingdom-come-deliverance-2-couldnt-compete-with-assassins-creed-or-dragon-age-the-veilguards-budgets-so-warhorse-had-to-change-the-rules-of-the-game/",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/HRdzT2fqMrfK35Hz3cz9N5-1920-80.jpg",
+          "published": "2026-01-22"
+        },
+        {
+          "title": "Kingdom Come Deliverance 2 developer seems to be working on a secret Unreal Engine project",
+          "url": "https://www.pcgamesn.com/kingdom-come-deliverance-2/unreal-engine",
+          "source": "pcgamesn.com",
+          "image": "https://www.pcgamesn.com/wp-content/sites/pcgamesn/2026/01/shocked-peasant-in-kingdom-come-deliverance-2.jpg",
+          "published": "2026-01-06"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 nearly had a San-Andreas-like Fat Henry system that would have let you create Bohemia's chunkiest boy, and forced you to wear clothes that fit to boot",
+          "url": "https://www.pcgamer.com/games/rpg/kingdom-come-deliverance-2-nearly-had-a-san-andreas-like-fat-henry-system-that-would-have-let-you-create-bohemias-chunkiest-boy-and-forced-you-to-wear-clothes-that-fit-to-boot/",
+          "source": "pcgamer.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/PHdcfWcGwotSaobPovdSW3-1920-80.jpg",
+          "published": "2026-01-05"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 \"Robbed Again\" At The Steam Awards",
+          "url": "https://www.thegamer.com/kingdom-come-deliverance-2-steam-awards-2025-fans-robbed/",
+          "source": "thegamer.com",
+          "image": "https://static0.thegamerimages.com/wordpress/wp-content/uploads/wm/2026/01/kingdom-come-deliverance-2-player-holding-a-steam-award-in-a-tavern.jpg?w=1600&h=900&fit=crop",
+          "published": "2026-01-04"
+        },
+        {
+          "title": "Kingdom Come Deliverance 2 drove me to madness until I started to embrace its world, not fight it - learn from my mistakes",
+          "url": "https://www.gamesradar.com/games/action-rpg/kingdom-come-deliverance-2-was-driving-me-to-madness-until-i-realised-i-should-be-embracing-its-world-not-fighting-it/",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/zpiTGxGd87KNbjfic4XXZL-1920-80.jpg",
+          "published": "2026-01-03"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 Referenced In Czech President's New Year's Address",
+          "url": "https://www.thegamer.com/kingdom-come-deliverance-2-czech-president-reference/",
+          "source": "thegamer.com",
+          "image": "https://static0.thegamerimages.com/wordpress/wp-content/uploads/2025/08/kingdom-come-deliverance-2.jpg?w=1600&h=900&fit=crop",
+          "published": "2026-01-02"
+        },
+        {
+          "title": "This Upcoming Indie Game Is Perfect If You Liked Kingdom Come: Deliverance 2's Vibes, But Not Its Mechanics",
+          "url": "https://www.thegamer.com/kingdom-come-deliverance-2-goty-indie-game-like-blight-survival-2026/",
+          "source": "thegamer.com",
+          "image": "https://static0.thegamerimages.com/wordpress/wp-content/uploads/2025/12/knight-in-blight-survival-looking-at-church-tower.jpg?w=1600&h=900&fit=crop",
+          "published": "2026-01-01"
+        },
+        {
+          "title": "Shackmaps Presents Best Open World Game of 2025 - Kingdom Come: Deliverance 2",
+          "url": "https://www.shacknews.com/article/147245/shackmaps-best-open-world-game-2025-kingdom-come-deliverance",
+          "source": "shacknews.com",
+          "image": "https://d1lss44hh2trtw.cloudfront.net/assets/article/2025/12/17/shackmaps-presents-best-open-world-game-2025-kingdom-come-deliverance-2_feature.jpg",
+          "published": "2025-12-27"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 producer wanted a return to Morrowind and Oblivion-style RPGs where devs could \"take greater creative risks\" with \"games that were not so forgiving\"",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-producer-wanted-a-return-to-morrowind-and-oblivion-style-rpgs-where-devs-could-take-greater-creative-risks-with-games-that-were-not-so-forgiving/",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/PNCgM4VHt2xuX7WYjHM6GP-1920-80.jpg",
+          "published": "2025-12-19"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 is PC Gamer's GOTY because it 'trusts' players and takes them seriously, says Warhorse co-founder: 'I think you can only eat so much popcorn'",
+          "url": "https://www.pcgamer.com/games/rpg/kingdom-come-deliverance-2-is-pc-gamers-goty-because-it-trusts-players-and-takes-them-seriously-says-warhorse-co-founder-i-think-you-can-only-eat-so-much-popcorn/",
+          "source": "pcgamer.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/UhzTPjzJskTieiwjiK9LBZ-2228-80.jpg",
+          "published": "2025-12-17"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 developers made my favorite RPG of 2025 by trusting their original vision: \"We had the strength to say, 'Yes, that's what we want'\"",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-developers-made-my-favorite-rpg-of-2025-by-trusting-their-original-vision-we-had-the-strength-to-say-yes-thats-what-we-want/",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/JGwJtx9iPt9P56aL9L3Nb5-1920-80.jpg",
+          "published": "2025-12-14"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 devs tweet 'Blame the French!' after losing every Game Awards category to Clair Obscur, but it was in good fun: They partied together after",
+          "url": "https://www.pcgamer.com/gaming-industry/events-conferences/kingdom-come-deliverance-2-devs-tweet-blame-the-french-after-losing-every-game-awards-category-to-clair-obscur-but-it-was-in-good-fun-they-partied-together-after/",
+          "source": "pcgamer.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/QqqjQzN9tn6dkySQELDXih-2048-80.jpg",
+          "published": "2025-12-12"
+        },
+        {
+          "title": "How to wash your clothes in Kingdom Come: Deliverance 2",
+          "url": "https://www.shacknews.com/article/147096/how-to-wash-your-clothes-kingdom-come-deliverance-2",
+          "source": "shacknews.com",
+          "image": "https://d1lss44hh2trtw.cloudfront.net/assets/article/2025/12/09/how-to-wash-your-clothes-in-kingdom-come-deliverance-2_feature.jpg",
+          "published": "2025-12-10"
+        },
+        {
+          "title": "As Kingdom Come Deliverance 2 winds down, this new RPG is ready to be your next medieval adventure",
+          "url": "https://www.pcgamesn.com/of-ash-and-steel/out-now-medieval-rpg",
+          "source": "pcgamesn.com",
+          "image": "https://www.pcgamesn.com/wp-content/sites/pcgamesn/2025/11/of-ash-and-steel-medieval-rpg-kingdom-come-deliverance-2.jpg",
+          "published": "2025-11-24"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 Dice Game Is Now Available IRL",
+          "url": "https://www.gamespot.com/articles/kingdom-come-deliverance-2-dice-game-is-now-available-irl/1100-6536477/?ftag=CAD-01-10abi2f",
+          "source": "gamespot.com",
+          "image": "https://www.gamespot.com/a/uploads/original/1837/18375603/4611427-kingdomcomedeliverance2dicegame.jpg",
+          "published": "2025-11-24"
+        },
+        {
+          "title": "Here are the 15 best Black Friday PS5 game deals I’ve found so far, including the excellent Kingdom Come Deliverance 2",
+          "url": "https://www.techradar.com/gaming/here-are-the-15-best-black-friday-ps5-game-deals-ive-found-so-far-including-the-excellent-kingdom-come-deliverance-2",
+          "source": "techradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/qoUQc7eBRpHCy8EPf5NEDR-2000-80.jpg",
+          "published": "2025-11-24"
+        },
+        {
+          "title": "Kingdom Come: Deliverance 2 actor is \"optimistic\" about \"opportunities\" in generative AI acting: \"My hope is that that power will come to the creator\"",
+          "url": "https://www.gamesradar.com/games/rpg/kingdom-come-deliverance-2-actor-is-optimistic-about-opportunities-in-generative-ai-acting-my-hope-is-that-that-power-will-come-to-the-creator/",
+          "source": "gamesradar.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/zpiTGxGd87KNbjfic4XXZL-1920-80.jpg",
+          "published": "2025-11-21"
+        },
+        {
+          "title": "Get one of 2025's highest-rated RPGs with all its DLCs as Kingdom Come Deliverance 2 hits its cheapest price",
+          "url": "https://www.pcgamesn.com/kingdom-come-deliverance-2/royal-edition-discount",
+          "source": "pcgamesn.com",
+          "image": "https://www.pcgamesn.com/wp-content/sites/pcgamesn/2025/11/kingdom-come-deliverance-2-royal-edition-lowest-price-sale.jpg",
+          "published": "2025-11-20"
+        },
+        {
+          "title": "Clair Obscur: Expedition 33 Beats Kingdom Come: Deliverance 2 For Ultimate Game Of The Year",
+          "url": "https://www.thegamer.com/clair-obscur-expedition-33-ultimate-game-of-the-year-golden-joystick-2025/",
+          "source": "thegamer.com",
+          "image": "https://static0.thegamerimages.com/wordpress/wp-content/uploads/2025/11/clair-obscur-joystick.jpg?w=1600&h=900&fit=crop",
+          "published": "2025-11-20"
+        },
+        {
+          "title": "After bagging a Kingdom Come: Deliverance 2 quest designer for The Witcher 4, CD Projekt snaps up BioShock 4's former narrative lead to work on Cyberpunk 2",
+          "url": "https://www.pcgamer.com/games/rpg/after-bagging-a-kingdom-come-deliverance-2-quest-designer-for-the-witcher-4-cd-projekt-snaps-up-bioshock-4s-former-narrative-lead-to-work-on-cyberpunk-2/",
+          "source": "pcgamer.com",
+          "image": "https://cdn.mos.cms.futurecdn.net/BYMQEXBdP2XGjEPjRHN5FL-2560-80.jpg",
+          "published": "2025-11-19"
+        },
+        {
+          "title": "Where to get clothes for the monastery in Kingdom Come: Deliverance 2",
+          "url": "https://www.shacknews.com/article/146710/where-to-find-clothers-for-monastery-kingdom-come-deliverance-2",
+          "source": "shacknews.com",
+          "image": "https://d1lss44hh2trtw.cloudfront.net/assets/article/2025/11/06/ss-808237ccaa976250eaefb6a0d97135cacdb8aaaa1920x1080_feature.jpg",
+          "published": "2025-11-16"
+        }
+      ]
+    }
+  }
+}

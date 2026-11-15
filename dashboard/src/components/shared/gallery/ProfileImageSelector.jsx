@@ -12,6 +12,12 @@ const ProfileImageSelector = ({
   uploadName,
   uploadOnSelect = false,
   deviceOnly = false,
+  disabled = false,
+  editorTitle = "ویرایش عکس پروفایل",
+  editorWidth = 800,
+  editorHeight = 800,
+  buttonClassName = "",
+  renderTrigger,
 }) => {
   const deviceInput = useRef(null);
   const [showModal, setShowModal] = useState(false);
@@ -104,18 +110,18 @@ const ProfileImageSelector = ({
   return (
     <>
 
-      <button
+      {renderTrigger ? renderTrigger({ onClick: () => deviceOnly ? deviceInput.current?.click() : setShowModal(true), disabled: disabled || isUploading }) : <button
         type="button"
-        disabled={isUploading}
+        disabled={disabled || isUploading}
         onClick={() => deviceOnly ? deviceInput.current?.click() : setShowModal(true)}
-        className="py-1 px-4 flex flex-row gap-x-2 dark:bg-blue-100 bg-green-100 border dark:text-blue-700 dark:border-blue-900 border-green-900 text-green-900 rounded-secondary w-fit text-sm"
+        className={`py-1 px-4 flex flex-row gap-x-2 dark:bg-blue-100 bg-green-100 border dark:text-blue-700 dark:border-blue-900 border-green-900 text-green-900 rounded-secondary w-fit text-sm ${buttonClassName}`}
       >
         <CloudUpload className="h-5 w-5 dark:!text-blue-700" />
         {deviceOnly ? 'انتخاب عکس از سیستم' : 'انتخاب عکس پروفایل*'}
-      </button>
+      </button>}
 
-      {deviceOnly && <input ref={deviceInput} type="file" accept="image/png, image/jpeg, image/webp" className="hidden" onChange={handleDeviceSelection} disabled={isUploading} />}
-      <Modal
+      {deviceOnly && <input ref={deviceInput} type="file" accept="image/png, image/jpeg, image/webp" className="hidden" onChange={handleDeviceSelection} disabled={disabled || isUploading} />}
+      {!deviceOnly && <Modal
         isOpen={showModal}
         className={`lg:!w-1/3 md:!w-2/5`}
         onClose={() => setShowModal(false)}
@@ -162,15 +168,15 @@ const ProfileImageSelector = ({
             </span>
           </label>
         </div>
-      </Modal>
+      </Modal>}
 
       <ImageEditorModal
         file={cropFile}
-        height={800}
-        width={800}
+        height={editorHeight}
+        width={editorWidth}
         onApply={applyDeviceImage}
         onCancel={() => setCropFile(null)}
-        title="ویرایش عکس پروفایل"
+        title={editorTitle}
       />
     </>
   );

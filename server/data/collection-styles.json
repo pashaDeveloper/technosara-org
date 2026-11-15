@@ -1,0 +1,305 @@
+{
+  "collections": [
+    {
+      "name": "مترویدوانیا",
+      "name_en": "Metroidvania",
+      "slug": "metroidvania",
+      "description": "کاوش نقشه‌های به‌هم‌پیوسته و باز شدن مسیرهای تازه با به‌دست آوردن توانایی‌های جدید.",
+      "is_active": true
+    },
+    {
+      "name": "سولزلایک",
+      "name_en": "Soulslike",
+      "slug": "soulslike",
+      "description": "مبارزات چالش‌برانگیز، یادگیری الگوهای دشمن و پیشروی مبتنی بر تمرین و مدیریت خطر.",
+      "is_active": true
+    },
+    {
+      "name": "روگ‌لایک",
+      "name_en": "Roguelike",
+      "slug": "roguelike",
+      "description": "تلاش‌های تکرارشونده با محیط‌های تولیدشده به‌صورت رویه‌ای و از دست رفتن عمده پیشرفت هر تلاش پس از مرگ.",
+      "is_active": true
+    },
+    {
+      "name": "روگ‌لایت",
+      "name_en": "Roguelite",
+      "slug": "roguelite",
+      "description": "تلاش‌های تکرارشونده که بخشی از ارتقاها یا پیشرفت میان آن‌ها حفظ می‌شود.",
+      "is_active": true
+    },
+    {
+      "name": "شوتر استخراجی",
+      "name_en": "Extraction Shooter",
+      "slug": "extraction-shooter",
+      "description": "ورود به منطقه، جمع‌آوری تجهیزات و تلاش برای خروج موفق و حفظ غنیمت‌ها.",
+      "is_active": true
+    },
+    {
+      "name": "بتل رویال",
+      "name_en": "Battle Royale",
+      "slug": "battle-royale",
+      "description": "رقابت برای بقا تا باقی ماندن آخرین بازیکن یا تیم، معمولاً با محدود شدن محدوده بازی.",
+      "is_active": true
+    },
+    {
+      "name": "هیرو شوتر",
+      "name_en": "Hero Shooter",
+      "slug": "hero-shooter",
+      "description": "تیراندازی با شخصیت‌هایی دارای توانایی‌ها و نقش‌های متمایز.",
+      "is_active": true
+    },
+    {
+      "name": "شوتر کلاسیک",
+      "name_en": "Boomer Shooter",
+      "slug": "boomer-shooter",
+      "description": "تیراندازی سریع با الهام از طراحی مراحل و مبارزات شوترهای کلاسیک.",
+      "is_active": true
+    },
+    {
+      "name": "شوتر تاکتیکی",
+      "name_en": "Tactical Shooter",
+      "slug": "tactical-shooter",
+      "description": "تیراندازی با تأکید بر برنامه‌ریزی، موقعیت‌گیری و تصمیم‌های تاکتیکی.",
+      "is_active": true
+    },
+    {
+      "name": "ایمرسیو سیم",
+      "name_en": "Immersive Sim",
+      "slug": "immersive-sim",
+      "description": "سیستم‌های تعاملی و چند راه متفاوت برای حل مسئله و پیشبرد مأموریت‌ها.",
+      "is_active": true
+    },
+    {
+      "name": "وحشت بقا",
+      "name_en": "Survival Horror",
+      "slug": "survival-horror",
+      "description": "تجربه‌های ترسناک با مدیریت منابع محدود و تلاش برای زنده ماندن.",
+      "is_active": true
+    },
+    {
+      "name": "شبیه‌ساز پیاده‌روی",
+      "name_en": "Walking Simulator",
+      "slug": "walking-simulator",
+      "description": "تمرکز بر روایت و کشف محیط با چالش‌های مبارزاتی کم یا بدون مبارزه.",
+      "is_active": true
+    },
+    {
+      "name": "هک اند اسلش",
+      "name_en": "Hack and Slash",
+      "slug": "hack-and-slash",
+      "description": "اکشن مبتنی بر مبارزات تن‌به‌تن و رویارویی با دشمنان متعدد.",
+      "is_active": true
+    },
+    {
+      "name": "اکشن مهارت‌محور",
+      "name_en": "Character Action",
+      "slug": "character-action",
+      "description": "مبارزات مبتنی بر ترکیب حرکات، زمان‌بندی و تسلط بر توانایی‌های شخصیت.",
+      "is_active": true
+    },
+    {
+      "name": "سیاه‌چال‌گردی",
+      "name_en": "Dungeon Crawler",
+      "slug": "dungeon-crawler",
+      "description": "کاوش سیاه‌چال‌ها و محیط‌های پرخطر همراه با مبارزه و جمع‌آوری غنیمت.",
+      "is_active": true
+    },
+    {
+      "name": "لوتر شوتر",
+      "name_en": "Looter Shooter",
+      "slug": "looter-shooter",
+      "description": "ترکیب تیراندازی با جمع‌آوری و ارتقای سلاح‌ها و تجهیزات متنوع.",
+      "is_active": true
+    },
+    {
+      "name": "نقش‌آفرینی اکشن",
+      "name_en": "Action RPG",
+      "slug": "action-rpg",
+      "description": "مبارزات بلادرنگ همراه با رشد شخصیت، تجهیزات و انتخاب توانایی‌ها.",
+      "is_active": true
+    },
+    {
+      "name": "نقش‌آفرینی ژاپنی",
+      "name_en": "JRPG",
+      "slug": "jrpg",
+      "description": "نقش‌آفرینی با الگوهای طراحی برگرفته از سنت بازی‌های نقش‌آفرینی ژاپنی.",
+      "is_active": true
+    },
+    {
+      "name": "نقش‌آفرینی کامپیوتری",
+      "name_en": "CRPG",
+      "slug": "crpg",
+      "description": "نقش‌آفرینی با تأکید بر سیستم‌های شخصیت‌سازی، انتخاب و تعامل با جهان بازی.",
+      "is_active": true
+    },
+    {
+      "name": "نقش‌آفرینی تاکتیکی",
+      "name_en": "Tactical RPG",
+      "slug": "tactical-rpg",
+      "description": "رشد شخصیت‌های نقش‌آفرینی همراه با مبارزات مبتنی بر جای‌گیری و برنامه‌ریزی تاکتیکی.",
+      "is_active": true
+    },
+    {
+      "name": "دسته‌کارت‌سازی",
+      "name_en": "Deckbuilder",
+      "slug": "deckbuilder",
+      "description": "ساخت و بهبود دسته کارت برای ایجاد ترکیب‌ها و راهبردهای مؤثر.",
+      "is_active": true
+    },
+    {
+      "name": "نبرد خودکار",
+      "name_en": "Auto Battler",
+      "slug": "auto-battler",
+      "description": "انتخاب و چیدمان نیروها پیش از نبردهایی که عمدتاً به‌صورت خودکار انجام می‌شوند.",
+      "is_active": true
+    },
+    {
+      "name": "دفاع از برج",
+      "name_en": "Tower Defense",
+      "slug": "tower-defense",
+      "description": "دفاع از مسیر یا پایگاه با جای‌گذاری و ارتقای برج‌ها و ابزارهای دفاعی.",
+      "is_active": true
+    },
+    {
+      "name": "شهرسازی",
+      "name_en": "City Builder",
+      "slug": "city-builder",
+      "description": "طراحی، گسترش و مدیریت شهر و زیرساخت‌های آن.",
+      "is_active": true
+    },
+    {
+      "name": "شبیه‌ساز کلونی",
+      "name_en": "Colony Sim",
+      "slug": "colony-sim",
+      "description": "مدیریت ساکنان، منابع و نیازهای یک اجتماع یا کلونی.",
+      "is_active": true
+    },
+    {
+      "name": "شبیه‌ساز زندگی",
+      "name_en": "Life Sim",
+      "slug": "life-sim",
+      "description": "شبیه‌سازی فعالیت‌های روزمره، روابط و تصمیم‌های زندگی شخصیت‌ها.",
+      "is_active": true
+    },
+    {
+      "name": "شبیه‌ساز کشاورزی",
+      "name_en": "Farming Sim",
+      "slug": "farming-sim",
+      "description": "پرورش محصولات، رسیدگی به مزرعه و مدیریت فعالیت‌های کشاورزی.",
+      "is_active": true
+    },
+    {
+      "name": "استراتژی کلان",
+      "name_en": "Grand Strategy",
+      "slug": "grand-strategy",
+      "description": "مدیریت راهبردی کشورها یا امپراتوری‌ها در حوزه‌هایی مانند سیاست، اقتصاد و جنگ.",
+      "is_active": true
+    },
+    {
+      "name": "استراتژی چهار ایکس",
+      "name_en": "4X",
+      "slug": "4x",
+      "description": "راهبرد مبتنی بر اکتشاف، گسترش قلمرو، بهره‌برداری از منابع و غلبه بر رقبا.",
+      "is_active": true
+    },
+    {
+      "name": "استراتژی هم‌زمان",
+      "name_en": "Real-Time Strategy",
+      "slug": "real-time-strategy",
+      "description": "مدیریت نیروها و منابع و تصمیم‌گیری راهبردی در زمان واقعی.",
+      "is_active": true
+    },
+    {
+      "name": "استراتژی نوبتی",
+      "name_en": "Turn-Based Strategy",
+      "slug": "turn-based-strategy",
+      "description": "تصمیم‌گیری و اجرای اقدامات راهبردی در نوبت‌های جداگانه.",
+      "is_active": true
+    },
+    {
+      "name": "سکوبازی",
+      "name_en": "Platformer",
+      "slug": "platformer",
+      "description": "پیشروی با پرش، حرکت و عبور از سکوها و موانع.",
+      "is_active": true
+    },
+    {
+      "name": "سکوبازی دقیق",
+      "name_en": "Precision Platformer",
+      "slug": "precision-platformer",
+      "description": "عبور از موانع با کنترل دقیق، زمان‌بندی و تمرین مسیرها.",
+      "is_active": true
+    },
+    {
+      "name": "سکوبازی معمایی",
+      "name_en": "Puzzle Platformer",
+      "slug": "puzzle-platformer",
+      "description": "ترکیب حرکت میان سکوها با حل معماهای محیطی.",
+      "is_active": true
+    },
+    {
+      "name": "سندباکس",
+      "name_en": "Sandbox",
+      "slug": "sandbox",
+      "description": "آزادی عمل برای آزمایش سازوکارها، ساختن و انتخاب شیوه بازی.",
+      "is_active": true
+    },
+    {
+      "name": "جهان‌باز",
+      "name_en": "Open World",
+      "slug": "open-world",
+      "description": "کاوش آزادانه در محیطی گسترده با مسیرها و فعالیت‌های متنوع.",
+      "is_active": true
+    },
+    {
+      "name": "بقا و ساخت‌وساز",
+      "name_en": "Survival Crafting",
+      "slug": "survival-crafting",
+      "description": "زنده ماندن از طریق جمع‌آوری منابع و ساخت ابزار، تجهیزات یا پناهگاه.",
+      "is_active": true
+    },
+    {
+      "name": "نقش‌آفرینی آنلاین گسترده",
+      "name_en": "MMORPG",
+      "slug": "mmorpg",
+      "description": "نقش‌آفرینی در جهانی آنلاین و مشترک با جمعیت زیادی از بازیکنان.",
+      "is_active": true
+    },
+    {
+      "name": "موبای تیمی",
+      "name_en": "MOBA",
+      "slug": "moba",
+      "description": "نبرد تیمی در میدان مبارزه با شخصیت‌های دارای نقش‌ها و توانایی‌های متفاوت.",
+      "is_active": true
+    },
+    {
+      "name": "بازی ریتم",
+      "name_en": "Rhythm Game",
+      "slug": "rhythm-game",
+      "description": "تعامل با موسیقی و الگوهای ریتمیک از طریق ورودی‌های زمان‌بندی‌شده.",
+      "is_active": true
+    },
+    {
+      "name": "رمان تصویری",
+      "name_en": "Visual Novel",
+      "slug": "visual-novel",
+      "description": "روایت مبتنی بر متن، تصویر و گفت‌وگو که می‌تواند شامل انتخاب‌های داستانی باشد.",
+      "is_active": true
+    },
+    {
+      "name": "شبیه‌ساز روابط",
+      "name_en": "Dating Sim",
+      "slug": "dating-sim",
+      "description": "پیشروی با تعاملات اجتماعی و شکل دادن به روابط عاطفی شخصیت‌ها.",
+      "is_active": true
+    },
+    {
+      "name": "فیلم تعاملی",
+      "name_en": "Interactive Movie",
+      "slug": "interactive-movie",
+      "description": "روایت سینمایی که بازیکن با انتخاب‌ها و تعاملات خود در پیشروی آن نقش دارد.",
+      "is_active": true
+    }
+  ]
+}

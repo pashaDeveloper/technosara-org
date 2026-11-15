@@ -5,6 +5,7 @@ export const definition = {
     fields: [
       field('slug', 'اسلاگ'),
       field('name', 'نام انگلیسی پلتفرم', 'text', { required: true }),
+      field('short_name', 'نام اختصاری'),
       field('brand_id', 'برند', 'brand'),
       field('generation', 'نسل', 'number', { options: [
         { value: 7, label: '۷' },
@@ -12,7 +13,7 @@ export const definition = {
         { value: 9, label: '۹' },
       ] }), field('parent_id', 'پلتفرم والد', 'parent'),
       field('release_date', 'تاریخ عرضه (میلادی)', 'date'), field('discontinued_date', 'تاریخ توقف تولید (میلادی)', 'date'),
-      field('website_url', 'وب‌سایت', 'url'), field('logo', 'نشانی لوگو', 'url'), field('icon', 'کد SVG آیکون', 'textarea', { dir: 'ltr' }),
+      field('website_url', 'وب‌سایت', 'url'), field('logo', 'نشانی لوگو', 'url'), field('thumbnail', 'تصویر پلتفرم', 'url'),
     ],
   };
 

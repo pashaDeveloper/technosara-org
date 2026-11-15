@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "halo-infinite",
+    "title": "Halo Infinite",
+    "url": "https://store-images.s-microsoft.com/image/apps.30769.13727851868390641.270e98c5-0c6a-4ce0-81ab-e78c700bf4b5.092f9454-fee6-43b1-94e3-802dd0067d8b",
+    "path": "/game-preview/halo-infinite.jpg",
+    "bytes": 337900,
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "slug": "cyberpunk-2077",
+    "title": "Cyberpunk 2077",
+    "url": "https://store-images.s-microsoft.com/image/apps.23022.63407868131364914.bcaa868c-407e-42c2-baeb-48a3c9f29b54.be7c9193-46d7-42e9-b555-d0b8921fc4b8",
+    "path": "/game-preview/cyberpunk-2077.jpg",
+    "bytes": 1109079,
+    "width": 2160,
+    "height": 2160
+  },
+  {
+    "slug": "sea-of-thieves",
+    "title": "Sea of Thieves: 2026 Edition",
+    "url": "https://store-images.s-microsoft.com/image/apps.1953.14554784103656548.069efce3-9249-4074-a169-183b727043f8.2d796a4d-6b1a-452d-8172-5b6edb68fc3c",
+    "path": "/game-preview/sea-of-thieves.jpg",
+    "bytes": 256122,
+    "width": 2160,
+    "height": 2160
+  },
+  {
+    "slug": "starfield",
+    "title": "Starfield",
+    "url": "https://store-images.s-microsoft.com/image/apps.1647.13567343664224659.1eb6fdf9-8a0b-4344-a135-ab17dfa3c609.39331391-9de2-48f8-8643-8eb1bd964383",
+    "path": "/game-preview/starfield.jpg",
+    "bytes": 252437,
+    "width": 1080,
+    "height": 1080
+  }
+]

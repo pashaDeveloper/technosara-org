@@ -36,16 +36,17 @@ exports.deleteCompany = async (req, res, next) => {
     next(error);
   }
 };
-exports.getCompanyCountries = async (req, res, next) => {
+exports.getCompany = async (req, res, next) => {
   try {
-    await service.getCompanyCountries(req, res);
+    await service.getCompany(req, res);
   } catch (error) {
     next(error);
   }
 };
-exports.getCompany = async (req, res, next) => {
+
+exports.getCompanyCountries = async (req, res, next) => {
   try {
-    await service.getCompany(req, res);
+    await service.getCompanyCountries(req, res);
   } catch (error) {
     next(error);
   }

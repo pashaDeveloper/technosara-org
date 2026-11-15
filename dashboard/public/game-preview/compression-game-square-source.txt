@@ -1,0 +1,6 @@
+Square game sample: existing local bo6.jpg (Call of Duty: Black Ops 6 cover).
+Converted to lossless PNG with compression level 1 for a multi-megabyte test input.
+No cropping, resizing, padding, or pixel modifications.
+Dimensions: 1080 x 1080.
+Input bytes: 2167211 (2.07 MiB).
+The compression percentage compares this PNG input with the generated WebP.

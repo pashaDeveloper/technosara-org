@@ -16,7 +16,9 @@ const mongoUri =
 
 mongoose
   .connect(mongoUri, process.env.DB_NAME ? { dbName: process.env.DB_NAME } : {})
-  .then(() => consoleMessage.successMessage("Connected to MongoDB."))
+  .then(() => {
+    consoleMessage.successMessage("Connected to MongoDB.");
+  })
   .catch((error) => consoleMessage.errorMessage(error.message));
 
 /* establish server port */

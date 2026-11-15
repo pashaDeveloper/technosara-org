@@ -7,6 +7,9 @@ exports.addMedia = async (req, res) => {
     const media = new Media({
       status: body.status,
       game_id: body.game_id,
+      platform_id: body.platform_id,
+      pic2: body.pic2,
+      pic1: body.pic1,
       store_product_id: body.store_product_id,
       media_type: body.media_type,
       url: body.url,
@@ -97,6 +100,9 @@ exports.updateMedia = async (req, res) => {
   const updatedMedia = {
     status: body.status,
     game_id: body.game_id,
+    platform_id: body.platform_id,
+    pic2: body.pic2,
+    pic1: body.pic1,
     store_product_id: body.store_product_id,
     media_type: body.media_type,
     url: body.url,
@@ -109,7 +115,10 @@ exports.updateMedia = async (req, res) => {
     sort_order: body.sort_order
   };
 
-  await Media.findByIdAndUpdate(req.params.id, updatedMedia, { runValidators: true });
+  const media = await Media.findById(req.params.id);
+  if (!media) return res.status(404).json({ message: 'رسانه پیدا نشد' });
+  media.set(Object.fromEntries(Object.entries(updatedMedia).filter(([, value]) => value !== undefined)));
+  await media.save();
 
   res.status(200).json({
     acknowledgement: true,

@@ -1,13 +1,21 @@
 const mongoose = require('mongoose');
 const baseSchema = require('./baseSchema.model');
-const { countryCodes } = require('../utils/country.util');
-
+const {
+  countryCodes
+} = require('../utils/country.util');
 const schema = new mongoose.Schema({
   ...baseSchema.obj,
   name: {
     type: String,
-    required: true,
+    required: function () {
+      return !this.name_en;
+    },
     trim: true
+  },
+  name_en: {
+    type: String,
+    trim: true,
+    default: undefined
   },
   slug: {
     type: String,
@@ -19,7 +27,7 @@ const schema = new mongoose.Schema({
   type: {
     type: String,
     enum: ['developer', 'publisher', 'developer_publisher'],
-    required: true,
+    required: true
   },
   website: {
     type: String,
@@ -31,7 +39,7 @@ const schema = new mongoose.Schema({
     default: null,
     min: 1000,
     validate: {
-      validator: value => value == null || (Number.isInteger(value) && value <= new Date().getFullYear()),
+      validator: value => value == null || Number.isInteger(value) && value <= new Date().getFullYear(),
       message: 'سال تأسیس باید یک سال میلادی معتبر تا سال جاری باشد'
     }
   },
@@ -49,15 +57,40 @@ const schema = new mongoose.Schema({
     }
   },
   founders: {
-    type: [new mongoose.Schema({ person_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Person' }, name: { type: String, trim: true, required: true } }, { _id: false })],
+    type: [new mongoose.Schema({
+      person_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Person'
+      },
+      name: {
+        type: String,
+        trim: true,
+        required: true
+      }
+    }, {
+      _id: false
+    })],
     default: []
   },
   key_members: {
     type: [new mongoose.Schema({
-      person_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Person' },
-      name: { type: String, trim: true, required: true },
-      role: { type: String, trim: true, default: '' }
-    }, { _id: false })],
+      person_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Person'
+      },
+      name: {
+        type: String,
+        trim: true,
+        required: true
+      },
+      role: {
+        type: String,
+        trim: true,
+        default: ''
+      }
+    }, {
+      _id: false
+    })],
     default: []
   },
   logo: {
@@ -71,10 +104,19 @@ const schema = new mongoose.Schema({
     uppercase: true,
     enum: [...countryCodes, null],
     default: null
-  },
+  }
 }, {
   timestamps: true
 });
-
-schema.plugin(require('../utils/catalogImage').catalogImage, { category: 'companies', field: 'logo' });
+schema.plugin(require('../utils/catalogImage').catalogImage, {
+  category: 'companies',
+  field: 'logo'
+});
+schema.add({
+  name_fa: {
+    type: String,
+    trim: true,
+    default: undefined
+  }
+});
 module.exports = mongoose.model('Company', schema);

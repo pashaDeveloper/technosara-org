@@ -21,18 +21,21 @@ router.post(
   "/",
   verify,
   authorize("superAdmin", "admin"),
+  require('../middleware/catalogValidate.middleware')('achievements'),
   achievementController.addAchievement,
 );
 router.patch(
   "/:id",
   verify,
   authorize("superAdmin", "admin"),
+  require('../middleware/catalogValidate.middleware')('achievements'),
   achievementController.updateAchievement,
 );
 router.delete(
   "/:id",
   verify,
   authorize("superAdmin", "admin"),
+  require('../middleware/catalogValidate.middleware')('achievements'),
   achievementController.deleteAchievement,
 );
 

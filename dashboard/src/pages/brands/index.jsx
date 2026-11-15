@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import useCatalogListState from '@/hooks/useCatalogListState';
+import CatalogImage from "@/components/shared/CatalogImage";
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import ControlPanel from '../ControlPanel';
@@ -13,13 +15,12 @@ import { definition } from './definitions';
 
 export default function BrandList() {
   const resource = "brands";
-  const [page, setPage] = useState(1);
-  const [search, setSearch] = useState('');
+  const { page, setPage, search, setSearch, listQuery } = useCatalogListState();
   const { currentData: result, isFetching, error, refetch } = useGetBrandsQuery({ page, limit: 5, search });
   const records = result?.data || [];
   const totalPages = Math.max(1, Math.ceil((result?.total || 0) / 5));
   const [remove, removeState] = useDeleteBrandMutation();
-  useEffect(() => { if (result && page > totalPages) setPage(totalPages); }, [result, page, totalPages]);
+  useEffect(() => { if (result && page > totalPages) setPage(totalPages, { replace: true }); }, [result, page, totalPages]);
   async function removeRecord(id) {
     const toastId = 'remove-' + resource;
     toast.loading('در حال حذف…', { id: toastId });
@@ -32,8 +33,8 @@ export default function BrandList() {
   return <ControlPanel>
     <Search
       searchTerm={search}
-      setSearchTerm={value => { setPage(1); setSearch(value.slice(0, 100)); }}
-      actions={<AddButton link={`/${resource}/add`} />}
+      setSearchTerm={value => { setSearch(value.slice(0, 100)); }}
+      actions={<AddButton link={`/${resource}/add${listQuery}`} />}
     />
     {error ? <div role="alert" className="mt-4 text-red-500">{error?.data?.message || 'دریافت اطلاعات ناموفق بود.'}<button type="button" onClick={refetch}>تلاش دوباره</button></div> : <>
         <div className="mt-8 w-full grid grid-cols-12 text-slate-400 px-4 ">
@@ -69,13 +70,10 @@ export default function BrandList() {
               >
                 <div className="col-span-10 lg:col-span-3 text-center flex items-center">
                   <div className="py-2 flex justify-center items-center gap-x-2 text-right">
-                    <img
-                      src={
-                        category?.creator?.avatar?.url ||
-                        (category.preview_url || category.image || category.logo_url || category.logo) ||
-                        "/placeholder.png"
-                      }
-                      alt={``}
+                    <CatalogImage
+                      src={category.logo || category.image || category.logo_url}
+                      creator={category.creator}
+                      alt={title}
                       height={100}
                       width={100}
                       className="h-[60px] w-[60px] rounded-full object-cover"
@@ -126,7 +124,7 @@ export default function BrandList() {
 
                 <div className="col-span-2 md:col-span-1 gap-2 text-center flex justify-center items-center">
                   <article className="lg:flex-row flex flex-col justify-center gap-x-2  gap-y-2">
-                    <Link className="edit-button" aria-label={`ویرایش ${category.name}`} to={`/${resource}/update/${category._id}`}><Edit className="w-5 h-5" /></Link>
+                    <Link className="edit-button" aria-label={`ویرایش ${category.name}`} to={`/${resource}/update/${category._id}${listQuery}`}><Edit className="w-5 h-5" /></Link>
                     <DeleteModal
                       message={`آیا از حذف ${definition.singular} «${category.name}» اطمینان دارید؟`}
                       isLoading={removeState.isLoading}

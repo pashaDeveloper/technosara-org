@@ -1,0 +1,61 @@
+fragment addOnProduct on Product {
+  __typename
+  boxArt {
+    __typename
+    altText
+    url
+  }
+  concept {
+    __typename
+    id
+    invariantName
+    localizedGenres {
+      __typename
+      value
+    }
+  }
+  contentRating {
+    __typename
+    name
+  }
+  id
+  invariantName
+  localizedGenres {
+    __typename
+    value
+  }
+  localizedStoreDisplayClassification
+  name
+  platforms
+  price {
+    __typename
+    basePrice
+    discountedPrice
+    displayDiscountText
+    displayUpsellText
+    isExclusive
+    isFree
+    isTiedToSubscription
+    serviceBranding
+    telemetryData
+    upsellServiceBranding
+  }
+  skus {
+    __typename
+    id
+    name
+    type
+  }
+  storeDisplayClassification
+  type
+}
+
+query getAddOnProductsByConcept($conceptId: ID!, $pageArgs: PageArgs) {
+  addOnProductsRetrieve(conceptId: $conceptId, pageArgs: $pageArgs) {
+    __typename
+    addOnProducts {
+      __typename
+      ...addOnProduct
+    }
+  }
+}

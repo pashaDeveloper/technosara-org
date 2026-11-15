@@ -1,0 +1,75 @@
+{
+  "applied": true,
+  "database": "technosara",
+  "groups": {
+    "ReviewRating": {
+      "total": 4,
+      "updated": 4
+    },
+    "ReleaseWindow": {
+      "total": 4,
+      "updated": 4
+    },
+    "Platform": {
+      "total": 89,
+      "updated": 89
+    },
+    "Genre": {
+      "total": 61,
+      "updated": 61
+    },
+    "Theme": {
+      "total": 19,
+      "updated": 19
+    },
+    "PlayMode": {
+      "total": 18,
+      "updated": 18
+    },
+    "ContentRating": {
+      "total": 3,
+      "updated": 3
+    },
+    "InputMode": {
+      "total": 4,
+      "updated": 4
+    },
+    "PriceRange": {
+      "total": 5,
+      "updated": 5
+    },
+    "Tag": {
+      "total": 337,
+      "updated": 337
+    },
+    "Feature": {
+      "total": 25,
+      "updated": 25
+    },
+    "Company": {
+      "total": 25,
+      "updated": 25
+    },
+    "Store": {
+      "total": 10,
+      "updated": 10
+    },
+    "Game": {
+      "total": 1,
+      "updated": 1
+    }
+  },
+  "persian_names_preserved": 77,
+  "backup": "D:\\project\\technosara\\reports\\gamebrain-canonical-before-1793869507722.ejson",
+  "api_dependencies_verified": 524,
+  "verified": true,
+  "protected_counts": {
+    "achievements": 0,
+    "achievement_groups": 0,
+    "age_ratings": 0,
+    "game_series": 30,
+    "media": 1,
+    "game_platforms": 1,
+    "game_contents": 0
+  }
+}

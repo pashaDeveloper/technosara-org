@@ -1,3 +1,5 @@
+import useCatalogListState from '@/hooks/useCatalogListState';
+import CatalogImage from "@/components/shared/CatalogImage";
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
@@ -14,9 +16,7 @@ import { definition } from './definitions';
 
 export default function PlatformList() {
   const resource = "platforms";
-  const [page, setPage] = useState(1);
-  const [search, setSearch] = useState('');
-  const [status, setStatus] = useState('all');
+  const { page, setPage, search, setSearch, status, setStatus, listQuery } = useCatalogListState();
   const { currentData: result, isFetching, error, refetch } = useGetPlatformsQuery({ page, limit: 5, search, status: status === 'all' ? undefined : status });
   const records = result?.data || [];
   const totalPages = Math.max(1, Math.ceil((result?.total || 0) / 5));
@@ -39,7 +39,7 @@ export default function PlatformList() {
       toast.error(error?.data?.message || 'ذخیره ترتیب ناموفق بود');
     }
   }
-  useEffect(() => { if (result && page > totalPages) setPage(totalPages); }, [result, page, totalPages]);
+  useEffect(() => { if (result && page > totalPages) setPage(totalPages, { replace: true }); }, [result, page, totalPages]);
   async function removeRecord(id) {
     const toastId = 'remove-' + resource;
     toast.loading('در حال حذف…', { id: toastId });
@@ -52,9 +52,9 @@ export default function PlatformList() {
   return <ControlPanel>
     <Search
       searchTerm={search}
-      setSearchTerm={value => { setPage(1); setSearch(value.slice(0, 100)); }}
-      onStatusFilterChange={value => { setPage(1); setStatus(value); }}
-      actions={<AddButton link={`/${resource}/add`} />}
+      setSearchTerm={value => { setSearch(value.slice(0, 100)); }}
+      onStatusFilterChange={value => { setStatus(value); }}
+      actions={<AddButton link={`/${resource}/add${listQuery}`} />}
     />
     <p className="sr-only" role="status">{reorderState.isLoading ? 'در حال ذخیره ترتیب…' : ''}</p>
     {error ? <div role="alert" className="mt-4 text-red-500">{error?.data?.message || 'دریافت اطلاعات ناموفق بود.'}<button type="button" onClick={refetch}>تلاش دوباره</button></div> : <>
@@ -103,14 +103,12 @@ export default function PlatformList() {
                       }}>⠿</button>
                   <StatusIndicator isActive={category.is_active} />
                   <div className="py-2 flex justify-center items-center gap-x-2 text-right">
-                    <img
+                    <CatalogImage
                       draggable={false}
-                      src={
-                        category?.creator?.avatar?.url ||
-                        (category.preview_url || category.image || category.logo) ||
-                        "/placeholder.png"
-                      }
-                      alt={``}
+                      src={category.thumbnail || category.logo}
+                      previewSrc={category.preview}
+                      creator={category.creator}
+                      alt={title}
                       height={100}
                       width={100}
                       className="h-[60px] w-[60px] rounded-full object-cover"
@@ -161,7 +159,7 @@ export default function PlatformList() {
 
                 <div className="col-span-2 md:col-span-1 gap-2 text-center flex justify-center items-center">
                   <article className="lg:flex-row flex flex-col justify-center gap-x-2  gap-y-2">
-                    <Link className="edit-button" aria-label={`ویرایش ${category.name}`} to={`/${resource}/update/${category._id}`}><Edit className="w-5 h-5" /></Link>
+                    <Link className="edit-button" aria-label={`ویرایش ${category.name}`} to={`/${resource}/update/${category._id}${listQuery}`}><Edit className="w-5 h-5" /></Link>
                     <DeleteModal
                       message={`آیا از حذف ${definition.singular} «${category.name}» اطمینان دارید؟`}
                       isLoading={removeState.isLoading || reorderState.isLoading}

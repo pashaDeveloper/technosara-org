@@ -1,76 +1,37 @@
+import { nabApi } from '../nab';
 
-
-const { nabApi } = require("../nab");
-
-const storeApi = nabApi.injectEndpoints({
-  endpoints: (builder) => ({
-    // add new store
-    addStore: builder.mutation({
-      query: (store) => ({
-        url: "/store/add-store",
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: store,
-      }),
-
-      invalidatesTags: ["Store", "User"],
-    }),
-
-    // get all stores
+const storeApi = nabApi.enhanceEndpoints({ addTagTypes: ['Store'] }).injectEndpoints({
+  endpoints: builder => ({
+    getStoreCountries: builder.query({ query: () => '/stores/countries' }),
     getStores: builder.query({
-      query: () => ({
-        url: "/store/get-stores",
-        method: "GET",
-      }),
-
-      providesTags: ["Store"],
+      query: (params) => ({ url: `/stores`, params }),
+      providesTags: (result, error) => [{ type: 'Store', id: 'stores' }],
     }),
-
-    // update store
-    updateStore: builder.mutation({
-      query: ({ id, body }) => ({
-        url: `/store/update-store/${id}`,
-        method: "PATCH",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body,
-      }),
-
-      invalidatesTags: ["Store", "User"],
-    }),
-
-    // get a store
     getStore: builder.query({
-      query: (id) => ({
-        url: `/store/get-store/${id}`,
-        method: "GET",
-      }),
-
-      providesTags: ["Store"],
+      query: ({ id }) => `/stores/${id}`,
+      providesTags: (result, error) => [{ type: 'Store', id: 'stores' }],
     }),
-
-    // delete store
+    getStoreOptions: builder.query({
+      query: () => `/stores/all`,
+      providesTags: (result, error) => [{ type: 'Store', id: 'stores' }],
+    }),
+    reorderStore: builder.mutation({
+      query: (body) => ({ url: '/stores/reorder', method: 'PATCH', body }),
+      invalidatesTags: ['Store'],
+    }),
+    addStore: builder.mutation({
+      query: (body) => ({ url: '/stores', method: 'POST', body }),
+      invalidatesTags: ['Store'],
+    }),
+    updateStore: builder.mutation({
+      query: ({ id, body }) => ({ url: `/stores/${id}`, method: 'PATCH', body }),
+      invalidatesTags: ['Store'],
+    }),
     deleteStore: builder.mutation({
-      query: (id) => ({
-        url: `/store/delete-store/${id}`,
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }),
-
-      invalidatesTags: ["Store", "User"],
+      query: ({ id }) => ({ url: `/stores/${id}`, method: 'DELETE' }),
+      invalidatesTags: (result, error) => result ? [{ type: 'Store', id: 'stores' }] : [],
     }),
   }),
 });
 
-export const {
-  useAddStoreMutation,
-  useGetStoresQuery,
-  useUpdateStoreMutation,
-  useGetStoreQuery,
-  useDeleteStoreMutation,
-} = storeApi;
+export const { useGetStoreCountriesQuery, useGetStoreQuery, useGetStoresQuery, useGetStoreOptionsQuery, useAddStoreMutation, useUpdateStoreMutation, useDeleteStoreMutation, useReorderStoreMutation } = storeApi;

@@ -1,38 +1,42 @@
 const Store = require("../models/store.model");
 
+const extraFields = ["short_name","provider","store_type","website_url","product_url_template","logo_url","icon_url","api_available","api_base_url","api_version","auth_type","supports_prices","supports_dlc","supports_achievements","supports_subscriptions","supports_reviews","default_currency","default_region","metadata"];
+function storeValues(body) {
+  const values = Object.fromEntries(extraFields.filter(key => body[key] !== undefined).map(key => [key, body[key]]));
+  if (body.country_code !== undefined) values.country_code = body.country_code === '' ? null : body.country_code;
+  if (typeof values.metadata === 'string') {
+    try { values.metadata = JSON.parse(values.metadata || '{}'); }
+    catch { throw Object.assign(new Error('متادیتا باید JSON معتبر باشد.'), { status: 400 }); }
+  }
+  return values;
+}
+
+exports.getStoreCountries = (req, res) => res.status(200).json({
+  acknowledgement: true, data: require('../utils/country.util').countries,
+});
+
 /* add new store */
 exports.addStore = async (req, res) => {
   try {
     const { body } = req;
+    const lastStore = await Store.findOne().sort({ sort_order: -1 }).select('sort_order');
     const store = new Store({
-      status: body.status,
-      code: body.code,
+      ...storeValues(body),
+      ...req.uploadedImageValues,
+    status: body.status,
       name: body.name,
-      short_name: body.short_name,
-      provider: body.provider,
-      store_type: body.store_type,
-      website_url: body.website_url,
-      product_url_template: body.product_url_template,
-      logo_url: body.logo_url,
-      icon_url: body.icon_url,
-      api_available: body.api_available,
-      api_base_url: body.api_base_url,
-      api_version: body.api_version,
-      auth_type: body.auth_type,
-      supports_prices: body.supports_prices,
-      supports_dlc: body.supports_dlc,
-      supports_achievements: body.supports_achievements,
-      supports_subscriptions: body.supports_subscriptions,
-      supports_reviews: body.supports_reviews,
-      default_currency: body.default_currency,
-      default_region: body.default_region,
-      sort_order: body.sort_order,
+      name_fa: body.name_fa,
+      name_en: body.name_en,
+      image: body.image,
+      code: body.code,
+      description: body.description,
+      sort_order: (lastStore?.sort_order ?? -1) + 1,
       is_active: body.is_active,
-      metadata: typeof body.metadata === "string" ? JSON.parse(body.metadata || "{}") : body.metadata,
       creator: req.admin._id
     });
 
     await store.save();
+    req.commitUploads?.();
 
     res.status(201).json({
       acknowledgement: true,
@@ -40,11 +44,12 @@ exports.addStore = async (req, res) => {
       description: "فروشگاه با موفقیت ایجاد شد"
     });
   } catch (error) {
+    if (error.status === 400) return res.status(400).json({ message: error.message });
     console.error("Error in addStore:", error);
-    res.status(500).json({
+    res.status(error.name === 'ValidationError' ? 400 : error.code === 11000 ? 409 : 500).json({
       acknowledgement: false,
       message: "Internal Server Error",
-      description: "خطا در ایجاد فروشگاه",
+      description: error.code === 11000 ? 'این کد قبلاً استفاده شده است.' : error.name === 'ValidationError' ? Object.values(error.errors).map(item => item.message).join('؛ ') : 'خطا در ایجاد فروشگاه',
       error: error.message
     });
   }
@@ -54,13 +59,14 @@ exports.addStore = async (req, res) => {
 exports.getStores = async (req, res) => {
   try {
     const { page = 1, limit = 5, search = "" } = req.query;
-    const pageNum = parseInt(page) || 1;
-    const limitNum = parseInt(limit) || 5;
+    const pageNum = Math.max(1, parseInt(page) || 1);
+    const limitNum = Math.min(100, Math.max(1, parseInt(limit) || 5));
     const skip = (pageNum - 1) * limitNum;
 
     const query = {};
-    if (search) {
-      query.name = { $regex: search, $options: "i" };
+    if (typeof search === 'string' && search) {
+      const pattern = search.slice(0, 100).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      query.$or = ['name', 'name_en', 'code'].map(key => ({ [key]: { $regex: pattern, $options: 'i' } }));
     }
     if (req.query.status) {
       query.is_active = req.query.status === "active";
@@ -69,7 +75,7 @@ exports.getStores = async (req, res) => {
     const stores = await Store.find(query)
       .skip(skip)
       .limit(limitNum)
-      .sort({ created_at: -1 })
+      .sort({ sort_order: 1, _id: 1 })
       .populate({ path: "creator", select: "name avatar" });
     const total = await Store.countDocuments(query);
 
@@ -93,6 +99,7 @@ exports.getStores = async (req, res) => {
 /* get a store */
 exports.getStore = async (req, res) => {
   const store = await Store.findById(req.params.id);
+  if (!store) return res.status(404).json({ acknowledgement: false, message: "فروشگاه پیدا نشد" });
   res.status(200).json({
     acknowledgement: true,
     message: "Ok",
@@ -105,33 +112,21 @@ exports.getStore = async (req, res) => {
 exports.updateStore = async (req, res) => {
   const { body } = req;
   const updatedStore = {
+    ...storeValues(body),
+      ...req.uploadedImageValues,
     status: body.status,
-    code: body.code,
     name: body.name,
-    short_name: body.short_name,
-    provider: body.provider,
-    store_type: body.store_type,
-    website_url: body.website_url,
-    product_url_template: body.product_url_template,
-    logo_url: body.logo_url,
-    icon_url: body.icon_url,
-    api_available: body.api_available,
-    api_base_url: body.api_base_url,
-    api_version: body.api_version,
-    auth_type: body.auth_type,
-    supports_prices: body.supports_prices,
-    supports_dlc: body.supports_dlc,
-    supports_achievements: body.supports_achievements,
-    supports_subscriptions: body.supports_subscriptions,
-    supports_reviews: body.supports_reviews,
-    default_currency: body.default_currency,
-    default_region: body.default_region,
-    sort_order: body.sort_order,
-    is_active: body.is_active,
-    metadata: typeof body.metadata === "string" ? JSON.parse(body.metadata || "{}") : body.metadata
+      name_fa: body.name_fa,
+    name_en: body.name_en,
+    ...(body.image !== undefined ? { image: body.image } : {}),
+    code: body.code,
+    description: body.description,
+    is_active: body.is_active
   };
 
-  await Store.findByIdAndUpdate(req.params.id, updatedStore, { runValidators: true });
+  const saved = await Store.findByIdAndUpdate(req.params.id, updatedStore, { runValidators: true });
+  if (!saved) return res.status(404).json({ acknowledgement: false, message: "Record not found" });
+  await require('../utils/imageUpload').finishImageReplacement(req, res, saved.image_storage);
 
   res.status(200).json({
     acknowledgement: true,
@@ -164,7 +159,7 @@ exports.deleteStore = async (req, res) => {
 };
 
 exports.getStoreOptions = async (req, res) => {
-  const stores = await Store.find().select("name code");
+  const stores = await Store.find().sort({ sort_order: 1, _id: 1 }).select("name name_fa name_en code");
   res.status(200).json({
     acknowledgement: true,
     message: "Ok",
@@ -174,3 +169,22 @@ exports.getStoreOptions = async (req, res) => {
 };
 
 exports.createStore = exports.addStore;
+
+exports.reorderStore = async (req, res) => {
+  const { id, targetId } = req.body;
+  if (![id, targetId].every(value => typeof value === 'string' && /^[a-f\d]{24}$/i.test(value)) || id === targetId) {
+    return res.status(400).json({ acknowledgement: false, message: 'جابجایی معتبر نیست' });
+  }
+  const stores = await Store.find({ isDeleted: { $ne: true } }).sort({ sort_order: 1, _id: 1 }).select('_id').lean();
+  const from = stores.findIndex(item => String(item._id) === id);
+  const to = stores.findIndex(item => String(item._id) === targetId);
+  if (from < 0 || to < 0) {
+    return res.status(404).json({ acknowledgement: false, message: 'فروشگاه پیدا نشد' });
+  }
+  const [moved] = stores.splice(from, 1);
+  stores.splice(to, 0, moved);
+  await Store.bulkWrite(stores.map((item, index) => ({
+    updateOne: { filter: { _id: item._id }, update: { $set: { sort_order: index } } }
+  })));
+  res.status(200).json({ acknowledgement: true, description: 'ترتیب فروشگاهها ذخیره شد' });
+};

@@ -14,7 +14,7 @@ exports.list = async (req, res) => {
   const query = search ? { $or: ['name', 'name_fa', 'activity_fields', 'specialties', 'positions'].map(key => ({ [key]: { $regex: search, $options: 'i' } })) } : {};
   if (req.query.status) query.status = req.query.status;
   const [data, total] = await Promise.all([
-    Person.find(query).sort({ createdAt: -1, _id: -1 }).skip((page - 1) * limit).limit(limit), Person.countDocuments(query)
+    Person.find(query).populate('creator', 'name avatar').sort({ createdAt: -1, _id: -1 }).skip((page - 1) * limit).limit(limit), Person.countDocuments(query)
   ]);
   res.json({ acknowledgement: true, data, total, page });
 };
@@ -32,9 +32,10 @@ exports.create = async (req, res) => {
 exports.update = async (req, res) => {
   const person = await find(req, res);
   if (!person) return;
+  const previousImageStorage = person.image_storage;
   person.set({ ...values(req.body), ...req.uploadedImageValues });
   await person.save();
-  req.commitUploads?.();
+  await require('../utils/imageUpload').finishImageReplacement(req, res, previousImageStorage);
   res.json({ acknowledgement: true, description: 'اطلاعات شخص ویرایش شد' });
 };
 exports.remove = async (req, res) => {

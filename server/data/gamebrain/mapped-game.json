@@ -1,0 +1,665 @@
+{
+  "game": {
+    "id": 942601,
+    "name": "Kingdom Come: Deliverance II",
+    "image": "https://img.gamebrain.co/games/534/kingdom_come_deliverance_2_warhorse_2024_21.jpg",
+    "gameplay": "https://cdn.akamai.steamstatic.com/steam/apps/257029338/microtrailer.webm",
+    "link": "https://gamebrain.co/game/kingdom-come-deliverance-2",
+    "developer": "Warhorse Studios",
+    "genre": "Open World Role Playing",
+    "platforms": [
+      {
+        "value": "xbox_series_xs",
+        "name": "Xbox Series X|S"
+      },
+      {
+        "value": "pc",
+        "name": "PC"
+      },
+      {
+        "value": "x_box_game_pass",
+        "name": "Xbox Game Pass"
+      },
+      {
+        "value": "playstation_5",
+        "name": "Playstation 5"
+      },
+      {
+        "value": "cloud_platform",
+        "name": "Cloud Platform"
+      },
+      {
+        "value": "x_box_cloud_gaming",
+        "name": "Xbox Cloud Gaming"
+      },
+      {
+        "value": "xbox",
+        "name": "XBox"
+      },
+      {
+        "value": "nvidia_geforce_now",
+        "name": "Nvidia Geforce Now"
+      },
+      {
+        "value": "windows",
+        "name": "Windows"
+      },
+      {
+        "value": "playstation",
+        "name": "Playstation"
+      }
+    ],
+    "genres": [
+      {
+        "value": "role_playing",
+        "name": "Role Playing"
+      },
+      {
+        "value": "open_world",
+        "name": "Open World"
+      },
+      {
+        "value": "simulation",
+        "name": "Simulation"
+      },
+      {
+        "value": "action",
+        "name": "Action"
+      },
+      {
+        "value": "adventure",
+        "name": "Adventure"
+      },
+      {
+        "value": "action_adventure",
+        "name": "Action-Adventure"
+      }
+    ],
+    "themes": [
+      {
+        "value": "medieval",
+        "name": "Medieval"
+      },
+      {
+        "value": "historical",
+        "name": "Historical"
+      }
+    ],
+    "play_modes": [
+      {
+        "value": "single_player",
+        "name": "Single-Player"
+      }
+    ],
+    "tags": [
+      {
+        "value": "first_person",
+        "name": "First-Person"
+      },
+      {
+        "value": "politics",
+        "name": "Politics"
+      },
+      {
+        "value": "lgbtq",
+        "name": "LGBTQ+"
+      },
+      {
+        "value": "gaming",
+        "name": "Gaming"
+      },
+      {
+        "value": "mature",
+        "name": "Mature"
+      },
+      {
+        "value": "swordplay",
+        "name": "Swordplay"
+      },
+      {
+        "value": "combat",
+        "name": "Combat"
+      },
+      {
+        "value": "3d",
+        "name": "3D"
+      },
+      {
+        "value": "realistic",
+        "name": "Realistic"
+      },
+      {
+        "value": "alternate_history",
+        "name": "Alternate History"
+      },
+      {
+        "value": "choices_matter",
+        "name": "Choices Matter"
+      },
+      {
+        "value": "immersive",
+        "name": "Immersive"
+      },
+      {
+        "value": "atmospheric",
+        "name": "Atmospheric"
+      },
+      {
+        "value": "story_rich",
+        "name": "Story Rich"
+      }
+    ],
+    "screenshots": [
+      "https://img.gamebrain.co/games/644/kingdom_come_deliverance_2_warhorse_2024_40.webp",
+      "https://img.gamebrain.co/games/648/kingdom_come_deliverance_2_warhorse_2024_44.webp",
+      "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2025_19.webp",
+      "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2024_38.webp",
+      "https://img.gamebrain.co/games/649/kingdom_come_deliverance_2_warhorse_2024_27.webp",
+      "https://img.gamebrain.co/games/644/kingdom_come_deliverance_2_warhorse_2024_31.webp",
+      "https://img.gamebrain.co/games/643/kingdom_come_deliverance_2_warhorse_2024_30.webp",
+      "https://img.gamebrain.co/games/646/kingdom_come_deliverance_2_warhorse_2024_33.webp",
+      "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2024_29.webp",
+      "https://img.gamebrain.co/games/650/kingdom_come_deliverance_2_warhorse_2024_46.webp",
+      "https://img.gamebrain.co/games/648/kingdom_come_deliverance_2_warhorse_2024_35.webp",
+      "https://img.gamebrain.co/games/645/kingdom_come_deliverance_2_warhorse_2024_41.webp",
+      "https://img.gamebrain.co/games/539/kingdom_come_deliverance_2_warhorse_2024_26.jpg",
+      "https://img.gamebrain.co/games/647/kingdom_come_deliverance_2_warhorse_2024_43.webp",
+      "https://img.gamebrain.co/games/652/kingdom_come_deliverance_2_warhorse_2024_39.webp",
+      "https://img.gamebrain.co/games/649/kingdom_come_deliverance_2_warhorse_2024_45.webp",
+      "https://img.gamebrain.co/games/645/kingdom_come_deliverance_2_warhorse_2024_32.webp",
+      "https://img.gamebrain.co/games/103/kingdom_come_warhorse_2025_9.png",
+      "https://img.gamebrain.co/games/650/kingdom_come_deliverance_2_warhorse_2024_37.webp",
+      "https://img.gamebrain.co/games/644/kingdom_come_deliverance_2_warhorse_2025_21.webp",
+      "https://img.gamebrain.co/games/643/kingdom_come_deliverance_2_warhorse_2025_20.webp",
+      "https://img.gamebrain.co/games/650/kingdom_come_deliverance_2_warhorse_2024_28.webp",
+      "https://img.gamebrain.co/games/646/kingdom_come_deliverance_2_warhorse_2024_42.webp",
+      "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2024_47.webp",
+      "https://img.gamebrain.co/games/649/kingdom_come_deliverance_2_warhorse_2024_36.webp"
+    ],
+    "videos": [
+      "https://cdn.akamai.steamstatic.com/steam/apps/257029338/movie480_vp9.webm",
+      "https://youtube-nocookie.com/embed/wMZFM6JC47Q?si=0kmOIcWijUoMB1s4",
+      "https://www.youtube-nocookie.com/embed/BQu-uuQYrXY",
+      "https://cdn.akamai.steamstatic.com/steam/apps/257015290/movie480_vp9.webm",
+      "https://www.youtube-nocookie.com/embed/EnxCq19C9dA"
+    ],
+    "offers": [
+      {
+        "price": {
+          "value": 59.99,
+          "currency": "USD",
+          "initial": 59.99,
+          "discount_percent": 0
+        },
+        "store_name": "steam",
+        "platform": "PC",
+        "url": "https://store.steampowered.com/app/1771300"
+      },
+      {
+        "price": {
+          "value": 31.49,
+          "currency": "USD"
+        },
+        "store_name": "playstation",
+        "platform": "PS5",
+        "title": "Kingdom Come: Deliverance II",
+        "url": "https://www.playstation.com/en-us/games/kingdom-come-deliverance-ii/"
+      }
+    ],
+    "official_stores": [
+      {
+        "source": "steam",
+        "url": "https://store.steampowered.com/app/1771300"
+      },
+      {
+        "source": "xbox",
+        "url": "https://www.xbox.com/en-US/games/store/kingdom-come-deliverance-ii/9N4W31HSMVVD"
+      },
+      {
+        "source": "xbox",
+        "url": "https://www.xbox.com/en-US/games/store/kingdom-come-deliverance-ii-gold-edition/9PBHX1S4DGZ4"
+      },
+      {
+        "source": "playstation",
+        "url": "https://www.playstation.com/en-us/games/kingdom-come-deliverance-ii/"
+      }
+    ],
+    "micro_trailer": "https://cdn.akamai.steamstatic.com/steam/apps/257029338/microtrailer.webm",
+    "description": "Discover Kingdom Come: Deliverance II on the official PlayStation website. Check out the latest trailers, gameplay features, screenshots and more, and choose your PS5 edition of this historical action-RPG.",
+    "short_description": "Discover Kingdom Come: Deliverance II on the official PlayStation website. Check out the latest trailers, gameplay features, screenshots and more, and choose your PS5 edition of this historical action-RPG.",
+    "release_date": "2025-02-04",
+    "adult_only": true,
+    "image_aspect_ratio": 2.13953,
+    "title": "Kingdom Come: Deliverance II",
+    "gamebrain_id": 942601,
+    "gamebrain_url": "https://gamebrain.co/game/kingdom-come-deliverance-2",
+    "gamebrain_genre": "Open World Role Playing",
+    "rating": {
+      "mean": 0.935117445807245,
+      "count": 73949,
+      "mean_players": 0.935117445807245,
+      "count_players": 73949,
+      "count_critics": 0
+    },
+    "playtime": {
+      "min": 1,
+      "max": 1000,
+      "mean": 71.91800878477308,
+      "median": 51,
+      "mentions": 683,
+      "percentiles": [
+        3,
+        8,
+        14,
+        30,
+        42,
+        60,
+        87,
+        107,
+        157,
+        1000
+      ]
+    }
+  },
+  "references": {
+    "genre_ids": [
+      {
+        "key": "role_playing",
+        "value": "role_playing",
+        "name": "Role Playing"
+      },
+      {
+        "key": "open_world",
+        "value": "open_world",
+        "name": "Open World"
+      },
+      {
+        "key": "simulation",
+        "value": "simulation",
+        "name": "Simulation"
+      },
+      {
+        "key": "action",
+        "value": "action",
+        "name": "Action"
+      },
+      {
+        "key": "adventure",
+        "value": "adventure",
+        "name": "Adventure"
+      },
+      {
+        "key": "action_adventure",
+        "value": "action_adventure",
+        "name": "Action-Adventure"
+      }
+    ],
+    "game_mode_ids": [
+      {
+        "key": "single_player",
+        "value": "single_player",
+        "name": "Single-Player"
+      }
+    ],
+    "theme_ids": [
+      {
+        "key": "medieval",
+        "value": "medieval",
+        "name": "Medieval"
+      },
+      {
+        "key": "historical",
+        "value": "historical",
+        "name": "Historical"
+      }
+    ],
+    "platform_id": [
+      {
+        "key": "xbox_series_xs",
+        "value": "xbox_series_xs",
+        "name": "Xbox Series X|S"
+      },
+      {
+        "key": "pc",
+        "value": "pc",
+        "name": "PC"
+      },
+      {
+        "key": "x_box_game_pass",
+        "value": "x_box_game_pass",
+        "name": "Xbox Game Pass"
+      },
+      {
+        "key": "playstation_5",
+        "value": "playstation_5",
+        "name": "Playstation 5"
+      },
+      {
+        "key": "cloud_platform",
+        "value": "cloud_platform",
+        "name": "Cloud Platform"
+      },
+      {
+        "key": "x_box_cloud_gaming",
+        "value": "x_box_cloud_gaming",
+        "name": "Xbox Cloud Gaming"
+      },
+      {
+        "key": "xbox",
+        "value": "xbox",
+        "name": "XBox"
+      },
+      {
+        "key": "nvidia_geforce_now",
+        "value": "nvidia_geforce_now",
+        "name": "Nvidia Geforce Now"
+      },
+      {
+        "key": "windows",
+        "value": "windows",
+        "name": "Windows"
+      },
+      {
+        "key": "playstation",
+        "value": "playstation",
+        "name": "Playstation"
+      }
+    ],
+    "game_tags": [
+      {
+        "key": "first_person",
+        "value": "first_person",
+        "name": "First-Person"
+      },
+      {
+        "key": "politics",
+        "value": "politics",
+        "name": "Politics"
+      },
+      {
+        "key": "lgbtq",
+        "value": "lgbtq",
+        "name": "LGBTQ+"
+      },
+      {
+        "key": "gaming",
+        "value": "gaming",
+        "name": "Gaming"
+      },
+      {
+        "key": "mature",
+        "value": "mature",
+        "name": "Mature"
+      },
+      {
+        "key": "swordplay",
+        "value": "swordplay",
+        "name": "Swordplay"
+      },
+      {
+        "key": "combat",
+        "value": "combat",
+        "name": "Combat"
+      },
+      {
+        "key": "3d",
+        "value": "3d",
+        "name": "3D"
+      },
+      {
+        "key": "realistic",
+        "value": "realistic",
+        "name": "Realistic"
+      },
+      {
+        "key": "alternate_history",
+        "value": "alternate_history",
+        "name": "Alternate History"
+      },
+      {
+        "key": "choices_matter",
+        "value": "choices_matter",
+        "name": "Choices Matter"
+      },
+      {
+        "key": "immersive",
+        "value": "immersive",
+        "name": "Immersive"
+      },
+      {
+        "key": "atmospheric",
+        "value": "atmospheric",
+        "name": "Atmospheric"
+      },
+      {
+        "key": "story_rich",
+        "value": "story_rich",
+        "name": "Story Rich"
+      }
+    ],
+    "developer_ids": [
+      {
+        "name": "Warhorse Studios"
+      }
+    ]
+  },
+  "media": [
+    {
+      "media_type": "cover",
+      "url": "https://img.gamebrain.co/games/534/kingdom_come_deliverance_2_warhorse_2024_21.jpg"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/644/kingdom_come_deliverance_2_warhorse_2024_40.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/648/kingdom_come_deliverance_2_warhorse_2024_44.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2025_19.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2024_38.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/649/kingdom_come_deliverance_2_warhorse_2024_27.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/644/kingdom_come_deliverance_2_warhorse_2024_31.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/643/kingdom_come_deliverance_2_warhorse_2024_30.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/646/kingdom_come_deliverance_2_warhorse_2024_33.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2024_29.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/650/kingdom_come_deliverance_2_warhorse_2024_46.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/648/kingdom_come_deliverance_2_warhorse_2024_35.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/645/kingdom_come_deliverance_2_warhorse_2024_41.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/539/kingdom_come_deliverance_2_warhorse_2024_26.jpg"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/647/kingdom_come_deliverance_2_warhorse_2024_43.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/652/kingdom_come_deliverance_2_warhorse_2024_39.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/649/kingdom_come_deliverance_2_warhorse_2024_45.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/645/kingdom_come_deliverance_2_warhorse_2024_32.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/103/kingdom_come_warhorse_2025_9.png"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/650/kingdom_come_deliverance_2_warhorse_2024_37.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/644/kingdom_come_deliverance_2_warhorse_2025_21.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/643/kingdom_come_deliverance_2_warhorse_2025_20.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/650/kingdom_come_deliverance_2_warhorse_2024_28.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/646/kingdom_come_deliverance_2_warhorse_2024_42.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/651/kingdom_come_deliverance_2_warhorse_2024_47.webp"
+    },
+    {
+      "media_type": "screenshot",
+      "url": "https://img.gamebrain.co/games/649/kingdom_come_deliverance_2_warhorse_2024_36.webp"
+    },
+    {
+      "media_type": "video",
+      "url": "https://cdn.akamai.steamstatic.com/steam/apps/257029338/movie480_vp9.webm"
+    },
+    {
+      "media_type": "video",
+      "url": "https://youtube-nocookie.com/embed/wMZFM6JC47Q?si=0kmOIcWijUoMB1s4"
+    },
+    {
+      "media_type": "video",
+      "url": "https://www.youtube-nocookie.com/embed/BQu-uuQYrXY"
+    },
+    {
+      "media_type": "video",
+      "url": "https://cdn.akamai.steamstatic.com/steam/apps/257015290/movie480_vp9.webm"
+    },
+    {
+      "media_type": "video",
+      "url": "https://www.youtube-nocookie.com/embed/EnxCq19C9dA"
+    },
+    {
+      "media_type": "video",
+      "url": "https://cdn.akamai.steamstatic.com/steam/apps/257029338/microtrailer.webm"
+    },
+    {
+      "media_type": "trailer",
+      "url": "https://cdn.akamai.steamstatic.com/steam/apps/257029338/microtrailer.webm"
+    }
+  ],
+  "provider_data": {
+    "id": 942601,
+    "link": "https://gamebrain.co/game/kingdom-come-deliverance-2",
+    "genre": "Open World Role Playing",
+    "themes": [
+      {
+        "value": "medieval",
+        "name": "Medieval"
+      },
+      {
+        "value": "historical",
+        "name": "Historical"
+      }
+    ],
+    "adult_only": true,
+    "rating": {
+      "mean": 0.935117445807245,
+      "count": 73949,
+      "mean_players": 0.935117445807245,
+      "count_players": 73949,
+      "mean_critics": null,
+      "count_critics": 0
+    },
+    "playtime": {
+      "percentiles": [
+        3,
+        8,
+        14,
+        30,
+        42,
+        60,
+        87,
+        107,
+        157,
+        1000
+      ],
+      "mentions": 683,
+      "min": 1,
+      "max": 1000,
+      "mean": 71.91800878477308,
+      "median": 51
+    },
+    "image_aspect_ratio": 2.13953,
+    "offers": [
+      {
+        "price": {
+          "value": 59.99,
+          "currency": "USD",
+          "initial": 59.99,
+          "discount_percent": 0
+        },
+        "store_name": "steam",
+        "platform": "PC",
+        "url": "https://store.steampowered.com/app/1771300"
+      },
+      {
+        "price": {
+          "value": 31.49,
+          "currency": "USD"
+        },
+        "store_name": "playstation",
+        "platform": "PS5",
+        "title": "Kingdom Come: Deliverance II",
+        "url": "https://www.playstation.com/en-us/games/kingdom-come-deliverance-ii/"
+      }
+    ],
+    "official_stores": [
+      {
+        "source": "steam",
+        "url": "https://store.steampowered.com/app/1771300"
+      },
+      {
+        "source": "xbox",
+        "url": "https://www.xbox.com/en-US/games/store/kingdom-come-deliverance-ii/9N4W31HSMVVD"
+      },
+      {
+        "source": "xbox",
+        "url": "https://www.xbox.com/en-US/games/store/kingdom-come-deliverance-ii-gold-edition/9PBHX1S4DGZ4"
+      },
+      {
+        "source": "playstation",
+        "url": "https://www.playstation.com/en-us/games/kingdom-come-deliverance-ii/"
+      }
+    ]
+  }
+}

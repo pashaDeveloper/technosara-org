@@ -224,7 +224,7 @@ exports.updateAdmin = async (req, res) => {
     return res.status(404).json({ acknowledgement: false, message: "کاربر یافت نشد" });
   }
 
-  req.commitUploads?.();
+  await require('../utils/imageUpload').finishImageReplacement(req, res, existingAdmin.avatar?.copies, uploadedAvatar?.copies);
   return res.status(200).json({
     acknowledgement: true,
     message: "OK",

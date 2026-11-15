@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const validator = require('validator');
 const baseSchema = require('./baseSchema.model');
-
 const schema = new mongoose.Schema({
   ...baseSchema.obj,
   name: {
@@ -33,11 +32,10 @@ const schema = new mongoose.Schema({
     type: String,
     enum: ['active', 'inactive'],
     default: 'active'
-  },
+  }
 }, {
   timestamps: true
 });
-
 schema.pre('save', async function () {
   if (this.isModified('password')) this.password = await bcrypt.hash(this.password, 12);
 });

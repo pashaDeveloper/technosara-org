@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const baseSchema = require('./baseSchema.model');
-
+const {
+  countryCodes
+} = require('../utils/country.util');
 const schema = new mongoose.Schema({
   ...baseSchema.obj,
   code: {
@@ -8,12 +10,36 @@ const schema = new mongoose.Schema({
     required: true,
     unique: true,
     trim: true,
-    lowercase: true
+    lowercase: true,
+    maxlength: 100,
+    match: /^[a-z0-9]+(?:-[a-z0-9]+)*$/
   },
   name: {
     type: String,
-    required: true,
+    required: function () {
+      return !this.name_en;
+    },
     trim: true
+  },
+  name_en: {
+    type: String,
+    trim: true,
+    default: null
+  },
+  image: {
+    type: String,
+    default: '',
+    validate: {
+      validator: value => !value || require('../utils/catalogImage').localImage(value) || require('validator').isURL(value, {
+        protocols: ['https'],
+        require_protocol: true
+      }) || Buffer.byteLength(value) <= 7 * 1024 * 1024 && /^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/]+={0,2}$/.test(value),
+      message: 'عکس باید PNG، JPEG یا WebP با حجم حداکثر ۵ مگابایت باشد.'
+    }
+  },
+  description: {
+    type: String,
+    default: ''
   },
   short_name: {
     type: String,
@@ -23,6 +49,13 @@ const schema = new mongoose.Schema({
   provider: {
     type: String,
     trim: true,
+    default: null
+  },
+  country_code: {
+    type: String,
+    trim: true,
+    uppercase: true,
+    enum: [...countryCodes, null],
     default: null
   },
   store_type: {
@@ -116,14 +149,20 @@ const schema = new mongoose.Schema({
   deleted_at: {
     type: Date,
     default: null
-  },
+  }
 }, {
   timestamps: {
     createdAt: 'created_at',
     updatedAt: 'updated_at'
   }
 });
-
 schema.remove(['createdAt', 'updatedAt', 'deletedAt']);
-
+schema.plugin(require('../utils/catalogImage').catalogImage);
+schema.add({
+  name_fa: {
+    type: String,
+    trim: true,
+    default: undefined
+  }
+});
 module.exports = mongoose.model('Store', schema);

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 function Banner() {
   const confrimed_banner = localStorage.getItem("banner_confrimed");
-  console.log(confrimed_banner);
   
   const [bannerOpen, setBannerOpen] = useState(confrimed_banner == "false" ? false : true);
   const query = new URLSearchParams(location.search);

@@ -1,51 +1,7 @@
 const Company = require("../models/company.model");
-const Person = require('../models/person.model');
-const mongoose = require('mongoose');
+const { resolvePeople, withPeople } = require('../utils/companyPeople');
 const { randomUUID } = require('crypto');
 const { countries } = require("../utils/country.util");
-
-async function resolvePeople(body, existing = {}) {
-  const result = {};
-  for (const key of ['founders', 'key_members']) {
-    if (body[key] === undefined) continue;
-    const fail = message => { throw Object.assign(new Error(message), { status: 400 }); };
-    if (!Array.isArray(body[key]) || body[key].length > 100) fail('حداکثر ۱۰۰ شخص انتخاب کنید');
-    const seen = new Set();
-    result[key] = [];
-    for (const item of body[key]) {
-      if (!item || typeof item !== 'object') fail('شخص را از فهرست اشخاص انتخاب کنید');
-      if (!item.person_id) {
-        // Preserve existing free-text entries until the user links them to a profile.
-        const legacy = (existing[key] || []).find(old => !old.person_id && old.name === item.name);
-        if (!legacy) fail('شخص را از فهرست اشخاص انتخاب کنید');
-        result[key].push({ name: legacy.name, ...(key === 'key_members' ? { role: item.role || '' } : {}) });
-        continue;
-      }
-      if (!mongoose.isObjectIdOrHexString(item.person_id)) fail('شناسه شخص معتبر نیست');
-      const id = String(item.person_id);
-      if (seen.has(id)) fail('یک شخص را دوبار انتخاب نکنید');
-      seen.add(id);
-      const person = await Person.findById(id).select('name');
-      const previous = (existing[key] || []).find(old => String(old.person_id) === id);
-      if (!person && !previous) fail('شخص انتخاب‌شده پیدا نشد؛ فهرست را تازه‌سازی کنید');
-      result[key].push({ person_id: id, name: person?.name || previous.name, ...(key === 'key_members' ? { role: item.role || '' } : {}) });
-    }
-  }
-  return result;
-}
-
-async function withPeople(company) {
-  if (!company) return company;
-  const data = company.toObject();
-  const ids = [...data.founders, ...data.key_members].map(item => item.person_id).filter(Boolean);
-  const people = await Person.find({ _id: { $in: ids } }).select('name photo');
-  const byId = new Map(people.map(person => [String(person._id), person]));
-  for (const key of ['founders', 'key_members']) data[key] = data[key].map(item => {
-    const person = byId.get(String(item.person_id));
-    return person ? { ...item, name: person.name, photo: person.photo } : item;
-  });
-  return data;
-}
 
 /* add new company */
 exports.addCompany = async (req, res) => {
@@ -54,8 +10,9 @@ exports.addCompany = async (req, res) => {
     const people = await resolvePeople(body);
     const company = new Company({
       ...req.uploadedImageValues,
-    status: body.status,
+      status: body.status,
       name: body.name,
+      name_fa: body.name_fa,
       slug: body.slug || `${String(body.name || 'company').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '').slice(0, 60) || 'company'}-${randomUUID()}`,
       type: body.type,
       founded_year: body.founded_date ? Number(body.founded_date.slice(0, 4)) : body.founded_year,
@@ -150,6 +107,7 @@ exports.updateCompany = async (req, res) => {
     ...req.uploadedImageValues,
     status: body.status,
     name: body.name,
+      name_fa: body.name_fa,
     slug: body.slug,
     type: body.type,
     founded_year: body.founded_date === undefined ? body.founded_year : body.founded_date ? Number(body.founded_date.slice(0, 4)) : null,
@@ -162,7 +120,7 @@ exports.updateCompany = async (req, res) => {
 
   const saved = await Company.findByIdAndUpdate(req.params.id, updatedCompany, { runValidators: true });
   if (!saved) return res.status(404).json({ acknowledgement: false, message: "Record not found" });
-  req.commitUploads?.();
+  await require('../utils/imageUpload').finishImageReplacement(req, res, saved.image_storage);
 
   res.status(200).json({
     acknowledgement: true,
@@ -195,7 +153,7 @@ exports.deleteCompany = async (req, res) => {
 };
 
 exports.getCompanyOptions = async (req, res) => {
-  const companies = await Company.find().select("name slug");
+  const companies = await Company.find().select("name name_fa name_en slug");
   res.status(200).json({
     acknowledgement: true,
     message: "Ok",

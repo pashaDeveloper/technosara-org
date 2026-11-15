@@ -3,6 +3,7 @@ const Platform = require("../models/platform.model");
 const Brand = require('../models/brand.model');
 const { validatePlatformRelations } = require('../utils/platformRelations');
 const { platformCode } = require('../utils/platformNames');
+const { generateSlug } = require('../utils/slug');
 
 async function validRelations(req, res) {
   const error = await validatePlatformRelations(req.body, req.params?.id, Platform, Brand);
@@ -17,18 +18,21 @@ exports.addPlatform = async (req, res) => {
   try {
     const { body } = req;
     const platform = new Platform({
-      ...req.uploadedImageValues,
     status: body.status,
       code: platformCode(body.name),
       name: body.name,
+      short_name: body.short_name || null,
+      value: body.value,
+      name_fa: body.name_fa,
       brand_id: body.brand_id || null,
-      slug: body.slug,
+      slug: generateSlug(body.slug || body.name) || undefined,
       device_type: 'console',
       generation: body.generation,
       parent_id: body.parent_id || null,
       release_date: body.release_date,
       discontinued_date: body.discontinued_date,
-      icon: body.icon,
+      thumbnail: body.thumbnail,
+      preview: req.uploadedImageValues?.preview ?? body.preview,
       logo: body.logo,
       website_url: body.website_url,
       sort_order: body.sort_order,
@@ -77,7 +81,7 @@ exports.getPlatforms = async (req, res) => {
       .skip(skip)
       .limit(limitNum)
       .sort({ sort_order: 1, createdAt: -1, _id: 1 })
-      .populate({ path: "parent_id", select: "name code" })
+      .populate({ path: "parent_id", select: "name name_fa name_en code" })
       .populate({ path: "brand_id", select: "name slug" })
       .populate({ path: "creator", select: "name avatar" });
     const total = await Platform.countDocuments(query);
@@ -112,19 +116,21 @@ exports.getPlatform = async (req, res) => {
 
 /* update platform */
 exports.updatePlatform = async (req, res) => {
-  if (!await validRelations(req, res)) return;
   const { body } = req;
   const updatedPlatform = {
-    ...req.uploadedImageValues,
     status: body.status,
     name: body.name,
+    ...(body.short_name !== undefined ? { short_name: body.short_name || null } : {}),
+    ...(body.value !== undefined ? { value: body.value } : {}),
+      name_fa: body.name_fa,
     ...(body.brand_id !== undefined ? { brand_id: body.brand_id || null } : {}),
-      slug: body.slug,
+      slug: body.slug !== undefined || body.name !== undefined ? generateSlug(body.slug || body.name) || undefined : undefined,
     generation: body.generation,
     ...(body.parent_id !== undefined ? { parent_id: body.parent_id || null } : {}),
     release_date: body.release_date,
     discontinued_date: body.discontinued_date,
-    icon: body.icon,
+    thumbnail: body.thumbnail,
+    preview: body.thumbnail === null || body.thumbnail === '' ? null : req.uploadedImageValues?.preview ?? body.preview,
     logo: body.logo,
     website_url: body.website_url,
     sort_order: body.sort_order,
@@ -167,7 +173,7 @@ exports.deletePlatform = async (req, res) => {
 };
 
 exports.getPlatformOptions = async (req, res) => {
-  const platforms = await Platform.find().sort({ sort_order: 1, createdAt: -1, _id: 1 }).select("name code parent_id brand_id");
+  const platforms = await Platform.find().sort({ sort_order: 1, createdAt: -1, _id: 1 }).select("name short_name name_en value code parent_id brand_id");
   res.status(200).json({
     acknowledgement: true,
     message: "Ok",

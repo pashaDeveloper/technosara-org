@@ -1,0 +1,89 @@
+{
+  "applied": true,
+  "database": "technosara",
+  "checked_at": "2026-11-06T10:10:08.210Z",
+  "collections": [
+    {
+      "model": "Theme",
+      "from": "game_themes",
+      "to": "themes",
+      "source_count": 19,
+      "target_count": 0,
+      "action": "rename"
+    },
+    {
+      "model": "InputMode",
+      "from": "game_input_modes",
+      "to": "input_modes",
+      "source_count": 4,
+      "target_count": 0,
+      "action": "rename"
+    },
+    {
+      "model": "ReleaseWindow",
+      "from": "game_release_windows",
+      "to": "release_windows",
+      "source_count": 4,
+      "target_count": 0,
+      "action": "rename"
+    },
+    {
+      "model": "PriceRange",
+      "from": "game_price_ranges",
+      "to": "price_ranges",
+      "source_count": 5,
+      "target_count": 0,
+      "action": "rename"
+    },
+    {
+      "model": "ContentRating",
+      "from": "game_age_categories",
+      "to": "content_ratings",
+      "source_count": 3,
+      "target_count": 0,
+      "action": "rename"
+    },
+    {
+      "model": "ReviewRating",
+      "from": "game_review_ratings",
+      "to": "review_ratings",
+      "source_count": 4,
+      "target_count": 0,
+      "action": "rename"
+    },
+    {
+      "model": "News",
+      "from": "game_news",
+      "to": "news",
+      "source_count": 0,
+      "target_count": 0,
+      "action": "rename"
+    },
+    {
+      "model": "FilterOption",
+      "from": "gamebrain_filters",
+      "to": "filter_options",
+      "source_count": 11,
+      "target_count": 0,
+      "action": "rename"
+    },
+    {
+      "model": "SortingOption",
+      "from": "gamebrain_sort_options",
+      "to": "sorting_options",
+      "source_count": 3,
+      "target_count": 0,
+      "action": "rename"
+    },
+    {
+      "model": "GameTag",
+      "from": "gametags",
+      "to": "game_tags",
+      "source_count": 337,
+      "target_count": 0,
+      "action": "rename"
+    }
+  ],
+  "backup": "D:\\project\\technosara\\reports\\catalog-collection-names-before-1793959808213.ejson",
+  "verified": true
+}

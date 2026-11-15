@@ -1,0 +1,61 @@
+query getAddOnProductsByConcept($conceptId: ID!, $pageArgs: PageArgs) {
+  addOnProductsRetrieve(conceptId: $conceptId, pageArgs: $pageArgs) {
+    addOnProducts {
+      ...addOnProduct
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment addOnProduct on Product {
+  id
+  boxArt {
+    url
+    altText
+    __typename
+  }
+  concept {
+    id
+    invariantName
+    localizedGenres {
+      value
+      __typename
+    }
+    __typename
+  }
+  contentRating {
+    name
+    __typename
+  }
+  invariantName
+  localizedGenres {
+    value
+    __typename
+  }
+  localizedStoreDisplayClassification
+  name
+  platforms
+  skus {
+    id
+    name
+    type
+    __typename
+  }
+  storeDisplayClassification
+  type
+  price {
+    discountedPrice
+    displayDiscountText
+    isExclusive
+    displayUpsellText
+    upsellServiceBranding
+    serviceBranding
+    basePrice
+    isFree
+    isTiedToSubscription
+    telemetryData
+    __typename
+  }
+  __typename
+}

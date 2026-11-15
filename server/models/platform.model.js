@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const baseSchema = require('./baseSchema.model');
-
 const schema = new mongoose.Schema({
   ...baseSchema.obj,
   code: {
@@ -15,7 +14,19 @@ const schema = new mongoose.Schema({
     required: true,
     trim: true
   },
-
+  short_name: { type: String, trim: true, default: null },
+  value: {
+    type: String,
+    trim: true,
+    default: undefined
+  },
+  slug: {
+    type: String,
+    trim: true,
+    lowercase: true,
+    default: undefined,
+    index: { unique: true, sparse: true }
+  },
   brand_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Brand',
@@ -24,7 +35,9 @@ const schema = new mongoose.Schema({
   device_type: {
     type: String,
     enum: ['console', 'pc', 'handheld', 'mobile', 'cloud'],
-    required: true,
+    required: function () {
+      return !this.value;
+    }
   },
   generation: {
     type: Number,
@@ -48,12 +61,8 @@ const schema = new mongoose.Schema({
     type: Date,
     default: null
   },
-  // SVG markup stored as text.
-  icon: {
-    type: String,
-    trim: true,
-    default: null
-  },
+  thumbnail: { type: String, trim: true, default: null },
+  preview: { type: String, trim: true, default: null },
   logo: {
     type: String,
     trim: true,
@@ -71,15 +80,21 @@ const schema = new mongoose.Schema({
   is_active: {
     type: Boolean,
     default: true
-  },
+  }
 }, {
   timestamps: true
 });
-
 schema.path('parent_id').validate(function (value) {
   return value == null || !value.equals(this._id);
 }, 'A platform cannot be its own parent');
-
-schema.add({ slug: { type: String, trim: true, lowercase: true, default: undefined, index: { unique: true, sparse: true } } });
-schema.plugin(require('../utils/catalogImage').catalogImage, { category: 'platforms', field: 'logo' });
+schema.index({
+  value: 1
+}, {
+  unique: true,
+  partialFilterExpression: {
+    value: {
+      $type: 'string'
+    }
+  }
+});
 module.exports = mongoose.model('Platform', schema);

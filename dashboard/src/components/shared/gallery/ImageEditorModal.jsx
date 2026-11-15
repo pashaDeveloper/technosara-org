@@ -137,7 +137,7 @@ const ImageEditorModal = ({
   height = 1440,
   onApply,
   onCancel,
-  title = "برش تصویر",
+  title = "ویرایش تصویر",
   width = 1440,
 }) => {
   const imageRef = useRef(null);
@@ -148,6 +148,9 @@ const ImageEditorModal = ({
   const [imageBox, setImageBox] = useState({ width: 0, height: 0 });
   const [crop, setCrop] = useState({ x: 40, y: 40, width: 260, height: 260 });
   const [cropRatio, setCropRatio] = useState(1);
+  const [appliedCrop, setAppliedCrop] = useState(null);
+  const [background, setBackground] = useState("transparent");
+  const [backgroundColor, setBackgroundColor] = useState("#ffffff");
   const [outputSize, setOutputSize] = useState({ width, height });
   const [activePanel, setActivePanel] = useState("edit");
   const [compare, setCompare] = useState(50);
@@ -187,6 +190,14 @@ const ImageEditorModal = ({
     }
 
     setCropRatio(width / height || 1);
+    setAppliedCrop(null);
+    setBackground("transparent");
+    setBackgroundColor("#ffffff");
+    setActivePanel("edit");
+    setImageBox({ width: 0, height: 0 });
+    setPreviewUrl("");
+    setQuality(92);
+    resetEdits();
     setOutputSize({ width, height });
     setCompare(50);
 
@@ -274,6 +285,7 @@ const ImageEditorModal = ({
     const { width: boxWidth, height: boxHeight } = image.getBoundingClientRect();
     setImageBox({ width: boxWidth, height: boxHeight });
     setCrop(fitCropToRatio(boxWidth, boxHeight, cropRatio));
+    setOutputSize({ width: image.naturalWidth, height: image.naturalHeight });
   };
 
   const applyCropPreset = (preset) => {
@@ -281,16 +293,33 @@ const ImageEditorModal = ({
     if (imageBox.width && imageBox.height) {
       setCrop(fitCropToRatio(imageBox.width, imageBox.height, preset.ratio));
     }
-    setOutputSize({
-      width: Math.round(height * preset.ratio),
-      height,
-    });
+  };
+
+  const saveCrop = () => {
+    const image = imageRef.current;
+    if (!image || !imageBox.width) return;
+    const selection = {
+      x: crop.x * image.naturalWidth / imageBox.width,
+      y: crop.y * image.naturalHeight / imageBox.height,
+      width: crop.width * image.naturalWidth / imageBox.width,
+      height: crop.height * image.naturalHeight / imageBox.height,
+    };
+    setAppliedCrop(selection);
+    setOutputSize({ width: Math.round(selection.width), height: Math.round(selection.height) });
+    setActivePanel("edit");
+  };
+
+  const clearCrop = () => {
+    setAppliedCrop(null);
+    const image = imageRef.current;
+    if (image) setOutputSize({ width: image.naturalWidth, height: image.naturalHeight });
   };
 
   const applyResolutionPreset = (preset) => {
+    const ratio = outputSize.width / outputSize.height;
     setOutputSize({
-      height: preset.height,
-      width: preset.width,
+      height: Math.round(ratio >= 1 ? preset.width / ratio : preset.height),
+      width: Math.round(ratio >= 1 ? preset.width : preset.height * ratio),
     });
   };
 
@@ -309,25 +338,29 @@ const ImageEditorModal = ({
     const image = imageRef.current;
     if (!image || !imageBox.width || !imageBox.height) return;
 
-    const scaleX = image.naturalWidth / imageBox.width;
-    const scaleY = image.naturalHeight / imageBox.height;
+    const selection = appliedCrop || { x: 0, y: 0, width: image.naturalWidth, height: image.naturalHeight };
     const canvas = document.createElement("canvas");
     const canvasWidth = Math.max(1, Math.round(outputSize.width));
     const canvasHeight = Math.max(1, Math.round(outputSize.height));
-    canvas.width = canvasWidth;
-    canvas.height = canvasHeight;
+    const sideways = rotation % 180 !== 0;
+    canvas.width = sideways ? canvasHeight : canvasWidth;
+    canvas.height = sideways ? canvasWidth : canvasHeight;
 
     const context = canvas.getContext("2d");
+    if (background === "solid") {
+      context.fillStyle = backgroundColor;
+      context.fillRect(0, 0, canvas.width, canvas.height);
+    }
     context.filter = cssFilter || "none";
-    context.translate(canvasWidth / 2, canvasHeight / 2);
+    context.translate(canvas.width / 2, canvas.height / 2);
     context.rotate((rotation * Math.PI) / 180);
     context.scale(flipX ? -1 : 1, flipY ? -1 : 1);
     context.drawImage(
       image,
-      crop.x * scaleX,
-      crop.y * scaleY,
-      crop.width * scaleX,
-      crop.height * scaleY,
+      selection.x,
+      selection.y,
+      selection.width,
+      selection.height,
       -canvasWidth / 2,
       -canvasHeight / 2,
       canvasWidth,
@@ -360,7 +393,7 @@ const ImageEditorModal = ({
     }, 200);
 
     return () => clearTimeout(timer);
-  }, [contrast, crop, cssFilter, flipX, flipY, imageBox.width, outputSize, quality, rotation]);
+  }, [contrast, appliedCrop, background, backgroundColor, cssFilter, flipX, flipY, imageBox.width, outputSize, quality, rotation, source]);
 
   const handleCrop = () => {
     createOutputBlob((blob) => {
@@ -391,6 +424,7 @@ const ImageEditorModal = ({
     { key: "crop", label: "برش", icon: CropIcon },
     { key: "edit", label: "ویرایش تصویر", icon: EditIcon },
     { key: "size", label: "حجم عکس", icon: SizeIcon },
+    { key: "background", label: "پس‌زمینه", icon: ResolutionIcon },
   ];
 
   if (!file || !source) return null;
@@ -464,6 +498,21 @@ const ImageEditorModal = ({
                     </button>
                   );
                 })}
+                <button type="button" onClick={saveCrop} className="rounded-md bg-red-500 px-3 py-2 text-xs text-white">اعمال برش</button>
+                <button type="button" onClick={clearCrop} className="rounded-md border px-3 py-2 text-xs">حذف برش و حفظ کل تصویر</button>
+                <span className="px-2 text-xs text-gray-500">برش فقط با «اعمال برش» ذخیره می‌شود.</span>
+              </div>
+            )}
+
+            {activePanel === "background" && (
+              <div className="flex flex-wrap items-center gap-3 rounded-lg border border-gray-300 p-3 text-sm">
+                <label className="flex items-center gap-2"><input type="radio" name="image-background" checked={background === "transparent"} onChange={() => setBackground("transparent")} />حفظ شفافیت</label>
+                <label className="flex items-center gap-2"><input type="radio" name="image-background" checked={background === "solid"} onChange={() => setBackground("solid")} />پس‌زمینهٔ رنگی</label>
+                <label className="flex items-center gap-2">رنگ دلخواه<input aria-label="رنگ پس‌زمینه" type="color" value={backgroundColor} onChange={event => { setBackgroundColor(event.target.value); setBackground("solid"); }} /></label>
+                {[["#ffffff", "سفید"], ["#000000", "مشکی"], ["#f3f4f6", "خاکستری روشن"]].map(([color, label]) => (
+                  <button key={color} type="button" aria-label={`پس‌زمینه ${label}`} aria-pressed={background === "solid" && backgroundColor === color} title={label} className="h-8 w-8 rounded-md border border-gray-400" style={{ backgroundColor: color }} onClick={() => { setBackgroundColor(color); setBackground("solid"); }} />
+                ))}
+                <p className="w-full text-xs text-gray-500">رنگ انتخابی زیر بخش‌های شفاف تصویر قرار می‌گیرد و همراه عکس ذخیره می‌شود.</p>
               </div>
             )}
 

@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const controller = require('../controllers/gamebrain.controller');
+router.use(require('../middleware/verifyAdmin.middleware'), require('../middleware/authorize.middleware')('superAdmin', 'admin'));
+router.get('/filters', controller.getFilters);
+router.get('/games', controller.getGames);
+router.get('/games/suggestions', controller.getSuggestions);
+router.get('/games/:id/similar', controller.getSimilar);
+router.get('/games/:id/news', controller.getNews);
+router.get('/games/:id', controller.getGame);
+module.exports = router;

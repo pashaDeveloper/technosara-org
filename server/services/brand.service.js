@@ -1,66 +1,164 @@
 const mongoose = require('mongoose');
-const Brand = require('../models/brand.model');
+const Brand = require("../models/brand.model");
+const Platform = require("../models/platform.model");
+const values = require("../utils/brandValues");
+const { countries } = require("../utils/country.util");
 
-const Platform = require('../models/platform.model');
-const Person = require('../models/person.model');
-const fields = ['name', 'slug', 'description', 'logo', 'country_code', 'founded_year', 'founded_date', 'activity_fields', 'website'];
-exports.countries = (req, res) => res.json({ acknowledgement: true, data: require('../utils/country.util').countries });
-const fail = (message, status = 400) => { throw Object.assign(new Error(message), { status }); };
-async function values(body) {
-  const result = Object.fromEntries(fields.filter(key => Object.hasOwn(body, key)).map(key => [key, body[key]]));
-  if (Object.hasOwn(body, 'founded_date')) {
-    if (body.founded_date !== null && typeof body.founded_date !== 'string') fail('تاریخ تأسیس معتبر نیست');
-    result.founded_date = body.founded_date || null;
-    result.founded_year = result.founded_date ? Number(result.founded_date.slice(0, 4)) : null;
+/* add new brand */
+exports.addBrand = async (req, res) => {
+  try {
+    const { body } = req;
+    const brand = new Brand({
+      ...await values(body),
+      ...req.uploadedImageValues,
+      creator: req.admin._id
+    });
+
+    await brand.save();
+    req.commitUploads?.();
+
+    res.status(201).json({
+      acknowledgement: true,
+      message: "Created",
+      description: "برند با موفقیت ایجاد شد"
+    });
+  } catch (error) {
+    if (error.status === 400) return res.status(400).json({ message: error.message });
+    console.error("Error in addBrand:", error);
+    res.status(error.name === 'ValidationError' ? 400 : error.code === 11000 ? 409 : 500).json({
+      acknowledgement: false,
+      message: "Internal Server Error",
+      description: error.code === 11000 ? 'این اسلاگ قبلاً استفاده شده است.' : error.name === 'ValidationError' ? Object.values(error.errors).map(item => item.message).join('؛ ') : 'خطا در ایجاد برند',
+      error: error.message
+    });
   }
-  if (Object.hasOwn(body, 'founders')) {
-    if (!Array.isArray(body.founders) || body.founders.length > 100) fail('مؤسسان را از فهرست اشخاص انتخاب کنید');
-    result.founders = [];
-    const seen = new Set();
-    for (const item of body.founders) {
-      if (!item || !mongoose.isObjectIdOrHexString(item.person_id)) fail('شخص انتخاب‌شده معتبر نیست');
-      const id = String(item.person_id);
-      if (seen.has(id)) fail('شخص تکراری انتخاب شده است');
-      seen.add(id);
-      const person = await Person.findById(id).select('name');
-      if (!person) fail('شخص انتخاب‌شده پیدا نشد');
-      result.founders.push({ person_id: person._id, name: person.name });
+};
+
+/* get all brands */
+exports.getBrands = async (req, res) => {
+  try {
+    const { page = 1, limit = 5, search = "" } = req.query;
+    const pageNum = Math.max(1, parseInt(page) || 1);
+    const limitNum = Math.min(100, Math.max(1, parseInt(limit) || 5));
+    const skip = (pageNum - 1) * limitNum;
+
+    const query = {};
+    if (search) {
+      query.$or = [{ name: { $regex: search, $options: 'i' } }, { activity_fields: { $regex: search, $options: 'i' } }];
     }
+    if (req.query.status) {
+      query.status = req.query.status;
+    }
+
+    const brands = await Brand.find(query)
+      .skip(skip)
+      .limit(limitNum)
+      .sort({ createdAt: -1, _id: -1 })
+      .populate({ path: "creator", select: "name avatar" });
+    const total = await Brand.countDocuments(query);
+
+    res.status(200).json({
+      acknowledgement: true,
+      message: "Ok",
+      description: "فهرست برند با موفقیت دریافت شد",
+      data: brands,
+      total
+    });
+  } catch (error) {
+    console.error("Error in getBrands:", error);
+    return res.status(500).json({
+      acknowledgement: false,
+      message: "خطا در دریافت برند",
+      description: error.message || error.toString()
+    });
+  }
+};
+
+/* get a brand */
+exports.getBrand = async (req, res) => {
+  if (!mongoose.isObjectIdOrHexString(req.params.id)) return res.status(400).json({ acknowledgement: false, message: "Invalid brand ID" });
+  const brand = await Brand.findById(req.params.id);
+  if (!brand) return res.status(404).json({ acknowledgement: false, message: "Record not found" });
+  res.status(200).json({
+    acknowledgement: true,
+    message: "Ok",
+    description: "برند با موفقیت دریافت شد",
+    data: brand
+  });
+};
+
+/* update brand */
+exports.updateBrand = async (req, res) => {
+  if (!mongoose.isObjectIdOrHexString(req.params.id)) return res.status(400).json({ acknowledgement: false, message: "Invalid brand ID" });
+  const { body } = req;
+  const updatedBrand = {
+    ...await values(body),
+    ...req.uploadedImageValues
+  };
+
+  let saved;
+  try {
+    saved = await Brand.findByIdAndUpdate(req.params.id, updatedBrand, { runValidators: true });
+  } catch (error) {
+    if (error.code === 11000) error.status = 409;
+    if (error.name === 'ValidationError') error.status = 400;
+    throw error;
+  }
+  if (!saved) return res.status(404).json({ acknowledgement: false, message: "Record not found" });
+  await require('../utils/imageUpload').finishImageReplacement(req, res, saved.image_storage);
+
+  res.status(200).json({
+    acknowledgement: true,
+    message: "Ok",
+    description: "برند با موفقیت ویرایش شد"
+  });
+};
+
+/* delete brand */
+exports.deleteBrand = async (req, res) => {
+  if (!mongoose.isObjectIdOrHexString(req.params.id)) return res.status(400).json({ acknowledgement: false, message: "Invalid brand ID" });
+  if (await Platform.exists({ brand_id: req.params.id })) {
+    return res.status(409).json({ acknowledgement: false, message: "این برند به پلتفرم متصل است؛ ابتدا برند پلتفرم‌ها را تغییر دهید" });
+  }
+  const brand = await Brand.findByIdAndUpdate(
+    req.params.id,
+    { isDeleted: true, deletedAt: Date.now() },
+    { new: true }
+  );
+
+  if (!brand) {
+    return res.status(404).json({
+      acknowledgement: false,
+      message: "برند پیدا نشد",
+      description: "برند که می‌خواهید حذف کنید، وجود ندارد"
+    });
   }
 
-  return result;
-}
-async function record(id) {
-  if (!mongoose.isObjectIdOrHexString(id)) fail('شناسه برند معتبر نیست');
-  const brand = await Brand.findById(id);
-  if (!brand) fail('برند پیدا نشد', 404);
-  return brand;
-}
-exports.list = async (req, res) => {
-  const page = Math.max(1, parseInt(req.query.page) || 1);
-  const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 5));
-  const search = String(req.query.search || '').slice(0, 100).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const query = search ? { $or: ['name', 'activity_fields'].map(field => ({ [field]: { $regex: search, $options: 'i' } })) } : {};
-  const [data, total] = await Promise.all([Brand.find(query).populate('creator', 'name avatar').sort({ createdAt: -1, _id: -1 }).skip((page - 1) * limit).limit(limit), Brand.countDocuments(query)]);
-  res.json({ acknowledgement: true, message: 'Ok', description: 'فهرست برند با موفقیت دریافت شد', data, total });
+  res.status(200).json({
+    acknowledgement: true,
+    message: "Ok",
+    description: "برند با موفقیت حذف شد"
+  });
 };
-exports.options = async (req, res) => res.json({ acknowledgement: true, message: 'Ok', description: 'فهرست برند با موفقیت دریافت شد', data: await Brand.find().select('name slug').sort({ name: 1 }) });
-exports.get = async (req, res) => res.json({ acknowledgement: true, message: 'Ok', description: 'برند با موفقیت دریافت شد', data: await record(req.params.id) });
-exports.create = async (req, res) => {
-  await Brand.create({ ...await values(req.body), ...req.uploadedImageValues, creator: req.admin._id });
-  req.commitUploads?.();
-  res.status(201).json({ acknowledgement: true, message: 'Created', description: 'برند ایجاد شد' });
+
+exports.getBrandOptions = async (req, res) => {
+  const brands = await Brand.find().sort({ name: 1 }).select("name slug");
+  res.status(200).json({
+    acknowledgement: true,
+    message: "Ok",
+    description: "فهرست برند با موفقیت دریافت شد",
+    data: brands
+  });
 };
-exports.update = async (req, res) => {
-  const brand = await record(req.params.id);
-  brand.set({ ...await values(req.body), ...req.uploadedImageValues });
-  await brand.save();
-  req.commitUploads?.();
-  res.json({ acknowledgement: true, message: 'Ok', description: 'برند ویرایش شد' });
+
+exports.createBrand = exports.addBrand;
+
+exports.getBrandCountries = async (req, res) => {
+  res.status(200).json({
+    acknowledgement: true,
+    message: "Ok",
+    description: "کشورها با موفقیت دریافت شدند",
+    data: countries
+  });
 };
-exports.remove = async (req, res) => {
-  const brand = await record(req.params.id);
-  if (await Platform.exists({ brand_id: brand._id })) fail('این برند به پلتفرم متصل است؛ ابتدا برند پلتفرم‌ها را تغییر دهید', 409);
-  await brand.softDelete();
-  res.json({ acknowledgement: true, message: 'Ok', description: 'برند حذف شد' });
-};
+

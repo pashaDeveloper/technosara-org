@@ -1,0 +1,30 @@
+{
+  "themes": {
+    "Kids": "کودکانه", "Post-apocalyptic": "پساآخرالزمانی", "Dark Fantasy": "فانتزی تاریک",
+    "Drama": "درام", "Historical": "تاریخی", "Romance": "عاشقانه", "Violence": "خشونت",
+    "Warfare": "جنگی", "Erotic": "بزرگسالانه", "Science Fiction": "علمی‌تخیلی", "Anime": "انیمه",
+    "Comedy": "کمدی", "Fantasy": "فانتزی", "Thriller": "دلهره‌آور", "Business": "کسب‌وکار",
+    "Horror": "ترسناک", "Mystery": "معمایی", "Economy": "اقتصادی", "Medieval": "قرون وسطایی"
+  },
+  "genres": {
+    "Survival Horror": "ترس و بقا", "Stealth": "مخفی‌کاری", "Sports": "ورزشی", "Sport": "ورزشی",
+    "Racing": "مسابقه‌ای", "Real Time Strategy": "استراتژی هم‌زمان", "Simulation": "شبیه‌سازی",
+    "Action-Adventure": "اکشن ماجراجویی", "Action Role Playing": "نقش‌آفرینی اکشن", "Adventure": "ماجراجویی",
+    "Rhythm": "ریتمیک", "Action": "اکشن", "Third Person Shooter": "تیراندازی سوم‌شخص",
+    "First Person Shooter": "تیراندازی اول‌شخص", "Platformer": "سکوبازی", "Puzzle": "معمایی",
+    "Survival": "بقا", "Role Playing": "نقش‌آفرینی", "Fighting": "مبارزه‌ای", "Strategy": "استراتژی",
+    "Turn Based Strategy": "استراتژی نوبتی", "2D Platformer": "سکوبازی دوبعدی", "3D Platformer": "سکوبازی سه‌بعدی",
+    "Point and Click": "اشاره و کلیک", "Farming Simulator": "شبیه‌ساز کشاورزی", "Pinball": "پین‌بال",
+    "Sandbox": "سندباکس", "Dating Simulator": "شبیه‌ساز روابط عاشقانه", "Job Simulator": "شبیه‌ساز شغل",
+    "Musical": "موسیقایی", "Political Simulator": "شبیه‌ساز سیاست", "Real Time Tactics": "تاکتیکی هم‌زمان",
+    "Turn-Based Tactics": "تاکتیکی نوبتی", "Walking Simulator": "شبیه‌ساز پیاده‌روی", "City Builder": "شهرسازی",
+    "Shoot 'Em Up": "شوت ام آپ", "Shooter": "تیراندازی", "Interactive Fiction": "داستان تعاملی",
+    "Arcade": "آرکید", "Casual": "تفننی", "Hack and Slash": "هک اند اسلش", "Looter Shooter": "تیراندازی غنیمت‌محور",
+    "On-Rails Shooter": "تیراندازی در مسیر ثابت", "4X": "استراتژی چهار اکس", "Side Scroller": "پیمایش جانبی",
+    "Automobile Simulator": "شبیه‌ساز خودرو", "Management": "مدیریتی", "Action RTS": "اکشن استراتژی هم‌زمان",
+    "Party": "دورهمی", "Extraction Shooter": "تیراندازی استخراجی", "Arena Shooter": "تیراندازی آرنا",
+    "Open World": "جهان‌باز", "Top-Down Shooter": "تیراندازی از نمای بالا", "Word Game": "بازی کلمات",
+    "Trading Card Game": "کارت‌های تبادلی", "Visual Novel": "رمان تصویری", "Quiz": "پرسش و پاسخ",
+    "Tactical": "تاکتیکی", "Card Game": "بازی کارتی", "JRPG": "نقش‌آفرینی ژاپنی", "Space Simulator": "شبیه‌ساز فضایی"
+  }
+}

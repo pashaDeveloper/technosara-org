@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const Avatar = ({ avatarUrl, onAvatarClick, loading }) => {
+const Avatar = ({ avatarUrl, onAvatarClick, loading = false }) => {
   const imageNumber = avatarUrl.split('/').pop().split('.')[0]; 
   const [imageError, setImageError] = useState(false); 
 

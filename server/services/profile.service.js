@@ -40,6 +40,7 @@ exports.update = async (req, res) => {
     }
   }
   const uploadedAvatar = req.uploadedFiles?.avatar?.[0];
+  const previousCopies = admin.avatar?.copies;
   if (uploadedAvatar) {
     admin.avatar = { url: uploadedAvatar.url, public_id: uploadedAvatar.key, storage: uploadedAvatar.storage, blur: uploadedAvatar.blur, copies: uploadedAvatar.copies };
   } else if (body.avatarUrl !== undefined) {
@@ -64,6 +65,6 @@ exports.update = async (req, res) => {
     if (error.name === 'ValidationError') return fail(400, 'نام، ایمیل و قالب اطلاعات تماس و هویت را بررسی کنید.');
     throw error;
   }
-  req.commitUploads?.();
+  await require('../utils/imageUpload').finishImageReplacement(req, res, previousCopies, uploadedAvatar?.copies || (body.avatarUrl !== undefined ? {} : undefined));
   return res.json({ data: exports.serialize(admin), description: 'تغییرات پروفایل ذخیره شد.' });
 };

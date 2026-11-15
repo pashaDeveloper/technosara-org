@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import TranslatedNameFields from '../../components/shared/translation/TranslatedNameFields';
 import React, { useEffect, useMemo, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -23,6 +24,7 @@ function CountryFlag({ option }) {
 }
 const stepFields = stepTitles.map((_, index) => fields.filter(field => field.step === index + 1).map(field => field.key));
 export default function PersonForm() {
+  const { search: listQuery } = useLocation();
   const { id } = useParams();
   const navigate = useNavigate();
   const record = useGetPersonQuery(id, { skip: !id });
@@ -61,7 +63,7 @@ export default function PersonForm() {
     try {
       const result = await (id ? update({ id, body }) : add(body)).unwrap();
       toast.success(result.description || 'اطلاعات ذخیره شد');
-      navigate('/people');
+      navigate('/people' + listQuery);
     } catch (error) { toast.error(error.data?.message || 'ذخیره اطلاعات ناموفق بود'); }
   }
   function renderField(field) {
@@ -117,6 +119,6 @@ export default function PersonForm() {
         </form>}
       <ThemeToggle />
     </div>
-    <NavLink aria-label="بازگشت به اشخاص" className="reject-button fixed bottom-4 right-4 z-50 rounded-full !p-4" to="/people"><ChevronRight /></NavLink>
+    <NavLink aria-label="بازگشت به اشخاص" className="reject-button fixed bottom-4 right-4 z-50 rounded-full !p-4" to={'/people' + listQuery}><ChevronRight /></NavLink>
   </section>;
 }

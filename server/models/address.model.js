@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const baseSchema = require('./baseSchema.model');
-
 const schema = new mongoose.Schema({
   ...baseSchema.obj,
   province: {
@@ -32,9 +31,8 @@ const schema = new mongoose.Schema({
     default: '',
     trim: true,
     match: /^(?:\d{10})?$/
-  },
+  }
 }, {
   timestamps: true
 });
-
 module.exports = mongoose.model('Address', schema);

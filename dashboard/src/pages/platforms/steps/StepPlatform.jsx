@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import NameStep from './NameStep';
 import PhotoStep from './PhotoStep';
 import DetailsStep from './DetailsStep';
@@ -14,9 +15,10 @@ import { useAddPlatformMutation, useGetPlatformOptionsQuery } from '../../../ser
 import { useGetBrandOptionsQuery } from '../../../services/brand/brandApi';
 import { definition, formValues } from '../definitions';
 
-const steps = [['logo', 'name', 'slug'], ['parent_id', 'brand_id'], ['generation', 'release_date', 'discontinued_date'], ['website_url', 'icon']];
+const steps = [['thumbnail', 'logo', 'name', 'slug'], ['parent_id', 'brand_id'], ['generation', 'release_date', 'discontinued_date'], ['website_url']];
 
 export default function StepPlatform() {
+  const { search: listQuery } = useLocation();
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [completed, setCompleted] = useState({});
@@ -63,13 +65,13 @@ export default function StepPlatform() {
       discontinued_date: values.discontinued_date?.trim() || null,
       website_url: values.website_url?.trim() || null,
       logo: values.logo?.trim() || null,
-      icon: values.icon?.trim() || null,
+      thumbnail: values.thumbnail?.trim() || null,
     };
     try {
       const result = await addPlatform(body).unwrap();
       if (result.isSuccess === false || result.acknowledgement === false) throw result;
       toast.success(result.description || 'اطلاعات ذخیره شد.');
-      navigate('/platforms');
+      navigate('/platforms' + listQuery);
     } catch (error) {
       toast.error(error.data?.message || error.description || 'ارسال اطلاعات ناموفق بود؛ اتصال به سرور را بررسی کنید');
     }

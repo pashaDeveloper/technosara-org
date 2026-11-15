@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import ProfileStep from './ProfileStep';
 import DetailsStep from './DetailsStep';
 import ContactStep from './ContactStep';
@@ -15,6 +16,7 @@ import { definition, formValues } from '../definitions';
 const steps = [['logo', 'name', 'slug'], ['type', 'founded_date'], ['country_code', 'website'], ['founders', 'key_members']];
 
 export default function StepCompany() {
+  const { search: listQuery } = useLocation();
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [completed, setCompleted] = useState({});
@@ -61,7 +63,7 @@ export default function StepCompany() {
       const result = await addCompany(body).unwrap();
       if (result.isSuccess === false || result.acknowledgement === false) throw result;
       toast.success(result.description || 'اطلاعات ذخیره شد.');
-      navigate('/companies');
+      navigate('/companies' + listQuery);
     } catch (error) {
       toast.error(error.data?.message || error.description || 'ارسال اطلاعات ناموفق بود؛ اتصال به سرور را بررسی کنید');
     }

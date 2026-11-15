@@ -21,18 +21,21 @@ router.post(
   "/",
   verify,
   authorize("superAdmin", "admin"),
+  require('../middleware/catalogValidate.middleware')('age-ratings'),
   ageRatingController.addAgeRating,
 );
 router.patch(
   "/:id",
   verify,
   authorize("superAdmin", "admin"),
+  require('../middleware/catalogValidate.middleware')('age-ratings'),
   ageRatingController.updateAgeRating,
 );
 router.delete(
   "/:id",
   verify,
   authorize("superAdmin", "admin"),
+  require('../middleware/catalogValidate.middleware')('age-ratings'),
   ageRatingController.deleteAgeRating,
 );
 

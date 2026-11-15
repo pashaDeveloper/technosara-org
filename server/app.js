@@ -25,7 +25,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use(['/api/genres', '/api/platforms', '/api/companies', '/api/people', '/api/brands'], express.json({ limit: '8mb' }));
+app.use(['/api/stores', '/api/game-tags', '/api/game-modes', '/api/game-series', '/api/collections', '/api/genres', '/api/platforms', '/api/companies', '/api/people', '/api/brands'], express.json({ limit: '8mb' }));
 app.use(express.json({ limit: '512kb' }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -55,9 +55,18 @@ app.use("/api", (req, res, next) => {
   next();
 });
 
-app.use("/api/translations", require("./routes/translation.route"));
+app.use("/api/bot", require("./routes/bot.route"));
+app.use("/api/gamebrain", require("./routes/gamebrain.route"));
+app.use('/api', require('./routes/canonicalCatalog.route'));
+app.use(["/api/translations", "/api/translate"], require("./routes/translation.route"));
+app.use("/api/catalog", require("./routes/catalog.route"));
+app.use("/api/editions", require("./routes/catalogResource.route")("editions"));
 app.use("/api/games", require("./routes/game.route"));
-app.use("/api/editions", require("./routes/edition.route"));
+app.use('/api/upload-settings', require('./routes/uploadSettings.route'));
+app.use('/api/upload', require('./routes/upload.route'));
+app.use("/api/game-platforms", require("./routes/catalogResource.route")("game-platforms"));
+app.use("/api/store-products", require("./routes/catalogResource.route")("store-products"));
+app.use("/api/game-contents", require("./routes/catalogResource.route")("game-contents"));
 app.use("/api/age-ratings", require("./routes/ageRating.route"));
 app.use("/api/media", require("./routes/media.route"));
 app.use("/api/stores", require("./routes/store.route"));
@@ -68,6 +77,10 @@ app.use("/api/addresses", require("./routes/address.route"));
 app.use("/api/examples", require("./routes/example.route"));
 app.use("/api/platforms", require("./routes/platform.route"));
 app.use("/api/brands", require("./routes/brand.route"));
+app.use("/api/game-tags", require("./routes/gameTag.route"));
+app.use("/api/collections", require("./routes/collection.route"));
+app.use("/api/game-modes", require("./routes/gameMode.route"));
+app.use("/api/game-series", require("./routes/gameSeries.route"));
 app.use("/api/genres", require("./routes/genre.route"));
 app.use("/api/companies", require("./routes/company.route"));
 app.use("/api/people", require("./routes/person.route"));

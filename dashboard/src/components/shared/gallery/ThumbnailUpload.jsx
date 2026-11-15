@@ -17,6 +17,7 @@ const ThumbnailUpload = ({
   register,
   isTitle = true,
   iconSize = 5,
+  buttonClassName = "",
   border = true,
   cropHeight = 800,
   cropWidth = 800,
@@ -67,9 +68,6 @@ const ThumbnailUpload = ({
         folder: folder || name,
         options: {
           uploadName,
-          width: cropWidth,
-          height: cropHeight,
-          fit: "cover",
         },
       });
 
@@ -113,7 +111,7 @@ const ThumbnailUpload = ({
       <label htmlFor={inputId} className="relative">
         <button
           type="button"
-          className={`py-1 px-4 flex flex-row gap-x-2 bg-green-100 dark:bg-blue-100 ${
+          className={`${buttonClassName} py-1 px-4 flex flex-row gap-x-2 bg-green-100 dark:bg-blue-100 ${
             border
               ? "border border-green-900 cursor-pointer rounded-secondary"
               : "rounded-md"

@@ -1,3 +1,7 @@
+import Catalog from './pages/catalog';
+import GameList from './pages/games';
+import AddGame from './pages/games/add';
+import UpdateGame from './pages/games/update';
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Providers from "./providers";
@@ -16,6 +20,21 @@ import AddBrand from "./pages/brands/add";
 import UpdateBrand from "./pages/brands/update";
 import AddPlatform from "./pages/platforms/add";
 import UpdatePlatform from "./pages/platforms/update";
+import GameTagList from "./pages/game-tags";
+import AddGameTag from "./pages/game-tags/add";
+import UpdateGameTag from "./pages/game-tags/update";
+import CollectionList from "./pages/collections";
+import AddCollection from "./pages/collections/add";
+import UpdateCollection from "./pages/collections/update";
+import GameModeList from "./pages/game-modes";
+import AddGameMode from "./pages/game-modes/add";
+import UpdateGameMode from "./pages/game-modes/update";
+import GameSeriesList from "./pages/game-series";
+import AddGameSeries from "./pages/game-series/add";
+import UpdateGameSeries from "./pages/game-series/update";
+import StoreList from "./pages/stores";
+import AddStore from "./pages/stores/add";
+import UpdateStore from "./pages/stores/update";
 import GenreList from "./pages/genres";
 import AddGenre from "./pages/genres/add";
 import UpdateGenre from "./pages/genres/update";
@@ -77,7 +96,9 @@ function App() {
 <Route element={<Auth />}>
           <Route exact path="/" element={<Dashboard />} />
           <Route path="/translation" element={<Translation />} />
-          <Route exact path="/my-profile" element={<Profile />} />
+          <Route exact path="/my-profile" element={<Profile />} />
+
+
           <Route exact path="/users" element={<Users />} />
           <Route path="/platforms" element={<PlatformList />} />
           <Route path="/brands" element={<Brands />} />
@@ -85,6 +106,25 @@ function App() {
           <Route path="/brands/update/:id" element={<UpdateBrand />} />
           <Route path="/platforms/add" element={<AddPlatform />} />
           <Route path="/platforms/update/:id" element={<UpdatePlatform />} />
+          <Route path="/games" element={<GameList />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/games/add" element={<AddGame />} />
+          <Route path="/games/update/:id" element={<UpdateGame />} />
+          <Route path="/game-tags" element={<GameTagList />} />
+          <Route path="/game-tags/add" element={<AddGameTag />} />
+          <Route path="/game-tags/update/:id" element={<UpdateGameTag />} />
+          <Route path="/collections" element={<CollectionList />} />
+          <Route path="/collections/add" element={<AddCollection />} />
+          <Route path="/collections/update/:id" element={<UpdateCollection />} />
+          <Route path="/game-modes" element={<GameModeList />} />
+          <Route path="/game-modes/add" element={<AddGameMode />} />
+          <Route path="/game-modes/update/:id" element={<UpdateGameMode />} />
+          <Route path="/game-series" element={<GameSeriesList />} />
+          <Route path="/game-series/add" element={<AddGameSeries />} />
+          <Route path="/game-series/update/:id" element={<UpdateGameSeries />} />
+          <Route path="/stores" element={<StoreList />} />
+          <Route path="/stores/add" element={<AddStore />} />
+          <Route path="/stores/update/:id" element={<UpdateStore />} />
           <Route path="/genres" element={<GenreList />} />
           <Route path="/genres/add" element={<AddGenre />} />
           <Route path="/genres/update/:id" element={<UpdateGenre />} />

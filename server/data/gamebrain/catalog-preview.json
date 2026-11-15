@@ -1,0 +1,3964 @@
+{
+  "genres": [
+    {
+      "external_key": "2d_platformer",
+      "fields": {
+        "name": "2D Platformer",
+        "value": "2d_platformer",
+        "slug": "2d-platformer"
+      }
+    },
+    {
+      "external_key": "3d_platformer",
+      "fields": {
+        "name": "3D Platformer",
+        "value": "3d_platformer",
+        "slug": "3d-platformer"
+      }
+    },
+    {
+      "external_key": "4x",
+      "fields": {
+        "name": "4X",
+        "value": "4x",
+        "slug": "4x"
+      }
+    },
+    {
+      "external_key": "action",
+      "fields": {
+        "name": "Action",
+        "value": "action",
+        "slug": "action"
+      }
+    },
+    {
+      "external_key": "action_adventure",
+      "fields": {
+        "name": "Action-Adventure",
+        "value": "action_adventure",
+        "slug": "action-adventure"
+      }
+    },
+    {
+      "external_key": "action_rts",
+      "fields": {
+        "name": "Action RTS",
+        "value": "action_rts",
+        "slug": "action-rts"
+      }
+    },
+    {
+      "external_key": "adventure",
+      "fields": {
+        "name": "Adventure",
+        "value": "adventure",
+        "slug": "adventure"
+      }
+    },
+    {
+      "external_key": "arcade",
+      "fields": {
+        "name": "Arcade",
+        "value": "arcade",
+        "slug": "arcade"
+      }
+    },
+    {
+      "external_key": "arena_shooter",
+      "fields": {
+        "name": "Arena Shooter",
+        "value": "arena_shooter",
+        "slug": "arena-shooter"
+      }
+    },
+    {
+      "external_key": "automobile_simulator",
+      "fields": {
+        "name": "Automobile Simulator",
+        "value": "automobile_simulator",
+        "slug": "automobile-simulator"
+      }
+    },
+    {
+      "external_key": "card_game",
+      "fields": {
+        "name": "Card Game",
+        "value": "card_game",
+        "slug": "card-game"
+      }
+    },
+    {
+      "external_key": "casual",
+      "fields": {
+        "name": "Casual",
+        "value": "casual",
+        "slug": "casual"
+      }
+    },
+    {
+      "external_key": "city_builder",
+      "fields": {
+        "name": "City Builder",
+        "value": "city_builder",
+        "slug": "city-builder"
+      }
+    },
+    {
+      "external_key": "dating_simulator",
+      "fields": {
+        "name": "Dating Simulator",
+        "value": "dating_simulator",
+        "slug": "dating-simulator"
+      }
+    },
+    {
+      "external_key": "extraction_shooter",
+      "fields": {
+        "name": "Extraction Shooter",
+        "value": "extraction_shooter",
+        "slug": "extraction-shooter"
+      }
+    },
+    {
+      "external_key": "farming_simulator",
+      "fields": {
+        "name": "Farming Simulator",
+        "value": "farming_simulator",
+        "slug": "farming-simulator"
+      }
+    },
+    {
+      "external_key": "fighting",
+      "fields": {
+        "name": "Fighting",
+        "value": "fighting",
+        "slug": "fighting"
+      }
+    },
+    {
+      "external_key": "first_person_shooter",
+      "fields": {
+        "name": "First Person Shooter",
+        "value": "first_person_shooter",
+        "slug": "first-person-shooter"
+      }
+    },
+    {
+      "external_key": "hack_and_slash",
+      "fields": {
+        "name": "Hack and Slash",
+        "value": "hack_and_slash",
+        "slug": "hack-and-slash"
+      }
+    },
+    {
+      "external_key": "interactive_fiction",
+      "fields": {
+        "name": "Interactive Fiction",
+        "value": "interactive_fiction",
+        "slug": "interactive-fiction"
+      }
+    },
+    {
+      "external_key": "job_simulator",
+      "fields": {
+        "name": "Job Simulator",
+        "value": "job_simulator",
+        "slug": "job-simulator"
+      }
+    },
+    {
+      "external_key": "jrpg",
+      "fields": {
+        "name": "JRPG",
+        "value": "jrpg",
+        "slug": "jrpg"
+      }
+    },
+    {
+      "external_key": "looter_shooter",
+      "fields": {
+        "name": "Looter Shooter",
+        "value": "looter_shooter",
+        "slug": "looter-shooter"
+      }
+    },
+    {
+      "external_key": "management",
+      "fields": {
+        "name": "Management",
+        "value": "management",
+        "slug": "management"
+      }
+    },
+    {
+      "external_key": "musical",
+      "fields": {
+        "name": "Musical",
+        "value": "musical",
+        "slug": "musical"
+      }
+    },
+    {
+      "external_key": "on_rails_shooter",
+      "fields": {
+        "name": "On-Rails Shooter",
+        "value": "on_rails_shooter",
+        "slug": "on-rails-shooter"
+      }
+    },
+    {
+      "external_key": "open_world",
+      "fields": {
+        "name": "Open World",
+        "value": "open_world",
+        "slug": "open-world"
+      }
+    },
+    {
+      "external_key": "party",
+      "fields": {
+        "name": "Party",
+        "value": "party",
+        "slug": "party"
+      }
+    },
+    {
+      "external_key": "pinball",
+      "fields": {
+        "name": "Pinball",
+        "value": "pinball",
+        "slug": "pinball"
+      }
+    },
+    {
+      "external_key": "platformer",
+      "fields": {
+        "name": "Platformer",
+        "value": "platformer",
+        "slug": "platformer"
+      }
+    },
+    {
+      "external_key": "point_and_click",
+      "fields": {
+        "name": "Point and Click",
+        "value": "point_and_click",
+        "slug": "point-and-click"
+      }
+    },
+    {
+      "external_key": "political_simulator",
+      "fields": {
+        "name": "Political Simulator",
+        "value": "political_simulator",
+        "slug": "political-simulator"
+      }
+    },
+    {
+      "external_key": "puzzle",
+      "fields": {
+        "name": "Puzzle",
+        "value": "puzzle",
+        "slug": "puzzle"
+      }
+    },
+    {
+      "external_key": "quiz",
+      "fields": {
+        "name": "Quiz",
+        "value": "quiz",
+        "slug": "quiz"
+      }
+    },
+    {
+      "external_key": "racing",
+      "fields": {
+        "name": "Racing",
+        "value": "racing",
+        "slug": "racing"
+      }
+    },
+    {
+      "external_key": "real_time_strategy",
+      "fields": {
+        "name": "Real Time Strategy",
+        "value": "real_time_strategy",
+        "slug": "real-time-strategy"
+      }
+    },
+    {
+      "external_key": "real_time_tactical",
+      "fields": {
+        "name": "Real Time Tactics",
+        "value": "real_time_tactical",
+        "slug": "real-time-tactical"
+      }
+    },
+    {
+      "external_key": "role_playing",
+      "fields": {
+        "name": "Role Playing",
+        "value": "role_playing",
+        "slug": "role-playing"
+      }
+    },
+    {
+      "external_key": "sandbox",
+      "fields": {
+        "name": "Sandbox",
+        "value": "sandbox",
+        "slug": "sandbox"
+      }
+    },
+    {
+      "external_key": "shoot_em_up",
+      "fields": {
+        "name": "Shoot 'Em Up",
+        "value": "shoot_em_up",
+        "slug": "shoot-em-up"
+      }
+    },
+    {
+      "external_key": "shooter",
+      "fields": {
+        "name": "Shooter",
+        "value": "shooter",
+        "slug": "shooter"
+      }
+    },
+    {
+      "external_key": "side_scroller",
+      "fields": {
+        "name": "Side Scroller",
+        "value": "side_scroller",
+        "slug": "side-scroller"
+      }
+    },
+    {
+      "external_key": "simulation",
+      "fields": {
+        "name": "Simulation",
+        "value": "simulation",
+        "slug": "simulation"
+      }
+    },
+    {
+      "external_key": "space_simulator",
+      "fields": {
+        "name": "Space Simulator",
+        "value": "space_simulator",
+        "slug": "space-simulator"
+      }
+    },
+    {
+      "external_key": "sport",
+      "fields": {
+        "name": "Sport",
+        "value": "sport",
+        "slug": "sport"
+      }
+    },
+    {
+      "external_key": "stealth",
+      "fields": {
+        "name": "Stealth",
+        "value": "stealth",
+        "slug": "stealth"
+      }
+    },
+    {
+      "external_key": "strategy",
+      "fields": {
+        "name": "Strategy",
+        "value": "strategy",
+        "slug": "strategy"
+      }
+    },
+    {
+      "external_key": "survival",
+      "fields": {
+        "name": "Survival",
+        "value": "survival",
+        "slug": "survival"
+      }
+    },
+    {
+      "external_key": "survival_horror",
+      "fields": {
+        "name": "Survival Horror",
+        "value": "survival_horror",
+        "slug": "survival-horror"
+      }
+    },
+    {
+      "external_key": "tactical",
+      "fields": {
+        "name": "Tactical",
+        "value": "tactical",
+        "slug": "tactical"
+      }
+    },
+    {
+      "external_key": "third_person_shooter",
+      "fields": {
+        "name": "Third Person Shooter",
+        "value": "third_person_shooter",
+        "slug": "third-person-shooter"
+      }
+    },
+    {
+      "external_key": "top_down_shooter",
+      "fields": {
+        "name": "Top-Down Shooter",
+        "value": "top_down_shooter",
+        "slug": "top-down-shooter"
+      }
+    },
+    {
+      "external_key": "trading_card_game",
+      "fields": {
+        "name": "Trading Card Game",
+        "value": "trading_card_game",
+        "slug": "trading-card-game"
+      }
+    },
+    {
+      "external_key": "turn_based_strategy",
+      "fields": {
+        "name": "Turn Based Strategy",
+        "value": "turn_based_strategy",
+        "slug": "turn-based-strategy"
+      }
+    },
+    {
+      "external_key": "turn_based_tactical",
+      "fields": {
+        "name": "Turn-Based Tactics",
+        "value": "turn_based_tactical",
+        "slug": "turn-based-tactical"
+      }
+    },
+    {
+      "external_key": "visual_novel",
+      "fields": {
+        "name": "Visual Novel",
+        "value": "visual_novel",
+        "slug": "visual-novel"
+      }
+    },
+    {
+      "external_key": "walking_simulator",
+      "fields": {
+        "name": "Walking Simulator",
+        "value": "walking_simulator",
+        "slug": "walking-simulator"
+      }
+    },
+    {
+      "external_key": "word_game",
+      "fields": {
+        "name": "Word Game",
+        "value": "word_game",
+        "slug": "word-game"
+      }
+    }
+  ],
+  "play_modes": [
+    {
+      "external_key": "asynchronous_multiplayer",
+      "fields": {
+        "name": "Asynchronous Multiplayer",
+        "value": "asynchronous_multiplayer",
+        "slug": "asynchronous-multiplayer"
+      }
+    },
+    {
+      "external_key": "co_op",
+      "fields": {
+        "name": "Co-Op",
+        "value": "co_op",
+        "slug": "co-op"
+      }
+    },
+    {
+      "external_key": "four_player_local",
+      "fields": {
+        "name": "4 Player Local",
+        "value": "four_player_local",
+        "slug": "four-player-local"
+      }
+    },
+    {
+      "external_key": "local_co_op",
+      "fields": {
+        "name": "Local Co-Op",
+        "value": "local_co_op",
+        "slug": "local-co-op"
+      }
+    },
+    {
+      "external_key": "local_multiplayer",
+      "fields": {
+        "name": "Local Multi-Player",
+        "value": "local_multiplayer",
+        "slug": "local-multiplayer"
+      }
+    },
+    {
+      "external_key": "massively_multiplayer",
+      "fields": {
+        "name": "Massively Multiplayer",
+        "value": "massively_multiplayer",
+        "slug": "massively-multiplayer"
+      }
+    },
+    {
+      "external_key": "multiplayer",
+      "fields": {
+        "name": "Multi-Player",
+        "value": "multiplayer",
+        "slug": "multiplayer"
+      }
+    },
+    {
+      "external_key": "online_co_op",
+      "fields": {
+        "name": "Online Co-Op",
+        "value": "online_co_op",
+        "slug": "online-co-op"
+      }
+    },
+    {
+      "external_key": "pve",
+      "fields": {
+        "name": "PvE",
+        "value": "pve",
+        "slug": "pve"
+      }
+    },
+    {
+      "external_key": "pvp",
+      "fields": {
+        "name": "PvP",
+        "value": "pvp",
+        "slug": "pvp"
+      }
+    },
+    {
+      "external_key": "single_player",
+      "fields": {
+        "name": "Single-Player",
+        "value": "single_player",
+        "slug": "single-player"
+      }
+    },
+    {
+      "external_key": "splitscreen",
+      "fields": {
+        "name": "Split Screen",
+        "value": "splitscreen",
+        "slug": "splitscreen"
+      }
+    },
+    {
+      "external_key": "two_players",
+      "fields": {
+        "name": "2-Players",
+        "value": "two_players",
+        "slug": "two-players"
+      }
+    }
+  ],
+  "themes": [
+    {
+      "external_key": "anime",
+      "fields": {
+        "name": "Anime",
+        "value": "anime",
+        "slug": "anime"
+      }
+    },
+    {
+      "external_key": "business",
+      "fields": {
+        "name": "Business",
+        "value": "business",
+        "slug": "business"
+      }
+    },
+    {
+      "external_key": "comedy",
+      "fields": {
+        "name": "Comedy",
+        "value": "comedy",
+        "slug": "comedy"
+      }
+    },
+    {
+      "external_key": "dark_fantasy",
+      "fields": {
+        "name": "Dark Fantasy",
+        "value": "dark_fantasy",
+        "slug": "dark-fantasy"
+      }
+    },
+    {
+      "external_key": "drama",
+      "fields": {
+        "name": "Drama",
+        "value": "drama",
+        "slug": "drama"
+      }
+    },
+    {
+      "external_key": "economy",
+      "fields": {
+        "name": "Economy",
+        "value": "economy",
+        "slug": "economy"
+      }
+    },
+    {
+      "external_key": "erotic",
+      "fields": {
+        "name": "Erotic",
+        "value": "erotic",
+        "slug": "erotic"
+      }
+    },
+    {
+      "external_key": "fantasy",
+      "fields": {
+        "name": "Fantasy",
+        "value": "fantasy",
+        "slug": "fantasy"
+      }
+    },
+    {
+      "external_key": "historical",
+      "fields": {
+        "name": "Historical",
+        "value": "historical",
+        "slug": "historical"
+      }
+    },
+    {
+      "external_key": "horror",
+      "fields": {
+        "name": "Horror",
+        "value": "horror",
+        "slug": "horror"
+      }
+    },
+    {
+      "external_key": "kids",
+      "fields": {
+        "name": "Kids",
+        "value": "kids",
+        "slug": "kids"
+      }
+    },
+    {
+      "external_key": "medieval",
+      "fields": {
+        "name": "Medieval",
+        "value": "medieval",
+        "slug": "medieval"
+      }
+    },
+    {
+      "external_key": "mystery",
+      "fields": {
+        "name": "Mystery",
+        "value": "mystery",
+        "slug": "mystery"
+      }
+    },
+    {
+      "external_key": "post_apocalyptic",
+      "fields": {
+        "name": "Post-apocalyptic",
+        "value": "post_apocalyptic",
+        "slug": "post-apocalyptic"
+      }
+    },
+    {
+      "external_key": "romance",
+      "fields": {
+        "name": "Romance",
+        "value": "romance",
+        "slug": "romance"
+      }
+    },
+    {
+      "external_key": "science_fiction",
+      "fields": {
+        "name": "Science Fiction",
+        "value": "science_fiction",
+        "slug": "science-fiction"
+      }
+    },
+    {
+      "external_key": "thriller",
+      "fields": {
+        "name": "Thriller",
+        "value": "thriller",
+        "slug": "thriller"
+      }
+    },
+    {
+      "external_key": "violence",
+      "fields": {
+        "name": "Violence",
+        "value": "violence",
+        "slug": "violence"
+      }
+    },
+    {
+      "external_key": "warfare",
+      "fields": {
+        "name": "Warfare",
+        "value": "warfare",
+        "slug": "warfare"
+      }
+    }
+  ],
+  "tags": [
+    {
+      "external_key": "1980s",
+      "fields": {
+        "name": "1980s",
+        "value": "1980s",
+        "slug": "1980s"
+      }
+    },
+    {
+      "external_key": "1990s",
+      "fields": {
+        "name": "1990's",
+        "value": "1990s",
+        "slug": "1990s"
+      }
+    },
+    {
+      "external_key": "2_5d",
+      "fields": {
+        "name": "2.5D",
+        "value": "2_5d",
+        "slug": "2-5d"
+      }
+    },
+    {
+      "external_key": "2d",
+      "fields": {
+        "name": "2D",
+        "value": "2d",
+        "slug": "2d"
+      }
+    },
+    {
+      "external_key": "2d_fighter",
+      "fields": {
+        "name": "2D Fighter",
+        "value": "2d_fighter",
+        "slug": "2d-fighter"
+      }
+    },
+    {
+      "external_key": "3d",
+      "fields": {
+        "name": "3D",
+        "value": "3d",
+        "slug": "3d"
+      }
+    },
+    {
+      "external_key": "3d_fighter",
+      "fields": {
+        "name": "3D Fighter",
+        "value": "3d_fighter",
+        "slug": "3d-fighter"
+      }
+    },
+    {
+      "external_key": "3d_vision",
+      "fields": {
+        "name": "3D Vision",
+        "value": "3d_vision",
+        "slug": "3d-vision"
+      }
+    },
+    {
+      "external_key": "6dof",
+      "fields": {
+        "name": "6DOF",
+        "value": "6dof",
+        "slug": "6dof"
+      }
+    },
+    {
+      "external_key": "8_bit_music",
+      "fields": {
+        "name": "8-bit Music",
+        "value": "8_bit_music",
+        "slug": "8-bit-music"
+      }
+    },
+    {
+      "external_key": "abstract",
+      "fields": {
+        "name": "Abstract",
+        "value": "abstract",
+        "slug": "abstract"
+      }
+    },
+    {
+      "external_key": "action_roguelike",
+      "fields": {
+        "name": "Action Roguelike",
+        "value": "action_roguelike",
+        "slug": "action-roguelike"
+      }
+    },
+    {
+      "external_key": "action_rpg",
+      "fields": {
+        "name": "Action RPG",
+        "value": "action_rpg",
+        "slug": "action-rpg"
+      }
+    },
+    {
+      "external_key": "addictive",
+      "fields": {
+        "name": "Addictive",
+        "value": "addictive",
+        "slug": "addictive"
+      }
+    },
+    {
+      "external_key": "agriculture",
+      "fields": {
+        "name": "Agriculture",
+        "value": "agriculture",
+        "slug": "agriculture"
+      }
+    },
+    {
+      "external_key": "aliens",
+      "fields": {
+        "name": "Aliens",
+        "value": "aliens",
+        "slug": "aliens"
+      }
+    },
+    {
+      "external_key": "alternate_history",
+      "fields": {
+        "name": "Alternate History",
+        "value": "alternate_history",
+        "slug": "alternate-history"
+      }
+    },
+    {
+      "external_key": "ambient",
+      "fields": {
+        "name": "Ambient",
+        "value": "ambient",
+        "slug": "ambient"
+      }
+    },
+    {
+      "external_key": "america",
+      "fields": {
+        "name": "America",
+        "value": "america",
+        "slug": "america"
+      }
+    },
+    {
+      "external_key": "arcade_enabled",
+      "fields": {
+        "name": "Play Now",
+        "value": "arcade_enabled",
+        "slug": "arcade-enabled"
+      }
+    },
+    {
+      "external_key": "archery",
+      "fields": {
+        "name": "Archery",
+        "value": "archery",
+        "slug": "archery"
+      }
+    },
+    {
+      "external_key": "artificial_intelligence",
+      "fields": {
+        "name": "Artificial Intelligence",
+        "value": "artificial_intelligence",
+        "slug": "artificial-intelligence"
+      }
+    },
+    {
+      "external_key": "assassin",
+      "fields": {
+        "name": "Assassin",
+        "value": "assassin",
+        "slug": "assassin"
+      }
+    },
+    {
+      "external_key": "asymmetric_vr",
+      "fields": {
+        "name": "Asymmetric VR",
+        "value": "asymmetric_vr",
+        "slug": "asymmetric-vr"
+      }
+    },
+    {
+      "external_key": "atmospheric",
+      "fields": {
+        "name": "Atmospheric",
+        "value": "atmospheric",
+        "slug": "atmospheric"
+      }
+    },
+    {
+      "external_key": "atv",
+      "fields": {
+        "name": "ATV",
+        "value": "atv",
+        "slug": "atv"
+      }
+    },
+    {
+      "external_key": "audio_production",
+      "fields": {
+        "name": "Audio Production",
+        "value": "audio_production",
+        "slug": "audio-production"
+      }
+    },
+    {
+      "external_key": "auto_battler",
+      "fields": {
+        "name": "Auto Battler",
+        "value": "auto_battler",
+        "slug": "auto-battler"
+      }
+    },
+    {
+      "external_key": "automation",
+      "fields": {
+        "name": "Automation",
+        "value": "automation",
+        "slug": "automation"
+      }
+    },
+    {
+      "external_key": "base_building",
+      "fields": {
+        "name": "Base Building",
+        "value": "base_building",
+        "slug": "base-building"
+      }
+    },
+    {
+      "external_key": "baseball",
+      "fields": {
+        "name": "Baseball",
+        "value": "baseball",
+        "slug": "baseball"
+      }
+    },
+    {
+      "external_key": "based_on_a_novel",
+      "fields": {
+        "name": "Based On A Novel",
+        "value": "based_on_a_novel",
+        "slug": "based-on-a-novel"
+      }
+    },
+    {
+      "external_key": "basketball",
+      "fields": {
+        "name": "Basketball",
+        "value": "basketball",
+        "slug": "basketball"
+      }
+    },
+    {
+      "external_key": "battle_royale",
+      "fields": {
+        "name": "Battle Royale",
+        "value": "battle_royale",
+        "slug": "battle-royale"
+      }
+    },
+    {
+      "external_key": "beautiful",
+      "fields": {
+        "name": "Beautiful",
+        "value": "beautiful",
+        "slug": "beautiful"
+      }
+    },
+    {
+      "external_key": "bikes",
+      "fields": {
+        "name": "Bikes",
+        "value": "bikes",
+        "slug": "bikes"
+      }
+    },
+    {
+      "external_key": "birds",
+      "fields": {
+        "name": "Birds",
+        "value": "birds",
+        "slug": "birds"
+      }
+    },
+    {
+      "external_key": "blood",
+      "fields": {
+        "name": "Blood",
+        "value": "blood",
+        "slug": "blood"
+      }
+    },
+    {
+      "external_key": "bmx",
+      "fields": {
+        "name": "BMX",
+        "value": "bmx",
+        "slug": "bmx"
+      }
+    },
+    {
+      "external_key": "board_game",
+      "fields": {
+        "name": "Board Game",
+        "value": "board_game",
+        "slug": "board-game"
+      }
+    },
+    {
+      "external_key": "boomer_shooter",
+      "fields": {
+        "name": "Boomer Shooter",
+        "value": "boomer_shooter",
+        "slug": "boomer-shooter"
+      }
+    },
+    {
+      "external_key": "boss_rush",
+      "fields": {
+        "name": "Boss Rush",
+        "value": "boss_rush",
+        "slug": "boss-rush"
+      }
+    },
+    {
+      "external_key": "bowling",
+      "fields": {
+        "name": "Bowling",
+        "value": "bowling",
+        "slug": "bowling"
+      }
+    },
+    {
+      "external_key": "boxing",
+      "fields": {
+        "name": "Boxing",
+        "value": "boxing",
+        "slug": "boxing"
+      }
+    },
+    {
+      "external_key": "building",
+      "fields": {
+        "name": "Building",
+        "value": "building",
+        "slug": "building"
+      }
+    },
+    {
+      "external_key": "bullet_hell",
+      "fields": {
+        "name": "Bullet Hell",
+        "value": "bullet_hell",
+        "slug": "bullet-hell"
+      }
+    },
+    {
+      "external_key": "bullet_time",
+      "fields": {
+        "name": "Bullet Time",
+        "value": "bullet_time",
+        "slug": "bullet-time"
+      }
+    },
+    {
+      "external_key": "capitalism",
+      "fields": {
+        "name": "Capitalism",
+        "value": "capitalism",
+        "slug": "capitalism"
+      }
+    },
+    {
+      "external_key": "card_battler",
+      "fields": {
+        "name": "Card Battler",
+        "value": "card_battler",
+        "slug": "card-battler"
+      }
+    },
+    {
+      "external_key": "cartoon",
+      "fields": {
+        "name": "Cartoon",
+        "value": "cartoon",
+        "slug": "cartoon"
+      }
+    },
+    {
+      "external_key": "cartoony",
+      "fields": {
+        "name": "Cartoony",
+        "value": "cartoony",
+        "slug": "cartoony"
+      }
+    },
+    {
+      "external_key": "cats",
+      "fields": {
+        "name": "Cats",
+        "value": "cats",
+        "slug": "cats"
+      }
+    },
+    {
+      "external_key": "character_action_game",
+      "fields": {
+        "name": "Character Action Game",
+        "value": "character_action_game",
+        "slug": "character-action-game"
+      }
+    },
+    {
+      "external_key": "character_customization",
+      "fields": {
+        "name": "Character Customization",
+        "value": "character_customization",
+        "slug": "character-customization"
+      }
+    },
+    {
+      "external_key": "chess",
+      "fields": {
+        "name": "Chess",
+        "value": "chess",
+        "slug": "chess"
+      }
+    },
+    {
+      "external_key": "choices_matter",
+      "fields": {
+        "name": "Choices Matter",
+        "value": "choices_matter",
+        "slug": "choices-matter"
+      }
+    },
+    {
+      "external_key": "choose_your_own_adventure",
+      "fields": {
+        "name": "Choose Your Own Adventure",
+        "value": "choose_your_own_adventure",
+        "slug": "choose-your-own-adventure"
+      }
+    },
+    {
+      "external_key": "cinematic",
+      "fields": {
+        "name": "Cinematic",
+        "value": "cinematic",
+        "slug": "cinematic"
+      }
+    },
+    {
+      "external_key": "class_based",
+      "fields": {
+        "name": "Class-Based",
+        "value": "class_based",
+        "slug": "class-based"
+      }
+    },
+    {
+      "external_key": "classic",
+      "fields": {
+        "name": "Classic",
+        "value": "classic",
+        "slug": "classic"
+      }
+    },
+    {
+      "external_key": "clicker",
+      "fields": {
+        "name": "Clicker",
+        "value": "clicker",
+        "slug": "clicker"
+      }
+    },
+    {
+      "external_key": "co_op_campaign",
+      "fields": {
+        "name": "Co-op Campaign",
+        "value": "co_op_campaign",
+        "slug": "co-op-campaign"
+      }
+    },
+    {
+      "external_key": "cold_war",
+      "fields": {
+        "name": "Cold War",
+        "value": "cold_war",
+        "slug": "cold-war"
+      }
+    },
+    {
+      "external_key": "collectathon",
+      "fields": {
+        "name": "Collectathon",
+        "value": "collectathon",
+        "slug": "collectathon"
+      }
+    },
+    {
+      "external_key": "colony_sim",
+      "fields": {
+        "name": "Colony Sim",
+        "value": "colony_sim",
+        "slug": "colony-sim"
+      }
+    },
+    {
+      "external_key": "colorful",
+      "fields": {
+        "name": "Colorful",
+        "value": "colorful",
+        "slug": "colorful"
+      }
+    },
+    {
+      "external_key": "combat",
+      "fields": {
+        "name": "Combat",
+        "value": "combat",
+        "slug": "combat"
+      }
+    },
+    {
+      "external_key": "combat_racing",
+      "fields": {
+        "name": "Combat Racing",
+        "value": "combat_racing",
+        "slug": "combat-racing"
+      }
+    },
+    {
+      "external_key": "comic_book",
+      "fields": {
+        "name": "Comic Book",
+        "value": "comic_book",
+        "slug": "comic-book"
+      }
+    },
+    {
+      "external_key": "competitive",
+      "fields": {
+        "name": "Competitive",
+        "value": "competitive",
+        "slug": "competitive"
+      }
+    },
+    {
+      "external_key": "conspiracy",
+      "fields": {
+        "name": "Conspiracy",
+        "value": "conspiracy",
+        "slug": "conspiracy"
+      }
+    },
+    {
+      "external_key": "conversation",
+      "fields": {
+        "name": "Conversation",
+        "value": "conversation",
+        "slug": "conversation"
+      }
+    },
+    {
+      "external_key": "cooking",
+      "fields": {
+        "name": "Cooking",
+        "value": "cooking",
+        "slug": "cooking"
+      }
+    },
+    {
+      "external_key": "cozy",
+      "fields": {
+        "name": "Cozy",
+        "value": "cozy",
+        "slug": "cozy"
+      }
+    },
+    {
+      "external_key": "crafting",
+      "fields": {
+        "name": "Crafting",
+        "value": "crafting",
+        "slug": "crafting"
+      }
+    },
+    {
+      "external_key": "creature_collector",
+      "fields": {
+        "name": "Creature Collector",
+        "value": "creature_collector",
+        "slug": "creature-collector"
+      }
+    },
+    {
+      "external_key": "cricket",
+      "fields": {
+        "name": "Cricket",
+        "value": "cricket",
+        "slug": "cricket"
+      }
+    },
+    {
+      "external_key": "crime",
+      "fields": {
+        "name": "Crime",
+        "value": "crime",
+        "slug": "crime"
+      }
+    },
+    {
+      "external_key": "crpg",
+      "fields": {
+        "name": "CRPG",
+        "value": "crpg",
+        "slug": "crpg"
+      }
+    },
+    {
+      "external_key": "cult_classic",
+      "fields": {
+        "name": "Cult Classic",
+        "value": "cult_classic",
+        "slug": "cult-classic"
+      }
+    },
+    {
+      "external_key": "cute",
+      "fields": {
+        "name": "Cute",
+        "value": "cute",
+        "slug": "cute"
+      }
+    },
+    {
+      "external_key": "cyberpunk",
+      "fields": {
+        "name": "Cyberpunk",
+        "value": "cyberpunk",
+        "slug": "cyberpunk"
+      }
+    },
+    {
+      "external_key": "cycling",
+      "fields": {
+        "name": "Cycling",
+        "value": "cycling",
+        "slug": "cycling"
+      }
+    },
+    {
+      "external_key": "dark",
+      "fields": {
+        "name": "Dark",
+        "value": "dark",
+        "slug": "dark"
+      }
+    },
+    {
+      "external_key": "dark_comedy",
+      "fields": {
+        "name": "Dark Comedy",
+        "value": "dark_comedy",
+        "slug": "dark-comedy"
+      }
+    },
+    {
+      "external_key": "dark_humor",
+      "fields": {
+        "name": "Dark Humor",
+        "value": "dark_humor",
+        "slug": "dark-humor"
+      }
+    },
+    {
+      "external_key": "deckbuilding",
+      "fields": {
+        "name": "Deckbuilding",
+        "value": "deckbuilding",
+        "slug": "deckbuilding"
+      }
+    },
+    {
+      "external_key": "demons",
+      "fields": {
+        "name": "Demons",
+        "value": "demons",
+        "slug": "demons"
+      }
+    },
+    {
+      "external_key": "destruction",
+      "fields": {
+        "name": "Destruction",
+        "value": "destruction",
+        "slug": "destruction"
+      }
+    },
+    {
+      "external_key": "detective",
+      "fields": {
+        "name": "Detective",
+        "value": "detective",
+        "slug": "detective"
+      }
+    },
+    {
+      "external_key": "dice",
+      "fields": {
+        "name": "Dice",
+        "value": "dice",
+        "slug": "dice"
+      }
+    },
+    {
+      "external_key": "difficult",
+      "fields": {
+        "name": "Difficult",
+        "value": "difficult",
+        "slug": "difficult"
+      }
+    },
+    {
+      "external_key": "dinosaurs",
+      "fields": {
+        "name": "Dinosaurs",
+        "value": "dinosaurs",
+        "slug": "dinosaurs"
+      }
+    },
+    {
+      "external_key": "diplomacy",
+      "fields": {
+        "name": "Diplomacy",
+        "value": "diplomacy",
+        "slug": "diplomacy"
+      }
+    },
+    {
+      "external_key": "documentary",
+      "fields": {
+        "name": "Documentary",
+        "value": "documentary",
+        "slug": "documentary"
+      }
+    },
+    {
+      "external_key": "dog",
+      "fields": {
+        "name": "Dog",
+        "value": "dog",
+        "slug": "dog"
+      }
+    },
+    {
+      "external_key": "dragons",
+      "fields": {
+        "name": "Dragons",
+        "value": "dragons",
+        "slug": "dragons"
+      }
+    },
+    {
+      "external_key": "driving",
+      "fields": {
+        "name": "Driving",
+        "value": "driving",
+        "slug": "driving"
+      }
+    },
+    {
+      "external_key": "dungeon_crawler",
+      "fields": {
+        "name": "Dungeon Crawler",
+        "value": "dungeon_crawler",
+        "slug": "dungeon-crawler"
+      }
+    },
+    {
+      "external_key": "dungeons_dragons",
+      "fields": {
+        "name": "Dungeons & Dragons",
+        "value": "dungeons_dragons",
+        "slug": "dungeons-dragons"
+      }
+    },
+    {
+      "external_key": "dwarf",
+      "fields": {
+        "name": "Dwarf",
+        "value": "dwarf",
+        "slug": "dwarf"
+      }
+    },
+    {
+      "external_key": "dynamic_narration",
+      "fields": {
+        "name": "Dynamic Narration",
+        "value": "dynamic_narration",
+        "slug": "dynamic-narration"
+      }
+    },
+    {
+      "external_key": "dystopian",
+      "fields": {
+        "name": "Dystopian",
+        "value": "dystopian",
+        "slug": "dystopian"
+      }
+    },
+    {
+      "external_key": "early_access",
+      "fields": {
+        "name": "Early Access",
+        "value": "early_access",
+        "slug": "early-access"
+      }
+    },
+    {
+      "external_key": "educational",
+      "fields": {
+        "name": "Educational",
+        "value": "educational",
+        "slug": "educational"
+      }
+    },
+    {
+      "external_key": "electronic",
+      "fields": {
+        "name": "Electronic",
+        "value": "electronic",
+        "slug": "electronic"
+      }
+    },
+    {
+      "external_key": "electronic_music",
+      "fields": {
+        "name": "Electronic Music",
+        "value": "electronic_music",
+        "slug": "electronic-music"
+      }
+    },
+    {
+      "external_key": "elf",
+      "fields": {
+        "name": "Elf",
+        "value": "elf",
+        "slug": "elf"
+      }
+    },
+    {
+      "external_key": "emotional",
+      "fields": {
+        "name": "Emotional",
+        "value": "emotional",
+        "slug": "emotional"
+      }
+    },
+    {
+      "external_key": "epic",
+      "fields": {
+        "name": "Epic",
+        "value": "epic",
+        "slug": "epic"
+      }
+    },
+    {
+      "external_key": "episodic",
+      "fields": {
+        "name": "Episodic",
+        "value": "episodic",
+        "slug": "episodic"
+      }
+    },
+    {
+      "external_key": "escape_room",
+      "fields": {
+        "name": "Escape Room",
+        "value": "escape_room",
+        "slug": "escape-room"
+      }
+    },
+    {
+      "external_key": "esports",
+      "fields": {
+        "name": "eSports",
+        "value": "esports",
+        "slug": "esports"
+      }
+    },
+    {
+      "external_key": "experience",
+      "fields": {
+        "name": "Experience",
+        "value": "experience",
+        "slug": "experience"
+      }
+    },
+    {
+      "external_key": "experimental",
+      "fields": {
+        "name": "Experimental",
+        "value": "experimental",
+        "slug": "experimental"
+      }
+    },
+    {
+      "external_key": "exploration",
+      "fields": {
+        "name": "Exploration",
+        "value": "exploration",
+        "slug": "exploration"
+      }
+    },
+    {
+      "external_key": "faith",
+      "fields": {
+        "name": "Faith",
+        "value": "faith",
+        "slug": "faith"
+      }
+    },
+    {
+      "external_key": "family_friendly",
+      "fields": {
+        "name": "Family Friendly",
+        "value": "family_friendly",
+        "slug": "family-friendly"
+      }
+    },
+    {
+      "external_key": "farming",
+      "fields": {
+        "name": "Farming",
+        "value": "farming",
+        "slug": "farming"
+      }
+    },
+    {
+      "external_key": "fast_paced",
+      "fields": {
+        "name": "Fast-Paced",
+        "value": "fast_paced",
+        "slug": "fast-paced"
+      }
+    },
+    {
+      "external_key": "female_protagonist",
+      "fields": {
+        "name": "Female Protagonist",
+        "value": "female_protagonist",
+        "slug": "female-protagonist"
+      }
+    },
+    {
+      "external_key": "first_person",
+      "fields": {
+        "name": "First-Person",
+        "value": "first_person",
+        "slug": "first-person"
+      }
+    },
+    {
+      "external_key": "fishing",
+      "fields": {
+        "name": "Fishing",
+        "value": "fishing",
+        "slug": "fishing"
+      }
+    },
+    {
+      "external_key": "flight",
+      "fields": {
+        "name": "Flight",
+        "value": "flight",
+        "slug": "flight"
+      }
+    },
+    {
+      "external_key": "fmv",
+      "fields": {
+        "name": "FMV",
+        "value": "fmv",
+        "slug": "fmv"
+      }
+    },
+    {
+      "external_key": "football_american",
+      "fields": {
+        "name": "Football (American)",
+        "value": "football_american",
+        "slug": "football-american"
+      }
+    },
+    {
+      "external_key": "football_soccer",
+      "fields": {
+        "name": "Football (Soccer)",
+        "value": "football_soccer",
+        "slug": "football-soccer"
+      }
+    },
+    {
+      "external_key": "foreign",
+      "fields": {
+        "name": "Foreign",
+        "value": "foreign",
+        "slug": "foreign"
+      }
+    },
+    {
+      "external_key": "fox",
+      "fields": {
+        "name": "Fox",
+        "value": "fox",
+        "slug": "fox"
+      }
+    },
+    {
+      "external_key": "free_to_play",
+      "fields": {
+        "name": "Free to Play",
+        "value": "free_to_play",
+        "slug": "free-to-play"
+      }
+    },
+    {
+      "external_key": "funny",
+      "fields": {
+        "name": "Funny",
+        "value": "funny",
+        "slug": "funny"
+      }
+    },
+    {
+      "external_key": "futuristic",
+      "fields": {
+        "name": "Futuristic",
+        "value": "futuristic",
+        "slug": "futuristic"
+      }
+    },
+    {
+      "external_key": "gambling",
+      "fields": {
+        "name": "Gambling",
+        "value": "gambling",
+        "slug": "gambling"
+      }
+    },
+    {
+      "external_key": "gaming",
+      "fields": {
+        "name": "Gaming",
+        "value": "gaming",
+        "slug": "gaming"
+      }
+    },
+    {
+      "external_key": "god_game",
+      "fields": {
+        "name": "God Game",
+        "value": "god_game",
+        "slug": "god-game"
+      }
+    },
+    {
+      "external_key": "golf",
+      "fields": {
+        "name": "Golf",
+        "value": "golf",
+        "slug": "golf"
+      }
+    },
+    {
+      "external_key": "gothic",
+      "fields": {
+        "name": "Gothic",
+        "value": "gothic",
+        "slug": "gothic"
+      }
+    },
+    {
+      "external_key": "grand_strategy",
+      "fields": {
+        "name": "Grand Strategy",
+        "value": "grand_strategy",
+        "slug": "grand-strategy"
+      }
+    },
+    {
+      "external_key": "great_soundtrack",
+      "fields": {
+        "name": "Great Soundtrack",
+        "value": "great_soundtrack",
+        "slug": "great-soundtrack"
+      }
+    },
+    {
+      "external_key": "grid_based_movement",
+      "fields": {
+        "name": "Grid-Based Movement",
+        "value": "grid_based_movement",
+        "slug": "grid-based-movement"
+      }
+    },
+    {
+      "external_key": "gun_customization",
+      "fields": {
+        "name": "Gun Customization",
+        "value": "gun_customization",
+        "slug": "gun-customization"
+      }
+    },
+    {
+      "external_key": "hacking",
+      "fields": {
+        "name": "Hacking",
+        "value": "hacking",
+        "slug": "hacking"
+      }
+    },
+    {
+      "external_key": "hand_drawn",
+      "fields": {
+        "name": "Hand-drawn",
+        "value": "hand_drawn",
+        "slug": "hand-drawn"
+      }
+    },
+    {
+      "external_key": "heist",
+      "fields": {
+        "name": "Heist",
+        "value": "heist",
+        "slug": "heist"
+      }
+    },
+    {
+      "external_key": "hentai",
+      "fields": {
+        "name": "Hentai",
+        "value": "hentai",
+        "slug": "hentai"
+      }
+    },
+    {
+      "external_key": "hero_shooter",
+      "fields": {
+        "name": "Hero Shooter",
+        "value": "hero_shooter",
+        "slug": "hero-shooter"
+      }
+    },
+    {
+      "external_key": "hex_grid",
+      "fields": {
+        "name": "Hex Grid",
+        "value": "hex_grid",
+        "slug": "hex-grid"
+      }
+    },
+    {
+      "external_key": "hidden_object",
+      "fields": {
+        "name": "Hidden Object",
+        "value": "hidden_object",
+        "slug": "hidden-object"
+      }
+    },
+    {
+      "external_key": "hobby_sim",
+      "fields": {
+        "name": "Hobby Sim",
+        "value": "hobby_sim",
+        "slug": "hobby-sim"
+      }
+    },
+    {
+      "external_key": "hockey",
+      "fields": {
+        "name": "Hockey",
+        "value": "hockey",
+        "slug": "hockey"
+      }
+    },
+    {
+      "external_key": "horses",
+      "fields": {
+        "name": "Horses",
+        "value": "horses",
+        "slug": "horses"
+      }
+    },
+    {
+      "external_key": "hunting",
+      "fields": {
+        "name": "Hunting",
+        "value": "hunting",
+        "slug": "hunting"
+      }
+    },
+    {
+      "external_key": "idler",
+      "fields": {
+        "name": "Idler",
+        "value": "idler",
+        "slug": "idler"
+      }
+    },
+    {
+      "external_key": "illuminati",
+      "fields": {
+        "name": "Illuminati",
+        "value": "illuminati",
+        "slug": "illuminati"
+      }
+    },
+    {
+      "external_key": "immersive",
+      "fields": {
+        "name": "Immersive",
+        "value": "immersive",
+        "slug": "immersive"
+      }
+    },
+    {
+      "external_key": "immersive_sim",
+      "fields": {
+        "name": "Immersive Sim",
+        "value": "immersive_sim",
+        "slug": "immersive-sim"
+      }
+    },
+    {
+      "external_key": "indie",
+      "fields": {
+        "name": "Indie",
+        "value": "indie",
+        "slug": "indie"
+      }
+    },
+    {
+      "external_key": "instrumental_music",
+      "fields": {
+        "name": "Instrumental Music",
+        "value": "instrumental_music",
+        "slug": "instrumental-music"
+      }
+    },
+    {
+      "external_key": "intentionally_awkward_controls",
+      "fields": {
+        "name": "Intentionally Awkward Controls",
+        "value": "intentionally_awkward_controls",
+        "slug": "intentionally-awkward-controls"
+      }
+    },
+    {
+      "external_key": "inventory_management",
+      "fields": {
+        "name": "Inventory Management",
+        "value": "inventory_management",
+        "slug": "inventory-management"
+      }
+    },
+    {
+      "external_key": "investigation",
+      "fields": {
+        "name": "Investigation",
+        "value": "investigation",
+        "slug": "investigation"
+      }
+    },
+    {
+      "external_key": "isometric",
+      "fields": {
+        "name": "Isometric",
+        "value": "isometric",
+        "slug": "isometric"
+      }
+    },
+    {
+      "external_key": "jet",
+      "fields": {
+        "name": "Jet",
+        "value": "jet",
+        "slug": "jet"
+      }
+    },
+    {
+      "external_key": "jump_scare",
+      "fields": {
+        "name": "Jump Scare",
+        "value": "jump_scare",
+        "slug": "jump-scare"
+      }
+    },
+    {
+      "external_key": "lego",
+      "fields": {
+        "name": "LEGO",
+        "value": "lego",
+        "slug": "lego"
+      }
+    },
+    {
+      "external_key": "lemmings",
+      "fields": {
+        "name": "Lemmings",
+        "value": "lemmings",
+        "slug": "lemmings"
+      }
+    },
+    {
+      "external_key": "lgbtq",
+      "fields": {
+        "name": "LGBTQ+",
+        "value": "lgbtq",
+        "slug": "lgbtq"
+      }
+    },
+    {
+      "external_key": "life_sim",
+      "fields": {
+        "name": "Life Sim",
+        "value": "life_sim",
+        "slug": "life-sim"
+      }
+    },
+    {
+      "external_key": "linear",
+      "fields": {
+        "name": "Linear",
+        "value": "linear",
+        "slug": "linear"
+      }
+    },
+    {
+      "external_key": "logic",
+      "fields": {
+        "name": "Logic",
+        "value": "logic",
+        "slug": "logic"
+      }
+    },
+    {
+      "external_key": "loot",
+      "fields": {
+        "name": "Loot",
+        "value": "loot",
+        "slug": "loot"
+      }
+    },
+    {
+      "external_key": "lore_rich",
+      "fields": {
+        "name": "Lore-Rich",
+        "value": "lore_rich",
+        "slug": "lore-rich"
+      }
+    },
+    {
+      "external_key": "lovecraftian",
+      "fields": {
+        "name": "Lovecraftian",
+        "value": "lovecraftian",
+        "slug": "lovecraftian"
+      }
+    },
+    {
+      "external_key": "magic",
+      "fields": {
+        "name": "Magic",
+        "value": "magic",
+        "slug": "magic"
+      }
+    },
+    {
+      "external_key": "mahjong",
+      "fields": {
+        "name": "Mahjong",
+        "value": "mahjong",
+        "slug": "mahjong"
+      }
+    },
+    {
+      "external_key": "mars",
+      "fields": {
+        "name": "Mars",
+        "value": "mars",
+        "slug": "mars"
+      }
+    },
+    {
+      "external_key": "martial_arts",
+      "fields": {
+        "name": "Martial Arts",
+        "value": "martial_arts",
+        "slug": "martial-arts"
+      }
+    },
+    {
+      "external_key": "match_3",
+      "fields": {
+        "name": "Match 3",
+        "value": "match_3",
+        "slug": "match-3"
+      }
+    },
+    {
+      "external_key": "mature",
+      "fields": {
+        "name": "Mature",
+        "value": "mature",
+        "slug": "mature"
+      }
+    },
+    {
+      "external_key": "mechs",
+      "fields": {
+        "name": "Mechs",
+        "value": "mechs",
+        "slug": "mechs"
+      }
+    },
+    {
+      "external_key": "medical_sim",
+      "fields": {
+        "name": "Medical Sim",
+        "value": "medical_sim",
+        "slug": "medical-sim"
+      }
+    },
+    {
+      "external_key": "memes",
+      "fields": {
+        "name": "Memes",
+        "value": "memes",
+        "slug": "memes"
+      }
+    },
+    {
+      "external_key": "metroidvania",
+      "fields": {
+        "name": "Metroidvania",
+        "value": "metroidvania",
+        "slug": "metroidvania"
+      }
+    },
+    {
+      "external_key": "military",
+      "fields": {
+        "name": "Military",
+        "value": "military",
+        "slug": "military"
+      }
+    },
+    {
+      "external_key": "mini_golf",
+      "fields": {
+        "name": "Mini Golf",
+        "value": "mini_golf",
+        "slug": "mini-golf"
+      }
+    },
+    {
+      "external_key": "minigames",
+      "fields": {
+        "name": "Minigames",
+        "value": "minigames",
+        "slug": "minigames"
+      }
+    },
+    {
+      "external_key": "minimalist",
+      "fields": {
+        "name": "Minimalist",
+        "value": "minimalist",
+        "slug": "minimalist"
+      }
+    },
+    {
+      "external_key": "mining",
+      "fields": {
+        "name": "Mining",
+        "value": "mining",
+        "slug": "mining"
+      }
+    },
+    {
+      "external_key": "moba",
+      "fields": {
+        "name": "MOBA",
+        "value": "moba",
+        "slug": "moba"
+      }
+    },
+    {
+      "external_key": "modern",
+      "fields": {
+        "name": "Modern",
+        "value": "modern",
+        "slug": "modern"
+      }
+    },
+    {
+      "external_key": "motocross",
+      "fields": {
+        "name": "Motocross",
+        "value": "motocross",
+        "slug": "motocross"
+      }
+    },
+    {
+      "external_key": "motorbike",
+      "fields": {
+        "name": "Motorbike",
+        "value": "motorbike",
+        "slug": "motorbike"
+      }
+    },
+    {
+      "external_key": "multiple_endings",
+      "fields": {
+        "name": "Multiple Endings",
+        "value": "multiple_endings",
+        "slug": "multiple-endings"
+      }
+    },
+    {
+      "external_key": "music_based_procedural_generation",
+      "fields": {
+        "name": "Music-Based Procedural Generation",
+        "value": "music_based_procedural_generation",
+        "slug": "music-based-procedural-generation"
+      }
+    },
+    {
+      "external_key": "musou",
+      "fields": {
+        "name": "Musou",
+        "value": "musou",
+        "slug": "musou"
+      }
+    },
+    {
+      "external_key": "mystery_dungeon",
+      "fields": {
+        "name": "Mystery Dungeon",
+        "value": "mystery_dungeon",
+        "slug": "mystery-dungeon"
+      }
+    },
+    {
+      "external_key": "mythology",
+      "fields": {
+        "name": "Mythology",
+        "value": "mythology",
+        "slug": "mythology"
+      }
+    },
+    {
+      "external_key": "narration",
+      "fields": {
+        "name": "Narration",
+        "value": "narration",
+        "slug": "narration"
+      }
+    },
+    {
+      "external_key": "narrative",
+      "fields": {
+        "name": "Narrative",
+        "value": "narrative",
+        "slug": "narrative"
+      }
+    },
+    {
+      "external_key": "nature",
+      "fields": {
+        "name": "Nature",
+        "value": "nature",
+        "slug": "nature"
+      }
+    },
+    {
+      "external_key": "naval",
+      "fields": {
+        "name": "Naval",
+        "value": "naval",
+        "slug": "naval"
+      }
+    },
+    {
+      "external_key": "naval_combat",
+      "fields": {
+        "name": "Naval Combat",
+        "value": "naval_combat",
+        "slug": "naval-combat"
+      }
+    },
+    {
+      "external_key": "ninja",
+      "fields": {
+        "name": "Ninja",
+        "value": "ninja",
+        "slug": "ninja"
+      }
+    },
+    {
+      "external_key": "noir",
+      "fields": {
+        "name": "Noir",
+        "value": "noir",
+        "slug": "noir"
+      }
+    },
+    {
+      "external_key": "nonlinear",
+      "fields": {
+        "name": "Nonlinear",
+        "value": "nonlinear",
+        "slug": "nonlinear"
+      }
+    },
+    {
+      "external_key": "nostalgia",
+      "fields": {
+        "name": "Nostalgia",
+        "value": "nostalgia",
+        "slug": "nostalgia"
+      }
+    },
+    {
+      "external_key": "nsfw",
+      "fields": {
+        "name": "NSFW",
+        "value": "nsfw",
+        "slug": "nsfw"
+      }
+    },
+    {
+      "external_key": "offroad",
+      "fields": {
+        "name": "Offroad",
+        "value": "offroad",
+        "slug": "offroad"
+      }
+    },
+    {
+      "external_key": "old_school",
+      "fields": {
+        "name": "Old School",
+        "value": "old_school",
+        "slug": "old-school"
+      }
+    },
+    {
+      "external_key": "open_world_survival_craft",
+      "fields": {
+        "name": "Open World Survival Craft",
+        "value": "open_world_survival_craft",
+        "slug": "open-world-survival-craft"
+      }
+    },
+    {
+      "external_key": "otome",
+      "fields": {
+        "name": "Otome",
+        "value": "otome",
+        "slug": "otome"
+      }
+    },
+    {
+      "external_key": "outbreak_sim",
+      "fields": {
+        "name": "Outbreak Sim",
+        "value": "outbreak_sim",
+        "slug": "outbreak-sim"
+      }
+    },
+    {
+      "external_key": "parkour",
+      "fields": {
+        "name": "Parkour",
+        "value": "parkour",
+        "slug": "parkour"
+      }
+    },
+    {
+      "external_key": "parody",
+      "fields": {
+        "name": "Parody",
+        "value": "parody",
+        "slug": "parody"
+      }
+    },
+    {
+      "external_key": "party_based_rpg",
+      "fields": {
+        "name": "Party-Based RPG",
+        "value": "party_based_rpg",
+        "slug": "party-based-rpg"
+      }
+    },
+    {
+      "external_key": "perma_death",
+      "fields": {
+        "name": "Perma Death",
+        "value": "perma_death",
+        "slug": "perma-death"
+      }
+    },
+    {
+      "external_key": "philosophical",
+      "fields": {
+        "name": "Philosophical",
+        "value": "philosophical",
+        "slug": "philosophical"
+      }
+    },
+    {
+      "external_key": "physics",
+      "fields": {
+        "name": "Physics",
+        "value": "physics",
+        "slug": "physics"
+      }
+    },
+    {
+      "external_key": "pirates",
+      "fields": {
+        "name": "Pirates",
+        "value": "pirates",
+        "slug": "pirates"
+      }
+    },
+    {
+      "external_key": "pixel_graphics",
+      "fields": {
+        "name": "Pixel Graphics",
+        "value": "pixel_graphics",
+        "slug": "pixel-graphics"
+      }
+    },
+    {
+      "external_key": "politics",
+      "fields": {
+        "name": "Politics",
+        "value": "politics",
+        "slug": "politics"
+      }
+    },
+    {
+      "external_key": "pool",
+      "fields": {
+        "name": "Pool",
+        "value": "pool",
+        "slug": "pool"
+      }
+    },
+    {
+      "external_key": "precision_platformer",
+      "fields": {
+        "name": "Precision Platformer",
+        "value": "precision_platformer",
+        "slug": "precision-platformer"
+      }
+    },
+    {
+      "external_key": "procedural_generation",
+      "fields": {
+        "name": "Procedural Generation",
+        "value": "procedural_generation",
+        "slug": "procedural-generation"
+      }
+    },
+    {
+      "external_key": "psychedelic",
+      "fields": {
+        "name": "Psychedelic",
+        "value": "psychedelic",
+        "slug": "psychedelic"
+      }
+    },
+    {
+      "external_key": "psychological",
+      "fields": {
+        "name": "Psychological",
+        "value": "psychological",
+        "slug": "psychological"
+      }
+    },
+    {
+      "external_key": "psychological_horror",
+      "fields": {
+        "name": "Psychological Horror",
+        "value": "psychological_horror",
+        "slug": "psychological-horror"
+      }
+    },
+    {
+      "external_key": "puzzle_platformer",
+      "fields": {
+        "name": "Puzzle Platformer",
+        "value": "puzzle_platformer",
+        "slug": "puzzle-platformer"
+      }
+    },
+    {
+      "external_key": "quick_time_events",
+      "fields": {
+        "name": "Quick-Time Events",
+        "value": "quick_time_events",
+        "slug": "quick-time-events"
+      }
+    },
+    {
+      "external_key": "real_time",
+      "fields": {
+        "name": "Real-Time",
+        "value": "real_time",
+        "slug": "real-time"
+      }
+    },
+    {
+      "external_key": "real_time_with_pause",
+      "fields": {
+        "name": "Real-Time with Pause",
+        "value": "real_time_with_pause",
+        "slug": "real-time-with-pause"
+      }
+    },
+    {
+      "external_key": "realistic",
+      "fields": {
+        "name": "Realistic",
+        "value": "realistic",
+        "slug": "realistic"
+      }
+    },
+    {
+      "external_key": "reboot",
+      "fields": {
+        "name": "Reboot",
+        "value": "reboot",
+        "slug": "reboot"
+      }
+    },
+    {
+      "external_key": "relaxing",
+      "fields": {
+        "name": "Relaxing",
+        "value": "relaxing",
+        "slug": "relaxing"
+      }
+    },
+    {
+      "external_key": "remake",
+      "fields": {
+        "name": "Remake",
+        "value": "remake",
+        "slug": "remake"
+      }
+    },
+    {
+      "external_key": "replay_value",
+      "fields": {
+        "name": "Replay Value",
+        "value": "replay_value",
+        "slug": "replay-value"
+      }
+    },
+    {
+      "external_key": "resource_management",
+      "fields": {
+        "name": "Resource Management",
+        "value": "resource_management",
+        "slug": "resource-management"
+      }
+    },
+    {
+      "external_key": "retro",
+      "fields": {
+        "name": "Retro",
+        "value": "retro",
+        "slug": "retro"
+      }
+    },
+    {
+      "external_key": "robots",
+      "fields": {
+        "name": "Robots",
+        "value": "robots",
+        "slug": "robots"
+      }
+    },
+    {
+      "external_key": "rock_music",
+      "fields": {
+        "name": "Rock Music",
+        "value": "rock_music",
+        "slug": "rock-music"
+      }
+    },
+    {
+      "external_key": "roguelike",
+      "fields": {
+        "name": "Roguelike",
+        "value": "roguelike",
+        "slug": "roguelike"
+      }
+    },
+    {
+      "external_key": "roguelike_deckbuilder",
+      "fields": {
+        "name": "Roguelike Deckbuilder",
+        "value": "roguelike_deckbuilder",
+        "slug": "roguelike-deckbuilder"
+      }
+    },
+    {
+      "external_key": "roguelite",
+      "fields": {
+        "name": "Roguelite",
+        "value": "roguelite",
+        "slug": "roguelite"
+      }
+    },
+    {
+      "external_key": "roguevania",
+      "fields": {
+        "name": "Roguevania",
+        "value": "roguevania",
+        "slug": "roguevania"
+      }
+    },
+    {
+      "external_key": "rome",
+      "fields": {
+        "name": "Rome",
+        "value": "rome",
+        "slug": "rome"
+      }
+    },
+    {
+      "external_key": "rugby",
+      "fields": {
+        "name": "Rugby",
+        "value": "rugby",
+        "slug": "rugby"
+      }
+    },
+    {
+      "external_key": "runner",
+      "fields": {
+        "name": "Runner",
+        "value": "runner",
+        "slug": "runner"
+      }
+    },
+    {
+      "external_key": "sailing",
+      "fields": {
+        "name": "Sailing",
+        "value": "sailing",
+        "slug": "sailing"
+      }
+    },
+    {
+      "external_key": "satire",
+      "fields": {
+        "name": "Satire",
+        "value": "satire",
+        "slug": "satire"
+      }
+    },
+    {
+      "external_key": "science",
+      "fields": {
+        "name": "Science",
+        "value": "science",
+        "slug": "science"
+      }
+    },
+    {
+      "external_key": "score_attack",
+      "fields": {
+        "name": "Score Attack",
+        "value": "score_attack",
+        "slug": "score-attack"
+      }
+    },
+    {
+      "external_key": "sequel",
+      "fields": {
+        "name": "Sequel",
+        "value": "sequel",
+        "slug": "sequel"
+      }
+    },
+    {
+      "external_key": "shop_keeper",
+      "fields": {
+        "name": "Shop Keeper",
+        "value": "shop_keeper",
+        "slug": "shop-keeper"
+      }
+    },
+    {
+      "external_key": "short",
+      "fields": {
+        "name": "Short",
+        "value": "short",
+        "slug": "short"
+      }
+    },
+    {
+      "external_key": "silent_protagonist",
+      "fields": {
+        "name": "Silent Protagonist",
+        "value": "silent_protagonist",
+        "slug": "silent-protagonist"
+      }
+    },
+    {
+      "external_key": "skateboarding",
+      "fields": {
+        "name": "Skateboarding",
+        "value": "skateboarding",
+        "slug": "skateboarding"
+      }
+    },
+    {
+      "external_key": "skating",
+      "fields": {
+        "name": "Skating",
+        "value": "skating",
+        "slug": "skating"
+      }
+    },
+    {
+      "external_key": "skiing",
+      "fields": {
+        "name": "Skiing",
+        "value": "skiing",
+        "slug": "skiing"
+      }
+    },
+    {
+      "external_key": "sniper",
+      "fields": {
+        "name": "Sniper",
+        "value": "sniper",
+        "slug": "sniper"
+      }
+    },
+    {
+      "external_key": "snooker",
+      "fields": {
+        "name": "Snooker",
+        "value": "snooker",
+        "slug": "snooker"
+      }
+    },
+    {
+      "external_key": "snow",
+      "fields": {
+        "name": "Snow",
+        "value": "snow",
+        "slug": "snow"
+      }
+    },
+    {
+      "external_key": "snowboarding",
+      "fields": {
+        "name": "Snowboarding",
+        "value": "snowboarding",
+        "slug": "snowboarding"
+      }
+    },
+    {
+      "external_key": "social_deduction",
+      "fields": {
+        "name": "Social Deduction",
+        "value": "social_deduction",
+        "slug": "social-deduction"
+      }
+    },
+    {
+      "external_key": "sokoban",
+      "fields": {
+        "name": "Sokoban",
+        "value": "sokoban",
+        "slug": "sokoban"
+      }
+    },
+    {
+      "external_key": "solitaire",
+      "fields": {
+        "name": "Solitaire",
+        "value": "solitaire",
+        "slug": "solitaire"
+      }
+    },
+    {
+      "external_key": "souls_like",
+      "fields": {
+        "name": "Souls-like",
+        "value": "souls_like",
+        "slug": "souls-like"
+      }
+    },
+    {
+      "external_key": "soundtrack",
+      "fields": {
+        "name": "Soundtrack",
+        "value": "soundtrack",
+        "slug": "soundtrack"
+      }
+    },
+    {
+      "external_key": "space",
+      "fields": {
+        "name": "Space",
+        "value": "space",
+        "slug": "space"
+      }
+    },
+    {
+      "external_key": "spaceships",
+      "fields": {
+        "name": "Spaceships",
+        "value": "spaceships",
+        "slug": "spaceships"
+      }
+    },
+    {
+      "external_key": "spectacle_fighter",
+      "fields": {
+        "name": "Spectacle fighter",
+        "value": "spectacle_fighter",
+        "slug": "spectacle-fighter"
+      }
+    },
+    {
+      "external_key": "spelling",
+      "fields": {
+        "name": "Spelling",
+        "value": "spelling",
+        "slug": "spelling"
+      }
+    },
+    {
+      "external_key": "steampunk",
+      "fields": {
+        "name": "Steampunk",
+        "value": "steampunk",
+        "slug": "steampunk"
+      }
+    },
+    {
+      "external_key": "story_rich",
+      "fields": {
+        "name": "Story Rich",
+        "value": "story_rich",
+        "slug": "story-rich"
+      }
+    },
+    {
+      "external_key": "strategy_rpg",
+      "fields": {
+        "name": "Strategy RPG",
+        "value": "strategy_rpg",
+        "slug": "strategy-rpg"
+      }
+    },
+    {
+      "external_key": "stylized",
+      "fields": {
+        "name": "Stylized",
+        "value": "stylized",
+        "slug": "stylized"
+      }
+    },
+    {
+      "external_key": "submarine",
+      "fields": {
+        "name": "Submarine",
+        "value": "submarine",
+        "slug": "submarine"
+      }
+    },
+    {
+      "external_key": "superhero",
+      "fields": {
+        "name": "Superhero",
+        "value": "superhero",
+        "slug": "superhero"
+      }
+    },
+    {
+      "external_key": "supernatural",
+      "fields": {
+        "name": "Supernatural",
+        "value": "supernatural",
+        "slug": "supernatural"
+      }
+    },
+    {
+      "external_key": "surreal",
+      "fields": {
+        "name": "Surreal",
+        "value": "surreal",
+        "slug": "surreal"
+      }
+    },
+    {
+      "external_key": "swordplay",
+      "fields": {
+        "name": "Swordplay",
+        "value": "swordplay",
+        "slug": "swordplay"
+      }
+    },
+    {
+      "external_key": "tabletop",
+      "fields": {
+        "name": "Tabletop",
+        "value": "tabletop",
+        "slug": "tabletop"
+      }
+    },
+    {
+      "external_key": "tactical_rpg",
+      "fields": {
+        "name": "Tactical RPG",
+        "value": "tactical_rpg",
+        "slug": "tactical-rpg"
+      }
+    },
+    {
+      "external_key": "tanks",
+      "fields": {
+        "name": "Tanks",
+        "value": "tanks",
+        "slug": "tanks"
+      }
+    },
+    {
+      "external_key": "team_based",
+      "fields": {
+        "name": "Team-Based",
+        "value": "team_based",
+        "slug": "team-based"
+      }
+    },
+    {
+      "external_key": "tennis",
+      "fields": {
+        "name": "Tennis",
+        "value": "tennis",
+        "slug": "tennis"
+      }
+    },
+    {
+      "external_key": "text_based",
+      "fields": {
+        "name": "Text-Based",
+        "value": "text_based",
+        "slug": "text-based"
+      }
+    },
+    {
+      "external_key": "third_person",
+      "fields": {
+        "name": "Third Person",
+        "value": "third_person",
+        "slug": "third-person"
+      }
+    },
+    {
+      "external_key": "time_attack",
+      "fields": {
+        "name": "Time Attack",
+        "value": "time_attack",
+        "slug": "time-attack"
+      }
+    },
+    {
+      "external_key": "time_management",
+      "fields": {
+        "name": "Time Management",
+        "value": "time_management",
+        "slug": "time-management"
+      }
+    },
+    {
+      "external_key": "time_manipulation",
+      "fields": {
+        "name": "Time Manipulation",
+        "value": "time_manipulation",
+        "slug": "time-manipulation"
+      }
+    },
+    {
+      "external_key": "time_travel",
+      "fields": {
+        "name": "Time Travel",
+        "value": "time_travel",
+        "slug": "time-travel"
+      }
+    },
+    {
+      "external_key": "top_down",
+      "fields": {
+        "name": "Top-Down",
+        "value": "top_down",
+        "slug": "top-down"
+      }
+    },
+    {
+      "external_key": "tower_defense",
+      "fields": {
+        "name": "Tower Defense",
+        "value": "tower_defense",
+        "slug": "tower-defense"
+      }
+    },
+    {
+      "external_key": "trackir",
+      "fields": {
+        "name": "TrackIR",
+        "value": "trackir",
+        "slug": "trackir"
+      }
+    },
+    {
+      "external_key": "trading",
+      "fields": {
+        "name": "Trading",
+        "value": "trading",
+        "slug": "trading"
+      }
+    },
+    {
+      "external_key": "traditional_roguelike",
+      "fields": {
+        "name": "Traditional Roguelike",
+        "value": "traditional_roguelike",
+        "slug": "traditional-roguelike"
+      }
+    },
+    {
+      "external_key": "trains",
+      "fields": {
+        "name": "Trains",
+        "value": "trains",
+        "slug": "trains"
+      }
+    },
+    {
+      "external_key": "transhumanism",
+      "fields": {
+        "name": "Transhumanism",
+        "value": "transhumanism",
+        "slug": "transhumanism"
+      }
+    },
+    {
+      "external_key": "transportation",
+      "fields": {
+        "name": "Transportation",
+        "value": "transportation",
+        "slug": "transportation"
+      }
+    },
+    {
+      "external_key": "turn_based",
+      "fields": {
+        "name": "Turn-Based",
+        "value": "turn_based",
+        "slug": "turn-based"
+      }
+    },
+    {
+      "external_key": "tutorial",
+      "fields": {
+        "name": "Tutorial",
+        "value": "tutorial",
+        "slug": "tutorial"
+      }
+    },
+    {
+      "external_key": "twin_stick_shooter",
+      "fields": {
+        "name": "Twin Stick Shooter",
+        "value": "twin_stick_shooter",
+        "slug": "twin-stick-shooter"
+      }
+    },
+    {
+      "external_key": "typing",
+      "fields": {
+        "name": "Typing",
+        "value": "typing",
+        "slug": "typing"
+      }
+    },
+    {
+      "external_key": "underground",
+      "fields": {
+        "name": "Underground",
+        "value": "underground",
+        "slug": "underground"
+      }
+    },
+    {
+      "external_key": "underwater",
+      "fields": {
+        "name": "Underwater",
+        "value": "underwater",
+        "slug": "underwater"
+      }
+    },
+    {
+      "external_key": "unforgiving",
+      "fields": {
+        "name": "Unforgiving",
+        "value": "unforgiving",
+        "slug": "unforgiving"
+      }
+    },
+    {
+      "external_key": "vampire",
+      "fields": {
+        "name": "Vampire",
+        "value": "vampire",
+        "slug": "vampire"
+      }
+    },
+    {
+      "external_key": "vehicular_combat",
+      "fields": {
+        "name": "Vehicular Combat",
+        "value": "vehicular_combat",
+        "slug": "vehicular-combat"
+      }
+    },
+    {
+      "external_key": "vikings",
+      "fields": {
+        "name": "Vikings",
+        "value": "vikings",
+        "slug": "vikings"
+      }
+    },
+    {
+      "external_key": "villain_protagonist",
+      "fields": {
+        "name": "Villain Protagonist",
+        "value": "villain_protagonist",
+        "slug": "villain-protagonist"
+      }
+    },
+    {
+      "external_key": "voice_control",
+      "fields": {
+        "name": "Voice Control",
+        "value": "voice_control",
+        "slug": "voice-control"
+      }
+    },
+    {
+      "external_key": "volleyball",
+      "fields": {
+        "name": "Volleyball",
+        "value": "volleyball",
+        "slug": "volleyball"
+      }
+    },
+    {
+      "external_key": "voxel",
+      "fields": {
+        "name": "Voxel",
+        "value": "voxel",
+        "slug": "voxel"
+      }
+    },
+    {
+      "external_key": "war",
+      "fields": {
+        "name": "War",
+        "value": "war",
+        "slug": "war"
+      }
+    },
+    {
+      "external_key": "wargame",
+      "fields": {
+        "name": "Wargame",
+        "value": "wargame",
+        "slug": "wargame"
+      }
+    },
+    {
+      "external_key": "warhammer_40k",
+      "fields": {
+        "name": "Warhammer 40K",
+        "value": "warhammer_40k",
+        "slug": "warhammer-40k"
+      }
+    },
+    {
+      "external_key": "well_written",
+      "fields": {
+        "name": "Well-Written",
+        "value": "well_written",
+        "slug": "well-written"
+      }
+    },
+    {
+      "external_key": "werewolves",
+      "fields": {
+        "name": "Werewolves",
+        "value": "werewolves",
+        "slug": "werewolves"
+      }
+    },
+    {
+      "external_key": "western",
+      "fields": {
+        "name": "Western",
+        "value": "western",
+        "slug": "western"
+      }
+    },
+    {
+      "external_key": "wholesome",
+      "fields": {
+        "name": "Wholesome",
+        "value": "wholesome",
+        "slug": "wholesome"
+      }
+    },
+    {
+      "external_key": "world_war_i",
+      "fields": {
+        "name": "World War I",
+        "value": "world_war_i",
+        "slug": "world-war-i"
+      }
+    },
+    {
+      "external_key": "world_war_ii",
+      "fields": {
+        "name": "World War II",
+        "value": "world_war_ii",
+        "slug": "world-war-ii"
+      }
+    },
+    {
+      "external_key": "wrestling",
+      "fields": {
+        "name": "Wrestling",
+        "value": "wrestling",
+        "slug": "wrestling"
+      }
+    },
+    {
+      "external_key": "zombies",
+      "fields": {
+        "name": "Zombies",
+        "value": "zombies",
+        "slug": "zombies"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "external_key": "amazon_fire_tv",
+      "fields": {
+        "name": "Amazon Fire TV",
+        "value": "amazon_fire_tv",
+        "code": "amazon_fire_tv"
+      }
+    },
+    {
+      "external_key": "amazon_luna",
+      "fields": {
+        "name": "Amazon Luna",
+        "value": "amazon_luna",
+        "code": "amazon_luna"
+      }
+    },
+    {
+      "external_key": "amiga",
+      "fields": {
+        "name": "Amiga",
+        "value": "amiga",
+        "code": "amiga"
+      }
+    },
+    {
+      "external_key": "amstrad_cpc",
+      "fields": {
+        "name": "Amstrad CPC",
+        "value": "amstrad_cpc",
+        "code": "amstrad_cpc"
+      }
+    },
+    {
+      "external_key": "android",
+      "fields": {
+        "name": "Android",
+        "value": "android",
+        "code": "android"
+      }
+    },
+    {
+      "external_key": "apple_ii",
+      "fields": {
+        "name": "Apple II",
+        "value": "apple_ii",
+        "code": "apple_ii"
+      }
+    },
+    {
+      "external_key": "atari_2600",
+      "fields": {
+        "name": "Atari 2600",
+        "value": "atari_2600",
+        "code": "atari_2600"
+      }
+    },
+    {
+      "external_key": "atari_8_bit",
+      "fields": {
+        "name": "Atari 8-Bit",
+        "value": "atari_8_bit",
+        "code": "atari_8_bit"
+      }
+    },
+    {
+      "external_key": "atari_st",
+      "fields": {
+        "name": "Atari ST",
+        "value": "atari_st",
+        "code": "atari_st"
+      }
+    },
+    {
+      "external_key": "bally_astrocade",
+      "fields": {
+        "name": "Bally Astrocade",
+        "value": "bally_astrocade",
+        "code": "bally_astrocade"
+      }
+    },
+    {
+      "external_key": "blackberry_os",
+      "fields": {
+        "name": "Blackberry OS",
+        "value": "blackberry_os",
+        "code": "blackberry_os"
+      }
+    },
+    {
+      "external_key": "cloud_platform",
+      "fields": {
+        "name": "Cloud Platform",
+        "value": "cloud_platform",
+        "code": "cloud_platform"
+      }
+    },
+    {
+      "external_key": "commodore_c64",
+      "fields": {
+        "name": "Commodore C 64/128",
+        "value": "commodore_c64",
+        "code": "commodore_c64"
+      }
+    },
+    {
+      "external_key": "dreamcast",
+      "fields": {
+        "name": "Dreamcast",
+        "value": "dreamcast",
+        "code": "dreamcast"
+      }
+    },
+    {
+      "external_key": "ea_origin",
+      "fields": {
+        "name": "EA Origin",
+        "value": "ea_origin",
+        "code": "ea_origin"
+      }
+    },
+    {
+      "external_key": "epic_games",
+      "fields": {
+        "name": "Epic Games",
+        "value": "epic_games",
+        "code": "epic_games"
+      }
+    },
+    {
+      "external_key": "evercade",
+      "fields": {
+        "name": "Evercade",
+        "value": "evercade",
+        "code": "evercade"
+      }
+    },
+    {
+      "external_key": "game_boy",
+      "fields": {
+        "name": "Gameboy",
+        "value": "game_boy",
+        "code": "game_boy"
+      }
+    },
+    {
+      "external_key": "game_boy_advance",
+      "fields": {
+        "name": "Game Boy Advance",
+        "value": "game_boy_advance",
+        "code": "game_boy_advance"
+      }
+    },
+    {
+      "external_key": "gog_com",
+      "fields": {
+        "name": "Gog Com",
+        "value": "gog_com",
+        "code": "gog_com"
+      }
+    },
+    {
+      "external_key": "ios",
+      "fields": {
+        "name": "iOS",
+        "value": "ios",
+        "code": "ios"
+      }
+    },
+    {
+      "external_key": "ipad",
+      "fields": {
+        "name": "iPad",
+        "value": "ipad",
+        "code": "ipad"
+      }
+    },
+    {
+      "external_key": "linux",
+      "fields": {
+        "name": "Linux",
+        "value": "linux",
+        "code": "linux"
+      }
+    },
+    {
+      "external_key": "mac_os",
+      "fields": {
+        "name": "Mac OS",
+        "value": "mac_os",
+        "code": "mac_os"
+      }
+    },
+    {
+      "external_key": "mobile_platform",
+      "fields": {
+        "name": "Mobile Phone",
+        "value": "mobile_platform",
+        "code": "mobile_platform"
+      }
+    },
+    {
+      "external_key": "ms_dos",
+      "fields": {
+        "name": "MS DOS",
+        "value": "ms_dos",
+        "code": "ms_dos"
+      }
+    },
+    {
+      "external_key": "msx",
+      "fields": {
+        "name": "Msx",
+        "value": "msx",
+        "code": "msx"
+      }
+    },
+    {
+      "external_key": "neo_geo_pocket",
+      "fields": {
+        "name": "Neo Geo Pocket",
+        "value": "neo_geo_pocket",
+        "code": "neo_geo_pocket"
+      }
+    },
+    {
+      "external_key": "netflix",
+      "fields": {
+        "name": "Netflix",
+        "value": "netflix",
+        "code": "netflix"
+      }
+    },
+    {
+      "external_key": "nintendo_3ds",
+      "fields": {
+        "name": "Nintendo 3DS",
+        "value": "nintendo_3ds",
+        "code": "nintendo_3ds"
+      }
+    },
+    {
+      "external_key": "nintendo_64",
+      "fields": {
+        "name": "Nintendo 64",
+        "value": "nintendo_64",
+        "code": "nintendo_64"
+      }
+    },
+    {
+      "external_key": "nintendo_ds",
+      "fields": {
+        "name": "Nintendo DS",
+        "value": "nintendo_ds",
+        "code": "nintendo_ds"
+      }
+    },
+    {
+      "external_key": "nintendo_dsi",
+      "fields": {
+        "name": "Nintendo DSi",
+        "value": "nintendo_dsi",
+        "code": "nintendo_dsi"
+      }
+    },
+    {
+      "external_key": "nintendo_gamecube",
+      "fields": {
+        "name": "Nintendo Gamecube",
+        "value": "nintendo_gamecube",
+        "code": "nintendo_gamecube"
+      }
+    },
+    {
+      "external_key": "nintendo_switch",
+      "fields": {
+        "name": "Nintendo Switch",
+        "value": "nintendo_switch",
+        "code": "nintendo_switch"
+      }
+    },
+    {
+      "external_key": "nintendo_switch-2",
+      "fields": {
+        "name": "Nintendo Switch 2",
+        "value": "nintendo_switch-2",
+        "code": "nintendo_switch-2"
+      }
+    },
+    {
+      "external_key": "nvidia_geforce_now",
+      "fields": {
+        "name": "Nvidia Geforce Now",
+        "value": "nvidia_geforce_now",
+        "code": "nvidia_geforce_now"
+      }
+    },
+    {
+      "external_key": "oculus_quest",
+      "fields": {
+        "name": "Oculus Quest",
+        "value": "oculus_quest",
+        "code": "oculus_quest"
+      }
+    },
+    {
+      "external_key": "oculus_rift",
+      "fields": {
+        "name": "Oculus Rift",
+        "value": "oculus_rift",
+        "code": "oculus_rift"
+      }
+    },
+    {
+      "external_key": "oculus_vr",
+      "fields": {
+        "name": "Oculus VR",
+        "value": "oculus_vr",
+        "code": "oculus_vr"
+      }
+    },
+    {
+      "external_key": "ouya",
+      "fields": {
+        "name": "Ouya",
+        "value": "ouya",
+        "code": "ouya"
+      }
+    },
+    {
+      "external_key": "pc",
+      "fields": {
+        "name": "PC",
+        "value": "pc",
+        "code": "pc"
+      }
+    },
+    {
+      "external_key": "phone",
+      "fields": {
+        "name": "Phone",
+        "value": "phone",
+        "code": "phone"
+      }
+    },
+    {
+      "external_key": "playdate",
+      "fields": {
+        "name": "Playdate",
+        "value": "playdate",
+        "code": "playdate"
+      }
+    },
+    {
+      "external_key": "playstation_2",
+      "fields": {
+        "name": "Playstation 2",
+        "value": "playstation_2",
+        "code": "playstation_2"
+      }
+    },
+    {
+      "external_key": "playstation_3",
+      "fields": {
+        "name": "Playstation 3",
+        "value": "playstation_3",
+        "code": "playstation_3"
+      }
+    },
+    {
+      "external_key": "playstation_4",
+      "fields": {
+        "name": "Playstation 4",
+        "value": "playstation_4",
+        "code": "playstation_4"
+      }
+    },
+    {
+      "external_key": "playstation_5",
+      "fields": {
+        "name": "Playstation 5",
+        "value": "playstation_5",
+        "code": "playstation_5"
+      }
+    },
+    {
+      "external_key": "playstation_portable",
+      "fields": {
+        "name": "Playstation Portable",
+        "value": "playstation_portable",
+        "code": "playstation_portable"
+      }
+    },
+    {
+      "external_key": "playstation_vita",
+      "fields": {
+        "name": "Playstation Vita",
+        "value": "playstation_vita",
+        "code": "playstation_vita"
+      }
+    },
+    {
+      "external_key": "playstation_vr",
+      "fields": {
+        "name": "PlayStation VR",
+        "value": "playstation_vr",
+        "code": "playstation_vr"
+      }
+    },
+    {
+      "external_key": "playstation_vr2",
+      "fields": {
+        "name": "Playstation VR2",
+        "value": "playstation_vr2",
+        "code": "playstation_vr2"
+      }
+    },
+    {
+      "external_key": "satellaview",
+      "fields": {
+        "name": "Satellaview",
+        "value": "satellaview",
+        "code": "satellaview"
+      }
+    },
+    {
+      "external_key": "sega_32x",
+      "fields": {
+        "name": "Sega 32X",
+        "value": "sega_32x",
+        "code": "sega_32x"
+      }
+    },
+    {
+      "external_key": "sega_game_gear",
+      "fields": {
+        "name": "Sega Game Gear",
+        "value": "sega_game_gear",
+        "code": "sega_game_gear"
+      }
+    },
+    {
+      "external_key": "sega_master_system",
+      "fields": {
+        "name": "Sega Master System",
+        "value": "sega_master_system",
+        "code": "sega_master_system"
+      }
+    },
+    {
+      "external_key": "sega_mega_drive",
+      "fields": {
+        "name": "Sega Mega Drive",
+        "value": "sega_mega_drive",
+        "code": "sega_mega_drive"
+      }
+    },
+    {
+      "external_key": "sega_pico",
+      "fields": {
+        "name": "Sega Pico",
+        "value": "sega_pico",
+        "code": "sega_pico"
+      }
+    },
+    {
+      "external_key": "sega_saturn",
+      "fields": {
+        "name": "Sega Saturn",
+        "value": "sega_saturn",
+        "code": "sega_saturn"
+      }
+    },
+    {
+      "external_key": "steam_deck",
+      "fields": {
+        "name": "Steam Deck",
+        "value": "steam_deck",
+        "code": "steam_deck"
+      }
+    },
+    {
+      "external_key": "super_nintendo",
+      "fields": {
+        "name": "Super Nintendo",
+        "value": "super_nintendo",
+        "code": "super_nintendo"
+      }
+    },
+    {
+      "external_key": "tablet",
+      "fields": {
+        "name": "Tablet",
+        "value": "tablet",
+        "code": "tablet"
+      }
+    },
+    {
+      "external_key": "uplay",
+      "fields": {
+        "name": "UPlay",
+        "value": "uplay",
+        "code": "uplay"
+      }
+    },
+    {
+      "external_key": "virtual_boy",
+      "fields": {
+        "name": "Virtual Boy",
+        "value": "virtual_boy",
+        "code": "virtual_boy"
+      }
+    },
+    {
+      "external_key": "virtual_reality",
+      "fields": {
+        "name": "Virtual Reality",
+        "value": "virtual_reality",
+        "code": "virtual_reality"
+      }
+    },
+    {
+      "external_key": "web_browser",
+      "fields": {
+        "name": "Browser",
+        "value": "web_browser",
+        "code": "web_browser"
+      }
+    },
+    {
+      "external_key": "wii",
+      "fields": {
+        "name": "Wii",
+        "value": "wii",
+        "code": "wii"
+      }
+    },
+    {
+      "external_key": "wii_u",
+      "fields": {
+        "name": "Wii U",
+        "value": "wii_u",
+        "code": "wii_u"
+      }
+    },
+    {
+      "external_key": "windows",
+      "fields": {
+        "name": "Windows",
+        "value": "windows",
+        "code": "windows"
+      }
+    },
+    {
+      "external_key": "windows_mixed_reality",
+      "fields": {
+        "name": "Windows Mixed Reality",
+        "value": "windows_mixed_reality",
+        "code": "windows_mixed_reality"
+      }
+    },
+    {
+      "external_key": "windows_phone",
+      "fields": {
+        "name": "Windows Phone",
+        "value": "windows_phone",
+        "code": "windows_phone"
+      }
+    },
+    {
+      "external_key": "wonderswan",
+      "fields": {
+        "name": "Wonderswan",
+        "value": "wonderswan",
+        "code": "wonderswan"
+      }
+    },
+    {
+      "external_key": "wonderswan_color",
+      "fields": {
+        "name": "Wonderswan Color",
+        "value": "wonderswan_color",
+        "code": "wonderswan_color"
+      }
+    },
+    {
+      "external_key": "x_box_cloud_gaming",
+      "fields": {
+        "name": "Xbox Cloud Gaming",
+        "value": "x_box_cloud_gaming",
+        "code": "x_box_cloud_gaming"
+      }
+    },
+    {
+      "external_key": "x_box_game_pass",
+      "fields": {
+        "name": "Xbox Game Pass",
+        "value": "x_box_game_pass",
+        "code": "x_box_game_pass"
+      }
+    },
+    {
+      "external_key": "xbox_360",
+      "fields": {
+        "name": "XBox 360",
+        "value": "xbox_360",
+        "code": "xbox_360"
+      }
+    },
+    {
+      "external_key": "xbox_one",
+      "fields": {
+        "name": "XBox One",
+        "value": "xbox_one",
+        "code": "xbox_one"
+      }
+    },
+    {
+      "external_key": "xbox_series_xs",
+      "fields": {
+        "name": "Xbox Series X|S",
+        "value": "xbox_series_xs",
+        "code": "xbox_series_xs"
+      }
+    },
+    {
+      "external_key": "zeebo",
+      "fields": {
+        "name": "Zeebo",
+        "value": "zeebo",
+        "code": "zeebo"
+      }
+    },
+    {
+      "external_key": "zx_spectrum",
+      "fields": {
+        "name": "ZX Spectrum",
+        "value": "zx_spectrum",
+        "code": "zx_spectrum"
+      }
+    }
+  ]
+}

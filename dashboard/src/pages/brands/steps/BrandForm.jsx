@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +15,7 @@ import { useGetBrandCountriesQuery } from '../../../services/brand/brandApi';
 
 const steps = [['logo', 'name', 'slug'], ['founded_date', 'activity_fields', 'description'], ['country_code', 'website'], ['founders']];
 export default function BrandForm({ record, save, isLoading }) {
+  const { search: listQuery } = useLocation();
   const navigate = useNavigate();
   const countries = useGetBrandCountriesQuery();
   const [currentStep, setCurrentStep] = useState(1), [completed, setCompleted] = useState({}), [invalid, setInvalid] = useState({});
@@ -42,7 +44,7 @@ export default function BrandForm({ record, save, isLoading }) {
     try {
       const response = await save(brandBody(values));
       if (response.acknowledgement === false || response.isSuccess === false) throw response;
-      toast.success(response.description || 'اطلاعات ذخیره شد.'); navigate('/brands');
+      toast.success(response.description || 'اطلاعات ذخیره شد.'); navigate('/brands' + listQuery);
     } catch (error) { toast.error(error.data?.description || error.data?.message || error.description || 'ارسال اطلاعات ناموفق بود؛ اتصال به سرور را بررسی کنید'); }
   }
   return <form className="w-full max-w-xl flex flex-col gap-y-4" noValidate onSubmit={handleSubmit(submit, invalidSubmit)}>

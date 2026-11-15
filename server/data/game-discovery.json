@@ -1,0 +1,294 @@
+{
+  "collections": [
+    {
+      "name": "الماس‌های گم‌شده",
+      "name_en": "Hidden Gems",
+      "slug": "hidden-gems",
+      "description": "بازی‌های کمتر دیده‌شده‌ای که با ایده‌های خلاقانه، طراحی دقیق یا تجربه‌ای متفاوت ارزش کشف کردن دارند.",
+      "sort_order": 0,
+      "is_active": true
+    },
+    {
+      "name": "سفرهای فراموش‌نشدنی",
+      "name_en": "Unforgettable Journeys",
+      "slug": "unforgettable-journeys",
+      "description": "روایت‌ها و ماجراجویی‌هایی با شخصیت‌ها، لحظه‌ها و دنیاهایی که پس از پایان بازی در ذهن می‌مانند.",
+      "sort_order": 1,
+      "is_active": true
+    },
+    {
+      "name": "کنار هم بازی کنیم",
+      "name_en": "Better Together",
+      "slug": "better-together",
+      "description": "تجربه‌هایی برای همکاری و تقسیم هیجان با دوستان؛ از حل معما تا عبور از چالش‌های مشترک.",
+      "sort_order": 2,
+      "is_active": true
+    },
+    {
+      "name": "یک شب، یک ماجراجویی",
+      "name_en": "One Evening Adventures",
+      "slug": "one-evening-adventures",
+      "description": "بازی‌های کوتاه و جمع‌وجوری برای تجربه کردن یک ماجراجویی کامل در یک شب.",
+      "sort_order": 3,
+      "is_active": true
+    },
+    {
+      "name": "فرار از شلوغی",
+      "name_en": "A Quiet Escape",
+      "slug": "a-quiet-escape",
+      "description": "مجموعه‌ای برای وقت‌هایی که به ریتمی آرام‌تر، فضای دلنشین و فرصتی برای استراحت نیاز دارید.",
+      "sort_order": 4,
+      "is_active": true
+    },
+    {
+      "name": "شب‌های پراضطراب",
+      "name_en": "Nights of Suspense",
+      "slug": "nights-of-suspense",
+      "description": "تجربه‌هایی سرشار از تعلیق، ناشناخته‌ها و لحظه‌های دلهره‌آور برای دوستداران ترس و هیجان.",
+      "sort_order": 5,
+      "is_active": true
+    },
+    {
+      "name": "دنیاهایی برای گم شدن",
+      "name_en": "Worlds to Get Lost In",
+      "slug": "worlds-to-get-lost-in",
+      "description": "بازی‌هایی با محیط‌های پرجزئیات و مسیرهای کشف‌کردنی که کنجکاوی و جست‌وجو را پاداش می‌دهند.",
+      "sort_order": 6,
+      "is_active": true
+    },
+    {
+      "name": "چالش را بپذیر",
+      "name_en": "Rise to the Challenge",
+      "slug": "rise-to-the-challenge",
+      "description": "تجربه‌هایی برای آزمودن صبر، دقت و مهارت؛ جایی که تمرین و یادگیری به پیروزی معنا می‌دهد.",
+      "sort_order": 7,
+      "is_active": true
+    },
+    {
+      "name": "قاب‌های تماشایی",
+      "name_en": "Art in Motion",
+      "slug": "art-in-motion",
+      "description": "بازی‌هایی با هویت بصری متمایز که طراحی هنری و ترکیب رنگ‌ها بخش مهمی از تجربه آن‌هاست.",
+      "sort_order": 8,
+      "is_active": true
+    },
+    {
+      "name": "برای دورهمی",
+      "name_en": "Party Time",
+      "slug": "party-time",
+      "description": "بازی‌هایی مناسب جمع‌های دوستانه، رقابت‌های کوتاه و لحظه‌های خنده‌دار و پرهیجان.",
+      "sort_order": 9,
+      "is_active": true
+    },
+    {
+      "name": "بازگشت به خاطره‌ها",
+      "name_en": "A Trip Down Memory Lane",
+      "slug": "a-trip-down-memory-lane",
+      "description": "تجربه‌هایی با حال‌وهوای نوستالژیک؛ از طراحی کلاسیک تا بازآفرینی خاطرات نسل‌های گذشته.",
+      "sort_order": 10,
+      "is_active": true
+    },
+    {
+      "name": "هر انتخاب، یک سرنوشت",
+      "name_en": "Every Choice Matters",
+      "slug": "every-choice-matters",
+      "description": "بازی‌هایی که تصمیم‌های بازیکن مسیر روایت، روابط شخصیت‌ها یا سرانجام ماجرا را تغییر می‌دهند.",
+      "sort_order": 11,
+      "is_active": true
+    }
+  ],
+  "gameTags": [
+    {
+      "name": "داستان‌محور",
+      "name_en": "Story Rich",
+      "slug": "story-rich",
+      "description": "روایت و رشد شخصیت‌ها بخش اصلی تجربه بازی را تشکیل می‌دهند.",
+      "sort_order": 0,
+      "is_active": true
+    },
+    {
+      "name": "انتخاب‌های تأثیرگذار",
+      "name_en": "Choices Matter",
+      "slug": "choices-matter",
+      "description": "تصمیم‌های بازیکن پیامدهای قابل‌مشاهده‌ای در روایت، روابط یا روند بازی دارند.",
+      "sort_order": 1,
+      "is_active": true
+    },
+    {
+      "name": "چندپایانی",
+      "name_en": "Multiple Endings",
+      "slug": "multiple-endings",
+      "description": "بازی بسته به تصمیم‌ها یا عملکرد بازیکن بیش از یک پایان دارد.",
+      "sort_order": 2,
+      "is_active": true
+    },
+    {
+      "name": "جهان‌باز",
+      "name_en": "Open World",
+      "slug": "open-world",
+      "description": "بازیکن می‌تواند در جهانی پیوسته یا گسترده با آزادی قابل‌توجه رفت‌وآمد و فعالیت کند.",
+      "sort_order": 3,
+      "is_active": true
+    },
+    {
+      "name": "اکتشاف‌محور",
+      "name_en": "Exploration Focused",
+      "slug": "exploration-focused",
+      "description": "کشف مسیرها، مکان‌ها و رازهای محیط نقش محوری در پیشروی دارد.",
+      "sort_order": 4,
+      "is_active": true
+    },
+    {
+      "name": "ساخت‌وساز",
+      "name_en": "Building",
+      "slug": "building",
+      "description": "طراحی و ساخت بناها یا سازه‌ها یکی از فعالیت‌های اصلی بازیکن است.",
+      "sort_order": 5,
+      "is_active": true
+    },
+    {
+      "name": "ساخت تجهیزات",
+      "name_en": "Crafting",
+      "slug": "crafting",
+      "description": "بازیکن با ترکیب یا مصرف منابع، ابزار، تجهیزات یا اقلام کاربردی می‌سازد.",
+      "sort_order": 6,
+      "is_active": true
+    },
+    {
+      "name": "مدیریت منابع",
+      "name_en": "Resource Management",
+      "slug": "resource-management",
+      "description": "تخصیص و مصرف حساب‌شده منابع محدود برای پیشرفت اهمیت دارد.",
+      "sort_order": 7,
+      "is_active": true
+    },
+    {
+      "name": "همکاری آنلاین",
+      "name_en": "Online Co-op",
+      "slug": "online-co-op",
+      "description": "چند بازیکن از طریق اتصال آنلاین برای رسیدن به هدف مشترک همکاری می‌کنند.",
+      "sort_order": 8,
+      "is_active": true
+    },
+    {
+      "name": "همکاری محلی",
+      "name_en": "Local Co-op",
+      "slug": "local-co-op",
+      "description": "چند بازیکن روی یک دستگاه در یک تجربه مشترک همکاری می‌کنند.",
+      "sort_order": 9,
+      "is_active": true
+    },
+    {
+      "name": "صفحه تقسیم‌شده",
+      "name_en": "Split Screen",
+      "slug": "split-screen",
+      "description": "نمایشگر برای نمایش هم‌زمان دید چند بازیکن به بخش‌های جدا تقسیم می‌شود.",
+      "sort_order": 10,
+      "is_active": true
+    },
+    {
+      "name": "رقابت بازیکنان",
+      "name_en": "Player vs Player",
+      "slug": "player-vs-player",
+      "description": "بازیکنان به‌صورت مستقیم در برابر یکدیگر رقابت می‌کنند.",
+      "sort_order": 11,
+      "is_active": true
+    },
+    {
+      "name": "تک‌نفره",
+      "name_en": "Single Player",
+      "slug": "single-player",
+      "description": "بازی دارای تجربه‌ای است که یک بازیکن به‌تنهایی آن را پیش می‌برد.",
+      "sort_order": 12,
+      "is_active": true
+    },
+    {
+      "name": "آرامش‌بخش",
+      "name_en": "Relaxing",
+      "slug": "relaxing",
+      "description": "ریتم و طراحی تجربه بر آرامش و فشار کمتر بر بازیکن تأکید دارد.",
+      "sort_order": 13,
+      "is_active": true
+    },
+    {
+      "name": "چالش‌برانگیز",
+      "name_en": "Challenging",
+      "slug": "challenging",
+      "description": "پیشروی به تمرین، شناخت سازوکارها و اجرای دقیق نیاز دارد.",
+      "sort_order": 14,
+      "is_active": true
+    },
+    {
+      "name": "مبارزه با باس",
+      "name_en": "Boss Battles",
+      "slug": "boss-battles",
+      "description": "رویارویی با دشمنان ویژه و الگوهای مبارزه متمایز بخش برجسته بازی است.",
+      "sort_order": 15,
+      "is_active": true
+    },
+    {
+      "name": "تولید رویه‌ای",
+      "name_en": "Procedural Generation",
+      "slug": "procedural-generation",
+      "description": "بخشی از محیط‌ها، مراحل یا محتوای بازی با قواعد الگوریتمی ساخته می‌شود.",
+      "sort_order": 16,
+      "is_active": true
+    },
+    {
+      "name": "پیکسل‌آرت",
+      "name_en": "Pixel Art",
+      "slug": "pixel-art",
+      "description": "سبک بصری بازی بر تصویرسازی پیکسلی و جزئیات ساخته‌شده از پیکسل تکیه دارد.",
+      "sort_order": 17,
+      "is_active": true
+    },
+    {
+      "name": "طراحی دست‌کشیده",
+      "name_en": "Hand Drawn",
+      "slug": "hand-drawn",
+      "description": "ظاهر بازی از تصویرسازی و طراحی با حال‌وهوای دست‌کشیده استفاده می‌کند.",
+      "sort_order": 18,
+      "is_active": true
+    },
+    {
+      "name": "علمی‌تخیلی",
+      "name_en": "Science Fiction",
+      "slug": "science-fiction",
+      "description": "جهان یا روایت بازی بر فناوری‌های خیالی، آینده یا ایده‌های علمی‌تخیلی بنا شده است.",
+      "sort_order": 19,
+      "is_active": true
+    },
+    {
+      "name": "فانتزی",
+      "name_en": "Fantasy",
+      "slug": "fantasy",
+      "description": "جهان بازی شامل عناصر خیال‌پردازانه مانند جادو، موجودات افسانه‌ای یا سرزمین‌های خیالی است.",
+      "sort_order": 20,
+      "is_active": true
+    },
+    {
+      "name": "پساآخرالزمانی",
+      "name_en": "Post Apocalyptic",
+      "slug": "post-apocalyptic",
+      "description": "داستان یا محیط بازی در جهانی پس از یک فاجعه گسترده جریان دارد.",
+      "sort_order": 21,
+      "is_active": true
+    },
+    {
+      "name": "سایبرپانک",
+      "name_en": "Cyberpunk",
+      "slug": "cyberpunk",
+      "description": "جهان بازی فناوری پیشرفته را با تنش‌های اجتماعی، قدرت شرکت‌ها و زندگی شهری درهم می‌آمیزد.",
+      "sort_order": 22,
+      "is_active": true
+    },
+    {
+      "name": "سفر در زمان",
+      "name_en": "Time Travel",
+      "slug": "time-travel",
+      "description": "جابه‌جایی میان دوره‌های زمانی یا تغییر خط زمان در روایت یا سازوکار بازی نقش دارد.",
+      "sort_order": 23,
+      "is_active": true
+    }
+  ]
+}

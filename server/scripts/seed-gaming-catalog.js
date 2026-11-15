@@ -31,13 +31,13 @@ async function main() {
       const Model = models[key];
       const existing = await Model.findOne({ slug: values.slug }).setOptions({ withDeleted: true });
       if (existing) { summary.skipped[key]++; ids[key]?.set(values.slug, existing); continue; }
-      if (key === 'companies') {
+      if (key === 'companies' || key === 'brands') {
         values.founded_year = values.founded_date ? Number(values.founded_date.slice(0, 4)) : values.founded_year;
         for (const slug of [...founderSlugs, ...memberSlugs.map(([slug]) => slug)]) {
           if (!ids.people.has(slug) || ids.people.get(slug).isDeleted) throw new Error(`Missing active person: ${slug}`);
         }
         values.founders = founderSlugs.map(slug => ({ person_id: ids.people.get(slug)._id, name: ids.people.get(slug).name }));
-        values.key_members = memberSlugs.map(([slug, role]) => ({ person_id: ids.people.get(slug)._id, name: ids.people.get(slug).name, role }));
+        if (key === 'companies') values.key_members = memberSlugs.map(([slug, role]) => ({ person_id: ids.people.get(slug)._id, name: ids.people.get(slug).name, role }));
       }
       if (key === 'platforms') {
         if (!ids.brands.get(brandSlug)) throw new Error('Missing brand: ' + brandSlug);

@@ -18,7 +18,7 @@ exports.addAchievement = async (req, res) => {
       icon_url: body.icon_url,
       rarity: body.rarity,
       is_dlc: body.is_dlc,
-      dlc_game_id: body.dlc_game_id,
+      dlc_id: body.dlc_id,
       creator: req.admin._id
     });
 
@@ -63,7 +63,7 @@ exports.getAchievements = async (req, res) => {
       .populate({ path: "game_id", select: "title slug" })
       .populate({ path: "achievement_group_id", select: "name" })
       .populate({ path: "platform_id", select: "name code" })
-      .populate({ path: "dlc_game_id", select: "title slug" })
+      .populate({ path: "dlc_id", select: "title slug" })
       .populate({ path: "creator", select: "name avatar" });
     const total = await Achievement.countDocuments(query);
 
@@ -112,7 +112,7 @@ exports.updateAchievement = async (req, res) => {
     icon_url: body.icon_url,
     rarity: body.rarity,
     is_dlc: body.is_dlc,
-    dlc_game_id: body.dlc_game_id
+    dlc_id: body.dlc_id
   };
 
   await Achievement.findByIdAndUpdate(req.params.id, updatedAchievement, { runValidators: true });

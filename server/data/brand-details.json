@@ -1,0 +1,89 @@
+{
+  "brands": [
+    {
+      "name": "PlayStation",
+      "slug": "playstation",
+      "description": "PlayStation is Sony’s gaming brand for consoles, games and services.",
+      "country_code": "JP",
+      "founded_date": null,
+      "founded_year": null,
+      "activity_fields": [
+        "Gaming consoles",
+        "Video games",
+        "Gaming services"
+      ],
+      "website": "https://www.playstation.com/",
+      "founderSlugs": []
+    },
+    {
+      "name": "Xbox",
+      "slug": "xbox",
+      "description": "Xbox is Microsoft’s gaming brand for consoles, games and services.",
+      "country_code": "US",
+      "founded_date": null,
+      "founded_year": null,
+      "activity_fields": [
+        "Gaming consoles",
+        "Video games",
+        "Gaming services"
+      ],
+      "website": "https://www.xbox.com/",
+      "founderSlugs": []
+    },
+    {
+      "name": "Nintendo",
+      "slug": "nintendo",
+      "description": "نینتندو شرکت ژاپنی سرگرمی و بازی‌های ویدئویی است که فوساجیرو یامائوچی در سال ۱۸۸۹ در کیوتو با تولید کارت‌های هانافودا پایه‌گذاری کرد. این شرکت در طراحی و تولید کنسول، توسعه و انتشار بازی و عرضهٔ محصولات سرگرمی فعالیت دارد و مجموعه‌هایی مانند ماریو و افسانهٔ زلدا را خلق کرده است.",
+      "country_code": "JP",
+      "founded_date": "1889-09-23",
+      "founded_year": 1889,
+      "activity_fields": [
+        "توسعه و انتشار بازی‌های ویدئویی",
+        "طراحی و تولید کنسول",
+        "کارت‌های بازی",
+        "محصولات و محتوای سرگرمی"
+      ],
+      "website": "https://www.nintendo.com/",
+      "founderSlugs": [
+        "fusajiro-yamauchi"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "Masaru Ibuka",
+      "name_fa": "ماسارو ایبوکا",
+      "slug": "masaru-ibuka",
+      "country_code": "JP",
+      "activity_fields": [
+        "الکترونیک",
+        "کارآفرینی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار سونی"
+      ],
+      "biography": "ماسارو ایبوکا مهندس و کارآفرین ژاپنی بود که در سال ۱۹۴۶ همراه آکیو موریتا شرکت توکیو تسوشین کوگیو، سونی امروزی، را تأسیس کرد."
+    },
+    {
+      "name": "Akio Morita",
+      "name_fa": "آکیو موریتا",
+      "slug": "akio-morita",
+      "country_code": "JP",
+      "activity_fields": [
+        "الکترونیک",
+        "کارآفرینی"
+      ],
+      "positions": [
+        "هم‌بنیان‌گذار سونی"
+      ],
+      "biography": "آکیو موریتا کارآفرین ژاپنی و هم‌بنیان‌گذار سونی بود. او در سال ۱۹۴۶ همراه ماسارو ایبوکا شرکت توکیو تسوشین کوگیو را پایه‌گذاری کرد."
+    }
+  ],
+  "sources": [
+    "https://www.sony.com/en/SonyInfo/CorporateInfo/History/SonyHistory/1-01.html",
+    "https://www.sony.com/SonyInfo/CorporateInfo/History/company/",
+    "https://blogs.microsoft.com/blog/2025/04/04/celebrating-microsofts-50-years/",
+    "https://www.nintendo.com/us/about/",
+    "https://en.wikipedia.org/wiki/Nintendo"
+  ]
+}

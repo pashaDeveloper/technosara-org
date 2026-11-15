@@ -1,0 +1,34 @@
+const { test } = require('node:test');
+const assert = require('node:assert/strict');
+const express = require('express');
+const Game = require('../models/game.model');
+
+test('bot credentials separate manager, public catalog and write permissions', async t => {
+  process.env.GAME_BOT_ADMIN_KEY = 'a'.repeat(64);
+  process.env.GAME_BOT_CUSTOMER_KEY = 'b'.repeat(64);
+  t.after(() => { delete process.env.GAME_BOT_ADMIN_KEY; delete process.env.GAME_BOT_CUSTOMER_KEY; });
+  const filters = [];
+  t.mock.method(Game, 'countDocuments', async filter => { filters.push(filter); return 0; });
+  const chain = { select() { return this; }, populate() { return this; }, sort() { return this; }, skip() { return this; }, limit() { return this; }, async lean() { return []; } };
+  t.mock.method(Game, 'find', filter => { filters.push(filter); return chain; });
+  const app = express();
+  t.mock.method(require('../services/gameProviders'), 'search', async query => ({ results: [{ title: query, provider: 'steam', id: '123' }], providers: [{ provider: 'steam', available: true }] }));
+  app.use(express.json());
+  app.use('/api/bot', require('../routes/bot.route'));
+  const server = app.listen(0, '127.0.0.1');
+  await new Promise(resolve => server.once('listening', resolve));
+  t.after(() => new Promise(resolve => server.close(resolve)));
+  const request = (path, key, method = 'GET') => fetch(`http://127.0.0.1:${server.address().port}/api/bot/${path}`, { method, headers: key ? { Authorization: `Bearer ${key}` } : {} });
+  assert.equal((await request('connection')).status, 401);
+  assert.equal((await (await request('connection', 'a'.repeat(64))).json()).data.role, 'manager');
+  assert.equal((await request('games', 'b'.repeat(64))).status, 200);
+  assert.deepEqual(filters, [{ publication_status: 'published' }, { publication_status: 'published' }]);
+  assert.equal((await request('games', 'a'.repeat(64))).status, 200);
+  assert.deepEqual(filters.slice(2), [{}, {}]);
+  assert.equal((await request('games', 'b'.repeat(64), 'POST')).status, 403);
+  assert.equal((await request('games/not-an-id', 'a'.repeat(64))).status, 400);
+  assert.equal((await request('games/search?query=Example', 'b'.repeat(64))).status, 403);
+  const search = await request('games/search?query=Example', 'a'.repeat(64));
+  assert.equal(search.status, 200);
+  assert.equal((await search.json()).data.results[0].title, 'Example');
+});

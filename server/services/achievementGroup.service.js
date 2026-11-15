@@ -8,10 +8,12 @@ exports.addAchievementGroup = async (req, res) => {
       status: body.status,
       game_id: body.game_id,
       platform_id: body.platform_id,
+    provider: body.provider,
+    external_set_id: body.external_set_id,
       external_group_id: body.external_group_id,
       name: body.name,
       group_type: body.group_type,
-      parent_content_id: body.parent_content_id,
+      dlc_id: body.dlc_id,
       total_achievements: body.total_achievements,
       total_points: body.total_points,
       icon_url: body.icon_url,
@@ -58,7 +60,7 @@ exports.getAchievementGroups = async (req, res) => {
       .sort({ createdAt: -1 })
       .populate({ path: "game_id", select: "title slug" })
       .populate({ path: "platform_id", select: "name code" })
-      .populate({ path: "parent_content_id", select: "title slug" })
+      .populate({ path: "dlc_id", select: "title slug" })
       .populate({ path: "creator", select: "name avatar" });
     const total = await AchievementGroup.countDocuments(query);
 
@@ -97,10 +99,12 @@ exports.updateAchievementGroup = async (req, res) => {
     status: body.status,
     game_id: body.game_id,
     platform_id: body.platform_id,
+    provider: body.provider,
+    external_set_id: body.external_set_id,
     external_group_id: body.external_group_id,
     name: body.name,
     group_type: body.group_type,
-    parent_content_id: body.parent_content_id,
+    dlc_id: body.dlc_id,
     total_achievements: body.total_achievements,
     total_points: body.total_points,
     icon_url: body.icon_url

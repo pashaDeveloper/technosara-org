@@ -1,0 +1,2731 @@
+{
+  "source": "https://api.gamebrain.co/v1/games?query=&limit=1&generate-filter-options=true",
+  "fetched_at": "2026-11-05T08:40:52.530Z",
+  "filter_options": [
+    {
+      "name": "Review Rating",
+      "key": "review_rating",
+      "values": [
+        {
+          "name": "Brilliant (95+)",
+          "key": "brilliant",
+          "count": 6300
+        },
+        {
+          "name": "Amazing (90+)",
+          "key": "amazing",
+          "count": 20099
+        },
+        {
+          "name": "Great (80+)",
+          "key": "great",
+          "count": 68134
+        },
+        {
+          "name": "Good (70+)",
+          "key": "good",
+          "count": 102142
+        }
+      ],
+      "filter_type": "COLLECTION",
+      "filter_connection": "XOR"
+    },
+    {
+      "name": "Release Date",
+      "key": "release_date",
+      "values": [
+        {
+          "name": "Next Month",
+          "key": "next_month",
+          "count": 2853
+        },
+        {
+          "name": "Last Month",
+          "key": "last_month",
+          "count": 2905
+        },
+        {
+          "name": "Last Year",
+          "key": "last_year",
+          "count": 47970
+        },
+        {
+          "name": "Last 5 Years",
+          "key": "last_5_years",
+          "count": 363179
+        }
+      ],
+      "filter_type": "COLLECTION",
+      "filter_connection": "XOR"
+    },
+    {
+      "name": "Platform",
+      "key": "platform",
+      "values": [
+        {
+          "name": "Amazon Fire TV",
+          "key": "amazon_fire_tv",
+          "count": 56
+        },
+        {
+          "name": "Amazon Luna",
+          "key": "amazon_luna",
+          "count": 182
+        },
+        {
+          "name": "Amiga",
+          "key": "amiga",
+          "count": 1888
+        },
+        {
+          "name": "Amstrad CPC",
+          "key": "amstrad_cpc",
+          "count": 979
+        },
+        {
+          "name": "Android",
+          "key": "android",
+          "count": 90874
+        },
+        {
+          "name": "Apple II",
+          "key": "apple_ii",
+          "count": 570
+        },
+        {
+          "name": "Atari 2600",
+          "key": "atari_2600",
+          "count": 223
+        },
+        {
+          "name": "Atari 8-Bit",
+          "key": "atari_8_bit",
+          "count": 394
+        },
+        {
+          "name": "Atari ST",
+          "key": "atari_st",
+          "count": 837
+        },
+        {
+          "name": "Bally Astrocade",
+          "key": "bally_astrocade",
+          "count": 15
+        },
+        {
+          "name": "Blackberry OS",
+          "key": "blackberry_os",
+          "count": 78
+        },
+        {
+          "name": "Cloud Platform",
+          "key": "cloud_platform",
+          "count": 4492
+        },
+        {
+          "name": "Commodore C 64/128",
+          "key": "commodore_c64",
+          "count": 1345
+        },
+        {
+          "name": "Dreamcast",
+          "key": "dreamcast",
+          "count": 459
+        },
+        {
+          "name": "EA Origin",
+          "key": "ea_origin",
+          "count": 46
+        },
+        {
+          "name": "Epic Games",
+          "key": "epic_games",
+          "count": 498
+        },
+        {
+          "name": "Evercade",
+          "key": "evercade",
+          "count": 71
+        },
+        {
+          "name": "Gameboy",
+          "key": "game_boy",
+          "count": 155
+        },
+        {
+          "name": "Game Boy Advance",
+          "key": "game_boy_advance",
+          "count": 809
+        },
+        {
+          "name": "Gog Com",
+          "key": "gog_com",
+          "count": 101
+        },
+        {
+          "name": "iOS",
+          "key": "ios",
+          "count": 140081
+        },
+        {
+          "name": "iPad",
+          "key": "ipad",
+          "count": 140090
+        },
+        {
+          "name": "Linux",
+          "key": "linux",
+          "count": 69029
+        },
+        {
+          "name": "Mac OS",
+          "key": "mac_os",
+          "count": 86082
+        },
+        {
+          "name": "Mobile Phone",
+          "key": "mobile_platform",
+          "count": 237728
+        },
+        {
+          "name": "MS DOS",
+          "key": "ms_dos",
+          "count": 2718
+        },
+        {
+          "name": "Msx",
+          "key": "msx",
+          "count": 721
+        },
+        {
+          "name": "Neo Geo Pocket",
+          "key": "neo_geo_pocket",
+          "count": 40
+        },
+        {
+          "name": "Netflix",
+          "key": "netflix",
+          "count": 14
+        },
+        {
+          "name": "Nintendo 3DS",
+          "key": "nintendo_3ds",
+          "count": 1438
+        },
+        {
+          "name": "Nintendo 64",
+          "key": "nintendo_64",
+          "count": 466
+        },
+        {
+          "name": "Nintendo DS",
+          "key": "nintendo_ds",
+          "count": 1067
+        },
+        {
+          "name": "Nintendo DSi",
+          "key": "nintendo_dsi",
+          "count": 447
+        },
+        {
+          "name": "Nintendo Gamecube",
+          "key": "nintendo_gamecube",
+          "count": 378
+        },
+        {
+          "name": "Nintendo Switch",
+          "key": "nintendo_switch",
+          "count": 13196
+        },
+        {
+          "name": "Nintendo Switch 2",
+          "key": "nintendo_switch-2",
+          "count": 516
+        },
+        {
+          "name": "Nvidia Geforce Now",
+          "key": "nvidia_geforce_now",
+          "count": 954
+        },
+        {
+          "name": "Oculus Quest",
+          "key": "oculus_quest",
+          "count": 2042
+        },
+        {
+          "name": "Oculus Rift",
+          "key": "oculus_rift",
+          "count": 1548
+        },
+        {
+          "name": "Oculus VR",
+          "key": "oculus_vr",
+          "count": 291
+        },
+        {
+          "name": "Ouya",
+          "key": "ouya",
+          "count": 91
+        },
+        {
+          "name": "PC",
+          "key": "pc",
+          "count": 211936
+        },
+        {
+          "name": "Phone",
+          "key": "phone",
+          "count": 218028
+        },
+        {
+          "name": "Playdate",
+          "key": "playdate",
+          "count": 973
+        },
+        {
+          "name": "Playstation 2",
+          "key": "playstation_2",
+          "count": 1924
+        },
+        {
+          "name": "Playstation 3",
+          "key": "playstation_3",
+          "count": 2627
+        },
+        {
+          "name": "Playstation 4",
+          "key": "playstation_4",
+          "count": 10992
+        },
+        {
+          "name": "Playstation 5",
+          "key": "playstation_5",
+          "count": 8965
+        },
+        {
+          "name": "Playstation Portable",
+          "key": "playstation_portable",
+          "count": 1536
+        },
+        {
+          "name": "Playstation Vita",
+          "key": "playstation_vita",
+          "count": 1557
+        },
+        {
+          "name": "PlayStation VR",
+          "key": "playstation_vr",
+          "count": 600
+        },
+        {
+          "name": "Playstation VR2",
+          "key": "playstation_vr2",
+          "count": 237
+        },
+        {
+          "name": "Satellaview",
+          "key": "satellaview",
+          "count": 101
+        },
+        {
+          "name": "Sega 32X",
+          "key": "sega_32x",
+          "count": 27
+        },
+        {
+          "name": "Sega Game Gear",
+          "key": "sega_game_gear",
+          "count": 178
+        },
+        {
+          "name": "Sega Master System",
+          "key": "sega_master_system",
+          "count": 251
+        },
+        {
+          "name": "Sega Mega Drive",
+          "key": "sega_mega_drive",
+          "count": 694
+        },
+        {
+          "name": "Sega Pico",
+          "key": "sega_pico",
+          "count": 17
+        },
+        {
+          "name": "Sega Saturn",
+          "key": "sega_saturn",
+          "count": 505
+        },
+        {
+          "name": "Steam Deck",
+          "key": "steam_deck",
+          "count": 7040
+        },
+        {
+          "name": "Super Nintendo",
+          "key": "super_nintendo",
+          "count": 722
+        },
+        {
+          "name": "Tablet",
+          "key": "tablet",
+          "count": 213868
+        },
+        {
+          "name": "UPlay",
+          "key": "uplay",
+          "count": 47
+        },
+        {
+          "name": "Virtual Boy",
+          "key": "virtual_boy",
+          "count": 40
+        },
+        {
+          "name": "Virtual Reality",
+          "key": "virtual_reality",
+          "count": 14178
+        },
+        {
+          "name": "Browser",
+          "key": "web_browser",
+          "count": 179151
+        },
+        {
+          "name": "Wii",
+          "key": "wii",
+          "count": 2445
+        },
+        {
+          "name": "Wii U",
+          "key": "wii_u",
+          "count": 1073
+        },
+        {
+          "name": "Windows",
+          "key": "windows",
+          "count": 388771
+        },
+        {
+          "name": "Windows Mixed Reality",
+          "key": "windows_mixed_reality",
+          "count": 936
+        },
+        {
+          "name": "Windows Phone",
+          "key": "windows_phone",
+          "count": 337
+        },
+        {
+          "name": "Wonderswan",
+          "key": "wonderswan",
+          "count": 119
+        },
+        {
+          "name": "Wonderswan Color",
+          "key": "wonderswan_color",
+          "count": 66
+        },
+        {
+          "name": "Xbox Cloud Gaming",
+          "key": "x_box_cloud_gaming",
+          "count": 2913
+        },
+        {
+          "name": "Xbox Game Pass",
+          "key": "x_box_game_pass",
+          "count": 1469
+        },
+        {
+          "name": "XBox 360",
+          "key": "xbox_360",
+          "count": 1789
+        },
+        {
+          "name": "XBox One",
+          "key": "xbox_one",
+          "count": 11834
+        },
+        {
+          "name": "Xbox Series X|S",
+          "key": "xbox_series_xs",
+          "count": 12063
+        },
+        {
+          "name": "Zeebo",
+          "key": "zeebo",
+          "count": 48
+        },
+        {
+          "name": "ZX Spectrum",
+          "key": "zx_spectrum",
+          "count": 1973
+        }
+      ],
+      "filter_type": "COLLECTION",
+      "filter_connection": "OR"
+    },
+    {
+      "name": "Genre",
+      "key": "genre",
+      "values": [
+        {
+          "name": "2D Platformer",
+          "key": "2d_platformer",
+          "count": 14918
+        },
+        {
+          "name": "3D Platformer",
+          "key": "3d_platformer",
+          "count": 14329
+        },
+        {
+          "name": "4X",
+          "key": "4x",
+          "count": 1652
+        },
+        {
+          "name": "Action",
+          "key": "action",
+          "count": 209455
+        },
+        {
+          "name": "Action-Adventure",
+          "key": "action_adventure",
+          "count": 30500
+        },
+        {
+          "name": "Action RTS",
+          "key": "action_rts",
+          "count": 1408
+        },
+        {
+          "name": "Adventure",
+          "key": "adventure",
+          "count": 189147
+        },
+        {
+          "name": "Arcade",
+          "key": "arcade",
+          "count": 76630
+        },
+        {
+          "name": "Arena Shooter",
+          "key": "arena_shooter",
+          "count": 4305
+        },
+        {
+          "name": "Automobile Simulator",
+          "key": "automobile_simulator",
+          "count": 2185
+        },
+        {
+          "name": "Card Game",
+          "key": "card_game",
+          "count": 13544
+        },
+        {
+          "name": "Casual",
+          "key": "casual",
+          "count": 184897
+        },
+        {
+          "name": "City Builder",
+          "key": "city_builder",
+          "count": 4901
+        },
+        {
+          "name": "Dating Simulator",
+          "key": "dating_simulator",
+          "count": 6143
+        },
+        {
+          "name": "Extraction Shooter",
+          "key": "extraction_shooter",
+          "count": 306
+        },
+        {
+          "name": "Farming Simulator",
+          "key": "farming_simulator",
+          "count": 3965
+        },
+        {
+          "name": "Fighting",
+          "key": "fighting",
+          "count": 16509
+        },
+        {
+          "name": "First Person Shooter",
+          "key": "first_person_shooter",
+          "count": 17840
+        },
+        {
+          "name": "Hack and Slash",
+          "key": "hack_and_slash",
+          "count": 10628
+        },
+        {
+          "name": "Interactive Fiction",
+          "key": "interactive_fiction",
+          "count": 18365
+        },
+        {
+          "name": "Job Simulator",
+          "key": "job_simulator",
+          "count": 1244
+        },
+        {
+          "name": "JRPG",
+          "key": "jrpg",
+          "count": 6814
+        },
+        {
+          "name": "Looter Shooter",
+          "key": "looter_shooter",
+          "count": 1533
+        },
+        {
+          "name": "Management",
+          "key": "management",
+          "count": 29714
+        },
+        {
+          "name": "Musical",
+          "key": "musical",
+          "count": 17540
+        },
+        {
+          "name": "On-Rails Shooter",
+          "key": "on_rails_shooter",
+          "count": 855
+        },
+        {
+          "name": "Open World",
+          "key": "open_world",
+          "count": 17098
+        },
+        {
+          "name": "Party",
+          "key": "party",
+          "count": 11240
+        },
+        {
+          "name": "Pinball",
+          "key": "pinball",
+          "count": 1029
+        },
+        {
+          "name": "Platformer",
+          "key": "platformer",
+          "count": 89323
+        },
+        {
+          "name": "Point and Click",
+          "key": "point_and_click",
+          "count": 22263
+        },
+        {
+          "name": "Political Simulator",
+          "key": "political_simulator",
+          "count": 1194
+        },
+        {
+          "name": "Puzzle",
+          "key": "puzzle",
+          "count": 126810
+        },
+        {
+          "name": "Quiz",
+          "key": "quiz",
+          "count": 8676
+        },
+        {
+          "name": "Racing",
+          "key": "racing",
+          "count": 26707
+        },
+        {
+          "name": "Real Time Strategy",
+          "key": "real_time_strategy",
+          "count": 7634
+        },
+        {
+          "name": "Real Time Tactics",
+          "key": "real_time_tactical",
+          "count": 4536
+        },
+        {
+          "name": "Role Playing",
+          "key": "role_playing",
+          "count": 93010
+        },
+        {
+          "name": "Sandbox",
+          "key": "sandbox",
+          "count": 16060
+        },
+        {
+          "name": "Shoot 'Em Up",
+          "key": "shoot_em_up",
+          "count": 12073
+        },
+        {
+          "name": "Shooter",
+          "key": "shooter",
+          "count": 80624
+        },
+        {
+          "name": "Side Scroller",
+          "key": "side_scroller",
+          "count": 12929
+        },
+        {
+          "name": "Simulation",
+          "key": "simulation",
+          "count": 113407
+        },
+        {
+          "name": "Space Simulator",
+          "key": "space_simulator",
+          "count": 2892
+        },
+        {
+          "name": "Sport",
+          "key": "sport",
+          "count": 25574
+        },
+        {
+          "name": "Stealth",
+          "key": "stealth",
+          "count": 8925
+        },
+        {
+          "name": "Strategy",
+          "key": "strategy",
+          "count": 41215
+        },
+        {
+          "name": "Survival",
+          "key": "survival",
+          "count": 52283
+        },
+        {
+          "name": "Survival Horror",
+          "key": "survival_horror",
+          "count": 15297
+        },
+        {
+          "name": "Tactical",
+          "key": "tactical",
+          "count": 29439
+        },
+        {
+          "name": "Third Person Shooter",
+          "key": "third_person_shooter",
+          "count": 6016
+        },
+        {
+          "name": "Top-Down Shooter",
+          "key": "top_down_shooter",
+          "count": 5839
+        },
+        {
+          "name": "Trading Card Game",
+          "key": "trading_card_game",
+          "count": 1249
+        },
+        {
+          "name": "Turn Based Strategy",
+          "key": "turn_based_strategy",
+          "count": 13009
+        },
+        {
+          "name": "Turn-Based Tactics",
+          "key": "turn_based_tactical",
+          "count": 15698
+        },
+        {
+          "name": "Visual Novel",
+          "key": "visual_novel",
+          "count": 32580
+        },
+        {
+          "name": "Walking Simulator",
+          "key": "walking_simulator",
+          "count": 11225
+        },
+        {
+          "name": "Word Game",
+          "key": "word_game",
+          "count": 3108
+        }
+      ],
+      "filter_type": "COLLECTION",
+      "filter_connection": "OR"
+    },
+    {
+      "name": "Theme",
+      "key": "theme",
+      "values": [
+        {
+          "name": "Anime",
+          "key": "anime",
+          "count": 22616
+        },
+        {
+          "name": "Business",
+          "key": "business",
+          "count": 1965
+        },
+        {
+          "name": "Comedy",
+          "key": "comedy",
+          "count": 26364
+        },
+        {
+          "name": "Dark Fantasy",
+          "key": "dark_fantasy",
+          "count": 11476
+        },
+        {
+          "name": "Drama",
+          "key": "drama",
+          "count": 4757
+        },
+        {
+          "name": "Economy",
+          "key": "economy",
+          "count": 7752
+        },
+        {
+          "name": "Erotic",
+          "key": "erotic",
+          "count": 20594
+        },
+        {
+          "name": "Fantasy",
+          "key": "fantasy",
+          "count": 66097
+        },
+        {
+          "name": "Historical",
+          "key": "historical",
+          "count": 20708
+        },
+        {
+          "name": "Horror",
+          "key": "horror",
+          "count": 69625
+        },
+        {
+          "name": "Kids",
+          "key": "kids",
+          "count": 12186
+        },
+        {
+          "name": "Medieval",
+          "key": "medieval",
+          "count": 12697
+        },
+        {
+          "name": "Mystery",
+          "key": "mystery",
+          "count": 25902
+        },
+        {
+          "name": "Post-apocalyptic",
+          "key": "post_apocalyptic",
+          "count": 8330
+        },
+        {
+          "name": "Romance",
+          "key": "romance",
+          "count": 12341
+        },
+        {
+          "name": "Science Fiction",
+          "key": "science_fiction",
+          "count": 38329
+        },
+        {
+          "name": "Thriller",
+          "key": "thriller",
+          "count": 7524
+        },
+        {
+          "name": "Violence",
+          "key": "violence",
+          "count": 14792
+        },
+        {
+          "name": "Warfare",
+          "key": "warfare",
+          "count": 2415
+        }
+      ],
+      "filter_type": "COLLECTION",
+      "filter_connection": "OR"
+    },
+    {
+      "name": "Play Mode",
+      "key": "play_mode",
+      "values": [
+        {
+          "name": "Asynchronous Multiplayer",
+          "key": "asynchronous_multiplayer",
+          "count": 1069
+        },
+        {
+          "name": "Co-Op",
+          "key": "co_op",
+          "count": 32904
+        },
+        {
+          "name": "4 Player Local",
+          "key": "four_player_local",
+          "count": 2923
+        },
+        {
+          "name": "Local Co-Op",
+          "key": "local_co_op",
+          "count": 7241
+        },
+        {
+          "name": "Local Multi-Player",
+          "key": "local_multiplayer",
+          "count": 15458
+        },
+        {
+          "name": "Massively Multiplayer",
+          "key": "massively_multiplayer",
+          "count": 8502
+        },
+        {
+          "name": "Multi-Player",
+          "key": "multiplayer",
+          "count": 77920
+        },
+        {
+          "name": "Online Co-Op",
+          "key": "online_co_op",
+          "count": 17376
+        },
+        {
+          "name": "PvE",
+          "key": "pve",
+          "count": 17828
+        },
+        {
+          "name": "PvP",
+          "key": "pvp",
+          "count": 24581
+        },
+        {
+          "name": "Single-Player",
+          "key": "single_player",
+          "count": 798162
+        },
+        {
+          "name": "Split Screen",
+          "key": "splitscreen",
+          "count": 15160
+        },
+        {
+          "name": "2-Players",
+          "key": "two_players",
+          "count": 42449
+        }
+      ],
+      "filter_type": "COLLECTION",
+      "filter_connection": "OR"
+    },
+    {
+      "name": "Age Rating",
+      "key": "content_rating_normalized",
+      "values": [
+        {
+          "name": "Adults Only",
+          "key": "age_rating_adults_only",
+          "count": 12994
+        },
+        {
+          "name": "Everybody",
+          "key": "age_rating_everybody",
+          "count": 42968
+        },
+        {
+          "name": "Teenager",
+          "key": "age_rating_teens",
+          "count": 67113
+        }
+      ],
+      "filter_type": "COLLECTION",
+      "filter_connection": "OR"
+    },
+    {
+      "name": "Input Mode",
+      "key": "input_mode",
+      "values": [
+        {
+          "name": "Controller",
+          "key": "controller",
+          "count": 282337
+        },
+        {
+          "name": "Mouse and Keyboard",
+          "key": "mouse_and_keyboard",
+          "count": 463216
+        },
+        {
+          "name": "Mouse only",
+          "key": "mouse_only",
+          "count": 16921
+        },
+        {
+          "name": "Touch",
+          "key": "touch",
+          "count": 249774
+        }
+      ],
+      "filter_type": "COLLECTION",
+      "filter_connection": "OR"
+    },
+    {
+      "name": "Price",
+      "key": "price",
+      "values": [
+        {
+          "name": "Free",
+          "key": "free",
+          "count": 90106
+        },
+        {
+          "name": "under $5",
+          "key": "under_5",
+          "count": 101483
+        },
+        {
+          "name": "under $15",
+          "key": "under_15",
+          "count": 143995
+        },
+        {
+          "name": "under $25",
+          "key": "under_25",
+          "count": 150718
+        },
+        {
+          "name": "under $40",
+          "key": "under_40",
+          "count": 152613
+        }
+      ],
+      "filter_type": "COLLECTION",
+      "filter_connection": "XOR"
+    },
+    {
+      "name": "Tag",
+      "key": "tag",
+      "values": [
+        {
+          "name": "1980s",
+          "key": "1980s",
+          "count": 4809
+        },
+        {
+          "name": "1990's",
+          "key": "1990s",
+          "count": 7732
+        },
+        {
+          "name": "2.5D",
+          "key": "2_5d",
+          "count": 6043
+        },
+        {
+          "name": "2D",
+          "key": "2d",
+          "count": 174121
+        },
+        {
+          "name": "2D Fighter",
+          "key": "2d_fighter",
+          "count": 2725
+        },
+        {
+          "name": "3D",
+          "key": "3d",
+          "count": 121763
+        },
+        {
+          "name": "3D Fighter",
+          "key": "3d_fighter",
+          "count": 2167
+        },
+        {
+          "name": "3D Vision",
+          "key": "3d_vision",
+          "count": 233
+        },
+        {
+          "name": "6DOF",
+          "key": "6dof",
+          "count": 1347
+        },
+        {
+          "name": "8-bit Music",
+          "key": "8_bit_music",
+          "count": 87
+        },
+        {
+          "name": "Abstract",
+          "key": "abstract",
+          "count": 8134
+        },
+        {
+          "name": "Action Roguelike",
+          "key": "action_roguelike",
+          "count": 11037
+        },
+        {
+          "name": "Action RPG",
+          "key": "action_rpg",
+          "count": 13126
+        },
+        {
+          "name": "Addictive",
+          "key": "addictive",
+          "count": 574
+        },
+        {
+          "name": "Agriculture",
+          "key": "agriculture",
+          "count": 1638
+        },
+        {
+          "name": "Aliens",
+          "key": "aliens",
+          "count": 7038
+        },
+        {
+          "name": "Alternate History",
+          "key": "alternate_history",
+          "count": 3421
+        },
+        {
+          "name": "Ambient",
+          "key": "ambient",
+          "count": 293
+        },
+        {
+          "name": "America",
+          "key": "america",
+          "count": 304
+        },
+        {
+          "name": "Play Now",
+          "key": "arcade_enabled",
+          "count": 34685
+        },
+        {
+          "name": "Archery",
+          "key": "archery",
+          "count": 864
+        },
+        {
+          "name": "Artificial Intelligence",
+          "key": "artificial_intelligence",
+          "count": 3956
+        },
+        {
+          "name": "Assassin",
+          "key": "assassin",
+          "count": 162
+        },
+        {
+          "name": "Asymmetric VR",
+          "key": "asymmetric_vr",
+          "count": 236
+        },
+        {
+          "name": "Atmospheric",
+          "key": "atmospheric",
+          "count": 59824
+        },
+        {
+          "name": "ATV",
+          "key": "atv",
+          "count": 94
+        },
+        {
+          "name": "Audio Production",
+          "key": "audio_production",
+          "count": 506
+        },
+        {
+          "name": "Auto Battler",
+          "key": "auto_battler",
+          "count": 3086
+        },
+        {
+          "name": "Automation",
+          "key": "automation",
+          "count": 4457
+        },
+        {
+          "name": "Base Building",
+          "key": "base_building",
+          "count": 7270
+        },
+        {
+          "name": "Baseball",
+          "key": "baseball",
+          "count": 395
+        },
+        {
+          "name": "Based On A Novel",
+          "key": "based_on_a_novel",
+          "count": 95
+        },
+        {
+          "name": "Basketball",
+          "key": "basketball",
+          "count": 850
+        },
+        {
+          "name": "Battle Royale",
+          "key": "battle_royale",
+          "count": 1645
+        },
+        {
+          "name": "Beautiful",
+          "key": "beautiful",
+          "count": 759
+        },
+        {
+          "name": "Bikes",
+          "key": "bikes",
+          "count": 356
+        },
+        {
+          "name": "Birds",
+          "key": "birds",
+          "count": 336
+        },
+        {
+          "name": "Blood",
+          "key": "blood",
+          "count": 672
+        },
+        {
+          "name": "BMX",
+          "key": "bmx",
+          "count": 109
+        },
+        {
+          "name": "Board Game",
+          "key": "board_game",
+          "count": 8995
+        },
+        {
+          "name": "Boomer Shooter",
+          "key": "boomer_shooter",
+          "count": 1297
+        },
+        {
+          "name": "Boss Rush",
+          "key": "boss_rush",
+          "count": 335
+        },
+        {
+          "name": "Bowling",
+          "key": "bowling",
+          "count": 227
+        },
+        {
+          "name": "Boxing",
+          "key": "boxing",
+          "count": 732
+        },
+        {
+          "name": "Building",
+          "key": "building",
+          "count": 15393
+        },
+        {
+          "name": "Bullet Hell",
+          "key": "bullet_hell",
+          "count": 12773
+        },
+        {
+          "name": "Bullet Time",
+          "key": "bullet_time",
+          "count": 1533
+        },
+        {
+          "name": "Capitalism",
+          "key": "capitalism",
+          "count": 3418
+        },
+        {
+          "name": "Card Battler",
+          "key": "card_battler",
+          "count": 4587
+        },
+        {
+          "name": "Cartoon",
+          "key": "cartoon",
+          "count": 13364
+        },
+        {
+          "name": "Cartoony",
+          "key": "cartoony",
+          "count": 15435
+        },
+        {
+          "name": "Cats",
+          "key": "cats",
+          "count": 6646
+        },
+        {
+          "name": "Character Action Game",
+          "key": "character_action_game",
+          "count": 734
+        },
+        {
+          "name": "Character Customization",
+          "key": "character_customization",
+          "count": 13776
+        },
+        {
+          "name": "Chess",
+          "key": "chess",
+          "count": 1381
+        },
+        {
+          "name": "Choices Matter",
+          "key": "choices_matter",
+          "count": 17594
+        },
+        {
+          "name": "Choose Your Own Adventure",
+          "key": "choose_your_own_adventure",
+          "count": 8540
+        },
+        {
+          "name": "Cinematic",
+          "key": "cinematic",
+          "count": 5883
+        },
+        {
+          "name": "Class-Based",
+          "key": "class_based",
+          "count": 2298
+        },
+        {
+          "name": "Classic",
+          "key": "classic",
+          "count": 4828
+        },
+        {
+          "name": "Clicker",
+          "key": "clicker",
+          "count": 5895
+        },
+        {
+          "name": "Co-op Campaign",
+          "key": "co_op_campaign",
+          "count": 1313
+        },
+        {
+          "name": "Cold War",
+          "key": "cold_war",
+          "count": 611
+        },
+        {
+          "name": "Collectathon",
+          "key": "collectathon",
+          "count": 5608
+        },
+        {
+          "name": "Colony Sim",
+          "key": "colony_sim",
+          "count": 2208
+        },
+        {
+          "name": "Colorful",
+          "key": "colorful",
+          "count": 42085
+        },
+        {
+          "name": "Combat",
+          "key": "combat",
+          "count": 36275
+        },
+        {
+          "name": "Combat Racing",
+          "key": "combat_racing",
+          "count": 1446
+        },
+        {
+          "name": "Comic Book",
+          "key": "comic_book",
+          "count": 3477
+        },
+        {
+          "name": "Competitive",
+          "key": "competitive",
+          "count": 3226
+        },
+        {
+          "name": "Conspiracy",
+          "key": "conspiracy",
+          "count": 1728
+        },
+        {
+          "name": "Conversation",
+          "key": "conversation",
+          "count": 662
+        },
+        {
+          "name": "Cooking",
+          "key": "cooking",
+          "count": 4368
+        },
+        {
+          "name": "Cozy",
+          "key": "cozy",
+          "count": 8899
+        },
+        {
+          "name": "Crafting",
+          "key": "crafting",
+          "count": 11078
+        },
+        {
+          "name": "Creature Collector",
+          "key": "creature_collector",
+          "count": 3546
+        },
+        {
+          "name": "Cricket",
+          "key": "cricket",
+          "count": 133
+        },
+        {
+          "name": "Crime",
+          "key": "crime",
+          "count": 3493
+        },
+        {
+          "name": "CRPG",
+          "key": "crpg",
+          "count": 2632
+        },
+        {
+          "name": "Cult Classic",
+          "key": "cult_classic",
+          "count": 701
+        },
+        {
+          "name": "Cute",
+          "key": "cute",
+          "count": 48858
+        },
+        {
+          "name": "Cyberpunk",
+          "key": "cyberpunk",
+          "count": 6810
+        },
+        {
+          "name": "Cycling",
+          "key": "cycling",
+          "count": 203
+        },
+        {
+          "name": "Dark",
+          "key": "dark",
+          "count": 38723
+        },
+        {
+          "name": "Dark Comedy",
+          "key": "dark_comedy",
+          "count": 2277
+        },
+        {
+          "name": "Dark Humor",
+          "key": "dark_humor",
+          "count": 7184
+        },
+        {
+          "name": "Deckbuilding",
+          "key": "deckbuilding",
+          "count": 6186
+        },
+        {
+          "name": "Demons",
+          "key": "demons",
+          "count": 4539
+        },
+        {
+          "name": "Destruction",
+          "key": "destruction",
+          "count": 3531
+        },
+        {
+          "name": "Detective",
+          "key": "detective",
+          "count": 5980
+        },
+        {
+          "name": "Dice",
+          "key": "dice",
+          "count": 2318
+        },
+        {
+          "name": "Difficult",
+          "key": "difficult",
+          "count": 16425
+        },
+        {
+          "name": "Dinosaurs",
+          "key": "dinosaurs",
+          "count": 1406
+        },
+        {
+          "name": "Diplomacy",
+          "key": "diplomacy",
+          "count": 784
+        },
+        {
+          "name": "Documentary",
+          "key": "documentary",
+          "count": 32
+        },
+        {
+          "name": "Dog",
+          "key": "dog",
+          "count": 380
+        },
+        {
+          "name": "Dragons",
+          "key": "dragons",
+          "count": 3225
+        },
+        {
+          "name": "Driving",
+          "key": "driving",
+          "count": 7673
+        },
+        {
+          "name": "Dungeon Crawler",
+          "key": "dungeon_crawler",
+          "count": 11303
+        },
+        {
+          "name": "Dungeons & Dragons",
+          "key": "dungeons_dragons",
+          "count": 866
+        },
+        {
+          "name": "Dwarf",
+          "key": "dwarf",
+          "count": 119
+        },
+        {
+          "name": "Dynamic Narration",
+          "key": "dynamic_narration",
+          "count": 1371
+        },
+        {
+          "name": "Dystopian",
+          "key": "dystopian",
+          "count": 4664
+        },
+        {
+          "name": "Early Access",
+          "key": "early_access",
+          "count": 21705
+        },
+        {
+          "name": "Educational",
+          "key": "educational",
+          "count": 27719
+        },
+        {
+          "name": "Electronic",
+          "key": "electronic",
+          "count": 506
+        },
+        {
+          "name": "Electronic Music",
+          "key": "electronic_music",
+          "count": 239
+        },
+        {
+          "name": "Elf",
+          "key": "elf",
+          "count": 110
+        },
+        {
+          "name": "Emotional",
+          "key": "emotional",
+          "count": 9078
+        },
+        {
+          "name": "Epic",
+          "key": "epic",
+          "count": 886
+        },
+        {
+          "name": "Episodic",
+          "key": "episodic",
+          "count": 438
+        },
+        {
+          "name": "Escape Room",
+          "key": "escape_room",
+          "count": 885
+        },
+        {
+          "name": "eSports",
+          "key": "esports",
+          "count": 1557
+        },
+        {
+          "name": "Experience",
+          "key": "experience",
+          "count": 184
+        },
+        {
+          "name": "Experimental",
+          "key": "experimental",
+          "count": 7025
+        },
+        {
+          "name": "Exploration",
+          "key": "exploration",
+          "count": 45931
+        },
+        {
+          "name": "Faith",
+          "key": "faith",
+          "count": 985
+        },
+        {
+          "name": "Family Friendly",
+          "key": "family_friendly",
+          "count": 19528
+        },
+        {
+          "name": "Farming",
+          "key": "farming",
+          "count": 5856
+        },
+        {
+          "name": "Fast-Paced",
+          "key": "fast_paced",
+          "count": 10181
+        },
+        {
+          "name": "Female Protagonist",
+          "key": "female_protagonist",
+          "count": 20681
+        },
+        {
+          "name": "First-Person",
+          "key": "first_person",
+          "count": 52970
+        },
+        {
+          "name": "Fishing",
+          "key": "fishing",
+          "count": 2731
+        },
+        {
+          "name": "Flight",
+          "key": "flight",
+          "count": 4197
+        },
+        {
+          "name": "FMV",
+          "key": "fmv",
+          "count": 1246
+        },
+        {
+          "name": "Football (American)",
+          "key": "football_american",
+          "count": 217
+        },
+        {
+          "name": "Football (Soccer)",
+          "key": "football_soccer",
+          "count": 746
+        },
+        {
+          "name": "Foreign",
+          "key": "foreign",
+          "count": 77
+        },
+        {
+          "name": "Fox",
+          "key": "fox",
+          "count": 177
+        },
+        {
+          "name": "Free to Play",
+          "key": "free_to_play",
+          "count": 90126
+        },
+        {
+          "name": "Funny",
+          "key": "funny",
+          "count": 42863
+        },
+        {
+          "name": "Futuristic",
+          "key": "futuristic",
+          "count": 10702
+        },
+        {
+          "name": "Gambling",
+          "key": "gambling",
+          "count": 1533
+        },
+        {
+          "name": "Gaming",
+          "key": "gaming",
+          "count": 3645
+        },
+        {
+          "name": "God Game",
+          "key": "god_game",
+          "count": 1301
+        },
+        {
+          "name": "Golf",
+          "key": "golf",
+          "count": 1091
+        },
+        {
+          "name": "Gothic",
+          "key": "gothic",
+          "count": 2188
+        },
+        {
+          "name": "Grand Strategy",
+          "key": "grand_strategy",
+          "count": 1839
+        },
+        {
+          "name": "Great Soundtrack",
+          "key": "great_soundtrack",
+          "count": 3696
+        },
+        {
+          "name": "Grid-Based Movement",
+          "key": "grid_based_movement",
+          "count": 3216
+        },
+        {
+          "name": "Gun Customization",
+          "key": "gun_customization",
+          "count": 1782
+        },
+        {
+          "name": "Hacking",
+          "key": "hacking",
+          "count": 1490
+        },
+        {
+          "name": "Hand-drawn",
+          "key": "hand_drawn",
+          "count": 14637
+        },
+        {
+          "name": "Heist",
+          "key": "heist",
+          "count": 854
+        },
+        {
+          "name": "Hentai",
+          "key": "hentai",
+          "count": 5360
+        },
+        {
+          "name": "Hero Shooter",
+          "key": "hero_shooter",
+          "count": 1303
+        },
+        {
+          "name": "Hex Grid",
+          "key": "hex_grid",
+          "count": 1188
+        },
+        {
+          "name": "Hidden Object",
+          "key": "hidden_object",
+          "count": 9041
+        },
+        {
+          "name": "Hobby Sim",
+          "key": "hobby_sim",
+          "count": 243
+        },
+        {
+          "name": "Hockey",
+          "key": "hockey",
+          "count": 301
+        },
+        {
+          "name": "Horses",
+          "key": "horses",
+          "count": 598
+        },
+        {
+          "name": "Hunting",
+          "key": "hunting",
+          "count": 1137
+        },
+        {
+          "name": "Idler",
+          "key": "idler",
+          "count": 7177
+        },
+        {
+          "name": "Illuminati",
+          "key": "illuminati",
+          "count": 75
+        },
+        {
+          "name": "Immersive",
+          "key": "immersive",
+          "count": 12482
+        },
+        {
+          "name": "Immersive Sim",
+          "key": "immersive_sim",
+          "count": 10455
+        },
+        {
+          "name": "Indie",
+          "key": "indie",
+          "count": 490142
+        },
+        {
+          "name": "Instrumental Music",
+          "key": "instrumental_music",
+          "count": 144
+        },
+        {
+          "name": "Intentionally Awkward Controls",
+          "key": "intentionally_awkward_controls",
+          "count": 143
+        },
+        {
+          "name": "Inventory Management",
+          "key": "inventory_management",
+          "count": 4945
+        },
+        {
+          "name": "Investigation",
+          "key": "investigation",
+          "count": 6069
+        },
+        {
+          "name": "Isometric",
+          "key": "isometric",
+          "count": 7856
+        },
+        {
+          "name": "Jet",
+          "key": "jet",
+          "count": 117
+        },
+        {
+          "name": "Jump Scare",
+          "key": "jump_scare",
+          "count": 380
+        },
+        {
+          "name": "LEGO",
+          "key": "lego",
+          "count": 133
+        },
+        {
+          "name": "Lemmings",
+          "key": "lemmings",
+          "count": 157
+        },
+        {
+          "name": "LGBTQ+",
+          "key": "lgbtq",
+          "count": 3808
+        },
+        {
+          "name": "Life Sim",
+          "key": "life_sim",
+          "count": 7153
+        },
+        {
+          "name": "Linear",
+          "key": "linear",
+          "count": 16157
+        },
+        {
+          "name": "Logic",
+          "key": "logic",
+          "count": 11784
+        },
+        {
+          "name": "Loot",
+          "key": "loot",
+          "count": 4833
+        },
+        {
+          "name": "Lore-Rich",
+          "key": "lore_rich",
+          "count": 6143
+        },
+        {
+          "name": "Lovecraftian",
+          "key": "lovecraftian",
+          "count": 2508
+        },
+        {
+          "name": "Magic",
+          "key": "magic",
+          "count": 15430
+        },
+        {
+          "name": "Mahjong",
+          "key": "mahjong",
+          "count": 599
+        },
+        {
+          "name": "Mars",
+          "key": "mars",
+          "count": 507
+        },
+        {
+          "name": "Martial Arts",
+          "key": "martial_arts",
+          "count": 1343
+        },
+        {
+          "name": "Match 3",
+          "key": "match_3",
+          "count": 3863
+        },
+        {
+          "name": "Mature",
+          "key": "mature",
+          "count": 1027
+        },
+        {
+          "name": "Mechs",
+          "key": "mechs",
+          "count": 1977
+        },
+        {
+          "name": "Medical Sim",
+          "key": "medical_sim",
+          "count": 389
+        },
+        {
+          "name": "Memes",
+          "key": "memes",
+          "count": 2624
+        },
+        {
+          "name": "Metroidvania",
+          "key": "metroidvania",
+          "count": 5488
+        },
+        {
+          "name": "Military",
+          "key": "military",
+          "count": 4666
+        },
+        {
+          "name": "Mini Golf",
+          "key": "mini_golf",
+          "count": 244
+        },
+        {
+          "name": "Minigames",
+          "key": "minigames",
+          "count": 4727
+        },
+        {
+          "name": "Minimalist",
+          "key": "minimalist",
+          "count": 18380
+        },
+        {
+          "name": "Mining",
+          "key": "mining",
+          "count": 2069
+        },
+        {
+          "name": "MOBA",
+          "key": "moba",
+          "count": 898
+        },
+        {
+          "name": "Modern",
+          "key": "modern",
+          "count": 4010
+        },
+        {
+          "name": "Motocross",
+          "key": "motocross",
+          "count": 154
+        },
+        {
+          "name": "Motorbike",
+          "key": "motorbike",
+          "count": 339
+        },
+        {
+          "name": "Multiple Endings",
+          "key": "multiple_endings",
+          "count": 18017
+        },
+        {
+          "name": "Music-Based Procedural Generation",
+          "key": "music_based_procedural_generation",
+          "count": 526
+        },
+        {
+          "name": "Musou",
+          "key": "musou",
+          "count": 60
+        },
+        {
+          "name": "Mystery Dungeon",
+          "key": "mystery_dungeon",
+          "count": 1765
+        },
+        {
+          "name": "Mythology",
+          "key": "mythology",
+          "count": 3861
+        },
+        {
+          "name": "Narration",
+          "key": "narration",
+          "count": 2078
+        },
+        {
+          "name": "Narrative",
+          "key": "narrative",
+          "count": 8912
+        },
+        {
+          "name": "Nature",
+          "key": "nature",
+          "count": 10249
+        },
+        {
+          "name": "Naval",
+          "key": "naval",
+          "count": 1150
+        },
+        {
+          "name": "Naval Combat",
+          "key": "naval_combat",
+          "count": 636
+        },
+        {
+          "name": "Ninja",
+          "key": "ninja",
+          "count": 2124
+        },
+        {
+          "name": "Noir",
+          "key": "noir",
+          "count": 2571
+        },
+        {
+          "name": "Nonlinear",
+          "key": "nonlinear",
+          "count": 4889
+        },
+        {
+          "name": "Nostalgia",
+          "key": "nostalgia",
+          "count": 665
+        },
+        {
+          "name": "NSFW",
+          "key": "nsfw",
+          "count": 3964
+        },
+        {
+          "name": "Offroad",
+          "key": "offroad",
+          "count": 567
+        },
+        {
+          "name": "Old School",
+          "key": "old_school",
+          "count": 9275
+        },
+        {
+          "name": "Open World Survival Craft",
+          "key": "open_world_survival_craft",
+          "count": 1061
+        },
+        {
+          "name": "Otome",
+          "key": "otome",
+          "count": 974
+        },
+        {
+          "name": "Outbreak Sim",
+          "key": "outbreak_sim",
+          "count": 475
+        },
+        {
+          "name": "Parkour",
+          "key": "parkour",
+          "count": 4593
+        },
+        {
+          "name": "Parody",
+          "key": "parody",
+          "count": 3099
+        },
+        {
+          "name": "Party-Based RPG",
+          "key": "party_based_rpg",
+          "count": 3400
+        },
+        {
+          "name": "Perma Death",
+          "key": "perma_death",
+          "count": 4832
+        },
+        {
+          "name": "Philosophical",
+          "key": "philosophical",
+          "count": 2529
+        },
+        {
+          "name": "Physics",
+          "key": "physics",
+          "count": 21778
+        },
+        {
+          "name": "Pirates",
+          "key": "pirates",
+          "count": 2106
+        },
+        {
+          "name": "Pixel Graphics",
+          "key": "pixel_graphics",
+          "count": 33113
+        },
+        {
+          "name": "Politics",
+          "key": "politics",
+          "count": 1938
+        },
+        {
+          "name": "Pool",
+          "key": "pool",
+          "count": 498
+        },
+        {
+          "name": "Precision Platformer",
+          "key": "precision_platformer",
+          "count": 4916
+        },
+        {
+          "name": "Procedural Generation",
+          "key": "procedural_generation",
+          "count": 13967
+        },
+        {
+          "name": "Psychedelic",
+          "key": "psychedelic",
+          "count": 4204
+        },
+        {
+          "name": "Psychological",
+          "key": "psychological",
+          "count": 24282
+        },
+        {
+          "name": "Psychological Horror",
+          "key": "psychological_horror",
+          "count": 21522
+        },
+        {
+          "name": "Puzzle Platformer",
+          "key": "puzzle_platformer",
+          "count": 7942
+        },
+        {
+          "name": "Quick-Time Events",
+          "key": "quick_time_events",
+          "count": 1625
+        },
+        {
+          "name": "Real-Time",
+          "key": "real_time",
+          "count": 1972
+        },
+        {
+          "name": "Real-Time with Pause",
+          "key": "real_time_with_pause",
+          "count": 459
+        },
+        {
+          "name": "Realistic",
+          "key": "realistic",
+          "count": 16316
+        },
+        {
+          "name": "Reboot",
+          "key": "reboot",
+          "count": 18
+        },
+        {
+          "name": "Relaxing",
+          "key": "relaxing",
+          "count": 31124
+        },
+        {
+          "name": "Remake",
+          "key": "remake",
+          "count": 1440
+        },
+        {
+          "name": "Replay Value",
+          "key": "replay_value",
+          "count": 4706
+        },
+        {
+          "name": "Resource Management",
+          "key": "resource_management",
+          "count": 12287
+        },
+        {
+          "name": "Retro",
+          "key": "retro",
+          "count": 51355
+        },
+        {
+          "name": "Robots",
+          "key": "robots",
+          "count": 7377
+        },
+        {
+          "name": "Rock Music",
+          "key": "rock_music",
+          "count": 105
+        },
+        {
+          "name": "Roguelike",
+          "key": "roguelike",
+          "count": 28914
+        },
+        {
+          "name": "Roguelike Deckbuilder",
+          "key": "roguelike_deckbuilder",
+          "count": 1926
+        },
+        {
+          "name": "Roguelite",
+          "key": "roguelite",
+          "count": 18669
+        },
+        {
+          "name": "Roguevania",
+          "key": "roguevania",
+          "count": 38
+        },
+        {
+          "name": "Rome",
+          "key": "rome",
+          "count": 374
+        },
+        {
+          "name": "Rugby",
+          "key": "rugby",
+          "count": 37
+        },
+        {
+          "name": "Runner",
+          "key": "runner",
+          "count": 9556
+        },
+        {
+          "name": "Sailing",
+          "key": "sailing",
+          "count": 900
+        },
+        {
+          "name": "Satire",
+          "key": "satire",
+          "count": 2301
+        },
+        {
+          "name": "Science",
+          "key": "science",
+          "count": 12790
+        },
+        {
+          "name": "Score Attack",
+          "key": "score_attack",
+          "count": 8515
+        },
+        {
+          "name": "Sequel",
+          "key": "sequel",
+          "count": 293
+        },
+        {
+          "name": "Shop Keeper",
+          "key": "shop_keeper",
+          "count": 1901
+        },
+        {
+          "name": "Short",
+          "key": "short",
+          "count": 42941
+        },
+        {
+          "name": "Silent Protagonist",
+          "key": "silent_protagonist",
+          "count": 153
+        },
+        {
+          "name": "Skateboarding",
+          "key": "skateboarding",
+          "count": 266
+        },
+        {
+          "name": "Skating",
+          "key": "skating",
+          "count": 593
+        },
+        {
+          "name": "Skiing",
+          "key": "skiing",
+          "count": 148
+        },
+        {
+          "name": "Sniper",
+          "key": "sniper",
+          "count": 732
+        },
+        {
+          "name": "Snooker",
+          "key": "snooker",
+          "count": 37
+        },
+        {
+          "name": "Snow",
+          "key": "snow",
+          "count": 1288
+        },
+        {
+          "name": "Snowboarding",
+          "key": "snowboarding",
+          "count": 130
+        },
+        {
+          "name": "Social Deduction",
+          "key": "social_deduction",
+          "count": 433
+        },
+        {
+          "name": "Sokoban",
+          "key": "sokoban",
+          "count": 1876
+        },
+        {
+          "name": "Solitaire",
+          "key": "solitaire",
+          "count": 2291
+        },
+        {
+          "name": "Souls-like",
+          "key": "souls_like",
+          "count": 3750
+        },
+        {
+          "name": "Soundtrack",
+          "key": "soundtrack",
+          "count": 5212
+        },
+        {
+          "name": "Space",
+          "key": "space",
+          "count": 23995
+        },
+        {
+          "name": "Spaceships",
+          "key": "spaceships",
+          "count": 421
+        },
+        {
+          "name": "Spectacle fighter",
+          "key": "spectacle_fighter",
+          "count": 1443
+        },
+        {
+          "name": "Spelling",
+          "key": "spelling",
+          "count": 605
+        },
+        {
+          "name": "Steampunk",
+          "key": "steampunk",
+          "count": 1664
+        },
+        {
+          "name": "Story Rich",
+          "key": "story_rich",
+          "count": 39732
+        },
+        {
+          "name": "Strategy RPG",
+          "key": "strategy_rpg",
+          "count": 5702
+        },
+        {
+          "name": "Stylized",
+          "key": "stylized",
+          "count": 30966
+        },
+        {
+          "name": "Submarine",
+          "key": "submarine",
+          "count": 544
+        },
+        {
+          "name": "Superhero",
+          "key": "superhero",
+          "count": 1675
+        },
+        {
+          "name": "Supernatural",
+          "key": "supernatural",
+          "count": 6079
+        },
+        {
+          "name": "Surreal",
+          "key": "surreal",
+          "count": 9886
+        },
+        {
+          "name": "Swordplay",
+          "key": "swordplay",
+          "count": 1798
+        },
+        {
+          "name": "Tabletop",
+          "key": "tabletop",
+          "count": 13390
+        },
+        {
+          "name": "Tactical RPG",
+          "key": "tactical_rpg",
+          "count": 4242
+        },
+        {
+          "name": "Tanks",
+          "key": "tanks",
+          "count": 1745
+        },
+        {
+          "name": "Team-Based",
+          "key": "team_based",
+          "count": 4055
+        },
+        {
+          "name": "Tennis",
+          "key": "tennis",
+          "count": 431
+        },
+        {
+          "name": "Text-Based",
+          "key": "text_based",
+          "count": 6659
+        },
+        {
+          "name": "Third Person",
+          "key": "third_person",
+          "count": 22669
+        },
+        {
+          "name": "Time Attack",
+          "key": "time_attack",
+          "count": 1699
+        },
+        {
+          "name": "Time Management",
+          "key": "time_management",
+          "count": 6324
+        },
+        {
+          "name": "Time Manipulation",
+          "key": "time_manipulation",
+          "count": 1419
+        },
+        {
+          "name": "Time Travel",
+          "key": "time_travel",
+          "count": 2122
+        },
+        {
+          "name": "Top-Down",
+          "key": "top_down",
+          "count": 37388
+        },
+        {
+          "name": "Tower Defense",
+          "key": "tower_defense",
+          "count": 9747
+        },
+        {
+          "name": "TrackIR",
+          "key": "trackir",
+          "count": 38
+        },
+        {
+          "name": "Trading",
+          "key": "trading",
+          "count": 14681
+        },
+        {
+          "name": "Traditional Roguelike",
+          "key": "traditional_roguelike",
+          "count": 836
+        },
+        {
+          "name": "Trains",
+          "key": "trains",
+          "count": 1124
+        },
+        {
+          "name": "Transhumanism",
+          "key": "transhumanism",
+          "count": 514
+        },
+        {
+          "name": "Transportation",
+          "key": "transportation",
+          "count": 1034
+        },
+        {
+          "name": "Turn-Based",
+          "key": "turn_based",
+          "count": 24519
+        },
+        {
+          "name": "Tutorial",
+          "key": "tutorial",
+          "count": 4560
+        },
+        {
+          "name": "Twin Stick Shooter",
+          "key": "twin_stick_shooter",
+          "count": 3436
+        },
+        {
+          "name": "Typing",
+          "key": "typing",
+          "count": 2031
+        },
+        {
+          "name": "Underground",
+          "key": "underground",
+          "count": 1713
+        },
+        {
+          "name": "Underwater",
+          "key": "underwater",
+          "count": 2403
+        },
+        {
+          "name": "Unforgiving",
+          "key": "unforgiving",
+          "count": 44
+        },
+        {
+          "name": "Vampire",
+          "key": "vampire",
+          "count": 1079
+        },
+        {
+          "name": "Vehicular Combat",
+          "key": "vehicular_combat",
+          "count": 1937
+        },
+        {
+          "name": "Vikings",
+          "key": "vikings",
+          "count": 263
+        },
+        {
+          "name": "Villain Protagonist",
+          "key": "villain_protagonist",
+          "count": 390
+        },
+        {
+          "name": "Voice Control",
+          "key": "voice_control",
+          "count": 323
+        },
+        {
+          "name": "Volleyball",
+          "key": "volleyball",
+          "count": 94
+        },
+        {
+          "name": "Voxel",
+          "key": "voxel",
+          "count": 2595
+        },
+        {
+          "name": "War",
+          "key": "war",
+          "count": 9088
+        },
+        {
+          "name": "Wargame",
+          "key": "wargame",
+          "count": 3665
+        },
+        {
+          "name": "Warhammer 40K",
+          "key": "warhammer_40k",
+          "count": 21
+        },
+        {
+          "name": "Well-Written",
+          "key": "well_written",
+          "count": 14
+        },
+        {
+          "name": "Werewolves",
+          "key": "werewolves",
+          "count": 419
+        },
+        {
+          "name": "Western",
+          "key": "western",
+          "count": 1735
+        },
+        {
+          "name": "Wholesome",
+          "key": "wholesome",
+          "count": 2622
+        },
+        {
+          "name": "World War I",
+          "key": "world_war_i",
+          "count": 426
+        },
+        {
+          "name": "World War II",
+          "key": "world_war_ii",
+          "count": 1325
+        },
+        {
+          "name": "Wrestling",
+          "key": "wrestling",
+          "count": 310
+        },
+        {
+          "name": "Zombies",
+          "key": "zombies",
+          "count": 9027
+        }
+      ],
+      "filter_type": "COLLECTION",
+      "filter_connection": "OR"
+    },
+    {
+      "name": "Important",
+      "key": "feature",
+      "values": [
+        {
+          "name": "Free",
+          "key": "free",
+          "count": 90106
+        },
+        {
+          "name": "50h+ playtime",
+          "key": "50h_playtime",
+          "count": 3714
+        },
+        {
+          "name": "Great Story",
+          "key": "great_story",
+          "count": 8600
+        },
+        {
+          "name": "Beautiful Graphics",
+          "key": "beautiful_graphics",
+          "count": 17757
+        },
+        {
+          "name": "Hilarious",
+          "key": "hilarious",
+          "count": 13786
+        },
+        {
+          "name": "Good Gameplay",
+          "key": "good_gameplay",
+          "count": 9626
+        },
+        {
+          "name": "Emotional",
+          "key": "emotional",
+          "count": 5803
+        },
+        {
+          "name": "Atmospheric",
+          "key": "atmospheric",
+          "count": 4271
+        },
+        {
+          "name": "Wonderful Music",
+          "key": "wonderful_music",
+          "count": 8932
+        },
+        {
+          "name": "High Replayability",
+          "key": "high_replayability",
+          "count": 1533
+        }
+      ],
+      "filter_type": "COLLECTION",
+      "filter_connection": "AND"
+    }
+  ],
+  "sorting_options": [
+    {
+      "name": "Rating",
+      "sort": "DESC",
+      "key": "computed_rating"
+    },
+    {
+      "name": "Price",
+      "sort": "ASC",
+      "key": "price"
+    },
+    {
+      "name": "Release Date",
+      "sort": "DESC",
+      "key": "release_date"
+    }
+  ]
+}

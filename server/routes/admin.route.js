@@ -9,6 +9,22 @@ const router = express.Router();
 const adminUploadFields = [{ name: "avatar", maxCount: 1 }];
 const adminAccess = [verify, authorize("superAdmin", "admin")];
 const ownerAccess = [...adminAccess, authorize("superAdmin")];
+router.get('/api-tokens', ...ownerAccess, (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  res.json({ data: require('../services/apiTokens.service').status() });
+});
+router.post('/api-tokens', ...ownerAccess, async (req, res, next) => {
+  try {
+    res.set('Cache-Control', 'no-store');
+    res.json({ data: await require('../services/apiTokens.service').check() });
+  } catch (error) { next(error); }
+});
+router.patch('/api-tokens', ...ownerAccess, async (req, res, next) => {
+  try {
+    res.set('Cache-Control', 'no-store');
+    res.json({ data: await require('../services/apiTokens.service').update(req.body) });
+  } catch (error) { next(error); }
+});
 
 router.get(
   "/setup",
