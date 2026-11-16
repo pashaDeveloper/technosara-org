@@ -39,7 +39,11 @@ async function resolveProducts(input, fetcher) {
   const links = inputLinks(input).filter(row => row.provider === 'xbox');
   if (!links.length) throw fail('ابتدا لینک رسمی نسخهٔ Xbox بازی را ثبت کنید.');
   const mappings = [];
-  for (const link of links) {
+  const queue = links.map(link => ({ ...link, root: link.id, depth: 0 }));
+  const visited = new Set();
+  for (const link of queue) {
+    if (visited.has(link.root + ":" + link.id)) continue;
+    visited.add(link.root + ":" + link.id);
     let response, data;
     try {
       response = await fetcher(`https://displaycatalog.mp.microsoft.com/v7.0/products?bigIds=${link.id}&market=US&languages=en-US&fieldsTemplate=Details`, { redirect: 'error', signal: AbortSignal.timeout(20000) });
@@ -49,10 +53,14 @@ async function resolveProducts(input, fetcher) {
     const product = data.Products.find(row => row.ProductId === link.id);
     if (!product) throw fail('نسخهٔ Xbox در کاتالوگ پیدا نشد.', 404);
     const titleIds = [...new Set((product.AlternateIds || []).filter(row => row.IdType === 'XboxTitleId').map(row => id(row.Value)))];
-    // Bundles without their own title identity cannot safely identify one game.
+    // Follow only the single explicitly primary base game, never arbitrary bundle extras.
+    if (!titleIds.length && link.depth < 3) {
+      const primary = [...new Set((product.DisplaySkuAvailabilities || []).flatMap(row => row.Sku?.Properties?.BundledSkus || []).filter(row => row.IsPrimary === true && /^[a-z0-9]{12}$/i.test(row.BigId)).map(row => row.BigId))];
+      if (primary.length === 1) queue.push({ id: primary[0], root: link.root, depth: link.depth + 1 });
+    }
     const generations = product.Properties?.XboxConsoleGenCompatible || [];
     const devices = generations.flatMap(value => value === 'ConsoleGen8' ? ['XboxOne'] : value === 'ConsoleGen9' ? ['XboxSeries'] : []);
-    for (const title_id of titleIds) mappings.push({ product_id: link.id, title_id, title: { titleId: title_id, name: product.LocalizedProperties?.[0]?.ProductTitle || link.id, devices } });
+    for (const title_id of titleIds) mappings.push({ product_id: link.root, title_id, title: { titleId: title_id, name: product.LocalizedProperties?.[0]?.ProductTitle || link.id, devices } });
   }
   if (!mappings.length) throw fail('این لینک شناسهٔ اچیومنت مستقل ندارد؛ لینک نسخهٔ اصلی بازی را وارد کنید.', 409);
   return mappings;

@@ -29,7 +29,7 @@ function storeProviders(...values) {
   return providers;
 }
 const grades = { bronze: 'برنز', silver: 'نقره', gold: 'طلا', platinum: 'پلاتین', standard: 'اچیومنت' };
-export default forwardRef(function GameTrophies({ title, officialStores, offers, gameId, disabled, onBusyChange, autoFetch = true, storedLists = [] }, ref) {
+export default forwardRef(function GameTrophies({ title, officialStores, offers, gameId, disabled, onBusyChange, autoFetch = true, storedLists = [], onPreviewChange }, ref) {
   const [find] = useFindTrophyGamesMutation(), [preview] = usePreviewBaseTrophiesMutation(), [importTrophies] = useImportBaseTrophiesMutation();
   const [lists, setLists] = useState([]), [busy, setBusy] = useState(false), [errors, setErrors] = useState([]), [saved, setSaved] = useState({});
   const [reload, setReload] = useState(0);
@@ -144,6 +144,7 @@ export default forwardRef(function GameTrophies({ title, officialStores, offers,
     } finally { setBusy(false); }
   }
   useImperativeHandle(ref, () => ({ save }));
+  useEffect(() => { onPreviewChange?.(lists); }, [lists, onPreviewChange]);
   return <section className="min-w-0 space-y-4 border-t border-slate-200 pt-5 dark:border-slate-700">
     <div className="flex items-center justify-between gap-3"><h2 className="flex items-center gap-2 font-semibold"><Trophy className="size-4 shrink-0" />تروفی‌ها و اچیومنت‌ها</h2>
       <button type="button" disabled={disabled || busy} onClick={() => { status.refetch(); setReload(value => value + 1); }} className="text-sm text-blue-600 disabled:opacity-50">به‌روزرسانی</button>

@@ -23,11 +23,11 @@ export default function GameCapabilities({ control, getValues, setValue, watch, 
   const definitions = catalog.data?.data || [];
   const lastProvider = useRef(null);
   useEffect(() => {
-    if (!providerGame) return;
+    if (!providerGame || (storedGame && String(storedGame.id) === String(providerGame.id))) return;
     setValue('capability_status', '{}', { shouldDirty: true });
     setValue('platform_capabilities', '[]', { shouldDirty: true });
     setValue('feature_ids', [], { shouldDirty: true });
-  }, [providerGame, setValue]);
+  }, [providerGame, storedGame, setValue]);
   useEffect(() => {
     const source = providerGame || storedGame;
     if (!source || !definitions.length || lastProvider.current === source) return;
@@ -45,11 +45,12 @@ export default function GameCapabilities({ control, getValues, setValue, watch, 
   const officialStores = watch('official_stores');
   const offers = watch('offers');
   const platformRows = platforms.data?.data || [];
-  const families = platformRows.filter(row => selectedPlatforms.includes(row._id)).map(capabilityPlatform);
+  const capabilityPlatforms = platformRows.filter(row => selectedPlatforms.includes(row._id) && Boolean(capabilityPlatform(row)));
+  const families = capabilityPlatforms.map(capabilityPlatform);
   const providers = [...new Set(families.flatMap(family => family === 'pc' ? ['steam', 'xbox'] : family?.startsWith('ps') ? ['sony'] : family?.startsWith('xbox') ? ['xbox'] : []))];
   const requestKey = JSON.stringify([providerGame?.id || storedGame?._id, title, officialStores, offers, platformKey, providers]);
   const latest = useRef();
-  latest.current = { title, officialStores, offers, providers, platformRows, selectedPlatforms, getValues, setValue, onBusyChange };
+  latest.current = { title, officialStores, offers, providers, platformRows, selectedPlatforms: capabilityPlatforms.map(row => row._id), getValues, setValue, onBusyChange };
   async function loadSources(manual = false) {
     const input = latest.current;
     if (!input.providers.length || !input.title?.trim()) {
@@ -116,13 +117,13 @@ export default function GameCapabilities({ control, getValues, setValue, watch, 
       })}</div>;
     }} />
     <div className="flex flex-wrap items-center justify-between gap-3"><h3 className="font-medium">قابلیت‌ها به تفکیک پلتفرم</h3><button type="button" disabled={disabled || sourceLoading} onClick={() => loadSources(true)} className="rounded-lg border border-blue-500 px-3 py-2 text-sm text-blue-600 disabled:opacity-50">{sourceLoading ? 'در حال دریافت قابلیت‌ها…' : 'دریافت قابلیت‌ها'}</button></div>
-    {!selectedPlatforms.length && <GameSectionSkeleton kind="capabilities" label="قابلیت‌های پلتفرم: هنوز پلتفرمی انتخاب نشده است" />}
+    {!capabilityPlatforms.length && <GameSectionSkeleton kind="capabilities" label="قابلیت‌های پلتفرم: هنوز پلتفرمی انتخاب نشده است" />}
     <Controller name="platform_capabilities" control={control} render={({ field }) => {
       const rows = parse(field.value, []);
-      return <div className="flex gap-4 overflow-x-auto pb-3">{selectedPlatforms.map(id => {
-        const platform = (platforms.data?.data || []).find(row => row._id === id);
+      return <div className="flex gap-4 overflow-x-auto pb-3">{capabilityPlatforms.map(platform => {
+        const id = platform._id;
         const states = rows.find(row => row.platform_id === id)?.status || {};
-        return <div key={id} className="w-[23rem] shrink-0 space-y-3 rounded-xl border border-slate-200 bg-white p-4 text-slate-900 dark:border-slate-700"><h4 className="font-medium">{platform?.name || platform?.name_en || id}</h4>{definitions.filter(item => item.group === 'platform').map(item => <Toggle key={item.key} id={`capability-${id}-${item.key}`} item={item} value={states[item.key]} disabled={disabled} onChange={value => {
+        return <div key={id} className="w-[23rem] shrink-0 space-y-3 rounded-xl border border-slate-200 bg-white p-4 text-slate-900 dark:border-slate-700"><h4 className="font-medium">{{ ps5: 'PS5', xbox_series_xs: 'Xbox Series X|S', pc: 'PC' }[capabilityPlatform(platform)]}</h4>{definitions.filter(item => item.group === 'platform').map(item => <Toggle key={item.key} id={`capability-${id}-${item.key}`} item={item} value={states[item.key]} disabled={disabled} onChange={value => {
           const next = { platform_id: id, status: { ...states, [item.key]: value } };
           field.onChange(JSON.stringify([...rows.filter(row => row.platform_id !== id), next]));
         }} />)}</div>;

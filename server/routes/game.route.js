@@ -4,6 +4,14 @@ const authorize = require("../middleware/authorize.middleware");
 const gameController = require("../controllers/game.controller");
 
 const router = express.Router();
+router.patch('/:id/autosave', verify, authorize('superAdmin', 'admin'), async (req, res, next) => {
+  try { res.json({ data: await require('../services/gameAutosave.service').save(req.params.id, req.body) }); }
+  catch (error) { next(error); }
+});
+router.post('/:id/recover', verify, authorize('superAdmin', 'admin'), async (req, res, next) => {
+  try { res.json({ data: await require('../services/gameRecovery.service').recover(req.params.id) }); }
+  catch (error) { next(error); }
+});
 router.get('/lookup', verify, authorize('superAdmin', 'admin'), async (req, res, next) => {
   try { res.json({ data: await require('../services/gameDraft.service').suggestions(req.query) }); } catch (error) { next(error); }
 });

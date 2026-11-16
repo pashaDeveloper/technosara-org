@@ -71,7 +71,7 @@ test('Series S uses the shared Series X|S box-art archive, not Xbox One', async 
   assert.equal(result.provider, 'thegamesdb');
 });
 
-test('same-title results offer only usable covers on the selected console', async t => {
+test('similar titles offer usable covers only on the selected console', async t => {
   t.mock.method(Platform, 'findById', () => ({ lean: async () => ({ code: 'ps5' }) }));
   let covers = [123, 124];
   const fetcher = async url => {
@@ -83,11 +83,35 @@ test('same-title results offer only usable covers on the selected console', asyn
   };
   const request = () => read({ title: 'Game', platform_id: id }, fetcher, { THEGAMESDB_API_KEY: 'test-secret' });
   const result = await request();
-  assert.equal(result.candidates.length, 2);
+  assert.equal(result.candidates.length, 3);
   assert.ok(result.candidates[0].source_url.endsWith('id=123'));
   assert.ok(result.candidates[1].source_url.endsWith('id=124'));
   covers = [124];
-  assert.ok((await request()).source_url.endsWith('id=124'));
+  assert.ok((await request()).candidates[0].source_url.endsWith('id=124'));
   covers = [];
-  await assert.rejects(request(), { status: 404 });
+  const similar = await request();
+  assert.equal(similar.candidates.length, 1);
+  assert.equal(similar.candidates[0].title, 'Game Deluxe');
+});
+
+
+test('TheGamesDB retries a title suffix while preserving exact title and platform checks', async t => {
+  t.mock.method(Platform, 'findById', () => ({ lean: async () => ({ code: 'ps5' }) }));
+  const queries = [];
+  const result = await read({ title: "Assassin's Creed Black Flag Resynced", platform_id: id }, async url => {
+    if (url.includes('/Platforms?')) return Response.json({ data: { platforms: { 4980: { id: 4980, name: 'Sony Playstation 5' } } } });
+    const name = new URL(url).searchParams.get('name'); queries.push(name);
+    if (queries.length === 1) return Response.json({data:{games:[]}});
+    return Response.json({data:{games:[{id:123,game_title:"Assassin's Creed: Black Flag Resynced",platform:4980},{id:124,game_title:"Assassin's Creed IV: Black Flag",platform:4980}]},include:{boxart:{data:{123:[{type:'boxart',side:'front',filename:'boxart/front/123.jpg'}]}}}});
+  }, {THEGAMESDB_API_KEY:'test-secret'});
+  assert.deepEqual(queries, ["Assassin's Creed Black Flag Resynced", 'Black Flag Resynced']);
+  assert.equal(result.title, "Assassin's Creed: Black Flag Resynced");
+});
+
+
+test('public archive suggests nearby titles for manual selection', async t => {
+  t.mock.method(Platform, 'findById', () => ({lean:async()=>({code:'ps4'})}));
+  const result = await read({title:'Dark Souls',platform_id:id}, async()=>Response.json({tree:[{type:'blob',path:'Named_Boxarts/Dark Souls III (USA).png'},{type:'blob',path:'Named_Boxarts/Other Game (USA).png'}]}), {});
+  assert.equal(result.candidates.length,1);
+  assert.equal(result.candidates[0].title,'Dark Souls III (USA)');
 });

@@ -41,8 +41,8 @@ test('game uploads use role and game folders and global preview settings; invali
   const data = await response.json();
   assert.match(data.key, /^game\/test-game\/screenshot\//);
   assert.match(data.key, /\/screenshot-[\w-]+\.webp$/);
-  assert.equal(data.blur.width, 32); assert.equal(data.blur.amount, 3);
-  assert.equal((await sharp(files.get(data.copies.cloudinary.preview.key)).metadata()).width, 32);
+  assert.equal(data.blur.width, 300); assert.equal(data.blur.height, 200); assert.equal(data.blur.amount, 3);
+  assert.equal((await sharp(files.get(data.copies.cloudinary.preview.key)).metadata()).width, 300);
   assert.equal(files.size, 2);
   const card = new FormData(); card.append('gameTitle', 'Test Game'); card.append('platformId', 'platform-test'); card.append('quality', 'high_quality'); card.append('thumbnail', new Blob([input]), 'card.png');
   const cardResponse = await fetch(base + '/card', { method: 'POST', body: card });
@@ -98,4 +98,14 @@ test('settings API persists global values, previews without uploading, and enfor
   const result = (await response.json()).data;
   assert.match(result.image, /^data:image\/webp;base64,/); assert.equal(result.originalBytes, input.length);
   assert.equal((await sharp(Buffer.from(result.preview.split(',')[1], 'base64')).metadata()).width, 32);
+});
+
+test('game previews retain the stored image dimensions for portrait and landscape uploads', async () => {
+  for (const [width, height] of [[600, 900], [1200, 500]]) {
+    const input = await sharp({create:{width,height,channels:3,background:'#538acd'}}).png().toBuffer();
+    const result = await require('../utils/compressImage')(input, settings.validate({maxDimension:640,previewSize:32}), false, true);
+    const full = await sharp(result.full).metadata(), low = await sharp(result.preview).metadata();
+    assert.equal(low.width, full.width); assert.equal(low.height, full.height);
+    assert.notEqual(low.width, low.height);
+  }
 });

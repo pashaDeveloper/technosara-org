@@ -109,3 +109,10 @@ test('imports into GameContent and StoreProduct once and preserves manual edits 
   assert.equal(content.title, 'Manual');
   assert.equal(creations, 1);
 });
+
+test('official PlayStation page is used instead of a guessed apostrophe slug', async()=>{
+ const f=fixture();const calls=[];const result=await service.discoverDraft({title:"Assassin's Creed Black Flag Resynced",official_stores:[{url:'https://www.playstation.com/en-us/games/assassins-creed-black-flag-resynced/'}]},async(url,options)=>{
+  calls.push(url);if(new URL(url).hostname==='www.playstation.com')return new Response('<a href="https://store.playstation.com/en-us/concept/201930">Store</a>');return f.fetcher(url,options);
+ });
+ assert.equal(result.errors.length,0);assert.equal(result.items.length,1);assert.ok(calls.includes('https://www.playstation.com/en-us/games/assassins-creed-black-flag-resynced/'));
+});

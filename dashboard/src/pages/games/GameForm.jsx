@@ -30,6 +30,8 @@ import ProviderField, { VideoPreview } from './ProviderField';
 import GameDetailPreview from './GameDetailPreview';
 import { useTranslateTextMutation } from '../../services/translation/translationApi';
 import { toast } from 'react-hot-toast';
+import { gameSearchAliases } from './gameSearchAliases';
+import { useGamePersistence } from './useGamePersistence';
 
 export default function GameForm({ record, isLoading, onSubmit }) {
   const { search: listQuery } = useLocation();
@@ -42,6 +44,21 @@ export default function GameForm({ record, isLoading, onSubmit }) {
   }, record?.title || record?.name);
 
 
+  const aliasTitle = watch('title');
+  const previousGeneratedAliases = useRef([]);
+  useEffect(() => {
+    if (isLoading || !aliasTitle?.trim()) return;
+    const timer = setTimeout(() => {
+      const generated = gameSearchAliases(aliasTitle, lookup.game || {});
+      const previous = new Set(previousGeneratedAliases.current.map(value => value.toLowerCase()));
+      const manual = (getValues('alternate_titles') || []).filter(value => !previous.has(value.toLowerCase()));
+      const merged = [...new Map([...manual, ...generated].map(value => [value.toLowerCase(), value])).values()].slice(0, 100);
+      if (JSON.stringify(merged) !== JSON.stringify(getValues('alternate_titles') || [])) setValue('alternate_titles', merged, { shouldDirty: true });
+      previousGeneratedAliases.current = generated.filter(value => !manual.some(item => item.toLowerCase() === value.toLowerCase()));
+    }, 700);
+    return () => clearTimeout(timer);
+  }, [aliasTitle, lookup.game, isLoading, getValues, setValue]);
+
   const stores = useGetStoreOptionsQuery();
   const companies = useGetCompanyOptionsQuery();
   const [addCompany] = useAddCompanyMutation();
@@ -49,7 +66,7 @@ export default function GameForm({ record, isLoading, onSubmit }) {
   const [developerError, setDeveloperError] = useState('');
   const developerRequest = useRef(false);
   const currentDeveloper = useRef(null);
-  currentDeveloper.current = lookup.game?.developer;
+  currentDeveloper.current = (lookup.game || record?.gamebrain_source)?.developer;
   async function createDeveloper(name) {
     if (developerRequest.current) return;
     developerRequest.current = true; setCreatingDeveloper(true); setDeveloperError('');
@@ -84,8 +101,11 @@ export default function GameForm({ record, isLoading, onSubmit }) {
   const currentSource = useRef(); currentSource.current = lookup.game || record?.gamebrain_source;
   const storedGame = record || lookup.local?.record;
   const savedId = storedGame?._id;
-  const autoFetch = !record && (!lookup.local || lookup.local.created === true);
+  const autoFetch = true;
   const storedResources = storedGame?.saved_resources || {};
+  const [previewTrophies, setPreviewTrophies] = useState(null);
+  const [previewDlc, setPreviewDlc] = useState(null);
+  useEffect(() => { setPreviewTrophies(null); setPreviewDlc(null); }, [savedId]);
   async function resetDescription(key) {
     const source = currentSource.current;
     const text = source?.[key];
@@ -139,10 +159,11 @@ export default function GameForm({ record, isLoading, onSubmit }) {
     ]) if(source.data) setValue(key,matchProviderOptions(items,source.data.data || []),{shouldDirty:true,shouldValidate:true});
   },[lookup.game,companies.data,genres.data,modes.data,themes.data,platforms.data,tags.data,setValue]);
   const sources = { platform_ids: platforms, tags, theme_ids: themes, developer_ids: companies, publisher_ids: companies, genre_ids: genres, game_mode_ids: modes, game_series_ids: series, cover_media_id: media };
-  const providerItems = lookup.game ? {
-    developer_ids: lookup.game.developer ? [lookup.game.developer] : [],
-    genre_ids: lookup.game.genres, game_mode_ids: lookup.game.play_modes,
-    theme_ids: lookup.game.themes, platform_ids: lookup.game.platforms, tags: lookup.game.tags,
+  const providerSource = lookup.game || record?.gamebrain_source;
+  const providerItems = providerSource ? {
+    developer_ids: providerSource.developer ? [providerSource.developer] : [],
+    genre_ids: providerSource.genres, game_mode_ids: providerSource.play_modes,
+    theme_ids: providerSource.themes, platform_ids: providerSource.platforms, tags: providerSource.tags,
   } : {};
   const [coverUploading, setCoverUploading] = useState(false);
   const pendingUploads = useRef(new Set());
@@ -153,7 +174,13 @@ export default function GameForm({ record, isLoading, onSubmit }) {
   const dlcImport = useRef(null);
   const trophies = useRef(null);
   const [trophyBusy, setTrophyBusy] = useState(false);
-  const busy = isLoading || translating || lookup.loadingDetails || coverUploading || capabilityLoading || storageLoading || creatingDeveloper || Boolean(resettingText);
+  const persistence = useGamePersistence({ storedGame, values: watch(), getValues, setValue, ready: !isLoading && !lookup.loadingDetails && !translating && !coverUploading && !creatingDeveloper && (!storedGame?.id || Number(watch('id')) === Number(storedGame.id)) });
+  const busy = isLoading || persistence.recovering || translating || lookup.loadingDetails || coverUploading || capabilityLoading || storageLoading || creatingDeveloper || Boolean(resettingText);
+  const recoveredCompanies = useRef(false);
+  useEffect(() => {
+    if (persistence.recovering) recoveredCompanies.current = true;
+    else if (recoveredCompanies.current) { recoveredCompanies.current = false; void companies.refetch(); }
+  }, [persistence.recovering]);
   function changeRelation(key, input, next) {
     if (key === 'game_mode_ids') {
       const normalize = value => String(value || '').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
@@ -174,11 +201,11 @@ export default function GameForm({ record, isLoading, onSubmit }) {
   }
   function renderField(field) {
     if (field.type === 'switch') return <Controller key={field.key} name={field.key} control={control} render={({ field: input }) => <StatusSwitch id={`game-${field.key}`} name={input.name} label={field.label} tone="light" className="!bg-transparent hover:!bg-transparent" checked={Boolean(input.value)} disabled={busy} onChange={event => input.onChange(event.target.checked)} />} />;
-    if (field.key === 'detail_poster') return <Controller name="detail_poster" control={control} render={({ field: input }) => <MainCoverPicker key={`${lookup.game?.id || savedId || "new"}-${field.key}`} onPendingChange={pending => pendingUpload(field.key, pending)} gameTitle={watch('title')} compact label="کاور عمودی جزئیات بازی" fieldName="detail_poster" value={input.value} disabled={busy} onUploading={setCoverUploading} onChange={input.onChange} sourcePicker={<StoreCoverPicker kind="portrait" compact auto={autoFetch && !input.value} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={isLoading || lookup.loadingDetails || coverUploading} onSelect={value => setValue('detail_poster', value, { shouldDirty: true, shouldValidate: true })} />} />} />;
-    if (field.key === 'detail_banner') return <Controller name="detail_banner" control={control} render={({ field: input }) => <MainCoverPicker key={`${lookup.game?.id || savedId || "new"}-${field.key}`} onPendingChange={pending => pendingUpload(field.key, pending)} gameTitle={watch('title')} wide label="کاور جزئیات بازی" fieldName="detail_banner" value={input.value} disabled={busy} onUploading={setCoverUploading} onChange={input.onChange} sourcePicker={<StoreCoverPicker kind="banner" compact auto={autoFetch && !input.value} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={isLoading || lookup.loadingDetails || coverUploading} onSelect={value => setValue('detail_banner', value, { shouldDirty: true, shouldValidate: true })} />} />} />;
+    if (field.key === 'detail_poster') return <Controller name="detail_poster" control={control} render={({ field: input }) => <MainCoverPicker key={`${lookup.game?.id || savedId || "new"}-${field.key}`} onPendingChange={pending => pendingUpload(field.key, pending)} gameTitle={watch('title')} compact label="کاور عمودی جزئیات بازی" fieldName="detail_poster" value={input.value} disabled={busy} onUploading={setCoverUploading} onChange={input.onChange} sourcePicker={<StoreCoverPicker kind="portrait" compact auto={autoFetch && !persistence.recovering && !input.value} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={isLoading || lookup.loadingDetails || coverUploading} onSelect={value => setValue('detail_poster', value, { shouldDirty: true, shouldValidate: true })} />} />} />;
+    if (field.key === 'detail_banner') return <Controller name="detail_banner" control={control} render={({ field: input }) => <MainCoverPicker key={`${lookup.game?.id || savedId || "new"}-${field.key}`} onPendingChange={pending => pendingUpload(field.key, pending)} gameTitle={watch('title')} wide label="کاور جزئیات بازی" fieldName="detail_banner" value={input.value} disabled={busy} onUploading={setCoverUploading} onChange={input.onChange} sourcePicker={<StoreCoverPicker kind="banner" compact auto={autoFetch && !persistence.recovering && !input.value} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={isLoading || lookup.loadingDetails || coverUploading} onSelect={value => setValue('detail_banner', value, { shouldDirty: true, shouldValidate: true })} />} />} />;
     if (field.key === 'image') return <Controller name="image" control={control} render={({ field: input }) => <MainCoverPicker key={`${lookup.game?.id || savedId || "new"}-${field.key}`} onPendingChange={pending => pendingUpload(field.key, pending)} gameTitle={watch('title')}
       value={input.value || (media.data?.data || []).find(item => item._id === watch('cover_media_id'))?.url} disabled={busy} onUploading={setCoverUploading}
-      sourcePicker={<StoreCoverPicker title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={busy} onSelect={url => { input.onChange(url); setValue('cover_media_id', '', { shouldDirty: true }); }} />}
+      sourcePicker={<StoreCoverPicker auto={autoFetch && !persistence.recovering && !input.value} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={busy} onSelect={url => { input.onChange(url); setValue('cover_media_id', '', { shouldDirty: true }); }} />}
       onChange={url => { input.onChange(url); setValue('cover_media_id', '', { shouldDirty: true }); }}
     />} />;
     if (field.type === 'checkbox') return <label key={field.key} className="flex gap-2"><input type="checkbox" {...register(field.key)} />{field.label}</label>;
@@ -276,15 +303,19 @@ export default function GameForm({ record, isLoading, onSubmit }) {
 
   return <div className="grid w-full min-w-0 items-start gap-6 md:grid-cols-2" dir="ltr"><form dir="rtl" className="flex min-w-0 w-full flex-col gap-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-lg dark:border-slate-700 dark:bg-gray-900 sm:p-8 md:col-start-2 md:row-start-1" noValidate onSubmit={event => {
     event.preventDefault();
-    if (busy || dlcBusy || trophyBusy) return;
+    if (busy || dlcBusy) return;
     if (pendingUploads.current.size) { toast.error('تصاویر انتخاب‌شده را ابتدا آپلود یا حذف کنید.'); return; }
     void handleSubmit(values => onSubmit(gameBody(values), async id => {
       const dlc = await dlcImport.current?.save(id);
-      const trophy = await trophies.current?.save(id);
-      return { failed: (dlc?.failed || 0) + (trophy?.failed || 0) };
+      // Trophy imports are independent and never gate saving the game.
+      return { failed: dlc?.failed || 0 };
     }, savedId))(event);
   }}>
     <header>
+      {persistence.recovering && <p role="status" className="mb-3 text-sm text-slate-500">{'\u062f\u0631 \u062d\u0627\u0644 \u0628\u0627\u0632\u06cc\u0627\u0628\u06cc \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u2026'}</p>}
+      {persistence.state === 'saving' && <p role="status" className="mb-3 text-sm text-slate-500">{'\u062f\u0631 \u062d\u0627\u0644 \u0630\u062e\u06cc\u0631\u0647\u0654 \u062e\u0648\u062f\u06a9\u0627\u0631\u2026'}</p>}
+      {persistence.state === 'saved' && <p role="status" className="mb-3 text-sm text-emerald-600">{'\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.'}</p>}
+      {persistence.error && <p role="alert" className="mb-3 text-sm text-red-500">{persistence.error}</p>}
       <h1 className="mb-5 text-xl font-semibold">{record ? 'ویرایش بازی' : 'افزودن بازی'}</h1>
       {!record && savedId && <p role="status" className="mb-3 flex items-center gap-2 text-sm text-emerald-600"><span className="h-2 w-2 rounded-full bg-emerald-500" />اطلاعات ذخیره شده؛ تأیید نهایی همین بازی را ویرایش می‌کند.</p>}
     </header>
@@ -302,15 +333,15 @@ export default function GameForm({ record, isLoading, onSubmit }) {
           const fullWidth = ['textarea', 'json', 'list'].includes(field.type) || ['official_website', 'cover_media_id', 'image'].includes(key);
           return <div key={key} className={`min-w-0 ${fullWidth ? 'sm:col-span-2' : ''}`}>{renderField(field)}</div>;
         })}</div>
-        {item.fields.includes('platform_ids') && <div className="mt-5"><Controller name="platform_covers" control={control} render={({ field: input }) => <PlatformCovers key={lookup.game?.id || savedId || "new"} onPendingChange={pendingUpload} value={input.value} onChange={input.onChange} selectedIds={watch('platform_ids') || []} platforms={platforms} media={media} disabled={busy} onUploading={setCoverUploading} title={watch('title')} />} /><Controller name="storage_sizes" control={control} render={({ field: input }) => <GameStorage autoFetch={autoFetch} ready={!isLoading && !translating && !lookup.loadingDetails} onBusyChange={setStorageLoading} value={input.value} onChange={input.onChange} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} selectedIds={watch('platform_ids') || []} platforms={platforms} disabled={busy} />} /></div>}
+        {item.fields.includes('platform_ids') && <div className="mt-5"><Controller name="platform_covers" control={control} render={({ field: input }) => <PlatformCovers key={lookup.game?.id || savedId || "new"} onPendingChange={pendingUpload} value={input.value} onChange={input.onChange} selectedIds={watch('platform_ids') || []} platforms={platforms} media={media} disabled={busy} onUploading={setCoverUploading} title={watch('title')} />} /><Controller name="storage_sizes" control={control} render={({ field: input }) => <GameStorage autoFetch={autoFetch} ready={!isLoading && !persistence.recovering && !translating && !lookup.loadingDetails} onBusyChange={setStorageLoading} value={input.value} onChange={input.onChange} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} selectedIds={watch('platform_ids') || []} platforms={platforms} disabled={busy} />} /></div>}
       </section>)}
     </fieldset>
-    <GameCapabilities autoFetch={autoFetch} control={control} getValues={getValues} setValue={setValue} watch={watch} providerGame={autoFetch ? lookup.game : null} storedGame={storedGame} modes={modes} platforms={platforms} disabled={busy} onBusyChange={setCapabilityLoading} />
-    <GameDlcImport autoFetch={autoFetch} storedItems={storedResources.dlc || []} ref={dlcImport} key={savedId || 'new'} gameId={savedId} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} onBusyChange={setDlcBusy} disabled={isLoading || lookup.loadingDetails || coverUploading} />
-    <GameTrophies autoFetch={autoFetch} storedLists={storedResources.trophies || []} ref={trophies} gameId={savedId} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} onBusyChange={setTrophyBusy} disabled={busy} />
+    <GameCapabilities autoFetch={autoFetch && !persistence.recovering} control={control} getValues={getValues} setValue={setValue} watch={watch} providerGame={lookup.game} storedGame={storedGame} modes={modes} platforms={platforms} disabled={busy} onBusyChange={setCapabilityLoading} />
+    <GameDlcImport onPreviewChange={setPreviewDlc} autoFetch={autoFetch && !persistence.recovering && (!storedResources.dlc?.length || !storedResources.dlc.some(item => item.provider === 'playstation') || (/xbox\.com/i.test(`${watch('official_stores')} ${watch('offers')}`) && !storedResources.dlc.some(item => item.provider === 'xbox')))} storedItems={storedResources.dlc || []} ref={dlcImport} key={savedId || 'new'} gameId={savedId} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} onBusyChange={setDlcBusy} disabled={isLoading || lookup.loadingDetails || coverUploading} />
+    <GameTrophies onPreviewChange={setPreviewTrophies} autoFetch={autoFetch && !persistence.recovering && !storedResources.trophies?.length} storedLists={storedResources.trophies || []} ref={trophies} gameId={savedId} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} onBusyChange={setTrophyBusy} disabled={busy} />
     <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-5 dark:border-slate-700">
-      <fieldset disabled={busy || dlcBusy || trophyBusy}><SendButton isLoading={isLoading || dlcBusy || trophyBusy} /></fieldset>
+      <fieldset disabled={busy || dlcBusy}><SendButton isLoading={isLoading || dlcBusy} /></fieldset>
       <Link to={'/games' + listQuery} className="text-sm text-slate-500 hover:underline">{'انصراف'}</Link>
     </div>
-  </form><div className="relative z-20 min-w-0 space-y-4 md:col-start-1 md:row-start-1 md:sticky md:top-5 md:self-start"><GameDetailPreview game={watch()} platforms={platforms} genres={genres} companies={companies} modes={modes} media={media} /></div></div>;
+  </form><div className="relative z-20 min-w-0 space-y-4 md:col-start-1 md:row-start-1 md:sticky md:top-5 md:self-start"><GameDetailPreview resources={{ ...storedResources, trophies: previewTrophies ?? storedResources.trophies, dlc: previewDlc ?? storedResources.dlc }} game={watch()} platforms={platforms} genres={genres} companies={companies} modes={modes} media={media} /></div></div>;
 }

@@ -22,7 +22,7 @@ export default function StepGame() {
         try { report = await saveDlc(id); }
         catch { report = { failed: 1 }; }
         if (report?.failed) {
-          toast.error('بازی ذخیره شد؛ دریافت بعضی محتواها یا تروفی‌ها ناموفق بود. از ویرایش بازی دوباره تلاش کنید.');
+          toast.error('بازی ذخیره شد؛ دریافت بعضی محتواها  ناموفق بود. از ویرایش بازی دوباره تلاش کنید.');
           navigate('/games/update/' + id + listQuery);
           return;
         }

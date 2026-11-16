@@ -175,11 +175,12 @@ module.exports = function imageUpload(folder, provider) {
               continue;
             }
             if (file.buffer.length > MAX_BYTES) throw badRequest("Image exceeds 5 MB");
-            let full, preview;
+            let full, preview, previewDimensions;
             try {
               const animated = folder === 'games' && field.name === 'detail_gif';
-              ({ full, preview } = await compressImage(file.buffer, settings, animated));
+              ({ full, preview } = await compressImage(file.buffer, settings, animated, folder === 'games'));
             } catch { throw badRequest(field.name === 'detail_gif' ? 'فایل باید GIF یا WebP متحرک معتبر و حداکثر ۱۵۰ فریم باشد.' : 'Image must be a valid PNG, JPEG or WebP'); }
+            previewDimensions = await require('sharp')(preview).metadata();
             clients ||= module.exports.createClients(provider);
             const title = gameTitle || req.body.slug || req.body.english_name || req.body.name || req.params?.id || req.admin?._id || "untitled";
             const slug = String(title).normalize("NFKC").toLowerCase()
@@ -194,7 +195,7 @@ module.exports = function imageUpload(folder, provider) {
               url: primary.image.url, key: primary.image.key, public_id: primary.image.key,
               storage: copies.arvan ? "arvan" : "cloudinary", copies,
               original_bytes: file.buffer.length, bytes: full.length,
-              ...(primary.preview ? { blur: { url: primary.preview.url, public_id: primary.preview.key, width: settings.previewSize, height: settings.previewSize, amount: settings.blur } } : {}),
+              ...(primary.preview ? { blur: { url: primary.preview.url, public_id: primary.preview.key, width: previewDimensions.width, height: previewDimensions.height, amount: settings.blur } } : {}),
             };
             req.uploadedFiles[field.name][index] = uploaded;
             if (field.name === "avatar") {

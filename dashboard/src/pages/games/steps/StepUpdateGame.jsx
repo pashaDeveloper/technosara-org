@@ -10,7 +10,7 @@ export default function StepUpdateGame() {
   const { search: listQuery } = useLocation();
   const { id } = useParams();
   const navigate = useNavigate();
-  const record = useGetGameQuery({ id }, { skip: !id });
+  const record = useGetGameQuery({ id }, { skip: !id, refetchOnMountOrArgChange: true });
   const [updateGame, { isLoading }] = useUpdateGameMutation();
   const [finalizing, setFinalizing] = useState(false);
   async function submit(body, saveDlc) {
@@ -23,7 +23,7 @@ export default function StepUpdateGame() {
         try { report = await saveDlc(id); }
         catch { report = { failed: 1 }; }
         if (report?.failed) {
-          toast.error('بازی ذخیره شد؛ دریافت بعضی محتواها یا تروفی‌ها ناموفق بود. دوباره تلاش کنید.');
+          toast.error('بازی ذخیره شد؛ دریافت بعضی محتواها  ناموفق بود. دوباره تلاش کنید.');
           return;
         }
       }

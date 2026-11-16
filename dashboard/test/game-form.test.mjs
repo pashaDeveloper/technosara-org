@@ -90,3 +90,11 @@ test('alternate titles round-trip, trim, deduplicate and clear explicitly', () =
   assert.deepEqual(body.alternate_titles, ['GTA V', 'جی تی ای ۵']);
   assert.deepEqual(gameBody(formValues(definition, { alternate_titles: [] })).alternate_titles, []);
 });
+
+
+test('saved publication, companies, storage and platform capabilities survive reopening and submission', () => {
+  const record = { title:'Test Game', release_date:'2026-01-02T00:00:00.000Z', status:'released', developer_ids:['studio'], publisher_ids:['publisher'], storage_sizes:[{platform:'pc',kind:'required',bytes:50000000000,provider:'steam',source_url:'https://store.steampowered.com/app/123/'}], platform_capabilities:[{platform_id:'ps5',status:{hdr:true,'4k':false}}] };
+  const body=gameBody(formValues(definition,record));
+  for(const field of ['status','developer_ids','publisher_ids','storage_sizes','platform_capabilities']) assert.deepEqual(body[field],record[field],field);
+  assert.equal(body.release_date,'2026-01-02');
+});

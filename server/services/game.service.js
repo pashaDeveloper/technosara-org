@@ -84,6 +84,7 @@ exports.getGames = async (req, res) => {
       .skip(skip)
       .limit(limitNum)
       .sort({ createdAt: -1 })
+      .populate({ path: "platform_ids", select: "name name_en code" })
       .populate({ path: "developer_ids", select: "name name_fa name_en slug" })
       .populate({ path: "publisher_ids", select: "name name_fa name_en slug" })
       .populate({ path: "cover_media_id", select: "url" })

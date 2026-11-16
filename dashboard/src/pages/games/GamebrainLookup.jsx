@@ -63,7 +63,14 @@ export function useGamebrainLookup(title, onSelect, savedTitle) {
       if (version === detailGeneration.current) {
         setLocal(response.local || null); setGame(response.data);
         if (response.saveError) toast.error(response.saveError);
-        else if (response.local?.record?.draft_completion_errors?.length) toast.error('بازی ذخیره شد، اما ترجمه یا تطبیق بعضی دسته‌بندی‌ها کامل نشد.');
+        else if (response.local?.record?.draft_completion_errors?.length) {
+          const labels = { platform_ids: '\u067e\u0644\u062a\u0641\u0631\u0645', genre_ids: '\u0698\u0627\u0646\u0631', theme_ids: '\u062f\u0631\u0648\u0646\u200c\u0645\u0627\u06cc\u0647', game_mode_ids: '\u062d\u0627\u0644\u062a \u0628\u0627\u0632\u06cc', tags: '\u0628\u0631\u0686\u0633\u0628', developer_ids: '\u0633\u0627\u0632\u0646\u062f\u0647', description: '\u062a\u0648\u0636\u06cc\u062d\u0627\u062a', short_description: '\u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u06a9\u0648\u062a\u0627\u0647' };
+          const details = response.local.record.draft_completion_errors.map(error => {
+            const [field, ...parts] = error.split(':');
+            return field === 'translation' ? `\u062a\u0631\u062c\u0645\u0647\u0654 ${labels[parts[0]] || parts[0]}` : `${labels[field] || field}: ${parts.join(':')}`;
+          });
+          toast.error(`\u0628\u0627\u0632\u06cc \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f\u061b \u0645\u0648\u0627\u0631\u062f \u0646\u06cc\u0627\u0632\u0645\u0646\u062f \u0628\u0631\u0631\u0633\u06cc: ${details.join(' / ')}`);
+        }
         else if (response.local) toast.success(response.local.created ? 'اطلاعات بازی بدون آپلود تصاویر، خودکار ذخیره شد.' : 'اطلاعات ذخیره‌شده بازی برای ویرایش باز شد.');
       }
     } catch (failure) {

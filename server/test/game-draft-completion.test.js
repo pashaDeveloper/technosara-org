@@ -25,3 +25,14 @@ test('manual Persian text and previously selected relationships are preserved', 
   const saved = await completion.complete({ _id: 'game', auto_draft: true, description: 'متن دستی', short_description: 'متن کوتاه دستی', platform_ids: ['manual-id'], gamebrain_source: { description: 'English', short_description: 'Short' } });
   assert.equal(saved.description, undefined); assert.equal(saved.short_description, undefined); assert.equal(saved.platform_ids, undefined);
 });
+
+test('unmatched catalogs remain incomplete and retry merges resolved IDs without losing saved selections', async t => {
+  setup(t);
+  const unresolved = await completion.complete({ _id: 'game', auto_draft: true, gamebrain_source: { developer: 'Unknown studio' } });
+  assert.equal(unresolved.draft_completed, false);
+  assert.deepEqual(unresolved.draft_completion_errors, ['developer_ids:Unknown studio']);
+  const retried = await completion.complete({ _id: 'game', auto_draft: true, draft_completed: true, draft_completion_errors: ['developer_ids:Match'], developer_ids: ['existing'], gamebrain_source: { developer: 'Match' } });
+  assert.deepEqual(retried.developer_ids, ['existing', 'company-id']);
+  assert.equal(retried.draft_completed, true);
+  assert.deepEqual(retried.draft_completion_errors, []);
+});

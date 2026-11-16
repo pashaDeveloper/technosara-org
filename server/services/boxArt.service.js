@@ -54,6 +54,14 @@ async function libretro(title, system, fetcher) {
   const tree = await cached(`libretro:${repo}`, () => json(`https://api.github.com/repos/libretro-thumbnails/${repo}/git/trees/master?recursive=1`, fetcher), fetcher);
   if (tree.truncated) throw fail('فهرست کاورها ناقص دریافت شد.', 502);
   const path = chooseLibretro((tree.tree || []).filter(row => row.type === 'blob').map(row => row.path), title);
+  if (!path) {
+    const candidates = (tree.tree || []).filter(row => row.type === 'blob' && typeof row.path === 'string' && row.path.startsWith('Named_Boxarts/') && row.path.endsWith('.png') && !row.path.includes('..'))
+      .map(row => ({ path: row.path, title: row.path.slice('Named_Boxarts/'.length, -4) }))
+      .filter(row => titleSimilarity(row.title, title) >= 0.4)
+      .sort((a, b) => titleSimilarity(b.title, title) - titleSimilarity(a.title, title)).slice(0, 20)
+      .map(row => { const url = 'https://raw.githubusercontent.com/libretro-thumbnails/' + repo + '/master/' + row.path.split('/').map(encodeURIComponent).join('/'); return { provider: 'libretro', side: 'front', title: row.title, low_quality: url, high_quality: url, source_url: 'https://github.com/libretro-thumbnails/' + repo + '/blob/master/' + row.path.split('/').map(encodeURIComponent).join('/') }; });
+    if (candidates.length) return { candidates };
+  }
   if (!path) throw fail('کاور جعبه برای همین نام و کنسول در آرشیو موجود نیست.', 404);
   const url = `https://raw.githubusercontent.com/libretro-thumbnails/${repo}/master/${path.split('/').map(encodeURIComponent).join('/')}`;
   return { provider: 'libretro', side: 'front', title: path.slice('Named_Boxarts/'.length, -4), low_quality: url, high_quality: url, source_url: `https://github.com/libretro-thumbnails/${repo}` };
@@ -65,16 +73,31 @@ function tgdbImages(data, game) {
   // Use fixed CDN roots rather than URLs supplied by an upstream response.
   return { provider: 'thegamesdb', side: 'front', title: game.game_title, low_quality: `https://cdn.thegamesdb.net/images/medium/${image.filename}`, high_quality: `https://cdn.thegamesdb.net/images/original/${image.filename}`, source_url: `https://thegamesdb.net/game.php?id=${encodeURIComponent(game.id)}` };
 }
+function titleSimilarity(candidate, title) {
+  if (titleKey(candidate) === titleKey(title)) return 1;
+  const words = value => new Set(String(value).toLowerCase().match(/[a-z0-9]+/g) || []);
+  const a = words(candidate), b = words(title);
+  return 2 * [...a].filter(word => b.has(word)).length / (a.size + b.size || 1);
+}
 async function thegamesdb(title, system, key, fetcher) {
   const platforms = await cached('tgdb:platforms', () => json(`https://api.thegamesdb.net/v1/Platforms?apikey=${encodeURIComponent(key)}`, fetcher), fetcher);
   const platformsData = platforms.data?.platforms || {};
   const platform = Object.values(platformsData).find(row => systems[system].aliases.includes(normalize(row.name)) || systems[system].aliases.includes(normalize(row.alias)));
   if (!platform) throw fail('این کنسول در منبع کاور پیدا نشد.', 404);
   const params = new URLSearchParams({ apikey: key, name: title, 'filter[platform]': String(platform.id), fields: 'platform', include: 'boxart' });
-  const data = await json(`https://api.thegamesdb.net/v1.1/Games/ByGameName?${params}`, fetcher);
-  const games = Object.values(data.data?.games || {}).filter(row => String(row.platform) === String(platform.id) && titleKey(row.game_title) === titleKey(title));
+  let data = await json(`https://api.thegamesdb.net/v1.1/Games/ByGameName?${params}`, fetcher);
+  const matchingGames = data => Object.values(data.data?.games || {}).filter(row => String(row.platform) === String(platform.id) && titleSimilarity(row.game_title, title) >= 0.4).sort((a, b) => titleSimilarity(b.game_title, title) - titleSimilarity(a.game_title, title));
+  let games = matchingGames(data);
+  // Retry a shorter query and keep similar titles on the selected console for user selection.
+  const suffix = title.trim().split(/\s+/).slice(-3).join(' ');
+  if (!games.some(game => titleKey(game.game_title) === titleKey(title)) && suffix !== title.trim()) {
+    params.set('name', suffix);
+    const extra = await json(`https://api.thegamesdb.net/v1.1/Games/ByGameName?${params}`, fetcher);
+    data = { ...extra, data: { games: [...Object.values(data.data?.games || {}), ...Object.values(extra.data?.games || {})] }, include: { boxart: { data: { ...data.include?.boxart?.data, ...extra.include?.boxart?.data } } } };
+    games = [...new Map(matchingGames(data).map(game => [game.id, game])).values()];
+  }
   const candidates = games.map(game => tgdbImages(data, game)).filter(Boolean);
-  if (candidates.length > 1) return { candidates };
+  if (candidates.length > 1 || (candidates.length === 1 && titleKey(candidates[0].title) !== titleKey(title))) return { candidates };
   const result = candidates[0];
   if (!result) throw fail('کاور جلوی جعبه برای این عنوان و کنسول پیدا نشد.', 404);
   return result;

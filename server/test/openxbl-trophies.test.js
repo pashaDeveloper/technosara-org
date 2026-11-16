@@ -84,3 +84,11 @@ test('persists source metadata and account snapshots without replacing manual na
   assert.equal(snapshots.size, 2);
   assert.equal([...snapshots.values()][0].account_id, '123');
 });
+
+test('follows one explicitly primary base game from an edition and retains the original store identity',async()=>{
+ const result=await api.candidates(source,async url=>{
+  const productId=new URL(url).searchParams.get('bigIds');
+  return Response.json({Products:[productId===source.product_id?{ProductId:productId,AlternateIds:[],DisplaySkuAvailabilities:[{Sku:{Properties:{BundledSkus:[{BigId:'9NTPXL0G0S58',IsPrimary:true},{BigId:'9P7ZHRZST6XG',IsPrimary:false}]}}}]}:{ProductId:productId,AlternateIds:[{IdType:'XboxTitleId',Value:'1661962317'}],LocalizedProperties:[{ProductTitle:'Black Flag Resynced'}],Properties:{XboxConsoleGenCompatible:['ConsoleGen9']}}]});
+ });
+ assert.equal(result[0].ppid,'1661962317');assert.equal(result[0].product_id,source.product_id);assert.deepEqual(result[0].platforms,['xbox_series_xs']);
+});

@@ -1,0 +1,3367 @@
+[
+  {
+    "_id": "6af9c87ac846f893ac78ce8c",
+    "isDeleted": false,
+    "id": 1426482,
+    "__v": 0,
+    "adult_only": true,
+    "alternate_titles": [],
+    "approvalReview": {
+      "status": "",
+      "reason": "",
+      "reviewedAt": null,
+      "reviewedBy": null
+    },
+    "auto_draft": true,
+    "content_rating_ids": [],
+    "cover_media_id": null,
+    "createdAt": "2026-11-15T14:58:03.089Z",
+    "creator": null,
+    "description": "Vice City، ایالات متحده آمریکا. جیسون و لوسیا همیشه می دانستند که شرایط علیه آن هاست. اما وقتی یک کار آسان اشتباه پیش می رود، آن ها خود را در تاریک ترین سوی آفتابی ترین جای آمریکا می یابند، در میانه یک توطئه جنایی که در سراسر ایالت لئونیدا کشیده شده — مجبورند بیش از هر زمان دیگری به یکدیگر تکیه کنند تا بتوانند زنده بیرون بیایند.",
+    "detail_banner": null,
+    "detail_gif": null,
+    "detail_poster": null,
+    "developer": "Rockstar Games",
+    "developer_ids": [
+      "6ab1117ad874e75ed5aa3346"
+    ],
+    "feature_ids": [],
+    "game_mode_ids": [
+      "6aec41b5001f7bbfb5e13574",
+      "6ab53b9d0eb5341c5264c0aa",
+      "6aec41b5001f7bbfb5e1357a",
+      "6aec41b5001f7bbfb5e13577"
+    ],
+    "game_series_ids": [],
+    "gamebrain_source": {
+      "id": 1426482,
+      "name": "Grand Theft Auto VI",
+      "image": "https://img.gamebrain.co/games/468/grand_theft_auto_6_rockstar_2026_26.webp",
+      "image_aspect_ratio": 0.666667,
+      "gameplay": null,
+      "link": "https://gamebrain.co/game/grand-theft-auto-6",
+      "x_url": "https://x.com/RockstarGames",
+      "rating": {
+        "mean": null,
+        "count": null,
+        "mean_players": null,
+        "count_players": null,
+        "mean_critics": null,
+        "count_critics": null
+      },
+      "description": "Vice City, USA. Jason and Lucia have always known the deck is stacked against them. But when an easy score goes wrong, they find themselves on the darkest side of the sunniest place in America, in the middle of a criminal conspiracy stretching across the state of Leonida — forced to rely on each other more than ever if they want to make it out alive.",
+      "short_description": "Vice City, USA. Jason and Lucia have always known the deck is stacked against them. But when an easy score goes wrong, they find themselves on the darkest side of the sunniest place in America, in the middle of a criminal conspiracy stretching across the state of Leonida — forced to rely on each other more than ever if they want to make it out alive.",
+      "release_date": "2026-11-19",
+      "developer": "Rockstar Games",
+      "platforms": [
+        {
+          "value": "xbox_series_xs",
+          "name": "Xbox Series X|S"
+        },
+        {
+          "value": "playstation_5",
+          "name": "Playstation 5"
+        },
+        {
+          "value": "xbox",
+          "name": "XBox"
+        },
+        {
+          "value": "playstation",
+          "name": "Playstation"
+        }
+      ],
+      "tags": [
+        {
+          "value": "story_rich",
+          "name": "Story Rich"
+        }
+      ],
+      "genres": [
+        {
+          "value": "racing",
+          "name": "Racing"
+        },
+        {
+          "value": "open_world",
+          "name": "Open World"
+        },
+        {
+          "value": "fighting",
+          "name": "Fighting"
+        },
+        {
+          "value": "sandbox",
+          "name": "Sandbox"
+        },
+        {
+          "value": "action",
+          "name": "Action"
+        },
+        {
+          "value": "shooter",
+          "name": "Shooter"
+        },
+        {
+          "value": "adventure",
+          "name": "Adventure"
+        }
+      ],
+      "genre": "Open World Shooter",
+      "themes": [
+        {
+          "value": "comedy",
+          "name": "Comedy"
+        }
+      ],
+      "adult_only": true,
+      "play_modes": [
+        {
+          "value": "co_op",
+          "name": "Co-Op"
+        },
+        {
+          "value": "single_player",
+          "name": "Single-Player"
+        },
+        {
+          "value": "two_players",
+          "name": "2-Players"
+        },
+        {
+          "value": "multiplayer",
+          "name": "Multi-Player"
+        }
+      ],
+      "screenshots": [
+        "https://img.gamebrain.co/games/469/grand_theft_auto_6_rockstar_2026_45.webp",
+        "https://img.gamebrain.co/games/470/grand_theft_auto_6_rockstar_2026_28.webp",
+        "https://img.gamebrain.co/games/465/grand_theft_auto_6_rockstar_2026_50.webp",
+        "https://img.gamebrain.co/games/465/grand_theft_auto_6_rockstar_2026_32.webp",
+        "https://img.gamebrain.co/games/471/grand_theft_auto_6_rockstar_2026_29.webp",
+        "https://img.gamebrain.co/games/467/grand_theft_auto_6_rockstar_2026_52.webp",
+        "https://img.gamebrain.co/games/357/grand_theft_auto_6_rockstar_2026_15.jpg",
+        "https://img.gamebrain.co/games/472/grand_theft_auto_6_rockstar_2026_39.webp",
+        "https://img.gamebrain.co/games/464/grand_theft_auto_6_rockstar_2026_40.webp",
+        "https://img.gamebrain.co/games/466/grand_theft_auto_6_rockstar_2026_51.webp",
+        "https://img.gamebrain.co/games/465/grand_theft_auto_6_rockstar_2026_41.webp",
+        "https://img.gamebrain.co/games/469/grand_theft_auto_6_rockstar_2026_54.webp",
+        "https://img.gamebrain.co/games/470/grand_theft_auto_6_rockstar_2026_55.webp",
+        "https://img.gamebrain.co/games/472/grand_theft_auto_6_rockstar_2026_48.webp",
+        "https://img.gamebrain.co/games/471/grand_theft_auto_6_rockstar_2026_56.webp",
+        "https://img.gamebrain.co/games/356/grand_theft_auto_6_rockstar_2026_14.jpg",
+        "https://img.gamebrain.co/games/464/grand_theft_auto_6_rockstar_2026_31.webp",
+        "https://img.gamebrain.co/games/463/grand_theft_auto_6_rockstar_2026_30.webp",
+        "https://img.gamebrain.co/games/468/grand_theft_auto_6_rockstar_2026_53.webp",
+        "https://img.gamebrain.co/games/469/grand_theft_auto_6_rockstar_2026_27.webp",
+        "https://img.gamebrain.co/games/473/grand_theft_auto_6_rockstar_2026_49.webp"
+      ],
+      "videos": [
+        "https://www.youtube-nocookie.com/embed/QdBZY2fkU-0",
+        "https://www.youtube-nocookie.com/embed/rz1B4B2yBZY",
+        "https://www.youtube-nocookie.com/embed/VQRLujxTm3c"
+      ],
+      "offers": [],
+      "official_stores": [
+        {
+          "source": "xbox",
+          "url": "https://www.xbox.com/en-US/games/store/grand-theft-auto-vi-ultimate-edition/9nnzsnhlr63l"
+        }
+      ],
+      "micro_trailer": null
+    },
+    "genre": "Open World Shooter",
+    "genre_ids": [
+      "6ab01579b038c1020c500401",
+      "6aec41b5001f7bbfb5e13549",
+      "6ab01579b038c1020c500404",
+      "6aec41b5001f7bbfb5e13550",
+      "6ab01577b038c1020c5003e3",
+      "6aec41b5001f7bbfb5e13552",
+      "6ab01577b038c1020c5003e6"
+    ],
+    "genres": [
+      {
+        "value": "racing",
+        "name": "Racing"
+      },
+      {
+        "value": "open_world",
+        "name": "Open World"
+      },
+      {
+        "value": "fighting",
+        "name": "Fighting"
+      },
+      {
+        "value": "sandbox",
+        "name": "Sandbox"
+      },
+      {
+        "value": "action",
+        "name": "Action"
+      },
+      {
+        "value": "shooter",
+        "name": "Shooter"
+      },
+      {
+        "value": "adventure",
+        "name": "Adventure"
+      }
+    ],
+    "has_persian_subtitles": false,
+    "image_aspect_ratio": 0.666667,
+    "input_mode_ids": [],
+    "link": "https://gamebrain.co/game/grand-theft-auto-6",
+    "name": "Grand Theft Auto VI",
+    "offers": [],
+    "official_stores": [
+      {
+        "store_id": null,
+        "url": "https://www.xbox.com/en-US/games/store/grand-theft-auto-vi-ultimate-edition/9nnzsnhlr63l",
+        "source": "xbox"
+      }
+    ],
+    "official_website": null,
+    "platform_ids": [
+      "6aec41b4001f7bbfb5e1352e",
+      "6ab0157fb038c1020c500455",
+      "6af068fddddacc50237211b4",
+      "6aef24caedd0440d2f9495a4"
+    ],
+    "platforms": [
+      {
+        "value": "xbox_series_xs",
+        "name": "Xbox Series X|S"
+      },
+      {
+        "value": "playstation_5",
+        "name": "Playstation 5"
+      },
+      {
+        "value": "xbox",
+        "name": "XBox"
+      },
+      {
+        "value": "playstation",
+        "name": "Playstation"
+      }
+    ],
+    "play_modes": [
+      {
+        "value": "co_op",
+        "name": "Co-Op"
+      },
+      {
+        "value": "single_player",
+        "name": "Single-Player"
+      },
+      {
+        "value": "two_players",
+        "name": "2-Players"
+      },
+      {
+        "value": "multiplayer",
+        "name": "Multi-Player"
+      }
+    ],
+    "price_range_ids": [],
+    "publication_status": "draft",
+    "publisher_ids": [],
+    "rating": {
+      "mean": null,
+      "count": null,
+      "mean_players": null,
+      "count_players": null,
+      "mean_critics": null,
+      "count_critics": null
+    },
+    "release_date": "2026-11-19T00:00:00.000Z",
+    "release_window_ids": [],
+    "review_rating_ids": [],
+    "short_description": "Vice City، ایالات متحده آمریکا. جیسون و لوسیا همیشه می دانستند که شرایط علیه آن هاست. اما وقتی یک کار آسان اشتباه پیش می رود، آن ها خود را در تاریک ترین سوی آفتابی ترین جای آمریکا می یابند، در میانه یک توطئه جنایی که در سراسر ایالت لئونیدا کشیده شده — مجبورند بیش از هر زمان دیگری به یکدیگر تکیه کنند تا بتوانند زنده بیرون بیایند.",
+    "short_title": "",
+    "slug": "grand-theft-auto-vi-1426482",
+    "sort_title": "Grand Theft Auto VI",
+    "status": "upcoming",
+    "storage_sizes": [],
+    "tags": [
+      "6ab50934ceb900206d73922c"
+    ],
+    "themes": [
+      {
+        "value": "comedy",
+        "name": "Comedy"
+      }
+    ],
+    "title": "Grand Theft Auto VI",
+    "updatedAt": "2026-11-15T15:59:18.038Z",
+    "x_url": "https://x.com/RockstarGames",
+    "draft_completed": true,
+    "draft_completion_errors": [],
+    "theme_ids": [
+      "6aec41b5001f7bbfb5e13561"
+    ]
+  },
+  {
+    "_id": "6af9f239c846f893ac791a4d",
+    "id": 257880,
+    "isDeleted": false,
+    "__v": 0,
+    "adult_only": true,
+    "alternate_titles": [],
+    "approvalReview": {
+      "status": "",
+      "reason": "",
+      "reviewedAt": null,
+      "reviewedBy": null
+    },
+    "auto_draft": true,
+    "content_rating_ids": [],
+    "cover_media_id": null,
+    "createdAt": "2026-11-15T17:56:09.992Z",
+    "creator": "6aafdc92db4c30c55f369c5b",
+    "description": "اعتماد کن، دعا کن، اطاعت کن",
+    "detail_banner": null,
+    "detail_gif": null,
+    "detail_poster": null,
+    "developer": "Ubisoft Kiev",
+    "developer_ids": [
+      "6af9f2f67008b19c64b8af16"
+    ],
+    "draft_completed": true,
+    "draft_completion_errors": [
+      "developer_ids:Ubisoft Kiev"
+    ],
+    "feature_ids": [],
+    "game_mode_ids": [
+      "6aec41b5001f7bbfb5e13574",
+      "6ab53b9d0eb5341c5264c0ad",
+      "6ab53b9d0eb5341c5264c0aa",
+      "6aec41b5001f7bbfb5e1357a",
+      "6aec41b5001f7bbfb5e13577"
+    ],
+    "game_series_ids": [],
+    "gamebrain_source": {
+      "id": 257880,
+      "name": "Far Cry 5",
+      "image": "https://img.gamebrain.co/games/537/far_cry_5_redstorm_2018_224.webp",
+      "image_aspect_ratio": 2.13953,
+      "gameplay": "https://video.akamai.steamstatic.com/store_trailers/552520/155757/a70cd60188b0d1d8fd08e97180061674b512c51d/1750549438/microtrailer.webm",
+      "link": "https://gamebrain.co/game/far-cry-5",
+      "x_url": "https://twitter.com/FarCrygame",
+      "rating": {
+        "mean": 0.8236847727272728,
+        "count": 120763,
+        "mean_players": 0.801915,
+        "count_players": 120746,
+        "mean_critics": 0.8454545454545456,
+        "count_critics": 17
+      },
+      "description": "TRUST, PRAY, OBEY",
+      "short_description": "TRUST, PRAY, OBEY",
+      "release_date": "2018-03-27",
+      "developer": "Ubisoft Kiev",
+      "playtime": {
+        "percentiles": [
+          3,
+          5,
+          10,
+          15,
+          24,
+          30,
+          40,
+          50,
+          90,
+          42069
+        ],
+        "mentions": 908,
+        "min": 1,
+        "max": 42069,
+        "mean": 146.193833,
+        "median": 27
+      },
+      "platforms": [
+        {
+          "value": "epic_games",
+          "name": "Epic Games"
+        },
+        {
+          "value": "playstation_5",
+          "name": "Playstation 5"
+        },
+        {
+          "value": "playstation_4",
+          "name": "Playstation 4"
+        },
+        {
+          "value": "x_box_cloud_gaming",
+          "name": "Xbox Cloud Gaming"
+        },
+        {
+          "value": "xbox",
+          "name": "XBox"
+        },
+        {
+          "value": "windows",
+          "name": "Windows"
+        },
+        {
+          "value": "playstation",
+          "name": "Playstation"
+        },
+        {
+          "value": "uplay",
+          "name": "UPlay"
+        },
+        {
+          "value": "xbox_series_xs",
+          "name": "Xbox Series X|S"
+        },
+        {
+          "value": "pc",
+          "name": "PC"
+        },
+        {
+          "value": "x_box_game_pass",
+          "name": "Xbox Game Pass"
+        },
+        {
+          "value": "cloud_platform",
+          "name": "Cloud Platform"
+        },
+        {
+          "value": "xbox_one",
+          "name": "XBox One"
+        },
+        {
+          "value": "nvidia_geforce_now",
+          "name": "Nvidia Geforce Now"
+        }
+      ],
+      "tags": [
+        {
+          "value": "first_person",
+          "name": "First-Person"
+        },
+        {
+          "value": "trading",
+          "name": "Trading"
+        },
+        {
+          "value": "exploration",
+          "name": "Exploration"
+        },
+        {
+          "value": "gaming",
+          "name": "Gaming"
+        },
+        {
+          "value": "nature",
+          "name": "Nature"
+        },
+        {
+          "value": "mature",
+          "name": "Mature"
+        },
+        {
+          "value": "epic",
+          "name": "Epic"
+        },
+        {
+          "value": "combat",
+          "name": "Combat"
+        },
+        {
+          "value": "3d",
+          "name": "3D"
+        },
+        {
+          "value": "realistic",
+          "name": "Realistic"
+        },
+        {
+          "value": "psychedelic",
+          "name": "Psychedelic"
+        },
+        {
+          "value": "atmospheric",
+          "name": "Atmospheric"
+        },
+        {
+          "value": "story_rich",
+          "name": "Story Rich"
+        },
+        {
+          "value": "hunting",
+          "name": "Hunting"
+        }
+      ],
+      "genres": [
+        {
+          "value": "survival",
+          "name": "Survival"
+        },
+        {
+          "value": "open_world",
+          "name": "Open World"
+        },
+        {
+          "value": "stealth",
+          "name": "Stealth"
+        },
+        {
+          "value": "action",
+          "name": "Action"
+        },
+        {
+          "value": "shooter",
+          "name": "Shooter"
+        },
+        {
+          "value": "first_person_shooter",
+          "name": "First Person Shooter"
+        },
+        {
+          "value": "adventure",
+          "name": "Adventure"
+        },
+        {
+          "value": "action_adventure",
+          "name": "Action-Adventure"
+        }
+      ],
+      "genre": "Open World Shooter",
+      "themes": [],
+      "adult_only": true,
+      "play_modes": [
+        {
+          "value": "co_op",
+          "name": "Co-Op"
+        },
+        {
+          "value": "online_co_op",
+          "name": "Online Co-Op"
+        },
+        {
+          "value": "single_player",
+          "name": "Single-Player"
+        },
+        {
+          "value": "two_players",
+          "name": "2-Players"
+        },
+        {
+          "value": "multiplayer",
+          "name": "Multi-Player"
+        }
+      ],
+      "screenshots": [
+        "https://img.gamebrain.co/games/426/far_cry_5_ubisoft_2018_175.webp",
+        "https://img.gamebrain.co/games/132/far_cry_5_ubisoftmontreal_2018_19.jpg",
+        "https://img.gamebrain.co/games/264/far_cry_5_ubisoft_2018_71.jpg",
+        "https://img.gamebrain.co/games/418/far_cry_5_ubisoft_2018_203.webp",
+        "https://img.gamebrain.co/games/270/far_cry_5_ubisoft_2018_77.jpg",
+        "https://img.gamebrain.co/games/419/far_cry_5_ubisoft_2018_222.webp",
+        "https://img.gamebrain.co/games/265/far_cry_5_ubisoft_2018_18.jpg",
+        "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_136.webp",
+        "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_156.webp",
+        "https://img.gamebrain.co/games/213/far_cry_5_ubisoft_2025_7.jpg",
+        "https://img.gamebrain.co/games/266/far_cry_5_ubisoft_2018_82.jpg",
+        "https://img.gamebrain.co/games/424/far_cry_5_redstorm_2018_220.jpg",
+        "https://img.gamebrain.co/games/264/far_cry_5_ubisoft_2018_53.jpg",
+        "https://img.gamebrain.co/games/428/far_cry_5_ubisoft_2018_195.webp",
+        "https://img.gamebrain.co/games/129/far_cry_5_ubisoftmontreal_2018_25.jpg",
+        "https://img.gamebrain.co/games/426/far_cry_5_ubisoft_2018_193.webp",
+        "https://img.gamebrain.co/games/418/far_cry_5_ubisoft_2018_221.webp",
+        "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_180.webp",
+        "https://img.gamebrain.co/games/271/far_cry_5_ubisoft_2018_47.png",
+        "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_153.webp",
+        "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_215.webp",
+        "https://img.gamebrain.co/games/429/far_cry_5_redstorm_2018_108.jpg",
+        "https://img.gamebrain.co/games/416/far_cry_5_ubisoft_2018_201.webp",
+        "https://img.gamebrain.co/games/125/far_cry_5_ubisoftmontreal_2018_12.jpg",
+        "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_228.webp",
+        "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_208.webp",
+        "https://img.gamebrain.co/games/428/far_cry_5_ubisoft_2018_159.webp",
+        "https://img.gamebrain.co/games/426/far_cry_5_ubisoft_2018_139.webp",
+        "https://img.gamebrain.co/games/268/far_cry_5_ubisoft_2018_66.jpg",
+        "https://img.gamebrain.co/games/427/far_cry_5_redstorm_2018_223.jpg",
+        "https://img.gamebrain.co/games/415/far_cry_5_ubisoft_2018_200.webp",
+        "https://img.gamebrain.co/games/429/far_cry_5_ubisoft_2018_169.webp",
+        "https://img.gamebrain.co/games/416/far_cry_5_ubisoft_2018_102.webp",
+        "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_227.webp",
+        "https://img.gamebrain.co/games/271/far_cry_5_ubisoft_2018_87.jpg",
+        "https://img.gamebrain.co/games/417/far_cry_5_ubisoft_2018_220.webp",
+        "https://img.gamebrain.co/games/272/far_cry_5_ubisoft_2018_48.png",
+        "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_217.webp",
+        "https://img.gamebrain.co/games/418/far_cry_5_ubisoft_2018_230.webp",
+        "https://img.gamebrain.co/games/416/far_cry_5_ubisoft_2018_210.webp",
+        "https://img.gamebrain.co/games/265/far_cry_5_ubisoft_2018_63.jpg",
+        "https://img.gamebrain.co/games/266/far_cry_5_ubisoft_2018_55.jpg",
+        "https://img.gamebrain.co/games/127/far_cry_5_ubisoftmontreal_2018_14.jpg",
+        "https://img.gamebrain.co/games/377/far_cry_5_ubisoft_2018_93.webp",
+        "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_144.webp",
+        "https://img.gamebrain.co/games/419/far_cry_5_ubisoft_2018_123.webp",
+        "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_134.webp",
+        "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_216.webp",
+        "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_226.webp",
+        "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_206.webp",
+        "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_164.webp",
+        "https://img.gamebrain.co/games/381/far_cry_5_ubisoft_2018_97.webp",
+        "https://img.gamebrain.co/games/426/far_cry_5_ubisoft_2018_184.webp",
+        "https://img.gamebrain.co/games/126/far_cry_5_ubisoftmontreal_2018_13.jpg",
+        "https://img.gamebrain.co/games/269/far_cry_5_ubisoft_2018_58.jpg",
+        "https://img.gamebrain.co/games/216/far_cry_5_ubisoft_2018_8.jpg",
+        "https://img.gamebrain.co/games/212/far_cry_5_ubisoft_2025_6.jpg",
+        "https://img.gamebrain.co/games/264/far_cry_5_ubisoft_2018_80.jpg",
+        "https://img.gamebrain.co/games/262/far_cry_5_ubisoft_2018_51.jpg",
+        "https://img.gamebrain.co/games/267/far_cry_5_ubisoft_2018_56.jpg",
+        "https://img.gamebrain.co/games/428/far_cry_5_redstorm_2018_107.jpg",
+        "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_224.webp",
+        "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_126.webp",
+        "https://img.gamebrain.co/games/269/far_cry_5_ubisoft_2018_85.jpg",
+        "https://img.gamebrain.co/games/419/far_cry_5_ubisoft_2018_213.webp",
+        "https://img.gamebrain.co/games/420/far_cry_5_ubisoft_2018_223.webp",
+        "https://img.gamebrain.co/games/263/far_cry_5_ubisoft_2018_16.jpg",
+        "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_125.webp",
+        "https://img.gamebrain.co/games/267/far_cry_5_ubisoft_2018_74.jpg",
+        "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_170.webp",
+        "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_183.webp",
+        "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_128.webp",
+        "https://img.gamebrain.co/games/271/far_cry_5_ubisoft_2018_69.jpg",
+        "https://img.gamebrain.co/games/428/far_cry_5_ubisoft_2018_186.webp",
+        "https://img.gamebrain.co/games/260/far_cry_5_ubisoft_2018_40.jpg",
+        "https://img.gamebrain.co/games/268/far_cry_5_ubisoft_2018_39.jpg",
+        "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_225.webp",
+        "https://img.gamebrain.co/games/425/far_cry_5_redstorm_2018_221.jpg",
+        "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_218.webp",
+        "https://img.gamebrain.co/games/82/far_cry_5_ubisoftmontreal_2018_8.jpg",
+        "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_190.webp",
+        "https://img.gamebrain.co/games/269/far_cry_5_ubisoft_2018_49.jpg",
+        "https://img.gamebrain.co/games/261/far_cry_5_ubisoft_2018_50.jpg",
+        "https://img.gamebrain.co/games/263/far_cry_5_ubisoft_2018_61.jpg",
+        "https://img.gamebrain.co/games/418/far_cry_5_ubisoft_2018_131.webp",
+        "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_191.webp",
+        "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_181.webp",
+        "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_192.webp",
+        "https://img.gamebrain.co/games/265/far_cry_5_ubisoft_2018_72.jpg",
+        "https://img.gamebrain.co/games/375/far_cry_5_ubisoft_2018_91.webp",
+        "https://img.gamebrain.co/games/252/far_cry_5_ubisoft_2018_43.gif",
+        "https://img.gamebrain.co/games/427/far_cry_5_ubisoft_2018_158.webp",
+        "https://img.gamebrain.co/games/264/far_cry_5_ubisoft_2018_17.jpg",
+        "https://img.gamebrain.co/games/432/far_cry_5_ubisoft_2018_199.webp",
+        "https://img.gamebrain.co/games/420/far_cry_5_ubisoft_2018_142.webp",
+        "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_182.webp",
+        "https://img.gamebrain.co/games/426/far_cry_5_redstorm_2018_222.jpg",
+        "https://img.gamebrain.co/games/431/far_cry_5_ubisoft_2018_189.webp",
+        "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_172.webp",
+        "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_152.webp",
+        "https://img.gamebrain.co/games/426/far_cry_5_ubisoft_2018_229.webp",
+        "https://img.gamebrain.co/games/414/far_cry_5_ubisoft_2018_100.webp",
+        "https://img.gamebrain.co/games/427/far_cry_5_ubisoft_2018_167.webp",
+        "https://img.gamebrain.co/games/265/far_cry_5_ubisoft_2018_41.png",
+        "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_219.webp",
+        "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_161.webp",
+        "https://img.gamebrain.co/games/431/far_cry_5_ubisoft_2018_198.webp",
+        "https://img.gamebrain.co/games/128/far_cry_5_ubisoftmontreal_2018_24.jpg",
+        "https://img.gamebrain.co/games/416/far_cry_5_ubisoft_2018_120.webp",
+        "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_147.webp",
+        "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_137.webp",
+        "https://img.gamebrain.co/games/428/far_cry_5_ubisoft_2018_177.webp",
+        "https://img.gamebrain.co/games/419/far_cry_5_ubisoft_2018_150.webp"
+      ],
+      "videos": [
+        "https://www.youtube-nocookie.com/embed/-Se1hEYRDik",
+        "https://www.youtube-nocookie.com/embed/CWQKZGHSdrE",
+        "https://www.youtube-nocookie.com/embed/5QwW0jisKug",
+        "https://www.youtube-nocookie.com/embed/UA4KoqTICog",
+        "https://www.youtube-nocookie.com/embed/A7yaYvvP8AM",
+        "https://www.youtube-nocookie.com/embed/-FBiqKCH-bY",
+        "https://www.youtube-nocookie.com/embed/q2Ma9HstasU",
+        "https://www.youtube-nocookie.com/embed/DW6lQSwL8oA",
+        "https://www.youtube-nocookie.com/embed/m1kF9rz2ric",
+        "https://www.youtube-nocookie.com/embed/8pFHPq84iB0",
+        "https://www.youtube-nocookie.com/embed/Ygsk03klwO8",
+        "https://www.youtube-nocookie.com/embed/c9wCR1dezsc",
+        "https://www.youtube-nocookie.com/embed/P3La92ethq4",
+        "https://www.youtube-nocookie.com/embed/ShvH1GX43r4",
+        "https://www.youtube-nocookie.com/embed/aLNgEfwgCYA",
+        "https://www.youtube-nocookie.com/embed/LGy5ZxH_J_M",
+        "https://www.youtube-nocookie.com/embed/hJHLjaqhmyY",
+        "https://www.youtube-nocookie.com/embed/RARURPrkBqc",
+        "https://video.akamai.steamstatic.com/store_trailers/552520/155757/a70cd60188b0d1d8fd08e97180061674b512c51d/1750549438/dash_h264.mpd",
+        "https://www.youtube-nocookie.com/embed/ZOSesIeUHCM",
+        "https://video.akamai.steamstatic.com/store_trailers/552520/132142/094a5f3e189e68ec0ef7a776ddfa4d84c194372c/1750549432/dash_h264.mpd",
+        "https://video.akamai.steamstatic.com/store_trailers/552520/119935/6afc0be8f465e944f64a4619c0456a295cbdf214/1750549333/dash_h264.mpd",
+        "https://www.youtube-nocookie.com/embed/TgT2r-hB4pw",
+        "https://www.youtube-nocookie.com/embed/65eh4YdWfHI",
+        "https://video.akamai.steamstatic.com/store_trailers/552520/105749/14d763f8bdb5d075715a386a185a0b270bffc161/1750549330/dash_h264.mpd",
+        "https://www.youtube-nocookie.com/embed/invCtVgUlyA",
+        "https://www.youtube-nocookie.com/embed/OLqeAH5D1uo",
+        "https://www.youtube-nocookie.com/embed/imKO65TTBBo"
+      ],
+      "twitch_videos": [
+        {
+          "id": "DistinctVivaciousBasenjiPlanking",
+          "url": "https://www.twitch.tv/dasmehdi/clip/DistinctVivaciousBasenjiPlanking",
+          "embed_url": "https://clips.twitch.tv/embed?clip=DistinctVivaciousBasenjiPlanking&parent=gamebrain.co",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/353e8580-a69f-4cf6-872c-7888dfca5a18/landscape/thumb/thumb-0000000000-480x272.jpg",
+          "title": "Far Cry 5 friendly AI",
+          "creator_name": "papa_pudding",
+          "view_count": 77437,
+          "duration": 16,
+          "language": "en",
+          "created_at": "2018-03-25T22:00:41Z",
+          "fetched_at": "2026-06-22T12:39:26.113604190Z",
+          "type": "clip"
+        },
+        {
+          "id": "BrightTameFiddleheadsLitFam",
+          "url": "https://www.twitch.tv/lentv/clip/BrightTameFiddleheadsLitFam",
+          "embed_url": "https://clips.twitch.tv/embed?clip=BrightTameFiddleheadsLitFam&parent=gamebrain.co",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/694d2a3b-4b57-4eb5-9fd1-4f6a7ea3ae4b/landscape/thumb/thumb-0000000000-480x272.jpg",
+          "title": "Legolas",
+          "creator_name": "Lentv",
+          "view_count": 71055,
+          "duration": 53,
+          "language": "en",
+          "created_at": "2018-03-29T17:26:36Z",
+          "fetched_at": "2026-06-22T12:35:24.436497717Z",
+          "type": "clip"
+        },
+        {
+          "id": "GorgeousCleanTildeDatBoi",
+          "url": "https://www.twitch.tv/griffin_xvi/clip/GorgeousCleanTildeDatBoi",
+          "embed_url": "https://clips.twitch.tv/embed?clip=GorgeousCleanTildeDatBoi&parent=gamebrain.co",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/f37fc4b4-347d-4ada-89c0-37fb8c27f512/landscape/thumb/thumb-0000000000-480x272.jpg",
+          "title": "The Shovel Knight",
+          "creator_name": "Ashen_Eclipse",
+          "view_count": 53181,
+          "duration": 22,
+          "language": "en",
+          "created_at": "2018-03-27T07:35:07Z",
+          "fetched_at": "2026-06-22T12:39:26.113604190Z",
+          "type": "clip"
+        },
+        {
+          "id": "SwissPluckyGiraffeBudBlast",
+          "url": "https://www.twitch.tv/jerma985/clip/SwissPluckyGiraffeBudBlast",
+          "embed_url": "https://clips.twitch.tv/embed?clip=SwissPluckyGiraffeBudBlast&parent=gamebrain.co",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/3af10ae4-017a-42c9-8f4f-0cbef3e1831c/landscape/thumb/thumb-0000000000-480x272.jpg",
+          "title": "Wonder Woman's Invisible Airplane",
+          "creator_name": "butterfingahs",
+          "view_count": 15657,
+          "duration": 51,
+          "language": "en",
+          "created_at": "2018-03-27T23:37:29Z",
+          "fetched_at": "2026-06-22T12:35:24.436497717Z",
+          "type": "clip"
+        },
+        {
+          "id": "VastSmallTapirTheThing",
+          "url": "https://www.twitch.tv/mumblebeemomo/clip/VastSmallTapirTheThing",
+          "embed_url": "https://clips.twitch.tv/embed?clip=VastSmallTapirTheThing&parent=gamebrain.co",
+          "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/9624a8cc-2aec-4c85-8461-7a97abec271a/landscape/thumb/thumb-0000000000-480x272.jpg",
+          "title": "Mumbles: killer of dogs",
+          "creator_name": "GM_Raillie",
+          "view_count": 59694,
+          "duration": 60,
+          "language": "en",
+          "created_at": "2020-05-21T22:50:45Z",
+          "fetched_at": "2026-06-22T12:35:24.436497717Z",
+          "type": "clip"
+        }
+      ],
+      "offers": [
+        {
+          "price": {
+            "value": 59.99,
+            "currency": "USD",
+            "initial": 59.99,
+            "discount_percent": 0
+          },
+          "store_name": "steam",
+          "platform": "PC",
+          "title": "Far Cry® 5",
+          "url": "https://store.steampowered.com/app/552520"
+        },
+        {
+          "price": {
+            "value": 8.99,
+            "currency": "USD"
+          },
+          "store_name": "playstation",
+          "platform": "PS4",
+          "title": "Far Cry 5",
+          "url": "https://www.playstation.com/en-us/games/far-cry-5/"
+        }
+      ],
+      "official_stores": [
+        {
+          "source": "steam",
+          "url": "https://store.steampowered.com/app/552520"
+        },
+        {
+          "source": "xbox",
+          "url": "https://www.xbox.com/en-US/games/store/far-cry-5/9MVQXW1RJVCN"
+        },
+        {
+          "source": "xbox",
+          "url": "https://www.xbox.com/en-US/games/store/far-cry-5/BR7X7MVBBQKM"
+        },
+        {
+          "source": "xbox",
+          "url": "https://www.xbox.com/en-US/games/store/far-cry-5-gold-edition/9n554j15fm17"
+        },
+        {
+          "source": "epicgames",
+          "url": "https://store.epicgames.com/en-US/p/far-cry-5"
+        },
+        {
+          "source": "playstation",
+          "url": "https://www.playstation.com/en-us/games/far-cry-5/"
+        }
+      ],
+      "micro_trailer": "https://video.akamai.steamstatic.com/store_trailers/552520/155757/a70cd60188b0d1d8fd08e97180061674b512c51d/1750549438/microtrailer.webm"
+    },
+    "genre": "Open World Shooter",
+    "genre_ids": [
+      "6ab0157bb038c1020c500416",
+      "6aec41b5001f7bbfb5e13549",
+      "6ab0157bb038c1020c500419",
+      "6ab01577b038c1020c5003e3",
+      "6aec41b5001f7bbfb5e13552",
+      "6ab0157ab038c1020c500407",
+      "6ab01577b038c1020c5003e6",
+      "6ab01577b038c1020c5003e9"
+    ],
+    "genres": [
+      {
+        "value": "survival",
+        "name": "Survival"
+      },
+      {
+        "value": "open_world",
+        "name": "Open World"
+      },
+      {
+        "value": "stealth",
+        "name": "Stealth"
+      },
+      {
+        "value": "action",
+        "name": "Action"
+      },
+      {
+        "value": "shooter",
+        "name": "Shooter"
+      },
+      {
+        "value": "first_person_shooter",
+        "name": "First Person Shooter"
+      },
+      {
+        "value": "adventure",
+        "name": "Adventure"
+      },
+      {
+        "value": "action_adventure",
+        "name": "Action-Adventure"
+      }
+    ],
+    "has_persian_subtitles": false,
+    "image_aspect_ratio": 2.13953,
+    "input_mode_ids": [],
+    "link": "https://gamebrain.co/game/far-cry-5",
+    "name": "Far Cry 5",
+    "offers": [
+      {
+        "store_id": null,
+        "platform_id": null,
+        "url": "https://store.steampowered.com/app/552520",
+        "title": "Far Cry® 5",
+        "platform": "PC",
+        "store_name": "steam",
+        "price": {
+          "value": 59.99,
+          "initial": 59.99,
+          "currency": "USD",
+          "discount_percent": 0
+        }
+      },
+      {
+        "store_id": null,
+        "platform_id": null,
+        "url": "https://www.playstation.com/en-us/games/far-cry-5/",
+        "title": "Far Cry 5",
+        "platform": "PS4",
+        "store_name": "playstation",
+        "price": {
+          "value": 8.99,
+          "currency": "USD"
+        }
+      }
+    ],
+    "official_stores": [
+      {
+        "store_id": null,
+        "url": "https://store.steampowered.com/app/552520",
+        "source": "steam"
+      },
+      {
+        "store_id": null,
+        "url": "https://www.xbox.com/en-US/games/store/far-cry-5/9MVQXW1RJVCN",
+        "source": "xbox"
+      },
+      {
+        "store_id": null,
+        "url": "https://www.xbox.com/en-US/games/store/far-cry-5/BR7X7MVBBQKM",
+        "source": "xbox"
+      },
+      {
+        "store_id": null,
+        "url": "https://www.xbox.com/en-US/games/store/far-cry-5-gold-edition/9n554j15fm17",
+        "source": "xbox"
+      },
+      {
+        "store_id": null,
+        "url": "https://store.epicgames.com/en-US/p/far-cry-5",
+        "source": "epicgames"
+      },
+      {
+        "store_id": null,
+        "url": "https://www.playstation.com/en-us/games/far-cry-5/",
+        "source": "playstation"
+      }
+    ],
+    "official_website": null,
+    "platform_ids": [
+      "6aec41b4001f7bbfb5e134fa",
+      "6ab0157fb038c1020c500455",
+      "6ab0157eb038c1020c500446",
+      "6aec41b4001f7bbfb5e1352c",
+      "6af068fddddacc50237211b4",
+      "6aec41b4001f7bbfb5e13527",
+      "6aef24caedd0440d2f9495a4",
+      "6aec41b4001f7bbfb5e13523",
+      "6aec41b4001f7bbfb5e1352e",
+      "6aec41b4001f7bbfb5e13512",
+      "6aec41b4001f7bbfb5e1352d",
+      "6aec41b4001f7bbfb5e134f6",
+      "6ab0157fb038c1020c500449",
+      "6aec41b4001f7bbfb5e1350d"
+    ],
+    "platforms": [
+      {
+        "value": "epic_games",
+        "name": "Epic Games"
+      },
+      {
+        "value": "playstation_5",
+        "name": "Playstation 5"
+      },
+      {
+        "value": "playstation_4",
+        "name": "Playstation 4"
+      },
+      {
+        "value": "x_box_cloud_gaming",
+        "name": "Xbox Cloud Gaming"
+      },
+      {
+        "value": "xbox",
+        "name": "XBox"
+      },
+      {
+        "value": "windows",
+        "name": "Windows"
+      },
+      {
+        "value": "playstation",
+        "name": "Playstation"
+      },
+      {
+        "value": "uplay",
+        "name": "UPlay"
+      },
+      {
+        "value": "xbox_series_xs",
+        "name": "Xbox Series X|S"
+      },
+      {
+        "value": "pc",
+        "name": "PC"
+      },
+      {
+        "value": "x_box_game_pass",
+        "name": "Xbox Game Pass"
+      },
+      {
+        "value": "cloud_platform",
+        "name": "Cloud Platform"
+      },
+      {
+        "value": "xbox_one",
+        "name": "XBox One"
+      },
+      {
+        "value": "nvidia_geforce_now",
+        "name": "Nvidia Geforce Now"
+      }
+    ],
+    "play_modes": [
+      {
+        "value": "co_op",
+        "name": "Co-Op"
+      },
+      {
+        "value": "online_co_op",
+        "name": "Online Co-Op"
+      },
+      {
+        "value": "single_player",
+        "name": "Single-Player"
+      },
+      {
+        "value": "two_players",
+        "name": "2-Players"
+      },
+      {
+        "value": "multiplayer",
+        "name": "Multi-Player"
+      }
+    ],
+    "playtime": {
+      "min": 1,
+      "max": 42069,
+      "mean": 146.193833,
+      "median": 27,
+      "mentions": 908,
+      "percentiles": [
+        3,
+        5,
+        10,
+        15,
+        24,
+        30,
+        40,
+        50,
+        90,
+        42069
+      ]
+    },
+    "price_range_ids": [],
+    "publication_status": "draft",
+    "publisher_ids": [],
+    "rating": {
+      "mean": 0.8236847727272728,
+      "count": 120763,
+      "mean_players": 0.801915,
+      "count_players": 120746,
+      "mean_critics": 0.8454545454545456,
+      "count_critics": 17
+    },
+    "release_date": "2018-03-27T00:00:00.000Z",
+    "release_window_ids": [],
+    "review_rating_ids": [],
+    "short_description": "اعتماد کن، دعا کن، اطاعت کن",
+    "short_title": "",
+    "slug": "far-cry-5-257880",
+    "sort_title": "Far Cry 5",
+    "status": "released",
+    "storage_sizes": [],
+    "tags": [
+      "6aec41b5001f7bbfb5e13600",
+      "6aec41b5001f7bbfb5e136a6",
+      "6aec41b5001f7bbfb5e135fa",
+      "6aec41b5001f7bbfb5e1360c",
+      "6aec41b5001f7bbfb5e1364c",
+      "6aec41b5001f7bbfb5e13638",
+      "6aec41b5001f7bbfb5e135f4",
+      "6aec41b5001f7bbfb5e135cb",
+      "6aec41b5001f7bbfb5e13590",
+      "6aec41b5001f7bbfb5e1366b",
+      "6aec41b5001f7bbfb5e13664",
+      "6aec41b5001f7bbfb5e135a3",
+      "6ab50934ceb900206d73922c",
+      "6aec41b5001f7bbfb5e1361d"
+    ],
+    "themes": [],
+    "title": "Far Cry 5",
+    "updatedAt": "2026-11-16T08:54:00.423Z",
+    "x_url": "https://twitter.com/FarCrygame",
+    "theme_ids": [],
+    "image": "https://img.gamebrain.co/games/537/far_cry_5_redstorm_2018_224.webp",
+    "screenshots": [
+      "https://img.gamebrain.co/games/426/far_cry_5_ubisoft_2018_175.webp",
+      "https://img.gamebrain.co/games/132/far_cry_5_ubisoftmontreal_2018_19.jpg",
+      "https://img.gamebrain.co/games/264/far_cry_5_ubisoft_2018_71.jpg",
+      "https://img.gamebrain.co/games/418/far_cry_5_ubisoft_2018_203.webp",
+      "https://img.gamebrain.co/games/270/far_cry_5_ubisoft_2018_77.jpg",
+      "https://img.gamebrain.co/games/419/far_cry_5_ubisoft_2018_222.webp",
+      "https://img.gamebrain.co/games/265/far_cry_5_ubisoft_2018_18.jpg",
+      "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_136.webp",
+      "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_156.webp",
+      "https://img.gamebrain.co/games/213/far_cry_5_ubisoft_2025_7.jpg",
+      "https://img.gamebrain.co/games/266/far_cry_5_ubisoft_2018_82.jpg",
+      "https://img.gamebrain.co/games/424/far_cry_5_redstorm_2018_220.jpg",
+      "https://img.gamebrain.co/games/264/far_cry_5_ubisoft_2018_53.jpg",
+      "https://img.gamebrain.co/games/428/far_cry_5_ubisoft_2018_195.webp",
+      "https://img.gamebrain.co/games/129/far_cry_5_ubisoftmontreal_2018_25.jpg",
+      "https://img.gamebrain.co/games/426/far_cry_5_ubisoft_2018_193.webp",
+      "https://img.gamebrain.co/games/418/far_cry_5_ubisoft_2018_221.webp",
+      "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_180.webp",
+      "https://img.gamebrain.co/games/271/far_cry_5_ubisoft_2018_47.png",
+      "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_153.webp",
+      "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_215.webp",
+      "https://img.gamebrain.co/games/429/far_cry_5_redstorm_2018_108.jpg",
+      "https://img.gamebrain.co/games/416/far_cry_5_ubisoft_2018_201.webp",
+      "https://img.gamebrain.co/games/125/far_cry_5_ubisoftmontreal_2018_12.jpg",
+      "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_228.webp",
+      "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_208.webp",
+      "https://img.gamebrain.co/games/428/far_cry_5_ubisoft_2018_159.webp",
+      "https://img.gamebrain.co/games/426/far_cry_5_ubisoft_2018_139.webp",
+      "https://img.gamebrain.co/games/268/far_cry_5_ubisoft_2018_66.jpg",
+      "https://img.gamebrain.co/games/427/far_cry_5_redstorm_2018_223.jpg",
+      "https://img.gamebrain.co/games/415/far_cry_5_ubisoft_2018_200.webp",
+      "https://img.gamebrain.co/games/429/far_cry_5_ubisoft_2018_169.webp",
+      "https://img.gamebrain.co/games/416/far_cry_5_ubisoft_2018_102.webp",
+      "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_227.webp",
+      "https://img.gamebrain.co/games/271/far_cry_5_ubisoft_2018_87.jpg",
+      "https://img.gamebrain.co/games/417/far_cry_5_ubisoft_2018_220.webp",
+      "https://img.gamebrain.co/games/272/far_cry_5_ubisoft_2018_48.png",
+      "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_217.webp",
+      "https://img.gamebrain.co/games/418/far_cry_5_ubisoft_2018_230.webp",
+      "https://img.gamebrain.co/games/416/far_cry_5_ubisoft_2018_210.webp",
+      "https://img.gamebrain.co/games/265/far_cry_5_ubisoft_2018_63.jpg",
+      "https://img.gamebrain.co/games/266/far_cry_5_ubisoft_2018_55.jpg",
+      "https://img.gamebrain.co/games/127/far_cry_5_ubisoftmontreal_2018_14.jpg",
+      "https://img.gamebrain.co/games/377/far_cry_5_ubisoft_2018_93.webp",
+      "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_144.webp",
+      "https://img.gamebrain.co/games/419/far_cry_5_ubisoft_2018_123.webp",
+      "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_134.webp",
+      "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_216.webp",
+      "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_226.webp",
+      "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_206.webp",
+      "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_164.webp",
+      "https://img.gamebrain.co/games/381/far_cry_5_ubisoft_2018_97.webp",
+      "https://img.gamebrain.co/games/426/far_cry_5_ubisoft_2018_184.webp",
+      "https://img.gamebrain.co/games/126/far_cry_5_ubisoftmontreal_2018_13.jpg",
+      "https://img.gamebrain.co/games/269/far_cry_5_ubisoft_2018_58.jpg",
+      "https://img.gamebrain.co/games/216/far_cry_5_ubisoft_2018_8.jpg",
+      "https://img.gamebrain.co/games/212/far_cry_5_ubisoft_2025_6.jpg",
+      "https://img.gamebrain.co/games/264/far_cry_5_ubisoft_2018_80.jpg",
+      "https://img.gamebrain.co/games/262/far_cry_5_ubisoft_2018_51.jpg",
+      "https://img.gamebrain.co/games/267/far_cry_5_ubisoft_2018_56.jpg",
+      "https://img.gamebrain.co/games/428/far_cry_5_redstorm_2018_107.jpg",
+      "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_224.webp",
+      "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_126.webp",
+      "https://img.gamebrain.co/games/269/far_cry_5_ubisoft_2018_85.jpg",
+      "https://img.gamebrain.co/games/419/far_cry_5_ubisoft_2018_213.webp",
+      "https://img.gamebrain.co/games/420/far_cry_5_ubisoft_2018_223.webp",
+      "https://img.gamebrain.co/games/263/far_cry_5_ubisoft_2018_16.jpg",
+      "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_125.webp",
+      "https://img.gamebrain.co/games/267/far_cry_5_ubisoft_2018_74.jpg",
+      "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_170.webp",
+      "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_183.webp",
+      "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_128.webp",
+      "https://img.gamebrain.co/games/271/far_cry_5_ubisoft_2018_69.jpg",
+      "https://img.gamebrain.co/games/428/far_cry_5_ubisoft_2018_186.webp",
+      "https://img.gamebrain.co/games/260/far_cry_5_ubisoft_2018_40.jpg",
+      "https://img.gamebrain.co/games/268/far_cry_5_ubisoft_2018_39.jpg",
+      "https://img.gamebrain.co/games/422/far_cry_5_ubisoft_2018_225.webp",
+      "https://img.gamebrain.co/games/425/far_cry_5_redstorm_2018_221.jpg",
+      "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_218.webp",
+      "https://img.gamebrain.co/games/82/far_cry_5_ubisoftmontreal_2018_8.jpg",
+      "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_190.webp",
+      "https://img.gamebrain.co/games/269/far_cry_5_ubisoft_2018_49.jpg",
+      "https://img.gamebrain.co/games/261/far_cry_5_ubisoft_2018_50.jpg",
+      "https://img.gamebrain.co/games/263/far_cry_5_ubisoft_2018_61.jpg",
+      "https://img.gamebrain.co/games/418/far_cry_5_ubisoft_2018_131.webp",
+      "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_191.webp",
+      "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_181.webp",
+      "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_192.webp",
+      "https://img.gamebrain.co/games/265/far_cry_5_ubisoft_2018_72.jpg",
+      "https://img.gamebrain.co/games/375/far_cry_5_ubisoft_2018_91.webp",
+      "https://img.gamebrain.co/games/252/far_cry_5_ubisoft_2018_43.gif",
+      "https://img.gamebrain.co/games/427/far_cry_5_ubisoft_2018_158.webp",
+      "https://img.gamebrain.co/games/264/far_cry_5_ubisoft_2018_17.jpg",
+      "https://img.gamebrain.co/games/432/far_cry_5_ubisoft_2018_199.webp",
+      "https://img.gamebrain.co/games/420/far_cry_5_ubisoft_2018_142.webp",
+      "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_182.webp",
+      "https://img.gamebrain.co/games/426/far_cry_5_redstorm_2018_222.jpg",
+      "https://img.gamebrain.co/games/431/far_cry_5_ubisoft_2018_189.webp",
+      "https://img.gamebrain.co/games/423/far_cry_5_ubisoft_2018_172.webp",
+      "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_152.webp",
+      "https://img.gamebrain.co/games/426/far_cry_5_ubisoft_2018_229.webp",
+      "https://img.gamebrain.co/games/414/far_cry_5_ubisoft_2018_100.webp",
+      "https://img.gamebrain.co/games/427/far_cry_5_ubisoft_2018_167.webp",
+      "https://img.gamebrain.co/games/265/far_cry_5_ubisoft_2018_41.png",
+      "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_219.webp",
+      "https://img.gamebrain.co/games/421/far_cry_5_ubisoft_2018_161.webp",
+      "https://img.gamebrain.co/games/431/far_cry_5_ubisoft_2018_198.webp",
+      "https://img.gamebrain.co/games/128/far_cry_5_ubisoftmontreal_2018_24.jpg",
+      "https://img.gamebrain.co/games/416/far_cry_5_ubisoft_2018_120.webp",
+      "https://img.gamebrain.co/games/425/far_cry_5_ubisoft_2018_147.webp",
+      "https://img.gamebrain.co/games/424/far_cry_5_ubisoft_2018_137.webp",
+      "https://img.gamebrain.co/games/428/far_cry_5_ubisoft_2018_177.webp",
+      "https://img.gamebrain.co/games/419/far_cry_5_ubisoft_2018_150.webp"
+    ]
+  },
+  {
+    "_id": "6af9f3ccc846f893ac791d24",
+    "id": 115402,
+    "isDeleted": false,
+    "__v": 0,
+    "adult_only": true,
+    "alternate_titles": [],
+    "approvalReview": {
+      "status": "",
+      "reason": "",
+      "reviewedAt": null,
+      "reviewedBy": null
+    },
+    "auto_draft": true,
+    "content_rating_ids": [],
+    "cover_media_id": null,
+    "createdAt": "2026-11-15T18:02:53.088Z",
+    "creator": "6aafdc92db4c30c55f369c5b",
+    "description": "این نسخه نهایی شامل تمام محتوای اضافی DLC است: بسته Monkey Business، Lost Expeditions، Warrior Pack و Predator Pack.",
+    "detail_banner": null,
+    "detail_gif": null,
+    "detail_poster": null,
+    "developer": "Ubisoft Montreal, Massive Entertainment, and Ubisoft Shanghai",
+    "developer_ids": [],
+    "draft_completed": true,
+    "draft_completion_errors": [
+      "developer_ids:Ubisoft Montreal, Massive Entertainment, and Ubisoft Shanghai"
+    ],
+    "feature_ids": [],
+    "game_mode_ids": [
+      "6aec41b5001f7bbfb5e13574",
+      "6ab53b9d0eb5341c5264c0ad",
+      "6ab53b9d0eb5341c5264c0aa",
+      "6aec41b5001f7bbfb5e1357a",
+      "6aec41b5001f7bbfb5e13577"
+    ],
+    "game_series_ids": [],
+    "gamebrain_source": {
+      "id": 115402,
+      "name": "Far Cry 3",
+      "image": "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_83.webp",
+      "image_aspect_ratio": 2.13953,
+      "gameplay": "https://video.akamai.steamstatic.com/store_trailers/220240/9966/8e70f954ee07e5c2e8b68e6bc5df4de4726ee2b2/1750481561/microtrailer.webm",
+      "link": "https://gamebrain.co/game/far-cry-3",
+      "x_url": "https://twitter.com/FarCrygame",
+      "rating": {
+        "mean": 0.8685129415606153,
+        "count": 43617,
+        "mean_players": 0.853929,
+        "count_players": 43609,
+        "mean_critics": 0.88625,
+        "count_critics": 8
+      },
+      "description": "This Ultimate Edition includes all bonus DLC content: Monkey Business Pack, Lost Expeditions, Warrior Pack, and Predator Pack.",
+      "short_description": "This Ultimate Edition includes all bonus DLC content: Monkey Business Pack, Lost Expeditions, Warrior Pack, and Predator Pack.",
+      "release_date": "2012-12-04",
+      "developer": "Ubisoft Montreal, Massive Entertainment, and Ubisoft Shanghai",
+      "playtime": {
+        "percentiles": [
+          3,
+          6,
+          11,
+          16,
+          20,
+          30,
+          40,
+          48.5,
+          63,
+          500
+        ],
+        "min": 1,
+        "max": 500,
+        "mean": 37.004545,
+        "mentions": 220,
+        "median": 25
+      },
+      "platforms": [
+        {
+          "value": "playstation_3",
+          "name": "Playstation 3"
+        },
+        {
+          "value": "xbox_360",
+          "name": "XBox 360"
+        },
+        {
+          "value": "xbox_series_xs",
+          "name": "Xbox Series X|S"
+        },
+        {
+          "value": "pc",
+          "name": "PC"
+        },
+        {
+          "value": "epic_games",
+          "name": "Epic Games"
+        },
+        {
+          "value": "xbox_one",
+          "name": "XBox One"
+        },
+        {
+          "value": "xbox",
+          "name": "XBox"
+        },
+        {
+          "value": "windows",
+          "name": "Windows"
+        },
+        {
+          "value": "playstation",
+          "name": "Playstation"
+        }
+      ],
+      "tags": [
+        {
+          "value": "first_person",
+          "name": "First-Person"
+        },
+        {
+          "value": "crafting",
+          "name": "Crafting"
+        },
+        {
+          "value": "atmospheric",
+          "name": "Atmospheric"
+        },
+        {
+          "value": "story_rich",
+          "name": "Story Rich"
+        },
+        {
+          "value": "epic",
+          "name": "Epic"
+        },
+        {
+          "value": "hunting",
+          "name": "Hunting"
+        },
+        {
+          "value": "colorful",
+          "name": "Colorful"
+        }
+      ],
+      "genres": [
+        {
+          "value": "role_playing",
+          "name": "Role Playing"
+        },
+        {
+          "value": "survival",
+          "name": "Survival"
+        },
+        {
+          "value": "open_world",
+          "name": "Open World"
+        },
+        {
+          "value": "stealth",
+          "name": "Stealth"
+        },
+        {
+          "value": "sandbox",
+          "name": "Sandbox"
+        },
+        {
+          "value": "action",
+          "name": "Action"
+        },
+        {
+          "value": "shooter",
+          "name": "Shooter"
+        },
+        {
+          "value": "first_person_shooter",
+          "name": "First Person Shooter"
+        },
+        {
+          "value": "adventure",
+          "name": "Adventure"
+        }
+      ],
+      "genre": "Open World Role Playing Shooter",
+      "themes": [
+        {
+          "value": "erotic",
+          "name": "Erotic"
+        }
+      ],
+      "adult_only": true,
+      "play_modes": [
+        {
+          "value": "co_op",
+          "name": "Co-Op"
+        },
+        {
+          "value": "online_co_op",
+          "name": "Online Co-Op"
+        },
+        {
+          "value": "single_player",
+          "name": "Single-Player"
+        },
+        {
+          "value": "two_players",
+          "name": "2-Players"
+        },
+        {
+          "value": "multiplayer",
+          "name": "Multi-Player"
+        }
+      ],
+      "screenshots": [
+        "https://img.gamebrain.co/games/981/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_38.jpg",
+        "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_55.webp",
+        "https://img.gamebrain.co/games/362/far_cry_3_ubisoft_2012_50.webp",
+        "https://img.gamebrain.co/games/256/far_cry_3_ubisoft_2013_16.jpg",
+        "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_76.webp",
+        "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_45.webp",
+        "https://img.gamebrain.co/games/314/far_cry_3_massive_2012_9.webp",
+        "https://img.gamebrain.co/games/371/far_cry_3_ubisoft_2012_86.webp",
+        "https://img.gamebrain.co/games/979/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_50.png",
+        "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_60.webp",
+        "https://img.gamebrain.co/games/360/far_cry_3_ubisoft_2012_12.webp",
+        "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_17.webp",
+        "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_75.webp",
+        "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_70.webp",
+        "https://img.gamebrain.co/games/361/far_cry_3_ubisoft_2012_22.webp",
+        "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_94.webp",
+        "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_65.webp",
+        "https://img.gamebrain.co/games/361/far_cry_3_massive_2012_17.webp",
+        "https://img.gamebrain.co/games/310/far_cry_3_massive_2012_5.webp",
+        "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_37.webp",
+        "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2013_23.webp",
+        "https://img.gamebrain.co/games/355/far_cry_3_massive_2012_11.webp",
+        "https://img.gamebrain.co/games/982/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_48.jpg",
+        "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_63.webp",
+        "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_90.webp",
+        "https://img.gamebrain.co/games/362/far_cry_3_ubisoft_2012_32.webp",
+        "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_58.webp",
+        "https://img.gamebrain.co/games/979/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_81.jpg",
+        "https://img.gamebrain.co/games/979/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_45.jpg",
+        "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_25.webp",
+        "https://img.gamebrain.co/games/361/far_cry_3_ubisoft_2012_40.webp",
+        "https://img.gamebrain.co/games/372/far_cry_3_ubisoft_2012_78.webp",
+        "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_52.webp",
+        "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_19.webp",
+        "https://img.gamebrain.co/games/363/far_cry_3_massive_2012_19.webp",
+        "https://img.gamebrain.co/games/362/far_cry_3_ubisoft_2012_14.webp",
+        "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_33.webp",
+        "https://img.gamebrain.co/games/371/far_cry_3_ubisoft_2012_59.webp",
+        "https://img.gamebrain.co/games/257/far_cry_3_ubisoft_2013_17.jpg",
+        "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_57.webp",
+        "https://img.gamebrain.co/games/356/far_cry_3_massive_2012_12.webp",
+        "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2013_25.webp",
+        "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_28.webp",
+        "https://img.gamebrain.co/games/69/far_cry_3_ubisoftmontreal_2013_2.jpg",
+        "https://img.gamebrain.co/games/360/far_cry_3_ubisoft_2013_20.webp",
+        "https://img.gamebrain.co/games/374/far_cry_3_ubisoft_2012_89.webp",
+        "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_38.webp",
+        "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_82.webp",
+        "https://img.gamebrain.co/games/253/far_cry_3_ubisoft_2013_13.jpg",
+        "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_80.webp",
+        "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_61.webp",
+        "https://img.gamebrain.co/games/372/far_cry_3_ubisoft_2012_87.webp",
+        "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_73.webp",
+        "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_49.webp",
+        "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_35.webp",
+        "https://img.gamebrain.co/games/360/far_cry_3_ubisoft_2012_30.webp",
+        "https://img.gamebrain.co/games/986/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_79.jpg",
+        "https://img.gamebrain.co/games/210/far_cry_3_ubisoft_2013_9.jpg",
+        "https://img.gamebrain.co/games/358/far_cry_3_massive_2012_14.webp",
+        "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_42.webp",
+        "https://img.gamebrain.co/games/371/far_cry_3_ubisoft_2012_68.webp",
+        "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_47.webp",
+        "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_54.webp",
+        "https://img.gamebrain.co/games/360/far_cry_3_massive_2012_16.webp",
+        "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_66.webp",
+        "https://img.gamebrain.co/games/356/far_cry_3_massive_2012_21.webp",
+        "https://img.gamebrain.co/games/362/far_cry_3_ubisoft_2012_23.webp",
+        "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_26.webp",
+        "https://img.gamebrain.co/games/359/far_cry_3_massive_2012_15.webp",
+        "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_84.webp",
+        "https://img.gamebrain.co/games/360/far_cry_3_ubisoft_2012_21.webp",
+        "https://img.gamebrain.co/games/354/far_cry_3_massive_2012_10.webp",
+        "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_16.webp",
+        "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_74.webp",
+        "https://img.gamebrain.co/games/361/far_cry_3_ubisoft_2012_31.webp",
+        "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_67.webp",
+        "https://img.gamebrain.co/games/359/far_cry_3_ubisoft_2012_20.webp",
+        "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_46.webp",
+        "https://img.gamebrain.co/games/362/far_cry_3_ubisoft_2012_41.webp",
+        "https://img.gamebrain.co/games/312/far_cry_3_massive_2012_7.webp",
+        "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_36.webp",
+        "https://img.gamebrain.co/games/355/far_cry_3_massive_2012_20.webp",
+        "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_44.webp",
+        "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_51.webp",
+        "https://img.gamebrain.co/games/371/far_cry_3_ubisoft_2012_77.webp",
+        "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_18.webp",
+        "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_56.webp",
+        "https://img.gamebrain.co/games/309/far_cry_3_massive_2012_4.webp",
+        "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_64.webp",
+        "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_85.webp",
+        "https://img.gamebrain.co/games/361/far_cry_3_ubisoft_2012_13.webp",
+        "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_71.webp",
+        "https://img.gamebrain.co/games/362/far_cry_3_massive_2012_18.webp",
+        "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_62.webp",
+        "https://img.gamebrain.co/games/373/far_cry_3_ubisoft_2012_88.webp",
+        "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_48.webp",
+        "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_91.webp",
+        "https://img.gamebrain.co/games/372/far_cry_3_ubisoft_2012_69.webp",
+        "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_29.webp",
+        "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2013_24.webp",
+        "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_43.webp",
+        "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_72.webp",
+        "https://img.gamebrain.co/games/978/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_44.jpg",
+        "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_53.webp",
+        "https://img.gamebrain.co/games/311/far_cry_3_massive_2012_6.webp",
+        "https://img.gamebrain.co/games/313/far_cry_3_massive_2012_8.webp",
+        "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_34.webp",
+        "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_24.webp",
+        "https://img.gamebrain.co/games/255/far_cry_3_ubisoft_2013_15.jpg",
+        "https://img.gamebrain.co/games/373/far_cry_3_ubisoft_2012_79.webp",
+        "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_27.webp",
+        "https://img.gamebrain.co/games/357/far_cry_3_massive_2012_13.webp",
+        "https://img.gamebrain.co/games/361/far_cry_3_ubisoft_2013_21.webp",
+        "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_15.webp",
+        "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2013_19.webp",
+        "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_39.webp",
+        "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_93.webp",
+        "https://img.gamebrain.co/games/371/far_cry_3_ubisoft_2012_95.webp",
+        "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_81.webp"
+      ],
+      "videos": [
+        "https://cdn.akamai.steamstatic.com/steam/apps/2028100/movie480.webm?t=1654549163",
+        "https://www.youtube-nocookie.com/embed/RO6v63xE8gk",
+        "https://www.youtube-nocookie.com/embed/p57XH_6i8Ws",
+        "https://www.youtube-nocookie.com/embed/GKLOlQJ268Y",
+        "https://cdn.akamai.steamstatic.com/steam/apps/2028101/movie480.webm?t=1447356997",
+        "https://www.youtube-nocookie.com/embed/J6gnOVJsCsM",
+        "https://cdn.akamai.steamstatic.com/steam/apps/2028177/movie480.webm?t=1447357140",
+        "https://www.youtube-nocookie.com/embed/nut8kcc8XUM",
+        "https://www.youtube-nocookie.com/embed/wzrXvMuaChI",
+        "https://www.youtube-nocookie.com/embed/0yZI_hUCVZM",
+        "https://www.youtube-nocookie.com/embed/wEZfi1QfdIE",
+        "https://www.youtube-nocookie.com/embed/0dofacvjRkc"
+      ],
+      "offers": [
+        {
+          "price": {
+            "value": 19.99,
+            "currency": "USD",
+            "initial": 19.99,
+            "discount_percent": 0
+          },
+          "store_name": "steam",
+          "platform": "PC",
+          "title": "Far Cry 3",
+          "url": "https://store.steampowered.com/app/220240"
+        },
+        {
+          "price": {
+            "value": 19.99,
+            "currency": "USD",
+            "initial": 19.99,
+            "discount_percent": 0
+          },
+          "store_name": "steam",
+          "platform": "PC",
+          "url": "https://store.steampowered.com/app/220240"
+        }
+      ],
+      "official_stores": [
+        {
+          "source": "steam",
+          "url": "https://store.steampowered.com/app/220240"
+        },
+        {
+          "source": "xbox",
+          "url": "https://www.xbox.com/en-US/games/store/far-cry-3/bpx57n768756"
+        },
+        {
+          "source": "epicgames",
+          "url": "https://store.epicgames.com/p/far-cry-3"
+        }
+      ],
+      "micro_trailer": "https://video.akamai.steamstatic.com/store_trailers/220240/9966/8e70f954ee07e5c2e8b68e6bc5df4de4726ee2b2/1750481561/microtrailer.webm"
+    },
+    "genre": "Open World Role Playing Shooter",
+    "genre_ids": [
+      "6ab01578b038c1020c5003ec",
+      "6ab0157bb038c1020c500416",
+      "6aec41b5001f7bbfb5e13549",
+      "6ab0157bb038c1020c500419",
+      "6aec41b5001f7bbfb5e13550",
+      "6ab01577b038c1020c5003e3",
+      "6aec41b5001f7bbfb5e13552",
+      "6ab0157ab038c1020c500407",
+      "6ab01577b038c1020c5003e6"
+    ],
+    "genres": [
+      {
+        "value": "role_playing",
+        "name": "Role Playing"
+      },
+      {
+        "value": "survival",
+        "name": "Survival"
+      },
+      {
+        "value": "open_world",
+        "name": "Open World"
+      },
+      {
+        "value": "stealth",
+        "name": "Stealth"
+      },
+      {
+        "value": "sandbox",
+        "name": "Sandbox"
+      },
+      {
+        "value": "action",
+        "name": "Action"
+      },
+      {
+        "value": "shooter",
+        "name": "Shooter"
+      },
+      {
+        "value": "first_person_shooter",
+        "name": "First Person Shooter"
+      },
+      {
+        "value": "adventure",
+        "name": "Adventure"
+      }
+    ],
+    "has_persian_subtitles": false,
+    "image_aspect_ratio": 2.13953,
+    "input_mode_ids": [],
+    "link": "https://gamebrain.co/game/far-cry-3",
+    "name": "Far Cry 3",
+    "offers": [
+      {
+        "store_id": null,
+        "platform_id": null,
+        "url": "https://store.steampowered.com/app/220240",
+        "title": "Far Cry 3",
+        "platform": "PC",
+        "store_name": "steam",
+        "price": {
+          "value": 19.99,
+          "initial": 19.99,
+          "currency": "USD",
+          "discount_percent": 0
+        }
+      },
+      {
+        "store_id": null,
+        "platform_id": null,
+        "url": "https://store.steampowered.com/app/220240",
+        "platform": "PC",
+        "store_name": "steam",
+        "price": {
+          "value": 19.99,
+          "initial": 19.99,
+          "currency": "USD",
+          "discount_percent": 0
+        }
+      }
+    ],
+    "official_stores": [
+      {
+        "store_id": null,
+        "url": "https://store.steampowered.com/app/220240",
+        "source": "steam"
+      },
+      {
+        "store_id": null,
+        "url": "https://www.xbox.com/en-US/games/store/far-cry-3/bpx57n768756",
+        "source": "xbox"
+      },
+      {
+        "store_id": null,
+        "url": "https://store.epicgames.com/p/far-cry-3",
+        "source": "epicgames"
+      }
+    ],
+    "official_website": null,
+    "platform_ids": [
+      "6ab0157eb038c1020c50043d",
+      "6ab0157db038c1020c50043a",
+      "6aec41b4001f7bbfb5e1352e",
+      "6aec41b4001f7bbfb5e13512",
+      "6aec41b4001f7bbfb5e134fa",
+      "6ab0157fb038c1020c500449",
+      "6af068fddddacc50237211b4",
+      "6aec41b4001f7bbfb5e13527",
+      "6aef24caedd0440d2f9495a4"
+    ],
+    "platforms": [
+      {
+        "value": "playstation_3",
+        "name": "Playstation 3"
+      },
+      {
+        "value": "xbox_360",
+        "name": "XBox 360"
+      },
+      {
+        "value": "xbox_series_xs",
+        "name": "Xbox Series X|S"
+      },
+      {
+        "value": "pc",
+        "name": "PC"
+      },
+      {
+        "value": "epic_games",
+        "name": "Epic Games"
+      },
+      {
+        "value": "xbox_one",
+        "name": "XBox One"
+      },
+      {
+        "value": "xbox",
+        "name": "XBox"
+      },
+      {
+        "value": "windows",
+        "name": "Windows"
+      },
+      {
+        "value": "playstation",
+        "name": "Playstation"
+      }
+    ],
+    "play_modes": [
+      {
+        "value": "co_op",
+        "name": "Co-Op"
+      },
+      {
+        "value": "online_co_op",
+        "name": "Online Co-Op"
+      },
+      {
+        "value": "single_player",
+        "name": "Single-Player"
+      },
+      {
+        "value": "two_players",
+        "name": "2-Players"
+      },
+      {
+        "value": "multiplayer",
+        "name": "Multi-Player"
+      }
+    ],
+    "playtime": {
+      "min": 1,
+      "max": 500,
+      "mean": 37.004545,
+      "median": 25,
+      "mentions": 220,
+      "percentiles": [
+        3,
+        6,
+        11,
+        16,
+        20,
+        30,
+        40,
+        48.5,
+        63,
+        500
+      ]
+    },
+    "price_range_ids": [],
+    "publication_status": "draft",
+    "publisher_ids": [],
+    "rating": {
+      "mean": 0.8685129415606153,
+      "count": 43617,
+      "mean_players": 0.853929,
+      "count_players": 43609,
+      "mean_critics": 0.88625,
+      "count_critics": 8
+    },
+    "release_date": "2012-12-04T00:00:00.000Z",
+    "release_window_ids": [],
+    "review_rating_ids": [],
+    "short_description": "این نسخه نهایی شامل تمام محتوای اضافی DLC است: بسته Monkey Business، Lost Expeditions، Warrior Pack و Predator Pack.",
+    "short_title": "",
+    "slug": "far-cry-3-115402",
+    "sort_title": "Far Cry 3",
+    "status": "released",
+    "storage_sizes": [],
+    "tags": [
+      "6aec41b5001f7bbfb5e13600",
+      "6ab50934ceb900206d739232",
+      "6aec41b5001f7bbfb5e135a3",
+      "6ab50934ceb900206d73922c",
+      "6aec41b5001f7bbfb5e135f4",
+      "6aec41b5001f7bbfb5e1361d",
+      "6aec41b5001f7bbfb5e135ca"
+    ],
+    "themes": [
+      {
+        "value": "erotic",
+        "name": "Erotic"
+      }
+    ],
+    "title": "Far Cry 3",
+    "updatedAt": "2026-11-16T08:53:59.623Z",
+    "x_url": "https://twitter.com/FarCrygame",
+    "theme_ids": [
+      "6aec41b5001f7bbfb5e13565"
+    ],
+    "image": "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_83.webp",
+    "screenshots": [
+      "https://img.gamebrain.co/games/981/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_38.jpg",
+      "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_55.webp",
+      "https://img.gamebrain.co/games/362/far_cry_3_ubisoft_2012_50.webp",
+      "https://img.gamebrain.co/games/256/far_cry_3_ubisoft_2013_16.jpg",
+      "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_76.webp",
+      "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_45.webp",
+      "https://img.gamebrain.co/games/314/far_cry_3_massive_2012_9.webp",
+      "https://img.gamebrain.co/games/371/far_cry_3_ubisoft_2012_86.webp",
+      "https://img.gamebrain.co/games/979/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_50.png",
+      "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_60.webp",
+      "https://img.gamebrain.co/games/360/far_cry_3_ubisoft_2012_12.webp",
+      "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_17.webp",
+      "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_75.webp",
+      "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_70.webp",
+      "https://img.gamebrain.co/games/361/far_cry_3_ubisoft_2012_22.webp",
+      "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_94.webp",
+      "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_65.webp",
+      "https://img.gamebrain.co/games/361/far_cry_3_massive_2012_17.webp",
+      "https://img.gamebrain.co/games/310/far_cry_3_massive_2012_5.webp",
+      "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_37.webp",
+      "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2013_23.webp",
+      "https://img.gamebrain.co/games/355/far_cry_3_massive_2012_11.webp",
+      "https://img.gamebrain.co/games/982/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_48.jpg",
+      "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_63.webp",
+      "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_90.webp",
+      "https://img.gamebrain.co/games/362/far_cry_3_ubisoft_2012_32.webp",
+      "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_58.webp",
+      "https://img.gamebrain.co/games/979/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_81.jpg",
+      "https://img.gamebrain.co/games/979/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_45.jpg",
+      "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_25.webp",
+      "https://img.gamebrain.co/games/361/far_cry_3_ubisoft_2012_40.webp",
+      "https://img.gamebrain.co/games/372/far_cry_3_ubisoft_2012_78.webp",
+      "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_52.webp",
+      "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_19.webp",
+      "https://img.gamebrain.co/games/363/far_cry_3_massive_2012_19.webp",
+      "https://img.gamebrain.co/games/362/far_cry_3_ubisoft_2012_14.webp",
+      "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_33.webp",
+      "https://img.gamebrain.co/games/371/far_cry_3_ubisoft_2012_59.webp",
+      "https://img.gamebrain.co/games/257/far_cry_3_ubisoft_2013_17.jpg",
+      "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_57.webp",
+      "https://img.gamebrain.co/games/356/far_cry_3_massive_2012_12.webp",
+      "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2013_25.webp",
+      "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_28.webp",
+      "https://img.gamebrain.co/games/69/far_cry_3_ubisoftmontreal_2013_2.jpg",
+      "https://img.gamebrain.co/games/360/far_cry_3_ubisoft_2013_20.webp",
+      "https://img.gamebrain.co/games/374/far_cry_3_ubisoft_2012_89.webp",
+      "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_38.webp",
+      "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_82.webp",
+      "https://img.gamebrain.co/games/253/far_cry_3_ubisoft_2013_13.jpg",
+      "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_80.webp",
+      "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_61.webp",
+      "https://img.gamebrain.co/games/372/far_cry_3_ubisoft_2012_87.webp",
+      "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_73.webp",
+      "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_49.webp",
+      "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_35.webp",
+      "https://img.gamebrain.co/games/360/far_cry_3_ubisoft_2012_30.webp",
+      "https://img.gamebrain.co/games/986/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_79.jpg",
+      "https://img.gamebrain.co/games/210/far_cry_3_ubisoft_2013_9.jpg",
+      "https://img.gamebrain.co/games/358/far_cry_3_massive_2012_14.webp",
+      "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_42.webp",
+      "https://img.gamebrain.co/games/371/far_cry_3_ubisoft_2012_68.webp",
+      "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_47.webp",
+      "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_54.webp",
+      "https://img.gamebrain.co/games/360/far_cry_3_massive_2012_16.webp",
+      "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_66.webp",
+      "https://img.gamebrain.co/games/356/far_cry_3_massive_2012_21.webp",
+      "https://img.gamebrain.co/games/362/far_cry_3_ubisoft_2012_23.webp",
+      "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_26.webp",
+      "https://img.gamebrain.co/games/359/far_cry_3_massive_2012_15.webp",
+      "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_84.webp",
+      "https://img.gamebrain.co/games/360/far_cry_3_ubisoft_2012_21.webp",
+      "https://img.gamebrain.co/games/354/far_cry_3_massive_2012_10.webp",
+      "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_16.webp",
+      "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_74.webp",
+      "https://img.gamebrain.co/games/361/far_cry_3_ubisoft_2012_31.webp",
+      "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_67.webp",
+      "https://img.gamebrain.co/games/359/far_cry_3_ubisoft_2012_20.webp",
+      "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_46.webp",
+      "https://img.gamebrain.co/games/362/far_cry_3_ubisoft_2012_41.webp",
+      "https://img.gamebrain.co/games/312/far_cry_3_massive_2012_7.webp",
+      "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_36.webp",
+      "https://img.gamebrain.co/games/355/far_cry_3_massive_2012_20.webp",
+      "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_44.webp",
+      "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_51.webp",
+      "https://img.gamebrain.co/games/371/far_cry_3_ubisoft_2012_77.webp",
+      "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_18.webp",
+      "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_56.webp",
+      "https://img.gamebrain.co/games/309/far_cry_3_massive_2012_4.webp",
+      "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_64.webp",
+      "https://img.gamebrain.co/games/370/far_cry_3_ubisoft_2012_85.webp",
+      "https://img.gamebrain.co/games/361/far_cry_3_ubisoft_2012_13.webp",
+      "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_71.webp",
+      "https://img.gamebrain.co/games/362/far_cry_3_massive_2012_18.webp",
+      "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_62.webp",
+      "https://img.gamebrain.co/games/373/far_cry_3_ubisoft_2012_88.webp",
+      "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_48.webp",
+      "https://img.gamebrain.co/games/367/far_cry_3_ubisoft_2012_91.webp",
+      "https://img.gamebrain.co/games/372/far_cry_3_ubisoft_2012_69.webp",
+      "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2012_29.webp",
+      "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2013_24.webp",
+      "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_43.webp",
+      "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_72.webp",
+      "https://img.gamebrain.co/games/978/far_cry_3_ubisoftmontreal_massive_andubisoftshanghai_2012_44.jpg",
+      "https://img.gamebrain.co/games/365/far_cry_3_ubisoft_2012_53.webp",
+      "https://img.gamebrain.co/games/311/far_cry_3_massive_2012_6.webp",
+      "https://img.gamebrain.co/games/313/far_cry_3_massive_2012_8.webp",
+      "https://img.gamebrain.co/games/364/far_cry_3_ubisoft_2012_34.webp",
+      "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_24.webp",
+      "https://img.gamebrain.co/games/255/far_cry_3_ubisoft_2013_15.jpg",
+      "https://img.gamebrain.co/games/373/far_cry_3_ubisoft_2012_79.webp",
+      "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_27.webp",
+      "https://img.gamebrain.co/games/357/far_cry_3_massive_2012_13.webp",
+      "https://img.gamebrain.co/games/361/far_cry_3_ubisoft_2013_21.webp",
+      "https://img.gamebrain.co/games/363/far_cry_3_ubisoft_2012_15.webp",
+      "https://img.gamebrain.co/games/368/far_cry_3_ubisoft_2013_19.webp",
+      "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_39.webp",
+      "https://img.gamebrain.co/games/369/far_cry_3_ubisoft_2012_93.webp",
+      "https://img.gamebrain.co/games/371/far_cry_3_ubisoft_2012_95.webp",
+      "https://img.gamebrain.co/games/366/far_cry_3_ubisoft_2012_81.webp"
+    ]
+  },
+  {
+    "_id": "6af9f428c846f893ac791e22",
+    "id": 1389474,
+    "isDeleted": false,
+    "__v": 0,
+    "adult_only": false,
+    "alternate_titles": [],
+    "approvalReview": {
+      "status": "",
+      "reason": "",
+      "reviewedAt": null,
+      "reviewedBy": null
+    },
+    "auto_draft": true,
+    "content_rating_ids": [],
+    "cover_media_id": null,
+    "createdAt": "2026-11-15T18:04:24.754Z",
+    "creator": "6aafdc92db4c30c55f369c5b",
+    "description": "وقتی یک کلاهبردار خیابانی، یک سارق بانک بازنشسته و یک روان پریش ترسناک خود را در میان برخی از ترسناک ترین و دیوانه ترین عناصر دنیای زیرزمینی جنایتکار، دولت آمریکا و صنعت سرگرمی می یابند، باید مجموعه ای از سرقت های خطرناک را برای زنده ماندن در شهری بی رحم که نمی توانند به هیچ اعتماد کنند، انجام دهند.  به خصوص با هم. Grand Theft Auto V برای کامپیوتر به بازیکنان این امکان را می دهد که دنیای برنده جوایز لس سانتوس و شهرستان بلین را به صورت رزومنستی کشف کنند فرصت هایی تا 4K و بیشتر، و همچنین فرصت تجربه بازی با سرعت 60 فریم بر ثانیه. این بازی مجموعه گسترده ای از گزینه های شخصی سازی مخصوص کامپیوتر را به بازیکنان ارائه می دهد، از جمله بیش از ۲۵ تنظیم قابل تنظیم جداگانه برای کیفیت بافت، شیدرها، تسلیسیون، آنتی الیاسینگ و موارد دیگر، همچنین پشتیبانی و سفارشی سازی گسترده برای کنترل های ماوس و کیبورد. گزینه های اضافی شامل اسلایدر تراکم جمعیت برای کنترل ترافیک خودرو و عابران پیاده، همچنین مسیر دوگانه و سفر است پشتیبانی از مانیتورهای LE، سازگاری با سه بعدی و پشتیبانی از کنترلر plug-and-play. Grand Theft Auto V برای PC همچنین شامل Grand Theft Auto Online است که از ۳۰ بازیکن و دو تماشاگر پشتیبانی می کند. Grand Theft Auto Online برای کامپیوتر شامل تمام ارتقاءهای گیم پلی موجود و محتوای ساخته شده توسط راک استار است که از زمان عرضه Grand Theft Auto Online منتشر شده اند، از جمله حالت های سرقت و دشمن. نسخه کامپیوتری Grand Theft Auto V و Grand Theft Auto Online دارای حالت اول شخص هستند که به بازیکنان فرصت می دهد و برای کاوش در دنیای فوق العاده دقیق لس سانتوس و شهرستان بلین به روشی کاملا جدید. Grand Theft Auto V برای PC همچنین معرفی Rockstar Editor را به ارمغان آورده است؛ مجموعه ای قدرتمند از ابزارهای خلاقانه که به سرعت و به آسانی تصاویر بازی را از داخل Grand Theft Auto V و Grand Theft Auto Online ضبط، ویرایش و به اشتراک می گذارد. حالت کارگردان Rockstar Editor به بازیکنان اجازه می دهد صحنه های خود را با استفاده از شخصیت های برجسته داستان، عابران پیاده و حتی حیوانات برای تحقق دیدگاه خود اجرا کنند به زندگی. علاوه بر افکت های پیشرفته ویرایش و دستکاری دوربین از جمله حرکت سریع و آهسته و مجموعه ای از فیلترهای دوربین، بازیکنان می توانند موسیقی خود را با استفاده از آهنگ های ایستگاه های رادیویی GTAV اضافه کنند یا شدت موسیقی بازی را به صورت پویا کنترل کنند. ویدیوهای تکمیل شده را می توان مستقیما از ویرایشگر راک استار به یوتیوب و باشگاه اجتماعی بازی های راک استار برای اشتراک گذاری آسان بارگذاری کرد. هنرمندان موسیقی متن The Alchemist و Oh No به عنوان مجریان ایستگاه رادیویی جدید The Lab FM بازمی گردند. استاتی ها ON شامل موسیقی جدید و انحصاری از دو تولیدکننده است که بر اساس و الهام گرفته از موسیقی متن اصلی بازی ساخته شده اند. هنرمندان مهمان همکار شامل ارل سویتشرت، فردی گیبز، لیتل دراگون، کیلر مایک، سم هرینگ از فیوچر آیلندز و دیگران هستند. بازیکنان همچنین می توانند لس سانتوس و شهرستان بلین را کشف کنند و از موسیقی خود لذت ببرند، از طریق Self Radio، یک ایستگاه رادیویی جدید که موسیقی های سفارشی ساخته شده توسط بازیکنان را ارائه می دهد.",
+    "detail_banner": null,
+    "detail_gif": null,
+    "detail_poster": null,
+    "developer": "Rockstar west",
+    "developer_ids": [
+      "6afac4a4765d5e2e5fff7d6a"
+    ],
+    "draft_completed": false,
+    "draft_completion_errors": [
+      "developer_ids:Rockstar west"
+    ],
+    "feature_ids": [],
+    "game_mode_ids": [
+      "6aec41b5001f7bbfb5e13577"
+    ],
+    "game_series_ids": [],
+    "gamebrain_source": {
+      "id": 1389474,
+      "name": "Gta v",
+      "image": "https://img.gamebrain.co/games/42/gta_5_rockstarwest_2024_1.jpg",
+      "image_aspect_ratio": 1.01504,
+      "gameplay": null,
+      "link": "https://gamebrain.co/game/gta-v",
+      "rating": {
+        "mean": null,
+        "count": null,
+        "mean_players": null,
+        "count_players": null,
+        "mean_critics": null,
+        "count_critics": null
+      },
+      "description": "When a young street hustler, a retired bank robber and a terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.Grand Theft Auto V for PC offers players the option to explore the award-winning world of Los Santos and Blaine County in resolutions of up to 4k and beyond, as well as the chance to experience the game running at 60 frames per second.The game offers players a huge range of PC-specific customization options, including over 25 separate configurable settings for texture quality, shaders, tessellation, anti-aliasing and more, as well as support and extensive customization for mouse and keyboard controls. Additional options include a population density slider to control car and pedestrian traffic, as well as dual and triple monitor support, 3D compatibility, and plug-and-play controller support.Grand Theft Auto V for PC also includes Grand Theft Auto Online, with support for 30 players and two spectators. Grand Theft Auto Online for PC will include all existing gameplay upgrades and Rockstar-created content released since the launch of Grand Theft Auto Online, including Heists and Adversary modes.The PC version of Grand Theft Auto V and Grand Theft Auto Online features First Person Mode, giving players the chance to explore the incredibly detailed world of Los Santos and Blaine County in an entirely new way.Grand Theft Auto V for PC also brings the debut of the Rockstar Editor, a powerful suite of creative tools to quickly and easily capture, edit and share game footage from within Grand Theft Auto V and Grand Theft Auto Online. The Rockstar Editor’s Director Mode allows players the ability to stage their own scenes using prominent story characters, pedestrians, and even animals to bring their vision to life. Along with advanced camera manipulation and editing effects including fast and slow motion, and an array of camera filters, players can add their own music using songs from GTAV radio stations, or dynamically control the intensity of the game’s score. Completed videos can be uploaded directly from the Rockstar Editor to YouTube and the Rockstar Games Social Club for easy sharing.Soundtrack artists The Alchemist and Oh No return as hosts of the new radio station, The Lab FM. The station features new and exclusive music from the production duo based on and inspired by the game’s original soundtrack. Collaborating guest artists include Earl Sweatshirt, Freddie Gibbs, Little Dragon, Killer Mike, Sam Herring from Future Islands, and more. Players can also discover Los Santos and Blaine County while enjoying their own music through Self Radio, a new radio station that will host player-created custom soundtracks.",
+      "short_description": "When a young street hustler, a retired bank robber and a terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.Grand Theft Auto V for PC…",
+      "release_date": "2024-05-01",
+      "developer": "Rockstar west",
+      "platforms": [
+        {
+          "value": "linux",
+          "name": "Linux"
+        },
+        {
+          "value": "tablet",
+          "name": "Tablet"
+        },
+        {
+          "value": "android",
+          "name": "Android"
+        },
+        {
+          "value": "mac_os",
+          "name": "Mac OS"
+        },
+        {
+          "value": "phone",
+          "name": "Phone"
+        },
+        {
+          "value": "mobile_platform",
+          "name": "Mobile Phone"
+        },
+        {
+          "value": "windows",
+          "name": "Windows"
+        }
+      ],
+      "tags": [
+        {
+          "value": "indie",
+          "name": "Indie"
+        }
+      ],
+      "genres": [
+        {
+          "value": "open_world",
+          "name": "Open World"
+        },
+        {
+          "value": "action",
+          "name": "Action"
+        },
+        {
+          "value": "adventure",
+          "name": "Adventure"
+        }
+      ],
+      "genre": "Open World Action Adventure",
+      "themes": [],
+      "adult_only": false,
+      "play_modes": [
+        {
+          "value": "multiplayer",
+          "name": "Multi-Player"
+        }
+      ],
+      "screenshots": [
+        "https://img.gamebrain.co/games/46/gta_5_rockstarwest_2024_5.jpg",
+        "https://img.gamebrain.co/games/44/gta_5_rockstarwest_2024_3.jpg",
+        "https://img.gamebrain.co/games/47/gta_5_rockstarwest_2024_6.jpg",
+        "https://img.gamebrain.co/games/45/gta_5_rockstarwest_2024_4.jpg",
+        "https://img.gamebrain.co/games/43/gta_5_rockstarwest_2024_2.jpg"
+      ],
+      "videos": [
+        "https://www.youtube-nocookie.com/embed/QkkoHAzjnUs"
+      ],
+      "offers": [
+        {
+          "price": {
+            "value": 2,
+            "currency": "USD"
+          },
+          "store_name": "itchio",
+          "platform": "PC",
+          "title": "Gta v",
+          "url": "https://rockstar-west.itch.io/gta-v"
+        }
+      ],
+      "official_stores": [
+        {
+          "source": "itchio",
+          "url": "https://rockstar-west.itch.io/gta-v"
+        }
+      ],
+      "micro_trailer": null
+    },
+    "genre": "Open World Action Adventure",
+    "genre_ids": [
+      "6aec41b5001f7bbfb5e13549",
+      "6ab01577b038c1020c5003e3",
+      "6ab01577b038c1020c5003e6"
+    ],
+    "genres": [
+      {
+        "value": "open_world",
+        "name": "Open World"
+      },
+      {
+        "value": "action",
+        "name": "Action"
+      },
+      {
+        "value": "adventure",
+        "name": "Adventure"
+      }
+    ],
+    "has_persian_subtitles": false,
+    "image_aspect_ratio": 1.01504,
+    "input_mode_ids": [],
+    "link": "https://gamebrain.co/game/gta-v",
+    "name": "Gta v",
+    "offers": [
+      {
+        "store_id": null,
+        "platform_id": null,
+        "url": "https://rockstar-west.itch.io/gta-v",
+        "title": "Gta v",
+        "platform": "PC",
+        "store_name": "itchio",
+        "price": {
+          "value": 2,
+          "currency": "USD"
+        }
+      }
+    ],
+    "official_stores": [
+      {
+        "store_id": null,
+        "url": "https://rockstar-west.itch.io/gta-v",
+        "source": "itchio"
+      }
+    ],
+    "official_website": null,
+    "platform_ids": [
+      "6aec41b4001f7bbfb5e13501",
+      "6aec41b4001f7bbfb5e13522",
+      "6aec41b4001f7bbfb5e134ef",
+      "6aec41b4001f7bbfb5e13502",
+      "6aec41b4001f7bbfb5e13513",
+      "6aec41b4001f7bbfb5e13503",
+      "6aec41b4001f7bbfb5e13527"
+    ],
+    "platforms": [
+      {
+        "value": "linux",
+        "name": "Linux"
+      },
+      {
+        "value": "tablet",
+        "name": "Tablet"
+      },
+      {
+        "value": "android",
+        "name": "Android"
+      },
+      {
+        "value": "mac_os",
+        "name": "Mac OS"
+      },
+      {
+        "value": "phone",
+        "name": "Phone"
+      },
+      {
+        "value": "mobile_platform",
+        "name": "Mobile Phone"
+      },
+      {
+        "value": "windows",
+        "name": "Windows"
+      }
+    ],
+    "play_modes": [
+      {
+        "value": "multiplayer",
+        "name": "Multi-Player"
+      }
+    ],
+    "price_range_ids": [],
+    "publication_status": "draft",
+    "publisher_ids": [],
+    "rating": {
+      "mean": null,
+      "count": null,
+      "mean_players": null,
+      "count_players": null,
+      "mean_critics": null,
+      "count_critics": null
+    },
+    "release_date": "2024-05-01T00:00:00.000Z",
+    "release_window_ids": [],
+    "review_rating_ids": [],
+    "short_description": "وقتی یک کلاهبردار خیابانی، یک سارق بانک بازنشسته و یک روان پریش ترسناک خود را در میان برخی از ترسناک ترین و دیوانه ترین عناصر دنیای زیرزمینی جنایتکار، دولت آمریکا و صنعت سرگرمی می یابند، باید مجموعه ای از سرقت های خطرناک را برای زنده ماندن در شهری بی رحم که نمی توانند به هیچ اعتماد کنند، انجام دهند.  به خصوص با هم. Grand Theft Auto V برای کامپیوتر...",
+    "short_title": "",
+    "slug": "gta-v-1389474",
+    "sort_title": "Gta v",
+    "status": "released",
+    "storage_sizes": [],
+    "tags": [
+      "6aec41b5001f7bbfb5e13622"
+    ],
+    "themes": [],
+    "title": "Gta v",
+    "updatedAt": "2026-11-16T08:53:58.938Z",
+    "theme_ids": [],
+    "image": "https://img.gamebrain.co/games/42/gta_5_rockstarwest_2024_1.jpg",
+    "screenshots": [
+      "https://img.gamebrain.co/games/46/gta_5_rockstarwest_2024_5.jpg",
+      "https://img.gamebrain.co/games/44/gta_5_rockstarwest_2024_3.jpg",
+      "https://img.gamebrain.co/games/47/gta_5_rockstarwest_2024_6.jpg",
+      "https://img.gamebrain.co/games/45/gta_5_rockstarwest_2024_4.jpg",
+      "https://img.gamebrain.co/games/43/gta_5_rockstarwest_2024_2.jpg"
+    ]
+  },
+  {
+    "_id": "6af9f43fc846f893ac791e5d",
+    "id": 1512239,
+    "isDeleted": false,
+    "__v": 0,
+    "adult_only": false,
+    "alternate_titles": [],
+    "approvalReview": {
+      "status": "",
+      "reason": "",
+      "reviewedAt": null,
+      "reviewedBy": null
+    },
+    "auto_draft": true,
+    "content_rating_ids": [],
+    "cover_media_id": null,
+    "createdAt": "2026-11-15T18:04:47.928Z",
+    "creator": "6aafdc92db4c30c55f369c5b",
+    "description": "شامل: UNCHARTED 4: پایان یک دزد Uncharted: میراث گمشده آیا آماده ای به دنبال بخت خود باشی؟ شانس خود را جستجو کنید و ردپای خود را روی نقشه در مجموعه Uncharted: Legacy of Thieves بگذارید. داستان سرایی سینمایی هیجان انگیز و بزرگ ترین صحنه های اکشن پرفروش در مجموعه UNCHARTED را کشف کنید که پر از شوخ طبعی، زیرکی و لحظات اغراق آمیز دزدان محبوب – ناتان دریک و کلویی فریزر – است. در تجربه ای که توسط توسعه دهنده برنده جایزه Naughty Dog ارائه شده است می تواند، مجموعه UNCHARTED: Legacy of Thieves شامل دو ماجراجویی تک نفره تحسین شده و جهانی از UNCHARTED™ 4: A Thief's End و UNCHARTED™: The Lost Legacy است. هر داستان پر از خنده، درام، مبارزات پرانرژی و حس شگفتی است – بازسازی شده تا حتی غوطه ورکننده تر شود. UNCHARTED 4: A Thief's End برنده بیش از ۱۵۰ جایزه بازی سال. چند سال پس از آخرین ماجراجویی اش، ناتان دریک، شکارچی ثروت بازنشسته، مجبور می شود دوباره به دنیای دزدان. سرنوشت زمانی فرا می رسد که سم، برادر مرده فرضی دریک، دوباره ظاهر می شود و به دنبال کمک برای نجات جان خود و ارائه ماجرایی است که دریک نمی تواند در برابرش مقاومت کند. بزرگ ترین ماجراجویی دریک محدودیت های جسمی، اراده اش و در نهایت آنچه حاضر است برای نجات عزیزانش فدا کند، را به چالش خواهد کشید. در جستجوی گنج گمشده کاپیتان هنری آوری، سم و دریک به دنبال لیبرتالیا، آرمان شهر دزدان دریایی در اعماق جنگل های ماداگاسکار می روند – که منجر به یک جشن می شود در جستجوی ثروت آوری، در سراسر جهان از میان جزایر جنگلی، شهرهای دورافتاده و قله های پوشیده از برف سفر کنید. یک ماجراجویی جهانی با بزرگ ترین و دقیق ترین محیط های مجموعه UNCHARTED. داستانی شخصی تر برای ناتان دریک، که سطح داستان سرایی برنده جایزه Naughty Dog را بالا می برد. مبارزه روان و حرکت با استفاده از قلاب قلاب باعث خلق صحنه های اکشن پویا و هیجان انگیزتر می شود. UNCHARTED: میراث گمشده برای بازیابی یک کلویی فریزر، شیء باستانی و دور نگه داشتن آن از دست یک جنگ طلب بی رحم، باید از مزدور مشهور نادین راس کمک بگیرد و به رشته کوه های غربی گات هند برود تا عاج طلایی گانش را پیدا کند. در بزرگ ترین سفر کلویی، او باید با گذشته اش روبرو شود و تصمیم بگیرد که حاضر است چه چیزی را فدا کند تا میراث خودش را بسازد. محیطی کاملا جدید برای ماجراجویی در سواحل جنوب غربی شبه جزیره هند، با ترکیبی عجیب و غریب از محیط های شهری، جنگلی و ویرانه های باستانی انت ها. صحنه های پر از اکشن و روایت جذابی که طرفداران از Naughty Dog و سری UNCHARTED انتظار دارند. بر پایه گیم پلی تحسین شده فرنچایز UNCHARTED با سیستم ها و بهبودهای به روزشده، از جمله مبارزات سینمایی، کاوش و عبور از محیط های حیرت انگیز، معماهای پیچیده و موارد دیگر ساخته شده است.",
+    "detail_banner": null,
+    "detail_gif": null,
+    "detail_poster": null,
+    "developer": "Iron Galaxy Studios",
+    "developer_ids": [
+      "6afac4a3765d5e2e5fff7d69"
+    ],
+    "draft_completed": false,
+    "draft_completion_errors": [
+      "developer_ids:Iron Galaxy Studios"
+    ],
+    "feature_ids": [],
+    "game_mode_ids": [
+      "6ab53b9d0eb5341c5264c0aa",
+      "6aec41b5001f7bbfb5e13577"
+    ],
+    "game_series_ids": [],
+    "gamebrain_source": {
+      "id": 1512239,
+      "name": "Uncharted: Legacy of Thieves Collection",
+      "image": "https://img.gamebrain.co/games/970/uncharted_наследие_воров_коллекция_irongalaxy_2022_34.jpg",
+      "image_aspect_ratio": 2.13953,
+      "gameplay": "https://video.akamai.steamstatic.com/store_trailers/256910607/microtrailer.webm",
+      "link": "https://gamebrain.co/game/uncharted",
+      "rating": {
+        "mean": 0.88929,
+        "count": 11634,
+        "mean_players": 0.88929,
+        "count_players": 11634,
+        "mean_critics": null,
+        "count_critics": 0
+      },
+      "description": "Includes: UNCHARTED 4: A Thief’s End UNCHARTED: The Lost Legacy Are You Ready To Seek Your Fortune? Seek your fortune and leave your mark on the map in the UNCHARTED: Legacy of Thieves Collection. Uncover the thrilling cinematic storytelling and the largest blockbuster action set pieces in the UNCHARTED franchise, packed with all the wit, cunning, and over the top moments of the beloved thieves – Nathan Drake and Chloe Frazer. In an experience delivered by award winning developer Naughty Dog can, the UNCHARTED: Legacy of Thieves Collection includes the two critically-acclaimed, globe-trotting single player adventures from UNCHARTED™ 4: A Thief’s End and UNCHARTED™: The Lost Legacy. Each story is filled with laughs, drama, high octane combat, and a sense of wonder – remastered to be even more immersive. UNCHARTED 4: A Thief’s End Winner of over 150 Game of the Year awards. Several years after his last adventure, retired fortune hunter Nathan Drake, is forced back into the world of thieves. Fate comes calling when Sam, Drake’s presumed dead brother, resurfaces seeking his help to save his own life and offering an adventure Drake can’t resist. Drake’s greatest adventure will test his physical limits, his resolve, and ultimately what he’s willing to sacrifice to save the ones he loves. On the hunt for Captain Henry Avery’s long-lost treasure, Sam and Drake set off to find Libertalia, the pirate utopia deep in the forests of Madagascar – leading to a journey around the globe through jungle isles, far-flung cities, and snow capped peaks on the search for Avery’s fortune. A globe-trotting adventure with the largest and most detailed environments in the UNCHARTED franchise A more personal story for Nathan Drake, raising the stakes for the award-winning storytelling of Naughty Dog. Fluid combat and traversal with the use of the grapple hook creates even more dynamic and thrilling action set pieces. UNCHARTED: The Lost Legacy In order to recover an ancient artifact and keep it out of the hands of a ruthless warmonger, Chloe Frazer must enlist the aid of renowned mercenary Nadine Ross and venture to India’s Western Ghats to locate the Golden Tusk of Ganesh. In Chloe’s greatest journey yet, she must confront her past and decide what she’s willing to sacrifice to forge her own legacy. An all-new setting for adventure in the south western coast of the Indian peninsula, featuring an exotic mix of urban, jungle, and ancient ruins environments. The action-packed set pieces and captivating narrative that fans have come to expect from Naughty Dog and the UNCHARTED series. Builds on the acclaimed UNCHARTED franchise gameplay with updated systems and refinements, including cinematic combat, exploration, and traversal of jaw-dropping environments, complex puzzles and more.",
+      "short_description": "Includes: UNCHARTED 4: A Thief’s End UNCHARTED: The Lost Legacy Are You Ready To Seek Your Fortune? Seek your fortune and leave your mark on the map in the UNCHARTED: Legacy of Thieves Collection. Uncover the thrilling cinematic storytelling and the largest blockbuster action set pieces in the UNCHARTED franchise, packed with all the wit, cunning, and over the top moments of the beloved thieves – …",
+      "release_date": "2022-10-19",
+      "developer": "Iron Galaxy Studios",
+      "playtime": {
+        "percentiles": [
+          2,
+          4,
+          7,
+          10,
+          12,
+          15,
+          20,
+          20,
+          27,
+          50
+        ],
+        "mentions": 46,
+        "min": 1,
+        "max": 50,
+        "mean": 14.826087,
+        "median": 13.5
+      },
+      "platforms": [
+        {
+          "value": "pc",
+          "name": "PC"
+        },
+        {
+          "value": "epic_games",
+          "name": "Epic Games"
+        },
+        {
+          "value": "steam_deck",
+          "name": "Steam Deck"
+        },
+        {
+          "value": "windows",
+          "name": "Windows"
+        }
+      ],
+      "tags": [
+        {
+          "value": "female_protagonist",
+          "name": "Female Protagonist"
+        },
+        {
+          "value": "exploration",
+          "name": "Exploration"
+        },
+        {
+          "value": "atmospheric",
+          "name": "Atmospheric"
+        },
+        {
+          "value": "third_person",
+          "name": "Third Person"
+        },
+        {
+          "value": "story_rich",
+          "name": "Story Rich"
+        },
+        {
+          "value": "parkour",
+          "name": "Parkour"
+        },
+        {
+          "value": "epic",
+          "name": "Epic"
+        },
+        {
+          "value": "cinematic",
+          "name": "Cinematic"
+        },
+        {
+          "value": "combat",
+          "name": "Combat"
+        },
+        {
+          "value": "funny",
+          "name": "Funny"
+        }
+      ],
+      "genres": [
+        {
+          "value": "stealth",
+          "name": "Stealth"
+        },
+        {
+          "value": "platformer",
+          "name": "Platformer"
+        },
+        {
+          "value": "action",
+          "name": "Action"
+        },
+        {
+          "value": "third_person_shooter",
+          "name": "Third Person Shooter"
+        },
+        {
+          "value": "shooter",
+          "name": "Shooter"
+        },
+        {
+          "value": "adventure",
+          "name": "Adventure"
+        },
+        {
+          "value": "action_adventure",
+          "name": "Action-Adventure"
+        }
+      ],
+      "genre": "Platformer",
+      "themes": [],
+      "adult_only": false,
+      "play_modes": [
+        {
+          "value": "single_player",
+          "name": "Single-Player"
+        },
+        {
+          "value": "multiplayer",
+          "name": "Multi-Player"
+        }
+      ],
+      "screenshots": [
+        "https://img.gamebrain.co/games/979/uncharted_legacy_of_thieves_collection_irongalaxy_2022_7.webp",
+        "https://img.gamebrain.co/games/978/uncharted_legacy_of_thieves_collection_irongalaxy_2022_6.webp",
+        "https://img.gamebrain.co/games/968/uncharted_наследие_воров_коллекция_irongalaxy_2022_41.jpg",
+        "https://img.gamebrain.co/games/981/uncharted_legacy_of_thieves_collection_irongalaxy_2022_9.webp",
+        "https://img.gamebrain.co/games/974/uncharted_legacy_of_thieves_collection_irongalaxy_2022_2.webp",
+        "https://img.gamebrain.co/games/21/uncharted_legacy_of_thieves_collection_irongalaxy_2022_10.webp",
+        "https://img.gamebrain.co/games/24/uncharted_legacy_of_thieves_collection_irongalaxy_2022_13.webp",
+        "https://img.gamebrain.co/games/971/uncharted_наследие_воров_коллекция_irongalaxy_2022_35.jpg",
+        "https://img.gamebrain.co/games/966/uncharted_наследие_воров_коллекция_irongalaxy_2022_21.jpg",
+        "https://img.gamebrain.co/games/29/uncharted_legacy_of_thieves_collection_irongalaxy_2022_18.webp",
+        "https://img.gamebrain.co/games/973/uncharted_наследие_воров_коллекция_irongalaxy_2022_37.jpg",
+        "https://img.gamebrain.co/games/976/uncharted_legacy_of_thieves_collection_irongalaxy_2022_4.webp",
+        "https://img.gamebrain.co/games/23/uncharted_legacy_of_thieves_collection_irongalaxy_2022_12.webp",
+        "https://img.gamebrain.co/games/22/uncharted_legacy_of_thieves_collection_irongalaxy_2022_11.webp",
+        "https://img.gamebrain.co/games/27/uncharted_legacy_of_thieves_collection_irongalaxy_2022_16.webp",
+        "https://img.gamebrain.co/games/26/uncharted_legacy_of_thieves_collection_irongalaxy_2022_15.webp",
+        "https://img.gamebrain.co/games/980/uncharted_legacy_of_thieves_collection_irongalaxy_2022_8.webp",
+        "https://img.gamebrain.co/games/975/uncharted_legacy_of_thieves_collection_irongalaxy_2022_3.webp",
+        "https://img.gamebrain.co/games/972/uncharted_наследие_воров_коллекция_irongalaxy_2022_36.jpg",
+        "https://img.gamebrain.co/games/967/uncharted_наследие_воров_коллекция_irongalaxy_2022_40.jpg",
+        "https://img.gamebrain.co/games/973/uncharted_наследие_воров_коллекция_irongalaxy_2022_28.jpg",
+        "https://img.gamebrain.co/games/977/uncharted_legacy_of_thieves_collection_irongalaxy_2022_5.webp",
+        "https://img.gamebrain.co/games/28/uncharted_legacy_of_thieves_collection_irongalaxy_2022_17.webp",
+        "https://img.gamebrain.co/games/25/uncharted_legacy_of_thieves_collection_irongalaxy_2022_14.webp"
+      ],
+      "videos": [
+        "https://video.akamai.steamstatic.com/store_trailers/256910607/movie480_vp9.webm",
+        "https://www.youtube-nocookie.com/embed/BUKkpoFvSxc",
+        "https://video.akamai.steamstatic.com/store_trailers/1659420/504310/8f30b7f0dfd643ce47a42a82c5babcf1a6694457/1750721102/dash_h264.mpd"
+      ],
+      "offers": [
+        {
+          "price": {
+            "value": 49.99,
+            "currency": "USD",
+            "initial": 49.99,
+            "discount_percent": 0
+          },
+          "store_name": "steam",
+          "platform": "PC",
+          "title": "UNCHARTED™: Legacy of Thieves Collection",
+          "url": "https://store.steampowered.com/app/1659420"
+        },
+        {
+          "price": {
+            "value": 49.99,
+            "currency": "EUR"
+          },
+          "store_name": "steam",
+          "platform": "PC",
+          "title": "UNCHARTED™: Legacy of Thieves Collection",
+          "url": "https://store.steampowered.com/app/1659420"
+        }
+      ],
+      "official_stores": [
+        {
+          "source": "steam",
+          "url": "https://store.steampowered.com/app/1659420"
+        }
+      ],
+      "micro_trailer": "https://video.akamai.steamstatic.com/store_trailers/256910607/microtrailer.webm"
+    },
+    "genre": "Platformer",
+    "genre_ids": [
+      "6ab0157bb038c1020c500419",
+      "6ab0157ab038c1020c50040d",
+      "6ab01577b038c1020c5003e3",
+      "6ab0157ab038c1020c50040a",
+      "6aec41b5001f7bbfb5e13552",
+      "6ab01577b038c1020c5003e6",
+      "6ab01577b038c1020c5003e9"
+    ],
+    "genres": [
+      {
+        "value": "stealth",
+        "name": "Stealth"
+      },
+      {
+        "value": "platformer",
+        "name": "Platformer"
+      },
+      {
+        "value": "action",
+        "name": "Action"
+      },
+      {
+        "value": "third_person_shooter",
+        "name": "Third Person Shooter"
+      },
+      {
+        "value": "shooter",
+        "name": "Shooter"
+      },
+      {
+        "value": "adventure",
+        "name": "Adventure"
+      },
+      {
+        "value": "action_adventure",
+        "name": "Action-Adventure"
+      }
+    ],
+    "has_persian_subtitles": false,
+    "image_aspect_ratio": 2.13953,
+    "input_mode_ids": [],
+    "link": "https://gamebrain.co/game/uncharted",
+    "name": "Uncharted: Legacy of Thieves Collection",
+    "offers": [
+      {
+        "store_id": null,
+        "platform_id": null,
+        "url": "https://store.steampowered.com/app/1659420",
+        "title": "UNCHARTED™: Legacy of Thieves Collection",
+        "platform": "PC",
+        "store_name": "steam",
+        "price": {
+          "value": 49.99,
+          "initial": 49.99,
+          "currency": "USD",
+          "discount_percent": 0
+        }
+      },
+      {
+        "store_id": null,
+        "platform_id": null,
+        "url": "https://store.steampowered.com/app/1659420",
+        "title": "UNCHARTED™: Legacy of Thieves Collection",
+        "platform": "PC",
+        "store_name": "steam",
+        "price": {
+          "value": 49.99,
+          "currency": "EUR"
+        }
+      }
+    ],
+    "official_stores": [
+      {
+        "store_id": null,
+        "url": "https://store.steampowered.com/app/1659420",
+        "source": "steam"
+      }
+    ],
+    "official_website": null,
+    "platform_ids": [
+      "6aec41b4001f7bbfb5e13512",
+      "6aec41b4001f7bbfb5e134fa",
+      "6aec41b4001f7bbfb5e13520",
+      "6aec41b4001f7bbfb5e13527"
+    ],
+    "platforms": [
+      {
+        "value": "pc",
+        "name": "PC"
+      },
+      {
+        "value": "epic_games",
+        "name": "Epic Games"
+      },
+      {
+        "value": "steam_deck",
+        "name": "Steam Deck"
+      },
+      {
+        "value": "windows",
+        "name": "Windows"
+      }
+    ],
+    "play_modes": [
+      {
+        "value": "single_player",
+        "name": "Single-Player"
+      },
+      {
+        "value": "multiplayer",
+        "name": "Multi-Player"
+      }
+    ],
+    "playtime": {
+      "min": 1,
+      "max": 50,
+      "mean": 14.826087,
+      "median": 13.5,
+      "mentions": 46,
+      "percentiles": [
+        2,
+        4,
+        7,
+        10,
+        12,
+        15,
+        20,
+        20,
+        27,
+        50
+      ]
+    },
+    "price_range_ids": [],
+    "publication_status": "draft",
+    "publisher_ids": [],
+    "rating": {
+      "mean": 0.88929,
+      "count": 11634,
+      "mean_players": 0.88929,
+      "count_players": 11634,
+      "mean_critics": null,
+      "count_critics": 0
+    },
+    "release_date": "2022-10-19T00:00:00.000Z",
+    "release_window_ids": [],
+    "review_rating_ids": [],
+    "short_description": "شامل: UNCHARTED 4: پایان یک دزد Uncharted: میراث گمشده آیا آماده ای به دنبال بخت خود باشی؟ شانس خود را جستجو کنید و ردپای خود را روی نقشه در مجموعه Uncharted: Legacy of Thieves بگذارید. داستان سرایی سینمایی هیجان انگیز و بزرگ ترین صحنه های اکشن بلاک باستر فرنچایز UNCHARTED را کشف کنید که پر از شوخ طبعی، زیرکی و لحظات اغراق آمیز دزدان محبوب است – ...",
+    "short_title": "",
+    "slug": "uncharted-legacy-of-thieves-collection-1512239",
+    "sort_title": "Uncharted: Legacy of Thieves Collection",
+    "status": "released",
+    "storage_sizes": [],
+    "tags": [
+      "6aec41b5001f7bbfb5e135ff",
+      "6aec41b5001f7bbfb5e135fa",
+      "6aec41b5001f7bbfb5e135a3",
+      "6aec41b5001f7bbfb5e1369f",
+      "6ab50934ceb900206d73922c",
+      "6aec41b5001f7bbfb5e13659",
+      "6aec41b5001f7bbfb5e135f4",
+      "6aec41b5001f7bbfb5e135c2",
+      "6aec41b5001f7bbfb5e135cb",
+      "6aec41b5001f7bbfb5e13609"
+    ],
+    "themes": [],
+    "title": "Uncharted: Legacy of Thieves Collection",
+    "updatedAt": "2026-11-16T08:53:57.942Z",
+    "theme_ids": [],
+    "image": "https://img.gamebrain.co/games/970/uncharted_наследие_воров_коллекция_irongalaxy_2022_34.jpg",
+    "screenshots": [
+      "https://img.gamebrain.co/games/979/uncharted_legacy_of_thieves_collection_irongalaxy_2022_7.webp",
+      "https://img.gamebrain.co/games/978/uncharted_legacy_of_thieves_collection_irongalaxy_2022_6.webp",
+      "https://img.gamebrain.co/games/968/uncharted_наследие_воров_коллекция_irongalaxy_2022_41.jpg",
+      "https://img.gamebrain.co/games/981/uncharted_legacy_of_thieves_collection_irongalaxy_2022_9.webp",
+      "https://img.gamebrain.co/games/974/uncharted_legacy_of_thieves_collection_irongalaxy_2022_2.webp",
+      "https://img.gamebrain.co/games/21/uncharted_legacy_of_thieves_collection_irongalaxy_2022_10.webp",
+      "https://img.gamebrain.co/games/24/uncharted_legacy_of_thieves_collection_irongalaxy_2022_13.webp",
+      "https://img.gamebrain.co/games/971/uncharted_наследие_воров_коллекция_irongalaxy_2022_35.jpg",
+      "https://img.gamebrain.co/games/966/uncharted_наследие_воров_коллекция_irongalaxy_2022_21.jpg",
+      "https://img.gamebrain.co/games/29/uncharted_legacy_of_thieves_collection_irongalaxy_2022_18.webp",
+      "https://img.gamebrain.co/games/973/uncharted_наследие_воров_коллекция_irongalaxy_2022_37.jpg",
+      "https://img.gamebrain.co/games/976/uncharted_legacy_of_thieves_collection_irongalaxy_2022_4.webp",
+      "https://img.gamebrain.co/games/23/uncharted_legacy_of_thieves_collection_irongalaxy_2022_12.webp",
+      "https://img.gamebrain.co/games/22/uncharted_legacy_of_thieves_collection_irongalaxy_2022_11.webp",
+      "https://img.gamebrain.co/games/27/uncharted_legacy_of_thieves_collection_irongalaxy_2022_16.webp",
+      "https://img.gamebrain.co/games/26/uncharted_legacy_of_thieves_collection_irongalaxy_2022_15.webp",
+      "https://img.gamebrain.co/games/980/uncharted_legacy_of_thieves_collection_irongalaxy_2022_8.webp",
+      "https://img.gamebrain.co/games/975/uncharted_legacy_of_thieves_collection_irongalaxy_2022_3.webp",
+      "https://img.gamebrain.co/games/972/uncharted_наследие_воров_коллекция_irongalaxy_2022_36.jpg",
+      "https://img.gamebrain.co/games/967/uncharted_наследие_воров_коллекция_irongalaxy_2022_40.jpg",
+      "https://img.gamebrain.co/games/973/uncharted_наследие_воров_коллекция_irongalaxy_2022_28.jpg",
+      "https://img.gamebrain.co/games/977/uncharted_legacy_of_thieves_collection_irongalaxy_2022_5.webp",
+      "https://img.gamebrain.co/games/28/uncharted_legacy_of_thieves_collection_irongalaxy_2022_17.webp",
+      "https://img.gamebrain.co/games/25/uncharted_legacy_of_thieves_collection_irongalaxy_2022_14.webp"
+    ]
+  },
+  {
+    "_id": "6afab4e8765d5e2e5fff019e",
+    "id": 1723158,
+    "isDeleted": false,
+    "__v": 0,
+    "adult_only": true,
+    "alternate_titles": [
+      "AC",
+      "AC Black Flag Resynced",
+      "ASCBFR"
+    ],
+    "approvalReview": {
+      "status": "",
+      "reason": "",
+      "reviewedAt": null,
+      "reviewedBy": null
+    },
+    "auto_draft": true,
+    "content_rating_ids": [],
+    "cover_media_id": null,
+    "createdAt": "2026-11-16T07:46:49.700Z",
+    "creator": "6aafdc92db4c30c55f369c5b",
+    "description": "شامل: جایزه پیش خرید: بسته سرخ بلک برد (یک لباس برای ادوارد، یک شمشیر و یک تپانچه)",
+    "detail_banner": "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819003/game/assassin-s-creed-black-flag-resynced/cover-O0uI-VGdODT3.webp",
+    "detail_gif": null,
+    "detail_poster": "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819007/game/assassin-s-creed-black-flag-resynced/poster-ip4UkZCf6ew-.webp",
+    "developer": "Ubisoft Kyiv",
+    "developer_ids": [
+      "6afaba21af7604f9da98665a"
+    ],
+    "draft_completed": false,
+    "draft_completion_errors": [
+      "developer_ids:Ubisoft Kyiv"
+    ],
+    "feature_ids": [
+      "6abb6e7cdd73e04d961ec25f",
+      "6abb6e7cdd73e04d961ec260"
+    ],
+    "game_mode_ids": [
+      "6ab53b9d0eb5341c5264c0aa"
+    ],
+    "game_series_ids": [],
+    "gamebrain_source": {
+      "id": 1723158,
+      "name": "Assassin's Creed Black Flag Resynced",
+      "image": "https://img.gamebrain.co/games/722/assassins_creed_black_flag_resynced_ubisoft_20xx_49.webp",
+      "image_aspect_ratio": 2.13953,
+      "gameplay": "https://video.akamai.steamstatic.com/store_trailers/3751950/1436365422/d22de6585f9be7420afae6827d2d5a096d6db50b/1787234258/microtrailer.webm",
+      "link": "https://gamebrain.co/game/assassins-creed-black-flag-resynced",
+      "x_url": "https://x.com/assassinscreed",
+      "rating": {
+        "mean": 0.8581262290131493,
+        "count": 14341,
+        "mean_players": 0.8423071558097368,
+        "count_players": 14338,
+        "mean_critics": 0.9,
+        "count_critics": 3
+      },
+      "description": "Includes: Pre-order Bonus: Blackbeard's Crimson Pack (a costume for Edward, a sword and a pistol)",
+      "short_description": "Includes: Pre-order Bonus: Blackbeard's Crimson Pack (a costume for Edward, a sword and a pistol)",
+      "release_date": "2026-04-15",
+      "developer": "Ubisoft Kyiv",
+      "playtime": {
+        "percentiles": [
+          3,
+          4,
+          7,
+          10,
+          15,
+          30,
+          45,
+          56,
+          99,
+          160
+        ],
+        "mentions": 84,
+        "min": 1,
+        "max": 160,
+        "mean": 33.964285714285715,
+        "median": 22.5
+      },
+      "platforms": [
+        {
+          "value": "xbox_series_xs",
+          "name": "Xbox Series X|S"
+        },
+        {
+          "value": "pc",
+          "name": "PC"
+        },
+        {
+          "value": "x_box_game_pass",
+          "name": "Xbox Game Pass"
+        },
+        {
+          "value": "playstation_5",
+          "name": "Playstation 5"
+        },
+        {
+          "value": "cloud_platform",
+          "name": "Cloud Platform"
+        },
+        {
+          "value": "x_box_cloud_gaming",
+          "name": "Xbox Cloud Gaming"
+        },
+        {
+          "value": "xbox",
+          "name": "XBox"
+        },
+        {
+          "value": "steam_deck",
+          "name": "Steam Deck"
+        },
+        {
+          "value": "windows",
+          "name": "Windows"
+        },
+        {
+          "value": "playstation",
+          "name": "Playstation"
+        }
+      ],
+      "tags": [
+        {
+          "value": "trading",
+          "name": "Trading"
+        },
+        {
+          "value": "pirates",
+          "name": "Pirates"
+        },
+        {
+          "value": "exploration",
+          "name": "Exploration"
+        },
+        {
+          "value": "gaming",
+          "name": "Gaming"
+        },
+        {
+          "value": "third_person",
+          "name": "Third Person"
+        },
+        {
+          "value": "mature",
+          "name": "Mature"
+        },
+        {
+          "value": "vehicular_combat",
+          "name": "Vehicular Combat"
+        },
+        {
+          "value": "assassin",
+          "name": "Assassin"
+        },
+        {
+          "value": "combat",
+          "name": "Combat"
+        },
+        {
+          "value": "science",
+          "name": "Science"
+        },
+        {
+          "value": "3d",
+          "name": "3D"
+        },
+        {
+          "value": "narration",
+          "name": "Narration"
+        },
+        {
+          "value": "atmospheric",
+          "name": "Atmospheric"
+        },
+        {
+          "value": "naval",
+          "name": "Naval"
+        },
+        {
+          "value": "naval_combat",
+          "name": "Naval Combat"
+        },
+        {
+          "value": "underwater",
+          "name": "Underwater"
+        },
+        {
+          "value": "action_rpg",
+          "name": "Action RPG"
+        },
+        {
+          "value": "parkour",
+          "name": "Parkour"
+        },
+        {
+          "value": "cinematic",
+          "name": "Cinematic"
+        },
+        {
+          "value": "sailing",
+          "name": "Sailing"
+        }
+      ],
+      "genres": [
+        {
+          "value": "role_playing",
+          "name": "Role Playing"
+        },
+        {
+          "value": "open_world",
+          "name": "Open World"
+        },
+        {
+          "value": "stealth",
+          "name": "Stealth"
+        },
+        {
+          "value": "action",
+          "name": "Action"
+        },
+        {
+          "value": "adventure",
+          "name": "Adventure"
+        },
+        {
+          "value": "action_adventure",
+          "name": "Action-Adventure"
+        }
+      ],
+      "genre": "Open World Role Playing",
+      "themes": [
+        {
+          "value": "historical",
+          "name": "Historical"
+        },
+        {
+          "value": "science_fiction",
+          "name": "Science Fiction"
+        }
+      ],
+      "adult_only": true,
+      "play_modes": [
+        {
+          "value": "single_player",
+          "name": "Single-Player"
+        }
+      ],
+      "screenshots": [
+        "https://img.gamebrain.co/games/576/assassins_creed_black_flag_resynced_ubisoft_2026_30.webp",
+        "https://img.gamebrain.co/games/715/assassins_creed_black_flag_resynced_ubisoft_20xx_15.webp",
+        "https://img.gamebrain.co/games/577/assassins_creed_black_flag_resynced_ubisoft_2026_31.webp",
+        "https://img.gamebrain.co/games/720/assassins_creed_black_flag_resynced_ubisoft_20xx_47.webp",
+        "https://img.gamebrain.co/games/578/assassins_creed_black_flag_resynced_ubisoft_2026_32.webp",
+        "https://img.gamebrain.co/games/581/assassins_creed_black_flag_resynced_ubisoft_2026_35.webp",
+        "https://img.gamebrain.co/games/580/assassins_creed_black_flag_resynced_ubisoft_2026_34.webp",
+        "https://img.gamebrain.co/games/714/assassins_creed_black_flag_resynced_ubisoft_20xx_41.webp",
+        "https://img.gamebrain.co/games/713/assassins_creed_black_flag_resynced_ubisoft_20xx_40.webp",
+        "https://img.gamebrain.co/games/717/assassins_creed_black_flag_resynced_ubisoft_20xx_44.webp",
+        "https://img.gamebrain.co/games/582/assassins_creed_black_flag_resynced_ubisoft_2026_27.webp",
+        "https://img.gamebrain.co/games/534/assassins_creed_black_flag_resynced_ubisoft_2026_9.webp",
+        "https://img.gamebrain.co/games/721/assassins_creed_black_flag_resynced_ubisoft_20xx_48.webp",
+        "https://img.gamebrain.co/games/579/assassins_creed_black_flag_resynced_ubisoft_2026_33.webp",
+        "https://img.gamebrain.co/games/670/assassins_creed_black_flag_resynced_ubisoft_20xx_9.webp",
+        "https://img.gamebrain.co/games/580/assassins_creed_black_flag_resynced_ubisoft_2026_25.webp",
+        "https://img.gamebrain.co/games/581/assassins_creed_black_flag_resynced_ubisoft_2026_26.webp",
+        "https://img.gamebrain.co/games/583/assassins_creed_black_flag_resynced_ubisoft_2026_28.webp",
+        "https://img.gamebrain.co/games/584/assassins_creed_black_flag_resynced_ubisoft_2026_29.webp"
+      ],
+      "videos": [
+        "https://video.akamai.steamstatic.com/store_trailers/3751950/1436365422/d22de6585f9be7420afae6827d2d5a096d6db50b/1787234258/dash_h264.mpd",
+        "https://www.youtube-nocookie.com/embed/-iXraESkNGE",
+        "https://www.youtube-nocookie.com/embed/PhQ3yQjUgAc"
+      ],
+      "offers": [
+        {
+          "price": {
+            "value": 44.99,
+            "currency": "USD"
+          },
+          "store_name": "steam",
+          "platform": "PC",
+          "title": "Assassin's Creed Black Flag Resynced",
+          "url": "https://store.steampowered.com/app/3751950"
+        },
+        {
+          "price": {
+            "value": 59.99,
+            "currency": "USD",
+            "initial": 59.99,
+            "discount_percent": 0
+          },
+          "store_name": "steam",
+          "platform": "PC",
+          "title": "Assassin's Creed Black Flag Resynced",
+          "url": "https://store.steampowered.com/app/3751950"
+        },
+        {
+          "price": {
+            "value": 47.99,
+            "currency": "USD"
+          },
+          "store_name": "steam",
+          "platform": "PC",
+          "title": "Assassin's Creed Black Flag Resynced",
+          "url": "https://store.steampowered.com/app/3751950"
+        },
+        {
+          "price": {
+            "value": 44.99,
+            "currency": "USD",
+            "initial": 59.99,
+            "discount_percent": 25
+          },
+          "store_name": "steam",
+          "platform": "PC",
+          "title": "Assassin's Creed Black Flag Resynced",
+          "url": "https://store.steampowered.com/app/3751950"
+        },
+        {
+          "price": {
+            "value": 59.99,
+            "currency": "USD"
+          },
+          "store_name": "playstation",
+          "platform": "PS5",
+          "title": "Assassin's Creed Black Flag Resynced",
+          "url": "https://www.playstation.com/en-us/games/assassins-creed-black-flag-resynced/"
+        }
+      ],
+      "official_stores": [
+        {
+          "source": "steam",
+          "url": "https://store.steampowered.com/app/3751950"
+        },
+        {
+          "source": "xbox",
+          "url": "https://www.xbox.com/en-US/play/games/XXX/9N57PMNM3F55"
+        },
+        {
+          "source": "xbox",
+          "url": "https://www.xbox.com/en-US/play/games/XXX/9MXQ1PFK7NC0"
+        },
+        {
+          "source": "epicgames",
+          "url": "https://store.epicgames.com/p/assassins-creed-black-flag-resynced"
+        },
+        {
+          "source": "playstation",
+          "url": "https://www.playstation.com/en-us/games/assassins-creed-black-flag-resynced/"
+        }
+      ],
+      "micro_trailer": "https://video.akamai.steamstatic.com/store_trailers/3751950/1436365422/d22de6585f9be7420afae6827d2d5a096d6db50b/1787234258/microtrailer.webm"
+    },
+    "genre": "Open World Role Playing",
+    "genre_ids": [
+      "6ab01578b038c1020c5003ec",
+      "6aec41b5001f7bbfb5e13549",
+      "6ab0157bb038c1020c500419",
+      "6ab01577b038c1020c5003e3",
+      "6ab01577b038c1020c5003e6",
+      "6ab01577b038c1020c5003e9"
+    ],
+    "genres": [
+      {
+        "value": "role_playing",
+        "name": "Role Playing"
+      },
+      {
+        "value": "open_world",
+        "name": "Open World"
+      },
+      {
+        "value": "stealth",
+        "name": "Stealth"
+      },
+      {
+        "value": "action",
+        "name": "Action"
+      },
+      {
+        "value": "adventure",
+        "name": "Adventure"
+      },
+      {
+        "value": "action_adventure",
+        "name": "Action-Adventure"
+      }
+    ],
+    "has_persian_subtitles": false,
+    "image_aspect_ratio": 2.13953,
+    "input_mode_ids": [],
+    "link": "https://gamebrain.co/game/assassins-creed-black-flag-resynced",
+    "name": "Assassin's Creed Black Flag Resynced",
+    "offers": [
+      {
+        "store_id": "6ab641b40d301d5af3cc2b1f",
+        "platform_id": null,
+        "url": "https://store.steampowered.com/app/3751950",
+        "title": "Assassin's Creed Black Flag Resynced",
+        "platform": "PC",
+        "store_name": "steam",
+        "price": {
+          "value": 44.99,
+          "currency": "USD"
+        }
+      },
+      {
+        "store_id": "6ab641b40d301d5af3cc2b1f",
+        "platform_id": null,
+        "url": "https://store.steampowered.com/app/3751950",
+        "title": "Assassin's Creed Black Flag Resynced",
+        "platform": "PC",
+        "store_name": "steam",
+        "price": {
+          "value": 59.99,
+          "initial": 59.99,
+          "currency": "USD",
+          "discount_percent": 0
+        }
+      },
+      {
+        "store_id": "6ab641b40d301d5af3cc2b1f",
+        "platform_id": null,
+        "url": "https://store.steampowered.com/app/3751950",
+        "title": "Assassin's Creed Black Flag Resynced",
+        "platform": "PC",
+        "store_name": "steam",
+        "price": {
+          "value": 47.99,
+          "currency": "USD"
+        }
+      },
+      {
+        "store_id": "6ab641b40d301d5af3cc2b1f",
+        "platform_id": null,
+        "url": "https://store.steampowered.com/app/3751950",
+        "title": "Assassin's Creed Black Flag Resynced",
+        "platform": "PC",
+        "store_name": "steam",
+        "price": {
+          "value": 44.99,
+          "initial": 59.99,
+          "currency": "USD",
+          "discount_percent": 25
+        }
+      },
+      {
+        "store_id": "6ab641b40d301d5af3cc2b22",
+        "platform_id": null,
+        "url": "https://www.playstation.com/en-us/games/assassins-creed-black-flag-resynced/",
+        "title": "Assassin's Creed Black Flag Resynced",
+        "platform": "PS5",
+        "store_name": "playstation",
+        "price": {
+          "value": 59.99,
+          "currency": "USD"
+        }
+      }
+    ],
+    "official_stores": [
+      {
+        "store_id": "6ab641b40d301d5af3cc2b1f",
+        "url": "https://store.steampowered.com/app/3751950",
+        "source": "steam"
+      },
+      {
+        "store_id": "6ab641b40d301d5af3cc2b23",
+        "url": "https://www.xbox.com/en-US/play/games/XXX/9N57PMNM3F55",
+        "source": "xbox"
+      },
+      {
+        "store_id": "6ab641b40d301d5af3cc2b23",
+        "url": "https://www.xbox.com/en-US/play/games/XXX/9MXQ1PFK7NC0",
+        "source": "xbox"
+      },
+      {
+        "store_id": "6ab641b40d301d5af3cc2b20",
+        "url": "https://store.epicgames.com/p/assassins-creed-black-flag-resynced",
+        "source": "epicgames"
+      },
+      {
+        "store_id": "6ab641b40d301d5af3cc2b22",
+        "url": "https://www.playstation.com/en-us/games/assassins-creed-black-flag-resynced/",
+        "source": "playstation"
+      }
+    ],
+    "official_website": null,
+    "platform_ids": [
+      "6aec41b4001f7bbfb5e1352e",
+      "6aec41b4001f7bbfb5e13512",
+      "6aec41b4001f7bbfb5e1352d",
+      "6ab0157fb038c1020c500455",
+      "6aec41b4001f7bbfb5e134f6",
+      "6aec41b4001f7bbfb5e1352c",
+      "6af068fddddacc50237211b4",
+      "6aec41b4001f7bbfb5e13520",
+      "6aec41b4001f7bbfb5e13527",
+      "6aef24caedd0440d2f9495a4"
+    ],
+    "platforms": [
+      {
+        "value": "xbox_series_xs",
+        "name": "Xbox Series X|S"
+      },
+      {
+        "value": "pc",
+        "name": "PC"
+      },
+      {
+        "value": "x_box_game_pass",
+        "name": "Xbox Game Pass"
+      },
+      {
+        "value": "playstation_5",
+        "name": "Playstation 5"
+      },
+      {
+        "value": "cloud_platform",
+        "name": "Cloud Platform"
+      },
+      {
+        "value": "x_box_cloud_gaming",
+        "name": "Xbox Cloud Gaming"
+      },
+      {
+        "value": "xbox",
+        "name": "XBox"
+      },
+      {
+        "value": "steam_deck",
+        "name": "Steam Deck"
+      },
+      {
+        "value": "windows",
+        "name": "Windows"
+      },
+      {
+        "value": "playstation",
+        "name": "Playstation"
+      }
+    ],
+    "play_modes": [
+      {
+        "value": "single_player",
+        "name": "Single-Player"
+      }
+    ],
+    "playtime": {
+      "min": 1,
+      "max": 160,
+      "mean": 33.964285714285715,
+      "median": 22.5,
+      "mentions": 84,
+      "percentiles": [
+        3,
+        4,
+        7,
+        10,
+        15,
+        30,
+        45,
+        56,
+        99,
+        160
+      ]
+    },
+    "price_range_ids": [],
+    "publication_status": "draft",
+    "publisher_ids": [
+      "6ab1117ad874e75ed5aa3343"
+    ],
+    "rating": {
+      "mean": 0.8581262290131493,
+      "count": 14341,
+      "mean_players": 0.8423071558097368,
+      "count_players": 14338,
+      "mean_critics": 0.9,
+      "count_critics": 3
+    },
+    "release_date": "2026-04-15T00:00:00.000Z",
+    "release_window_ids": [],
+    "review_rating_ids": [],
+    "short_description": "شامل: جایزه پیش خرید: بسته سرخ بلک برد (یک لباس برای ادوارد، یک شمشیر و یک تپانچه)",
+    "short_title": "",
+    "slug": "assassin-s-creed-black-flag-resynced-1723158",
+    "sort_title": "Assassin's Creed Black Flag Resynced",
+    "status": "released",
+    "storage_sizes": [
+      {
+        "platform_id": null,
+        "platform": "pc",
+        "kind": "required",
+        "bytes": 65000000000,
+        "provider": "steam",
+        "source_url": "https://store.steampowered.com/app/3751950/",
+        "checked_at": "2026-11-16T08:49:28.510Z"
+      },
+      {
+        "platform_id": null,
+        "platform": "xbox",
+        "kind": "download",
+        "bytes": 71414513664,
+        "provider": "xbox",
+        "source_url": "https://www.xbox.com/en-US/games/store/game/9NTPXL0G0S58",
+        "checked_at": "2026-11-16T08:49:28.794Z"
+      }
+    ],
+    "tags": [
+      "6aec41b5001f7bbfb5e136a6",
+      "6aec41b5001f7bbfb5e1365f",
+      "6aec41b5001f7bbfb5e135fa",
+      "6aec41b5001f7bbfb5e1360c",
+      "6aec41b5001f7bbfb5e1369f",
+      "6aec41b5001f7bbfb5e13638",
+      "6aec41b5001f7bbfb5e136b3",
+      "6aec41b5001f7bbfb5e135a1",
+      "6aec41b5001f7bbfb5e135cb",
+      "6aec41b5001f7bbfb5e1367b",
+      "6aec41b5001f7bbfb5e13590",
+      "6aec41b5001f7bbfb5e1364a",
+      "6aec41b5001f7bbfb5e135a3",
+      "6aec41b5001f7bbfb5e1364d",
+      "6aec41b5001f7bbfb5e1364e",
+      "6aec41b5001f7bbfb5e136b0",
+      "6aec41b5001f7bbfb5e13597",
+      "6aec41b5001f7bbfb5e13659",
+      "6aec41b5001f7bbfb5e135c2",
+      "6aec41b5001f7bbfb5e13679"
+    ],
+    "themes": [
+      {
+        "value": "historical",
+        "name": "Historical"
+      },
+      {
+        "value": "science_fiction",
+        "name": "Science Fiction"
+      }
+    ],
+    "title": "Assassin's Creed Black Flag Resynced",
+    "updatedAt": "2026-11-16T08:57:15.349Z",
+    "x_url": "https://x.com/assassinscreed",
+    "theme_ids": [
+      "6aec41b5001f7bbfb5e13567",
+      "6aec41b5001f7bbfb5e1356e"
+    ],
+    "image": "https://image.api.playstation.com/vulcan/ap/rnd/202603/1215/0962bc91a4952e6433367fcfec38b7e0655c6bd29b431712.png",
+    "screenshots": [
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819013/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-3V8eEbE6NyHw.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819015/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-4QHJW1duoVre.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819017/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-wVs_KCGsVbSF.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819019/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-RuqtevhftmQi.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819021/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-9vOpB2wIMZ7a.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819023/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-pv6iY3pSm1ky.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819025/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-NyQeJspR-cGb.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819026/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-LjW3b-jKi03m.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819028/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-VbdzrsP651aC.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819030/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-quNRAdaFquIy.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819032/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-6XfYob4801ea.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819034/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-Y8TjA5Q8GPsk.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819036/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-kpktXVmWN2HZ.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819038/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-DxMQHV6ozC1S.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819040/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-s9YryWgXVTUU.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819042/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-kP-0HliO5F4R.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819044/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-1JskwSeKGSUU.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819046/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-YVX9NUa4bdLn.webp",
+      "https://res.cloudinary.com/mwig1qpe/image/upload/v1794819047/game/assassin-s-creed-black-flag-resynced/screenshot/screenshot-4u0WgCz2Rcoy.webp"
+    ],
+    "capability_status": {
+      "single_player": true,
+      "achievements": true
+    },
+    "platform_capabilities": [
+      {
+        "platform_id": "6aec41b4001f7bbfb5e13527",
+        "status": {
+          "hdr": true
+        }
+      },
+      {
+        "platform_id": "6aec41b4001f7bbfb5e13512",
+        "status": {
+          "hdr": true
+        }
+      }
+    ],
+    "platform_covers": [
+      {
+        "platform_id": "6aec41b4001f7bbfb5e1352e",
+        "low_quality": "https://cdn.thegamesdb.net/images/medium/boxart/front/139664-1.jpg",
+        "high_quality": "https://cdn.thegamesdb.net/images/original/boxart/front/139664-1.jpg"
+      },
+      {
+        "platform_id": "6ab0157fb038c1020c500455",
+        "low_quality": "https://cdn.thegamesdb.net/images/medium/boxart/front/139665-1.jpg",
+        "high_quality": "https://cdn.thegamesdb.net/images/original/boxart/front/139665-1.jpg"
+      }
+    ]
+  }
+]

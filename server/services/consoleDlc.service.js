@@ -136,12 +136,12 @@ async function listFor(source, fetcher = fetch) {
 }
 function titleSlug(title) {
   if (typeof title !== 'string' || title.length > 200) return '';
-  return title.replace(/[™®©]/g, '').replace(/\s+(Legacy|Enhanced)$/i, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  return title.replace(/[™®©]/g, '').replace(/['\u2019]/g, '').replace(/\s+(Legacy|Enhanced)$/i, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
-async function inferredSony(title, fetcher) {
+async function inferredSony(title, fetcher, officialPage) {
   const slug = titleSlug(title);
   if (!slug) return null;
-  const html = await request(`https://www.playstation.com/en-us/games/${slug}/`, {}, fetcher, false);
+  const html = await request(officialPage || `https://www.playstation.com/en-us/games/${slug}/`, {}, fetcher, false);
   const urls = [...new Set(html.match(/https:\/\/store\.playstation\.com\/en-us\/(?:concept\/\d+|product\/[A-Z0-9_-]+)/g))];
   if (!urls.length) throw fail('در صفحهٔ رسمی این بازی لینک فروشگاه سونی پیدا نشد.', 404);
   // The official game's own page supplies the product relationship; never use a fuzzy search result.
@@ -151,7 +151,8 @@ async function discoverDraft(input = {}, fetcher = fetch) {
   const sources = inputLinks(input), errors = [], parents = [], found = new Map();
   if (!sources.some(row => row.provider === 'playstation') && input.title) {
     try {
-      const action = () => inferredSony(input.title, fetcher);
+      const officialPage = ['official_stores','offers'].flatMap(key => { try { const value = typeof input[key] === 'string' ? JSON.parse(input[key]) : input[key]; return Array.isArray(value) ? value : []; } catch { return []; } }).map(row => row.url).find(value => { try { const url = new URL(value); return url.protocol === 'https:' && !url.username && !url.password && !url.port && ['www.playstation.com','playstation.com'].includes(url.hostname) && /^\/en-us\/games\/[a-z0-9-]+\/?$/.test(url.pathname); } catch { return false; } });
+      const action = () => inferredSony(input.title, fetcher, officialPage);
       const sony = fetcher === fetch ? await cached(`sony-title:${titleSlug(input.title)}`, action) : await action();
       if (sony) sources.push(sony);
     } catch (error) { errors.push({ provider: 'playstation', app_id: '', message: error.message }); }
