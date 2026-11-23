@@ -1,0 +1,9 @@
+[submodule "central-bot"]
+	path = central-bot
+	url = https://github.com/pashaDeveloper/central-bot.git
+[submodule "client/edge-game-detail"]
+	path = client/edge-game-detail
+	url = https://github.com/pashaDeveloper/edge-game-detail.git
+[submodule "customer-bot"]
+	path = customer-bot
+	url = https://github.com/pashaDeveloper/customer-bot.git
