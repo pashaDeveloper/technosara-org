@@ -9,6 +9,14 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      keyframes: {
+        'game-form-in': { from: { transform: 'translateX(1rem)', opacity: '0.7' } },
+        'game-preview-in': { from: { transform: 'translateX(-1rem)', opacity: '0.7' } },
+      },
+      animation: {
+        'game-form-in': 'game-form-in 180ms ease-out',
+        'game-preview-in': 'game-preview-in 180ms ease-out',
+      },
       borderRadius: {
         DEFAULT: "5px",
         primary: "1.5rem",

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiX } from 'react-icons/fi';
 import { Controller, useForm } from 'react-hook-form';
@@ -41,6 +41,12 @@ import { gameSearchAliases } from './gameSearchAliases';
 import { useGamePersistence } from './useGamePersistence';
 
 export default function GameForm({ record, isLoading, onSubmit }) {
+  const [mobilePanel, setMobilePanel] = useState(null);
+  const panelId = useId();
+  const panelTop = useRef(null);
+  const panelSwitch = useRef(null);
+  const swipeStart = useRef(null);
+  const showingPreview = mobilePanel === 'preview';
   const { search: listQuery } = useLocation();
   const { control, register, setValue, getValues, watch, handleSubmit, formState: { errors } } = useForm({
     defaultValues: formValues(definition, record), mode: 'onChange', shouldFocusError: true,
@@ -435,7 +441,41 @@ export default function GameForm({ record, isLoading, onSubmit }) {
     </React.Fragment>;
   }
 
-  return <div className="grid w-full min-w-0 items-start gap-6 md:grid-cols-2" dir="ltr"><form dir="rtl" className="flex min-w-0 w-full flex-col gap-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-lg dark:border-slate-700 dark:bg-gray-900 sm:p-8 md:col-start-2 md:row-start-1" noValidate onSubmit={event => {
+  function switchPanel(next) {
+    if ((mobilePanel ?? 'form') === next) return;
+    if (panelTop.current.getBoundingClientRect().top < panelSwitch.current.getBoundingClientRect().top) {
+      panelTop.current.scrollIntoView({ block: 'start' });
+    }
+    setMobilePanel(next);
+  }
+
+  function startPanelSwipe(event) {
+    swipeStart.current = null;
+    if (!panelSwitch.current.getClientRects().length || event.touches.length !== 1) return;
+    if (event.target.closest?.('input, textarea, select, button, [contenteditable], dialog, [role="dialog"], .overflow-x-auto, .edge-mobile-gallery')) return;
+    swipeStart.current = event.touches[0];
+  }
+
+  function endPanelSwipe(event) {
+    const start = swipeStart.current;
+    swipeStart.current = null;
+    const end = event.changedTouches[0];
+    if (!start || !end || start.identifier !== end.identifier) return;
+    const dx = end.screenX - start.screenX;
+    const dy = end.screenY - start.screenY;
+    if (Math.abs(dx) < 55 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    switchPanel(dx > 0 ? 'preview' : 'form');
+  }
+
+  return <div ref={panelTop} className="w-full min-w-0 scroll-mt-16" dir="ltr">
+    <div ref={panelSwitch} dir="rtl" role="group" aria-label="نمایش فرم بازی" className="sticky top-16 z-[25] mb-3 grid grid-cols-2 gap-1 rounded-xl border border-slate-200 bg-white p-1 dark:border-slate-700 dark:bg-gray-900 md:hidden">
+      {[['form', 'فرم'], ['preview', 'پیش‌نمایش']].map(([panel, label]) => {
+        const active = (mobilePanel ?? 'form') === panel;
+        return <button key={panel} type="button" aria-controls={`${panelId}-${panel}`} aria-pressed={active} onClick={() => switchPanel(panel)} className={`min-h-11 rounded-lg px-3 text-sm font-semibold ${active ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300'}`}>{label}</button>;
+      })}
+    </div>
+    <div className="grid w-full min-w-0 items-start gap-6 md:grid-cols-2" onTouchStart={startPanelSwipe} onTouchEnd={endPanelSwipe} onTouchCancel={() => { swipeStart.current = null; }}>
+    <form id={`${panelId}-form`} dir="rtl" className={`flex min-w-0 w-full flex-col gap-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-lg dark:border-slate-700 dark:bg-gray-900 sm:p-8 md:col-start-2 md:row-start-1 ${showingPreview ? 'max-md:hidden' : mobilePanel ? 'max-md:motion-safe:animate-game-form-in' : ''}`} noValidate onSubmit={event => {
     event.preventDefault();
     if (busy || dlcBusy) return;
     if (pendingUploads.current.size) { toast.error('تصاویر انتخاب‌شده را ابتدا آپلود یا حذف کنید.'); return; }
@@ -480,5 +520,10 @@ export default function GameForm({ record, isLoading, onSubmit }) {
       <fieldset disabled={busy || dlcBusy}><SendButton isLoading={isLoading || dlcBusy} /></fieldset>
       <Link to={'/games' + listQuery} className="inline-flex items-center gap-2 rounded-md border border-slate-300 px-4 py-2 text-slate-600 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"><FiX aria-hidden="true" className="size-6 shrink-0" />انصراف</Link>
     </div>
-  </form><div className="relative z-20 min-w-0 space-y-4 md:col-start-1 md:row-start-1 md:sticky md:top-5 md:self-start"><GameDetailPreview pendingBanner={pendingBanner} resources={{ ...storedResources, trophies: previewTrophies ?? storedResources.trophies, dlc: previewDlc ?? storedResources.dlc }} game={watch()} tags={tags} platforms={platforms} genres={genres} companies={companies} modes={modes} media={media} /></div></div>;
+    </form>
+    <div id={`${panelId}-preview`} className={`relative min-w-0 space-y-4 md:col-start-1 md:row-start-1 md:sticky md:top-5 md:z-20 md:self-start ${showingPreview ? 'max-md:motion-safe:animate-game-preview-in' : 'max-md:hidden'}`}>
+      <GameDetailPreview pendingBanner={pendingBanner} resources={{ ...storedResources, trophies: previewTrophies ?? storedResources.trophies, dlc: previewDlc ?? storedResources.dlc }} game={watch()} tags={tags} platforms={platforms} genres={genres} companies={companies} modes={modes} media={media} />
+    </div>
+    </div>
+  </div>;
 }

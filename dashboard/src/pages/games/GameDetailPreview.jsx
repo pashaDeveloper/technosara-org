@@ -6,7 +6,7 @@ import GameDetailPage from './GameDetailPage';
 
 export default function GameDetailPreview(props) {
   const [body, setBody] = useState(null);
-  const [mobile, setMobile] = useState(false);
+  const [mobile, setMobile] = useState(() => window.matchMedia('(width < 768px)').matches);
   const [expanded, setExpanded] = useState(false);
   const [image, setImage] = useState('');
   const [theme, setTheme] = useState('light');
