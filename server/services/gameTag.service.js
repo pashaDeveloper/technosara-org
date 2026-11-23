@@ -1,5 +1,31 @@
 const { collectionGames } = require("../utils/collectionGames");
 const GameTag = require("../models/tag.model");
+const { isObjectIdOrHexString } = require('mongoose');
+const { translatePersian } = require('./translation.service');
+
+exports.localizeGameTags = async (req, res) => {
+  const { ids } = req.body || {};
+  if (!Array.isArray(ids) || ids.length > 5 || ids.some(id => typeof id !== 'string' || !isObjectIdOrHexString(id))) {
+    return res.status(400).json({ message: 'شناسهٔ تگ‌ها معتبر نیست.' });
+  }
+  const tags = await GameTag.find({ _id: { $in: ids } }).select('name name_fa');
+  const localized = await Promise.all(tags.map(async tag => {
+    try {
+      if (tag.name_fa) return { _id: tag._id, name_fa: tag.name_fa };
+      const name_fa = /[\u0600-\u06ff]/.test(tag.name) ? tag.name :
+        (await translatePersian(tag.name, undefined, { sourceLanguage: 'en', targetLanguage: 'fa' })).translation;
+      if (!/[\u0600-\u06ff]/.test(name_fa || '')) return null;
+      const saved = await GameTag.findOneAndUpdate(
+        { _id: tag._id, name: tag.name, name_fa: { $in: [null, ''] } },
+        { $set: { name_fa } }, { new: true }
+      ).select('name_fa');
+      return saved || await GameTag.findById(tag._id).select('name_fa');
+    } catch {
+      return null;
+    }
+  }));
+  res.json({ data: localized.filter(tag => tag?.name_fa) });
+};
 
 /* add new gameTag */
 exports.addGameTag = async (req, res) => {
@@ -143,7 +169,7 @@ exports.deleteGameTag = async (req, res) => {
 };
 
 exports.getGameTagOptions = async (req, res) => {
-  const gameTags = await GameTag.find().sort({ sort_order: 1, _id: 1 }).select("name name_en value slug");
+  const gameTags = await GameTag.find().sort({ sort_order: 1, _id: 1 }).select("name name_fa name_en value slug");
   res.status(200).json({
     acknowledgement: true,
     message: "Ok",

@@ -117,6 +117,7 @@ async function importTrophies(gameId, input, admin, fetcher = fetch) {
   if (!mongoose.isObjectIdOrHexString(gameId)) throw fail('شناسهٔ بازی معتبر نیست.');
   const game = await Game.findById(gameId);
   if (!game) throw fail('بازی ذخیره‌شده پیدا نشد.', 404);
-  return importCollection(gameId, await preview({ ...input, official_stores: game.official_stores || [], offers: game.offers || [] }, fetcher), admin);
+  return importCollection(gameId, await preview({ ...input, console_api_stores: input.console_api_stores?.length ? input.console_api_stores : game.console_api_stores || [],
+    official_stores: game.official_stores || [], offers: game.offers || [] }, fetcher), admin);
 }
 module.exports = { candidates, preview, importTrophies };

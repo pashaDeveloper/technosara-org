@@ -178,9 +178,14 @@ module.exports = function imageUpload(folder, provider) {
             let full, preview, previewDimensions;
             try {
               const animated = folder === 'games' && field.name === 'detail_gif';
-              ({ full, preview } = await compressImage(file.buffer, settings, animated, folder === 'games'));
+              const detailBanner = folder === 'games' && field.name === 'detail_banner';
+              ({ full, preview } = await compressImage(file.buffer, settings, animated, folder === 'games', MAX_BYTES, detailBanner));
             } catch { throw badRequest(field.name === 'detail_gif' ? 'فایل باید GIF یا WebP متحرک معتبر و حداکثر ۱۵۰ فریم باشد.' : 'Image must be a valid PNG, JPEG or WebP'); }
             previewDimensions = await require('sharp')(preview).metadata();
+            if (folder === 'games' && field.name === 'screenshot' &&
+                await require('./gameScreenshots').isPortrait(file.buffer)) {
+              throw badRequest('تصویر عمودی برای گالری مجاز نیست.');
+            }
             clients ||= module.exports.createClients(provider);
             const title = gameTitle || req.body.slug || req.body.english_name || req.body.name || req.params?.id || req.admin?._id || "untitled";
             const slug = String(title).normalize("NFKC").toLowerCase()
@@ -232,7 +237,9 @@ module.exports.uploadVideo = async function (file, title, kind, settings, track)
   const slug = String(title).normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}_-]+/gu, '-').replace(/^-+|-+$/g, '').slice(0, 80);
   if (!slug) throw badRequest('نام بازی معتبر نیست.');
   const path = `game/${slug}`;
-  const key = `${path}/${kind}-${randomBytes(9).toString('base64url')}`;
+  const videoName = kind === 'gameplay' ? 'game-play' : kind;
+  const prefix = ['gameplay', 'trailer'].includes(kind) ? `${slug}-${videoName}` : videoName;
+  const key = `${path}/${prefix}-${randomBytes(9).toString('base64url')}`;
   track(async () => {
     const result = await cloudinary.uploader.destroy(key, { resource_type: 'video', invalidate: true });
     if (!['ok', 'not found'].includes(result?.result)) throw new Error('Video cleanup failed');

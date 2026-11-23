@@ -147,7 +147,9 @@ async function importOne(gameId, body, admin, fetcher = fetch) {
     let content = product ? await Content.findById(product.content_id).setOptions({ withDeleted: true })
       : await Content.findOne({ game_id: gameId, slug: fields.slug }).setOptions({ withDeleted: true });
     if (content && (content.isDeleted || String(content.game_id) !== String(gameId))) throw fail('محتوای موجود حذف شده یا متعلق به بازی دیگری است.', 409);
+    if (body.refresh_cover === true) return await require('./automaticMedia.service').refreshDlcCover(product ? content : null, savedGame, fields.image, product?.price);
     const created = !content;
+    if (product && content && require('./importCompletion').completion(content, 'dlc').complete) return { app_id: childId, content_id: content._id, content: content.toObject(), title: content.title, created: false, complete: true, warnings: [] };
     if (!content) content = new Content({ ...fields, game_id: gameId, publication_status: 'draft', creator: admin });
     // Preserve editorial fields on subsequent syncs; retain the entire current provider response.
     content.source_data = { provider: 'steam', market: 'US', language: 'english', parent_app_id: parentId, data };

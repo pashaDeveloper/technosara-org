@@ -1,4 +1,7 @@
 const service = require('../services/gameTag.service');
+exports.localizeGameTags = async (req, res, next) => {
+  try { await service.localizeGameTags(req, res); } catch (error) { next(error); }
+};
 exports.reorderGameTag = async (req, res, next) => {
   try { await service.reorderGameTag(req, res); } catch (error) { next(error); }
 };

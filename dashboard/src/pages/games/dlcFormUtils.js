@@ -17,17 +17,22 @@ export function steamFormLinks(...fields) {
 export const dlcKey = item => item.key || `${item.provider || 'steam'}:${item.app_id}`;
 export function consoleFormSource(title, ...fields) {
   const links = new Set();
-  for (let rows of fields) {
+  const preferred = new Set();
+  for (let [index, rows] of fields.entries()) {
     try { if (typeof rows === 'string') rows = JSON.parse(rows || '[]'); } catch { continue; }
     if (!Array.isArray(rows)) continue;
     for (const row of rows) {
       try {
         const u = new URL(row?.url);
         if (u.protocol !== 'https:' || u.username || u.password || u.port) continue;
+        const provider = ['xbox.com', 'www.xbox.com'].includes(u.hostname) ? 'xbox' : u.hostname === 'store.playstation.com' ? 'sony' : '';
+        if (index > 0 && preferred.has(provider)) continue;
+        const before = links.size;
         const xboxId = u.pathname.split('/').filter(Boolean).at(-1)?.toUpperCase();
         if (['xbox.com', 'www.xbox.com'].includes(u.hostname) && /^[A-Z0-9]{12}$/.test(xboxId)) links.add(`https://www.xbox.com/en-US/games/store/game/${xboxId}`);
         const sony = u.pathname.match(/^\/[a-z]{2}-[a-z]{2}\/(concept\/\d{1,15}|product\/[A-Z0-9_-]{10,80})\/?$/i);
-        if (u.hostname === 'store.playstation.com' && sony) links.add(`https://store.playstation.com/en-us/${sony[1]}`);
+        if (u.hostname === 'store.playstation.com' && sony) links.add(`https://store.playstation.com/${u.pathname.split('/')[1].toLowerCase()}/${sony[1]}`);
+        if (index === 0 && provider && links.size > before) preferred.add(provider);
       } catch { /* URL is still being edited. */ }
     }
   }

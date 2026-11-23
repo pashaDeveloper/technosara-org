@@ -33,6 +33,12 @@ router.patch(
   gameTagController.reorderGameTag,
 );
 router.patch(
+  "/localize",
+  verify,
+  authorize("superAdmin", "admin"),
+  gameTagController.localizeGameTags,
+);
+router.patch(
   "/:id",
   verify,
   authorize("superAdmin", "admin"),

@@ -11,7 +11,8 @@ async function titleIds(input, fetcher) {
     return new Map([[input.manual_title_id, 'manual']]);
   }
   const sources = inputLinks(input).filter(row => row.provider === 'playstation');
-  for (let rows of [input.official_stores, input.offers]) {
+  const selectedSony = inputLinks({ console_api_stores: input.console_api_stores }).some(row => row.provider === 'playstation');
+  for (let rows of selectedSony ? [] : [input.official_stores, input.offers]) {
     if (typeof rows === 'string') { try { rows = JSON.parse(rows); } catch { throw fail('فهرست فروشگاه‌ها معتبر نیست.'); } }
     if (!Array.isArray(rows)) continue;
     for (const row of rows) {
@@ -189,7 +190,8 @@ async function importTrophies(gameId, input, admin, fetcher = fetch) {
   if (!mongoose.isObjectIdOrHexString(gameId)) throw fail('شناسهٔ بازی معتبر نیست.');
   const game = await Game.findById(gameId);
   if (!game) throw fail('بازی ذخیره‌شده پیدا نشد.', 404);
-  const data = await preview({ ...input, official_stores: game.official_stores || [], offers: game.offers || [] }, fetcher);
+  const data = await preview({ ...input, console_api_stores: input.console_api_stores?.length ? input.console_api_stores : game.console_api_stores || [],
+    official_stores: game.official_stores || [], offers: game.offers || [] }, fetcher);
   let saved = 0;
   const failures = [];
   for (const group of data.groups) {

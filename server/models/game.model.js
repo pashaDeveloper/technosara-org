@@ -91,8 +91,10 @@ const store = new mongoose.Schema({
 }, {
   _id: false
 });
+const { normalizePcRequirements } = require('../utils/pcRequirements');
 const schema = new mongoose.Schema({
   ...baseSchema.obj,
+  pc_requirements: require('./pcRequirement.schema'),
   storage_sizes: {
     type: [new mongoose.Schema({
       platform_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Platform', default: null },
@@ -116,13 +118,14 @@ const schema = new mongoose.Schema({
     default: null,
     validate: value => !value || /^(https?:\/\/|\/uploads\/)/.test(value)
   },
+  detail_banner_mirrored: { type: Boolean, default: false },
   detail_gif: {
     type: String,
     default: null,
     validate: value => !value || /^(https?:\/\/|\/uploads\/)/.test(value)
   },
   capability_status: {
-    type: new mongoose.Schema(Object.fromEntries(require('../utils/gameCapabilities').definitions.filter(item => item.group !== 'platform').map(item => [item.key, {
+    type: new mongoose.Schema(Object.fromEntries(require('../utils/gameCapabilities').definitions.map(item => [item.key, {
       type: Boolean,
       set: value => value === null ? false : value,
       default: undefined
@@ -157,6 +160,9 @@ const schema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  has_dubbing: { type: Boolean, default: false },
+  has_game_pass: { type: Boolean, default: false },
+  has_ps_plus: { type: Boolean, default: false },
   feature_ids: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Feature',
@@ -428,8 +434,29 @@ const schema = new mongoose.Schema({
     type: [offer],
     default: undefined
   },
+  playstation_product_id: {
+    type: String, trim: true, uppercase: true,
+    match: /^(?:(?:PPSA|CUSA)\d{5}(?:_\d{2})?|[A-Z]{2}\d{4}-(?:PPSA|CUSA)\d{5}_\d{2}-[A-Z0-9]{16})$/
+  },
+  xbox_product_id: { type: String, trim: true, uppercase: true, match: /^[A-Z0-9]{12}$/ },
+  console_api_stores: {
+    type: [new mongoose.Schema({
+      provider: { type: String, enum: ['sony', 'xbox'], required: true },
+      url: { type: String, required: true },
+      title: String
+    }, { _id: false })],
+    default: undefined
+  },
   official_stores: {
     type: [store],
+    default: undefined
+  },
+  gameplay: { type: String, default: undefined },
+  trailer: { type: String, default: undefined },
+  gameplay_videos: { type: [String], default: undefined },
+  trailers: { type: [String], default: undefined },
+  video_source_keys: {
+    type: [new mongoose.Schema({ url: String, key: String, thumbnail: String }, { _id: false })],
     default: undefined
   },
   micro_trailer: {
@@ -533,6 +560,9 @@ const schema = new mongoose.Schema({
 }, {
   timestamps: true,
   id: false
+});
+schema.pre('init', function (record) {
+  if (record.pc_requirements) record.pc_requirements = normalizePcRequirements(record.pc_requirements);
 });
 schema.pre('validate', function () {
   if (this.isModified('name') && this.name) this.title = this.name;else if (this.title) this.name = this.title;

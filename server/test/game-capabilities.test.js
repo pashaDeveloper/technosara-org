@@ -14,12 +14,12 @@ test('only explicit provider evidence is mapped; generic multiplayer does not im
 });
 
 test('capabilities store booleans, normalize legacy nulls to false and reject invalid states', () => {
-  const game = new Game({ capability_status: { single_player: true, local_coop: false, cloud_saves: null }, platform_capabilities: [{ platform_id: id(), status: { '4k': true, hdr: null, '120fps': false } }] });
-  assert.deepEqual(game.capability_status.toObject(), { single_player: true, local_coop: false, cloud_saves: false });
+  const game = new Game({ capability_status: { single_player: true, local_coop: false, cloud_saves: null, hdr: true }, platform_capabilities: [{ platform_id: id(), status: { '4k': true, hdr: null, '120fps': false } }] });
+  assert.deepEqual(game.capability_status.toObject(), { single_player: true, local_coop: false, cloud_saves: false, hdr: true });
   assert.equal(game.platform_capabilities[0].status.hdr, false);
   assert.deepEqual(validateStates({ cloud_saves: null, single_player: true }, 'global'), { cloud_saves: false, single_player: true });
   assert.equal(game.platform_capabilities[0].status['120fps'], false);
-  for (const states of [{ hdr: true }, { single_player: 'false' }, [], null]) assert.throws(() => validateStates(states, 'global'), { status: 400 });
+  for (const states of [{ unknown: true }, { single_player: 'false' }, [], null]) assert.throws(() => validateStates(states, 'global'), { status: 400 });
 });
 
 test('saves switches into relationships, removes disabled links and keeps unrelated modes', async t => {
@@ -42,5 +42,22 @@ test('platform features remain linked while any platform supports them and rejec
   assert.deepEqual(result.feature_ids, [hdr]);
   result = await capabilityValues({ platform_capabilities: [], feature_ids: [hdr] }, { platform_capabilities: [{ platform_id: pc, status: { hdr: true } }] });
   assert.deepEqual(result.feature_ids, []);
+  result = await capabilityValues({ capability_status: { hdr: false }, feature_ids: [hdr] }, {
+    platform_capabilities: [{ platform_id: pc, status: { hdr: true } }],
+  });
+  assert.deepEqual(result.feature_ids, []);
   await assert.rejects(capabilityValues({ platform_capabilities: [{ platform_id: 'invalid', status: {} }] }), { status: 400 });
+});
+
+test('capability filters include legacy evidence only when the game has no explicit status', async t => {
+  const { capabilityFilter } = require('../utils/gameCapabilities');
+  const hdr = id();
+  t.mock.method(Feature, 'find', async () => [{ _id: hdr, code: 'hdr' }]);
+  assert.deepEqual(await capabilityFilter('has_game_pass'), { has_game_pass: true });
+  assert.deepEqual(await capabilityFilter('hdr'), { $and: [{ $or: [
+    { 'capability_status.hdr': true },
+    { 'capability_status.hdr': { $exists: false }, 'platform_capabilities.status.hdr': true },
+    { 'capability_status.hdr': { $exists: false }, feature_ids: { $in: [hdr] } },
+  ] }] });
+  await assert.rejects(capabilityFilter({ $ne: '' }), { status: 400 });
 });

@@ -58,3 +58,19 @@ test('database failure removes new cloud copies without dropping original URL', 
   await assert.rejects(service.saveImage(doc, { title: 'Game' }, 'trophy', 'Named Trophy', 'icon_url', 'source_icon_url'));
   assert.equal(files.size, 0); assert.equal(doc.icon_url, 'https://example.com/original.png');
 });
+test('Xbox trophy icons can exceed the standard download and compression limit', async t => {
+  const { calls } = await fixtures(t);
+  const png = await sharp({ create: { width: 32, height: 32, channels: 3, background: 'white' } }).png().toBuffer();
+  const buffer = Buffer.alloc(6 * 1024 * 1024);
+  png.copy(buffer);
+  remote.download.mock.mockImplementation(async (_url, _redirects, maxBytes = 5 * 1024 * 1024) => {
+    if (buffer.length > maxBytes) throw new Error('Download limit exceeded');
+    return { buffer };
+  });
+  const game = { title: 'Far Cry 5' };
+  const xbox = document({ icon_url: 'https://images-eds-ssl.xboxlive.com/image?url=icon' });
+  await service.saveImage(xbox, game, 'trophy', 'Xbox Trophy', 'icon_url', 'source_icon_url');
+  const other = document({ icon_url: 'https://example.com/icon.png' });
+  await assert.rejects(service.saveImage(other, game, 'trophy', 'Other Trophy', 'icon_url', 'source_icon_url'), /Download limit exceeded/);
+  assert.equal(calls.length, 2);
+});

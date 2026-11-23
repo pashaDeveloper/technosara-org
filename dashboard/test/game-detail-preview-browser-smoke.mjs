@@ -10,25 +10,41 @@ import React, {useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import GameDetailPreview from './src/pages/games/GameDetailPreview';
 const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-window.addEventListener('error',event=>{document.body.dataset.test='FAIL: '+event.message;});
-function App(){const [title,setTitle]=useState('Call of Duty: Black Ops 6');window.updatePreview=()=>setTitle('Halo Infinite');return <GameDetailPreview game={{title, image:location.origin+'/cover.jpg', detail_banner:location.origin+'/cover.jpg', short_description:'A cinematic adventure across new worlds.', description:'Explore the world and discover a new adventure.', platform_ids:['ps5','pc'], genre_ids:['action'], screenshots:JSON.stringify([location.origin+'/cover.jpg']), rating:'{"mean":0.92}',playtime:'{"median":12}'}} platforms={{data:{data:[{_id:'ps5',name:'PlayStation 5'},{_id:'pc',name:'PC'}]}}} genres={{data:{data:[{_id:'action',name:'Action'}]}}} />;}
+window.addEventListener('error',event=>{
+  if(event.message==='ResizeObserver loop completed with undelivered notifications.')return;
+  document.body.dataset.test='FAIL: '+event.message;
+});
+function App(){const [title,setTitle]=useState('Call of Duty: Black Ops 6');window.updatePreview=()=>setTitle('Halo Infinite');return <GameDetailPreview pendingBanner={title==='Halo Infinite'?location.origin+'/banner.jpg':''} game={{title, image:location.origin+'/cover.jpg', detail_banner:location.origin+'/cover.jpg', detail_banner_mirrored:title==='Halo Infinite', short_description:'A cinematic adventure across new worlds.', description:'Explore the world and discover a new adventure.', platform_ids:['ps5','pc'], genre_ids:['action'], screenshots:JSON.stringify([location.origin+'/cover.jpg']), rating:'{"mean":0.92}',playtime:'{"median":12}'}} platforms={{data:{data:[{_id:'ps5',name:'PlayStation 5'},{_id:'pc',name:'PC'}]}}} genres={{data:{data:[{_id:'action',name:'Action'}]}}} />;}
 createRoot(document.getElementById('root')).render(<App/>);
 async function until(check,label){for(let i=0;i<100;i++){if(check())return;await pause(30);}throw Error(label);}
 try{
 await until(()=>document.querySelector('iframe')?.contentDocument.querySelector('h1'),'preview missing');
 const frame=()=>document.querySelector('iframe');const doc=()=>frame().contentDocument;
 if(!doc().querySelector('h1').textContent.includes('Black Ops'))throw Error('title missing');
-if(doc().querySelector('.edge-hero-art').style.backgroundImage)throw Error('card image reused as detail banner');
+if(doc().querySelector('.edge-hero-art img'))throw Error('card image reused as detail banner');
 if(doc().querySelector('.edge-discount').textContent!=='۳۲٪ تخفیف در آخر هفته‌ها')throw Error('reference header missing');
 if(doc().querySelector('.edge-buy').textContent.trim()!=='خرید بازی')throw Error('buy button missing');
 doc().querySelectorAll('.edge-editions button')[1].click();await pause(80);
 if(doc().querySelectorAll('.edge-editions button')[1].getAttribute('aria-pressed')!=='true')throw Error('edition selection failed');
 doc().querySelector('.edge-buy').click();await until(()=>doc().querySelector('[role=status]'),'preview purchase notice missing');
-doc().querySelector('.edge-gallery-main').click();await until(()=>doc().querySelector('.edge-lightbox'),'gallery failed');doc().querySelector('.edge-lightbox button').click();
+doc().querySelector('.edge-gallery-main').click();await until(()=>document.querySelector('dialog[open]'),'gallery failed');document.querySelector('dialog button').click();
 window.updatePreview();await until(()=>doc().querySelector('h1').textContent==='Halo Infinite','live update failed');
+const hero=()=>doc().querySelector('.edge-hero-art img');
+await until(()=>hero()?.naturalWidth,'banner image did not load');
+if(hero().style.transform!=='scaleX(-1)')throw Error('saved mirror setting not applied to preview');
+const checkHero=()=>{
+  const image=hero(), container=image.parentElement, body=container.parentElement;
+  const imageStyle=doc().defaultView.getComputedStyle(image);
+  if(image.clientWidth!==body.clientWidth||Math.abs(image.clientHeight-image.clientWidth*9/16)>1||
+     imageStyle.objectFit!=='contain')throw Error('banner sizing differs from the form image');
+  if(!body.classList.contains('edge-game-body')||doc().defaultView.getComputedStyle(container).position!=='absolute'||
+     !body.querySelector('.edge-detail-layout'))throw Error('banner displaced the game details');
+};
+checkHero();
 if(doc().defaultView.getComputedStyle(doc().body).fontFamily.indexOf('Vazir')<0)throw Error('preview typography missing');
 document.querySelectorAll('button')[1].click();await pause(100);if(frame().style.width!=='390px')throw Error('mobile toggle failed');
 if(doc().documentElement.scrollWidth>390)throw Error('mobile horizontal overflow');
+checkHero();
 document.querySelectorAll('button')[2].click();await until(()=>document.querySelector('[role=dialog]'),'fullscreen failed');
 document.querySelectorAll('button')[2].click();await until(()=>!document.querySelector('[role=dialog]'),'fullscreen close failed');
 document.querySelectorAll('button')[0].click();await pause(100);
@@ -43,6 +59,7 @@ const bundle = await build({ plugins: [{ name: 'inline-css', setup(build) { buil
 const server = createServer((request, response) => {
   if(request.url==='/fonts/vazir/Vazir.woff2'){response.setHeader('Content-Type','font/woff2');readFile(resolve('public/fonts/vazir/Vazir.woff2')).then(data=>response.end(data));return;}
   if(request.url.startsWith('/game-preview/')){const file=request.url.endsWith('reference.png')?'reference.png':'bo6.jpg';response.setHeader('Content-Type',file.endsWith('png')?'image/png':'image/jpeg');readFile(resolve('public/game-preview',file)).then(data=>response.end(data));return;}
+  if(request.url==='/banner.jpg'){response.setHeader('Content-Type','image/svg+xml');response.end('<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000"><rect width="1000" height="1000" fill="steelblue"/></svg>');return;}
   if(request.url==='/cover.jpg'){response.setHeader('Content-Type','image/jpeg');readFile(resolve('../client/edge-game-detail/bo6.jpg')).then(data=>response.end(data));return;}
   response.setHeader('Content-Type', request.url === '/app.js' ? 'text/javascript' : 'text/html');
   response.end(request.url === '/app.js' ? bundle.outputFiles[0].text : '<html><body><div id="root"></div><script type="module" src="/app.js"></script></body></html>');

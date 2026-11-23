@@ -1,5 +1,6 @@
 const { productUrl, selectTitle } = require('./storeDescriptions.service');
 const { steamId, details } = require('./steamDlc.service');
+const { normalizePcRequirements } = require('../utils/pcRequirements');
 const fail = (message, status = 400) => Object.assign(new Error(message), { status });
 async function request(url, fetcher) {
   let response;
@@ -36,6 +37,23 @@ function steamStorage(data) {
   if (!match) return [];
   const bytes = Math.round(Number(match[1].replace(/,/g, '')) * ({ TB: 1e12, GB: 1e9, MB: 1e6 })[match[2].toUpperCase()]);
   return Number.isSafeInteger(bytes) && bytes > 0 ? [{ platform: 'pc', kind: 'required', bytes }] : [];
+}
+function steamRequirements(data, source_url) {
+  const fields = {};
+  for (const tier of ['minimum', 'recommended']) {
+    const html = data.pc_requirements?.[tier];
+    if (typeof html !== 'string') continue;
+    const value = html
+      .replace(/<(?:br\b[^>]*|\/li|\/p)>/gi, '\n')
+      .replace(/<[^>]*>/g, '')
+      .replace(/&(nbsp|amp|lt|gt|quot|#39);/gi, entity => ({
+        '&nbsp;': ' ', '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'",
+      })[entity.toLowerCase()])
+      .replace(/^\s*(?:minimum|recommended):\s*/i, '')
+      .split('\n').map(line => line.trim()).filter(Boolean).join('\n');
+    if (value) fields[tier] = value.slice(0, 12000);
+  }
+  if (fields.minimum || fields.recommended) return normalizePcRequirements({ ...fields, source_url });
 }
 async function read(input, fetcher = fetch) {
   const providers = input.providers || ['xbox', 'steam'];
@@ -75,7 +93,12 @@ async function read(input, fetcher = fetch) {
   const results = await Promise.all(resolved.map(async source => {
     try {
       let rows;
-      if (source.provider === 'steam') rows = steamStorage(await details(source.id, fetcher));
+      let pc_requirements;
+      if (source.provider === 'steam') {
+        const data = await details(source.id, fetcher);
+        rows = steamStorage(data);
+        pc_requirements = steamRequirements(data, source.source);
+      }
       else {
         let data = await request(source.request, fetcher);
         rows = xboxStorage(data);
@@ -88,7 +111,7 @@ async function read(input, fetcher = fetch) {
           }
         }
       }
-      return { provider: source.provider, source_url: source.source, rows: rows.map(row => ({ ...row, provider: source.provider, source_url: source.source, checked_at: new Date().toISOString() })), ...(!rows.length && { error: 'حجم قابل استناد در این محصول موجود نیست.' }) };
+      return { provider: source.provider, source_url: source.source, pc_requirements, rows: rows.map(row => ({ ...row, provider: source.provider, source_url: source.source, checked_at: new Date().toISOString() })), ...(!rows.length && { error: 'حجم قابل استناد در این محصول موجود نیست.' }) };
     } catch (error) { return { provider: source.provider, source_url: source.source, rows: [], error: error.message }; }
   }));
   results.push(...errors);

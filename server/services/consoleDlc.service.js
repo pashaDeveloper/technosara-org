@@ -42,20 +42,26 @@ function sourceLink(value) {
     }
     if (u.hostname === 'store.playstation.com') {
       const match = u.pathname.match(/^\/[a-z]{2}-[a-z]{2}\/(concept\/\d{1,15}|product\/[A-Z0-9_-]{10,80})\/?$/i);
-      if (match) return { provider: 'playstation', id: match[1], url: `https://store.playstation.com/en-us/${match[1]}` };
+      if (match) return { provider: 'playstation', id: match[1], url: `https://store.playstation.com/${u.pathname.split('/')[1].toLowerCase()}/${match[1]}` };
     }
   } catch { /* Incomplete or unsupported form URL. */ }
   return null;
 }
 function inputLinks(input = {}) {
   const map = new Map();
-  for (const key of ['official_stores', 'offers']) {
+  const preferred = new Set();
+  const selected = new Set();
+  for (const key of ['console_api_stores', 'official_stores', 'offers']) {
     let rows = input[key] || [];
     if (typeof rows === 'string') { try { rows = JSON.parse(rows); } catch { throw fail('فهرست فروشگاه‌ها معتبر نیست.'); } }
     if (!Array.isArray(rows) || rows.length > 100) throw fail('فهرست فروشگاه‌ها معتبر نیست.');
     for (const row of rows) {
       const source = sourceLink(row?.url);
-      if (source) map.set(`${source.provider}:${source.id}`, source);
+      if (source && !selected.has(source.provider) && !(key === 'offers' && preferred.has(source.provider))) {
+        map.set(`${source.provider}:${source.id}`, source);
+        if (key === 'console_api_stores') selected.add(source.provider);
+        if (key === 'official_stores') preferred.add(source.provider);
+      }
     }
   }
   if (map.size > 20) throw fail('تعداد لینک‌های نسخهٔ اصلی بیش از حد مجاز است.');
@@ -92,7 +98,7 @@ async function sonyList(source, fetcher) {
     u.searchParams.set('operationName', 'getAddOnProductsByConcept');
     u.searchParams.set('variables', JSON.stringify({ conceptId, pageArgs: { size: 48, offset } }));
     u.searchParams.set('extensions', JSON.stringify({ persistedQuery: { version: 1, sha256Hash: SONY_ADDONS_HASH } }));
-    const body = await request(u.href, { headers: { 'Content-Type': 'application/json', 'X-Psn-Store-Locale-Override': 'en-us' } }, fetcher);
+    const body = await request(u.href, { headers: { 'Content-Type': 'application/json', 'X-Psn-Store-Locale-Override': new URL(source.url).pathname.split('/')[1] } }, fetcher);
     if (body.errors?.length) throw fail('API سونی فهرست کامل را برنگرداند: ' + body.errors[0].message, 502);
     const rows = body.data?.addOnProductsRetrieve?.addOnProducts;
     if (!Array.isArray(rows)) throw fail('ساختار فهرست افزونه‌های سونی تغییر کرده است.', 502);
@@ -166,7 +172,7 @@ async function discoverDraft(input = {}, fetcher = fetch) {
         const id = source.provider === 'xbox' ? row.productId : row.id;
         const item = { provider: source.provider, key: `${source.provider}:${id}`, app_id: id, parent_app_id: list.parent, parent_url: source.url,
           title: row.title || row.name || id, image: row.boxArt?.url || row.images?.boxArt?.url || '',
-          url: source.provider === 'xbox' ? `https://www.xbox.com/en-US/games/store/addon/${id}` : `https://store.playstation.com/en-us/product/${id}` };
+          url: source.provider === 'xbox' ? `https://www.xbox.com/en-US/games/store/addon/${id}` : `https://store.playstation.com/${new URL(source.url).pathname.split('/')[1]}/product/${id}` };
         found.set(item.key, item);
       }
     } catch (error) { errors.push({ provider: source.provider, app_id: source.id, message: error.message }); }
@@ -224,7 +230,7 @@ async function previewOne(input = {}, fetcher = fetch) {
     content = normalizeSony(page.product, listRow); raw = { data: page.data, listing: listRow };
     const p = listRow.price;
     const amount = value => /^\$[\d,.]+$/.test(value || '') ? Number(value.slice(1).replace(/,/g, '')) : undefined;
-    if (amount(p?.discountedPrice) !== undefined) price = { value: amount(p.discountedPrice), initial: amount(p.basePrice), currency: 'USD' };
+    if (new URL(match.url).pathname.startsWith('/en-us/') && amount(p?.discountedPrice) !== undefined) price = { value: amount(p.discountedPrice), initial: amount(p.basePrice), currency: 'USD' };
   }
   return { ...match, content, price, raw, warnings: [!content.release_date && 'تاریخ انتشار دقیق در منبع موجود نیست.'].filter(Boolean) };
 }
@@ -237,8 +243,28 @@ async function importOne(gameId, input, admin, fetcher = fetch) {
   if (active.has(lock)) throw fail('این محتوا در حال دریافت است.', 409);
   active.add(lock);
   try {
+    if (input.refresh_cover === true && ['xbox', 'playstation'].includes(input.provider)) {
+      const id = String(input.app_id || '');
+      const xbox = input.provider === 'xbox';
+      if (!(xbox ? /^[A-Z0-9]{12}$/ : /^[A-Z0-9_-]{10,80}$/).test(id)) throw fail('شناسهٔ افزونه معتبر نیست.');
+      const store = await Store.findOne({ code: xbox ? 'xbox-store' : 'playstation-store' });
+      if (!store) throw fail('فروشگاه این منبع در سیستم ثبت نشده است.', 409);
+      const product = await Product.findOne({ store_id: store._id, provider: input.provider, external_product_id: id, external_sku_id: '' }).setOptions({ withDeleted: true });
+      if (!product || product.isDeleted || product.game_id || product.edition_id) throw fail('این افزونه به بازی انتخاب‌شده متصل نیست.', 409);
+      const content = product.content_id && await Content.findById(product.content_id).setOptions({ withDeleted: true });
+      if (!content || content.isDeleted || String(content.game_id) !== String(gameId)) throw fail('این افزونه به بازی انتخاب‌شده متصل نیست.', 409);
+      const media = require('./automaticMedia.service');
+      if (!xbox) {
+        const page = await sonyPage({ id: `product/${id}`, url: `https://store.playstation.com/en-us/product/${id}` }, fetcher);
+        const image = page.product.media?.find(row => row.role === 'MASTER' && row.url)?.url;
+        return await media.refreshDlcCover(content, game, image, product.price);
+      }
+      const { Product: data } = await request(`https://displaycatalog.mp.microsoft.com/v7.0/products/${id}?market=US&languages=en-US`, {}, fetcher);
+      if (data?.ProductId !== id) throw fail('جزئیات Xbox با شناسهٔ افزونه برابر نیست.', 502);
+      return await media.refreshDlcCover(content, game, normalizeXbox(data).image, product.price);
+    }
     // Use saved links/title, never trust a client-supplied parent relationship.
-    const preview = await previewOne({ ...game, title: game.title || game.name, provider: input.provider, app_id: input.app_id, parent_app_id: input.parent_app_id }, fetcher);
+    const preview = await previewOne({ ...game, ...(input.official_stores ? { official_stores: input.official_stores, console_api_stores: [] } : {}), title: game.title || game.name, provider: input.provider, app_id: input.app_id, parent_app_id: input.parent_app_id }, fetcher);
     const store = await Store.findOne({ code: input.provider === 'xbox' ? 'xbox-store' : 'playstation-store' });
     if (!store) throw fail('فروشگاه این منبع در سیستم ثبت نشده است.', 409);
     const filter = { store_id: store._id, provider: input.provider, external_product_id: preview.app_id, external_sku_id: '' };
@@ -247,6 +273,7 @@ async function importOne(gameId, input, admin, fetcher = fetch) {
     let content = product ? await Content.findById(product.content_id).setOptions({ withDeleted: true }) : await Content.findOne({ game_id: gameId, slug: preview.content.slug }).setOptions({ withDeleted: true });
     if (product && !content || content && (content.isDeleted || String(content.game_id) !== String(gameId))) throw fail('محتوای موجود حذف شده یا متعلق به بازی دیگری است.', 409);
     const created = !content;
+    if (product && content && require('./importCompletion').completion(content, 'dlc').complete) return { key: preview.key, provider: preview.provider, app_id: preview.app_id, parent_app_id: preview.parent_app_id, content_id: content._id, content: content.toObject(), title: content.title, created: false, complete: true, warnings: preview.warnings };
     if (!content) {
       content = new Content({ ...preview.content, game_id: gameId, publication_status: 'draft', creator: admin });
     }

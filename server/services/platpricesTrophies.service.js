@@ -113,7 +113,7 @@ async function importCollection(gameId, data, admin) {
       const insert = { ...row, ...identity, game_id: gameId, platform_id: platform._id, creator: admin };
       for (const key of Object.keys(metadata)) delete insert[key];
       const achievement = await Achievement.findOneAndUpdate(identity, { $setOnInsert: insert, ...(Object.keys(metadata).length ? { $set: metadata } : {}) }, { upsert: true, new: true, runValidators: true });
-      try { await require('./automaticMedia.service').enrich(achievement, game, 'trophy', row); }
+      try { if (!require('./importCompletion').completion(achievement, 'trophy').complete) await require('./automaticMedia.service').enrich(achievement, game, 'trophy', row); }
       catch { failures.push(row.external_id); }
       const progress = data.account_progress?.find(item => item.external_id === row.external_id);
       if (progress) {

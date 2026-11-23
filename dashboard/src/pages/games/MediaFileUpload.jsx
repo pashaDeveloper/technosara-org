@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { uploadFilesToArvan, getUploadErrorMessage } from '../../utils/directUpload';
 import { mediaBytes } from './mediaUploadUtils';
 
-export default function MediaFileUpload({ gameTitle, kind, onUploaded, disabled, onBusyChange, options = {} }) {
+export default function MediaFileUpload({ gameTitle, kind, label, onUploaded, disabled, onBusyChange, options = {} }) {
   const [busy, setBusy] = useState(false), [progress, setProgress] = useState(0), [error, setError] = useState('');
   const lock = useRef(false);
   const [uploaded, setUploaded] = useState(null);
@@ -21,7 +21,7 @@ export default function MediaFileUpload({ gameTitle, kind, onUploaded, disabled,
     finally { lock.current = false; setBusy(false); onBusyChange?.(false); }
   }
   return <div className="space-y-2 text-sm">
-    <label className="block">{video ? 'آپلود و فشرده‌سازی ویدئو' : 'آپلود و فشرده‌سازی تصویر'}<input className="mt-2 block w-full" type="file" disabled={busy || disabled} accept={video ? 'video/mp4,video/webm,video/ogg,video/quicktime' : 'image/png,image/jpeg,image/webp'} onChange={event => { const file = event.target.files?.[0]; event.target.value = ''; void upload(file); }} /></label>
+    <label className="block">{label || (video ? 'آپلود و فشرده‌سازی ویدئو' : 'آپلود و فشرده‌سازی تصویر')}<input className="mt-2 block w-full" type="file" disabled={busy || disabled} accept={video ? 'video/mp4,video/webm,video/ogg,video/quicktime' : 'image/png,image/jpeg,image/webp'} onChange={event => { const file = event.target.files?.[0]; event.target.value = ''; void upload(file); }} /></label>
     {busy && <div role="status"><progress aria-label="پیشرفت ارسال" className="w-full" max="100" value={progress} /><span>{progress < 100 ? `${progress}٪ ارسال` : 'در حال فشرده‌سازی و ذخیره در Cloudinary…'}</span></div>}
     {error && <p role="alert" className="text-red-600">{error}</p>}
     {uploaded && <span className="inline-flex rounded-full bg-emerald-50 px-2 py-1 text-xs text-emerald-700">{mediaBytes(uploaded.original_bytes)} ← {mediaBytes(uploaded.bytes)}</span>}

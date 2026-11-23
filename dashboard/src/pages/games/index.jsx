@@ -9,8 +9,8 @@ import Pagination from '../../components/shared/pagination/Pagination';
 import SkeletonItem from '../../components/shared/skeleton/SkeletonItem';
 import DeleteModal from '../../components/shared/modal/DeleteModal';
 import Edit from '../../components/icons/Edit';
-import { useGetGamesQuery, useDeleteGameMutation, useGetGamePlatformOptionsQuery } from '../../services/games/gameApi';
-import { statuses } from './definitions';
+import { useGetGamesQuery, useDeleteGameMutation, useGetGameCapabilityOptionsQuery, useGetGamePlatformOptionsQuery } from '../../services/games/gameApi';
+import { gameStatusFields, statuses } from './definitions';
 
 function platformNames(game, options) {
   const selected = (game.platform_ids || []).map(item => typeof item === 'object' ? item : options.find(platform => platform._id === item)).filter(Boolean);
@@ -30,8 +30,12 @@ export default function GameList() {
   const { data: platformOptions } = useGetGamePlatformOptionsQuery();
   const { page, setPage, search, setSearch, listQuery } = useCatalogListState();
   const [params, setParams] = useSearchParams();
+  const { data: capabilityCatalog } = useGetGameCapabilityOptionsQuery();
+  const capabilityOptions = [...gameStatusFields, ...(capabilityCatalog?.data || [])
+    .filter(item => !['cross_save', 'achievements'].includes(item.key))];
+  const capability = params.get('capability') || '';
   const status = statuses.some(item => item.value === params.get('status')) ? params.get('status') : '';
-  const { currentData: result, isFetching, error, refetch } = useGetGamesQuery({ page, limit: 10, search, status: status || undefined }, { refetchOnMountOrArgChange: true });
+  const { currentData: result, isFetching, error, refetch } = useGetGamesQuery({ page, limit: 10, search, status: status || undefined, capability: capability || undefined }, { refetchOnMountOrArgChange: true });
   const [remove, { isLoading }] = useDeleteGameMutation();
   const totalPages = Math.max(1, Math.ceil((result?.total || 0) / 10));
   useEffect(() => { if (result && page > totalPages) setPage(totalPages, { replace: true }); }, [result, page, totalPages]);
@@ -48,6 +52,16 @@ export default function GameList() {
       <PlatformInput aria-label="جست‌وجوی بازی" placeholder="جست‌وجوی عنوان بازی…" value={search} onChange={event => setSearch(event.target.value)} />
       <select aria-label="وضعیت انتشار" className="rounded-xl border-slate-200 dark:bg-slate-800" value={status} onChange={event => { const next = new URLSearchParams(params); next.set('page', '1'); event.target.value ? next.set('status', event.target.value) : next.delete('status'); setParams(next); }}>
         <option value="">همه وضعیت‌ها</option>{statuses.map(item => <option key={item.value} value={item.value}>{item.label}</option>)}
+      </select>
+      <select aria-label="قابلیت بازی" className="rounded-xl border-slate-200 dark:bg-slate-800" value={capability} onChange={event => {
+        const next = new URLSearchParams(params);
+        next.set('page', '1');
+        if (event.target.value) next.set('capability', event.target.value);
+        else next.delete('capability');
+        setParams(next);
+      }}>
+        <option value="">همهٔ قابلیت‌ها</option>
+        {capabilityOptions.map(item => <option key={item.key} value={item.key}>{item.label}</option>)}
       </select>
       <AddButton link={'/games/add' + listQuery} />
     </div>

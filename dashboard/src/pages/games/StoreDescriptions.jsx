@@ -7,6 +7,8 @@ import { toast } from 'react-hot-toast';
 const api = nabApi.injectEndpoints({ endpoints: builder => ({
   fetchStoreDescriptions: builder.mutation({ query: body => ({ url: '/games/store-descriptions', method: 'POST', body }) }),
 }) });
+export const { useFetchStoreDescriptionsMutation } = api;
+
 function links(value) { try { return JSON.parse(value || '[]').map(row => row.url).filter(Boolean); } catch { return []; } }
 function sourceUrl(provider, urls) {
   const hosts = { sony: ['store.playstation.com', 'www.playstation.com'], xbox: ['xbox.com', 'www.xbox.com'], steam: ['store.steampowered.com', 'www.store.steampowered.com'] };
@@ -14,7 +16,7 @@ function sourceUrl(provider, urls) {
 }
 
 export default function StoreDescriptions({ title, officialStores, offers, disabled, onApply, fieldKey }) {
-  const [fetchDescription] = api.useFetchStoreDescriptionsMutation();
+  const [fetchDescription] = useFetchStoreDescriptionsMutation();
   const [translate] = useTranslateTextMutation();
   const [loading, setLoading] = useState('');
   const generation = useRef(0);

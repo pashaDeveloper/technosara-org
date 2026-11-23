@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslateTextMutation } from '../../services/translation/translationApi';
+import Spinner from '../../components/shared/Spinner';
 import Trophy, { trophyColors } from '../../components/icons/Trophy';
 
 const translations = new Map();
@@ -16,7 +17,7 @@ function Badge({ title, children, tone = 'neutral', technical = false }) {
   </span>;
 }
 
-export default function TrophyCard({ trophy, provider, progress, allowTranslation = true }) {
+export default function TrophyCard({ trophy, provider, progress, allowTranslation = true, importStatus, importing = false, retryDisabled = false }) {
   const element = useRef(null);
   const [visible, setVisible] = useState(false), [texts, setTexts] = useState({}), [error, setError] = useState('');
   const [retry, setRetry] = useState(0);
@@ -56,7 +57,12 @@ export default function TrophyCard({ trophy, provider, progress, allowTranslatio
     })();
     return () => { cancelled = true; };
   }, [visible, trophy.name, trophy.description, trophy.locked_description, translate, retry]);
-  return <li ref={element} className={`w-[23rem] max-w-[85vw] shrink-0 space-y-3 rounded-xl border-r-4 p-4 ${provider === 'openxbl' ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950' : 'border-blue-400 bg-blue-50 dark:bg-blue-950'}`}>
+  const pending = importing && !importStatus?.complete;
+  return <li ref={element} aria-busy={pending} className={`w-[23rem] max-w-[85vw] shrink-0 space-y-3 rounded-xl border-r-4 p-4 ${provider === 'openxbl' ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950' : 'border-blue-400 bg-blue-50 dark:bg-blue-950'}`}>
+    {pending && <div role="status" className="flex items-center gap-2 text-xs text-blue-700 dark:text-blue-300"><Spinner aria-hidden="true" /><span>در حال ثبت و تکمیل تروفی…</span></div>}
+    {importStatus && <div role="status" className={`text-xs ${importStatus.complete ? 'text-green-700' : 'text-amber-700'}`}>
+      {importStatus.complete ? '✓ ثبت، ترجمه و آپلود کامل' : <span>ثبت {importStatus.registered ? '✓' : '○'} · ترجمه {importStatus.translated ? '✓' : '○'} · آپلود تصاویر {importStatus.uploaded ? '✓' : '○'}</span>}
+    </div>}
     <div className="flex items-center gap-3">
       {trophy.icon_url ? <img src={trophy.icon_url} alt="" loading="lazy" className="h-16 w-16 shrink-0 rounded-lg bg-white/70 object-contain dark:bg-slate-900/60" /> : <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-white/70 dark:bg-slate-900/60"><Trophy strokeWidth={1.75} className={`size-6 ${trophyColors[trophy.achievement_type] || trophyColors.silver}`} /></span>}
       <div className="min-w-0 text-sm"><h3 dir="auto" className="break-words font-semibold">{texts.name || trophy.name_fa || trophy.name}</h3>
@@ -92,6 +98,6 @@ export default function TrophyCard({ trophy, provider, progress, allowTranslatio
         {trophy.deeplink && <Badge title="لینک مستقیم منبع" technical>{trophy.deeplink}</Badge>}
       </div>
     </details>
-    {error && <p role="status" className="text-xs text-amber-700 dark:text-amber-400">{error} <button type="button" onClick={() => setRetry(value => value + 1)} className="underline">تلاش دوباره</button></p>}
+    {error && <p role="status" className="text-xs text-amber-700 dark:text-amber-400">{error} <button type="button" disabled={retryDisabled || importing} onClick={() => setRetry(value => value + 1)} className="underline disabled:cursor-not-allowed disabled:opacity-50">تلاش دوباره</button></p>}
   </li>;
 }

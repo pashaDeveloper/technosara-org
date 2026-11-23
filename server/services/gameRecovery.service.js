@@ -1,4 +1,5 @@
 const Game = require('../models/game.model');
+const { normalizePcRequirements } = require('../utils/pcRequirements');
 const fail = (message, status) => Object.assign(new Error(message), { status });
 async function missingCloudImage(value, fetcher = fetch) {
   let url;
@@ -10,28 +11,56 @@ async function missingCloudImage(value, fetcher = fetch) {
   } catch { return false; } // A temporary outage is not evidence of deletion.
 }
 const image = value => typeof value === 'string' ? value : value?.url || value?.image || '';
+function videoUrl(value) {
+  if (typeof value !== 'string') return '';
+  try { return ['https:', 'http:'].includes(new URL(value).protocol) ? value.trim() : ''; }
+  catch { return ''; }
+}
+const videos = value => Array.isArray(value) ? [...new Set(value.map(videoUrl).filter(Boolean))] : [];
 async function recover(id, fetcher = fetch) {
   let record = await Game.findById(id).lean();
   if (!record) throw fail('Game not found', 404);
+  const previousRequirements = record.pc_requirements;
+  const requirements = normalizePcRequirements(previousRequirements);
+  if (requirements !== previousRequirements) {
+    await Game.collection.updateOne(
+      { _id: record._id, pc_requirements: previousRequirements },
+      { $set: { pc_requirements: requirements } },
+    );
+    record = await Game.findById(id).lean();
+    if (!record) throw fail('Game not found', 404);
+  }
   const warnings = [];
   let source = record.gamebrain_source;
-  if (record.id && (!source || ['release_date', 'developer', 'image'].some(field => !record[field] && !source[field]) || (!record.screenshots?.length && !source.screenshots?.length))) {
+  const hasMainVideo = value => videos(value?.videos).length > 0 || Boolean(videoUrl(value?.micro_trailer));
+  if (record.id && (!source || ['release_date', 'developer', 'image'].some(field => !record[field] && !source[field]) || (!record.screenshots?.length && !source.screenshots?.length) || (!hasMainVideo(record) && !hasMainVideo(source)))) {
     try { source = await require('./gamebrain.service').details(String(record.id)); }
     catch { warnings.push('source_unavailable'); }
   }
   const updates = {};
   if (source && source !== record.gamebrain_source) updates.gamebrain_source = source;
   source ||= {};
+  const sourceVideos = videos(source.videos);
   let storeDetails;
   const steam = require('./steamDlc.service');
   const steamIds = [...new Set([...(record.official_stores || []), ...(record.offers || []), ...(source.official_stores || [])].map(row => steam.steamId(row.url)).filter(Boolean))];
-  if (steamIds.length === 1 && (!record.publisher_ids?.length || !record.detail_banner || !record.detail_poster)) {
+  if (steamIds.length === 1 && (!record.publisher_ids?.length || !record.detail_banner || !record.detail_poster || (!hasMainVideo(record) && !hasMainVideo(source)))) {
     try {
       const details = await steam.details(steamIds[0], fetcher);
       require('./storeDescriptions.service').selectTitle([{ title: details.name, url: `https://store.steampowered.com/app/${steamIds[0]}/` }], record.title);
       storeDetails = details;
     } catch { warnings.push('store_metadata_unavailable'); }
   }
+  if (!videos(record.videos).length) {
+    const storeVideos = !hasMainVideo(record) && !hasMainVideo(source)
+      ? videos((storeDetails?.movies || []).map(row => row.mp4?.max || row.mp4?.['480'] || row.webm?.max))
+      : [];
+    if (sourceVideos.length || storeVideos.length) updates.videos = sourceVideos.length ? sourceVideos : storeVideos;
+  }
+  const trailer = videoUrl(source.micro_trailer);
+  if (!videoUrl(record.micro_trailer) && trailer) updates.micro_trailer = trailer;
+  const twitchVideos = Array.isArray(source.twitch_videos) ? source.twitch_videos.filter(row => videoUrl(row?.url)) : [];
+  if (!record.twitch_videos?.some(row => videoUrl(row?.url)) && twitchVideos.length) updates.twitch_videos = twitchVideos;
   for (const field of ['release_date', 'official_website', 'developer', 'official_stores', 'offers', 'platforms', 'genres', 'play_modes']) {
     if ((!record[field] || (Array.isArray(record[field]) && !record[field].length)) && source[field]) updates[field] = source[field];
   }
@@ -64,7 +93,11 @@ async function recover(id, fetcher = fetch) {
     } catch { warnings.push('poster_unavailable'); }
   }
   const originals = (source.screenshots || []).map(image).filter(Boolean);
-  if (!record.screenshots?.length && originals.length) updates.screenshots = originals;
+  const filterScreenshots = require('../utils/gameScreenshots').filterScreenshots;
+  if (!record.screenshots?.length && originals.length) {
+    const shots = await filterScreenshots(originals);
+    if (shots.length) updates.screenshots = shots;
+  }
   else if (record.screenshots?.length) {
     const next = [];
     for (const [index, value] of record.screenshots.entries()) {
@@ -73,7 +106,9 @@ async function recover(id, fetcher = fetch) {
         else warnings.push('screenshot_source_missing');
       } else next.push(value);
     }
-    if (JSON.stringify(next) !== JSON.stringify(record.screenshots)) updates.screenshots = next;
+    if (JSON.stringify(next) !== JSON.stringify(record.screenshots)) {
+      updates.screenshots = await filterScreenshots(next, record.screenshots);
+    }
   }
   if (record.platform_covers?.length) {
     const covers = [];

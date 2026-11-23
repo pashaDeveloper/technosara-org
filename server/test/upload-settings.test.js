@@ -13,6 +13,39 @@ async function serve(t, app) {
   t.after(() => new Promise(resolve => { server.closeAllConnections(); server.close(resolve); }));
   return `http://127.0.0.1:${server.address().port}`;
 }
+
+test('admin video import downloads the source and uses the game video upload pipeline', async t => {
+  const previous = process.env.TOKEN_SECRET;
+  process.env.TOKEN_SECRET = 'video-import-test';
+  t.after(() => { if (previous === undefined) delete process.env.TOKEN_SECRET; else process.env.TOKEN_SECRET = previous; });
+  const source = 'https://cdn.example.com/trailer.mp4';
+  const file = { buffer: Buffer.from('video'), mimetype: 'video/mp4' };
+  const download = t.mock.method(require('../services/remoteImage.service'), 'downloadVideo', async url => {
+    assert.equal(url, source);
+    return file;
+  });
+  t.mock.method(settings, 'read', async () => settings.defaults);
+  const uploaded = { url: 'https://res.cloudinary.com/demo/video/upload/trailer.mp4' };
+  t.mock.method(storage, 'uploadVideo', async (input, title, field) => {
+    assert.equal(input, file);
+    assert.equal(title, 'Test Game');
+    assert.equal(field, 'video');
+    return uploaded;
+  });
+  const app = express();
+  app.use(express.json());
+  app.use(require('../routes/game.route'));
+  const url = (await serve(t, app)) + '/media/import';
+  const request = { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fieldName: 'video', gameTitle: 'Test Game', url: source }) };
+  assert.equal((await fetch(url, request)).status, 401);
+  assert.equal(download.mock.callCount(), 0);
+  const token = require('jsonwebtoken').sign({ role: 'admin' }, process.env.TOKEN_SECRET);
+  request.headers.Authorization = `Bearer ${token}`;
+  const response = await fetch(url, request);
+  assert.equal(response.status, 200);
+  assert.deepEqual((await response.json()).data.video, [uploaded]);
+});
 test('global settings reject invalid values and bound processing dimensions and previews', async () => {
   for (const values of [{ quality: 0 }, { blur: 21 }, { previewSize: '64' }, { bad: 1 }, []]) assert.throws(() => settings.validate(values), { status: 400 });
   const input = await sharp({ create: { width: 600, height: 400, channels: 3, background: '#538acd' } }).png().toBuffer();
@@ -65,11 +98,15 @@ test('video upload compresses the stored asset, generates a preview, and registe
   t.mock.method(cloudinary.uploader, 'destroy', async (key, values) => { removed = { key, ...values }; return { result: 'ok' }; });
   const cleanup = [];
   const file = await storage.uploadVideo({ mimetype: 'video/mp4', buffer: Buffer.alloc(100) }, 'My Game', 'trailer', settings.defaults, job => cleanup.push(job));
-  assert.match(options.public_id, /^game\/my-game\/trailer-/);
+  assert.match(options.public_id, /^game\/my-game\/my-game-trailer-/);
   assert.equal(options.resource_type, 'video'); assert.equal(options.transformation[0].quality, settings.defaults.videoQuality);
   assert.equal(options.transformation[0].fetch_format, 'mp4'); assert.equal(options.eager[0].width, settings.defaults.previewSize);
   assert.equal(file.resource_type, 'video'); assert.equal(file.blur.url, 'https://example.com/preview.jpg');
   await cleanup[0](); assert.equal(removed.resource_type, 'video'); assert.equal(removed.key, file.key);
+  const gameplay = await storage.uploadVideo({ mimetype: 'video/mp4', buffer: Buffer.alloc(100) }, 'My Game', 'gameplay', settings.defaults, job => cleanup.push(job));
+  assert.match(gameplay.key, /^game\/my-game\/my-game-game-play-/);
+  await cleanup[1]();
+  assert.equal(removed.key, gameplay.key);
   await assert.rejects(storage.uploadVideo({ mimetype: 'text/plain' }, 'Test', 'video', settings.defaults, () => {}), { status: 400 });
 });
 
@@ -108,4 +145,24 @@ test('game previews retain the stored image dimensions for portrait and landscap
     assert.equal(low.width, full.width); assert.equal(low.height, full.height);
     assert.notEqual(low.width, low.height);
   }
+});
+
+test('game detail art keeps its dimensions and targets at least 700 KiB for large inputs', async () => {
+  const width = 1200, height = 850;
+  const pixels = require('node:crypto').randomBytes(width * height * 3);
+  const input = await sharp(pixels, { raw: { width, height, channels: 3 } }).png().toBuffer();
+  const result = await require('../utils/compressImage')(input, settings.defaults, false, true, undefined, true);
+  for (const variant of [result.full, result.preview]) {
+    const meta = await sharp(variant).metadata();
+    assert.equal(meta.width, width);
+    assert.equal(meta.height, height);
+  }
+  assert.ok(result.full.length >= 700 * 1024);
+  assert.ok(result.full.length < 800 * 1024);
+});
+
+test('compression keeps an already smaller WebP when its dimensions fit', async () => {
+  const input = await sharp({ create: { width: 320, height: 320, channels: 3, background: 'black' } }).webp({ lossless: true }).toBuffer();
+  const result = await require('../utils/compressImage')(input, settings.defaults);
+  assert.deepEqual(result.full, input);
 });

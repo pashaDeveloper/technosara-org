@@ -17,6 +17,7 @@ const schema = new mongoose.Schema({
     trim: true,
     default: null
   },
+  name_fa: { type: String, trim: true, default: null },
   slug: {
     type: String,
     required: true,

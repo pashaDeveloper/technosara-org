@@ -8,15 +8,23 @@ export const providerFields = [
  field('adult_only','مخصوص بزرگسالان','checkbox'),
  ...['rating','playtime','platforms','genres','themes','play_modes','screenshots','videos','twitch_videos','offers','official_stores'].map(key => field(key,key,'json')),
 ];
+export const gameStatusFields = [
+  field('has_persian_subtitles', 'زیرنویس دارد', 'switch', { default: false }),
+  field('has_dubbing', 'دوبله دارد', 'switch', { default: false }),
+  field('has_game_pass', 'گیم پس', 'switch', { default: false }),
+  field('has_ps_plus', 'پلاس', 'switch', { default: false }),
+];
 export const definition = { fields: [
   field('storage_sizes', 'حجم بازی', 'json'),
+  field('pc_requirements', 'سیستم موردنیاز PC', 'json'),
   field('detail_poster', 'کاور عمودی جزئیات بازی', 'url'),
-  field('detail_banner', 'تصویر عریض جزئیات بازی', 'url'),
+  field('detail_banner', 'تصویر اصلی جزئیات بازی', 'url'),
+  field('detail_banner_mirrored', 'قرینهٔ افقی تصویر اصلی جزئیات بازی', 'checkbox'),
   field('detail_gif', 'گیف جزئیات بازی', 'url'),
   field('capability_status', 'قابلیت‌های بازی', 'json'),
   field('platform_capabilities', 'قابلیت‌های پلتفرم', 'json'),
   field('feature_ids', 'قابلیت‌ها', 'multiple'),
-  field('has_persian_subtitles', 'زیرنویس فارسی', 'switch', { default: false }),
+  ...gameStatusFields,
   field('platform_covers', '\u06a9\u0627\u0648\u0631 \u067e\u0644\u062a\u0641\u0631\u0645', 'json'),
   ...providerFields, field('theme_ids','تم‌ها','multiple'),
   field('platform_ids','پلتفرم‌ها','multiple'), field('tags','تگ‌ها','multiple'),
@@ -28,12 +36,20 @@ export const definition = { fields: [
   field('official_website', 'وب‌سایت رسمی', 'url', { dir: 'ltr' }),
   field('developer_ids', 'توسعه‌دهنده', 'multiple'), field('publisher_ids', 'ناشر', 'multiple'),
   field('genre_ids', 'ژانرها', 'multiple'), field('game_mode_ids', 'حالت‌های بازی', 'multiple'), field('game_series_ids', 'سری‌های بازی', 'multiple'),
+  field('gameplay', 'گیم‌پلی', 'url', { dir: 'ltr' }),
+  field('trailer', 'تریلر', 'url', { dir: 'ltr' }),
+  field('gameplay_videos', 'ویدئوهای گیم‌پلی', 'json'),
+  field('video_source_keys', '', 'json'),
+  field('trailers', 'تریلرها', 'json'),
+  field('console_api_stores', '', 'json'),
+  field('playstation_product_id', '', 'text'),
+  field('xbox_product_id', '', 'text'),
   field('cover_media_id', 'رسانه کاور', 'relation'),
   field('short_description', 'توضیح کوتاه', 'textarea'), field('description', 'توضیحات کامل', 'textarea'),
 ] };
 export const gameSteps = [
   { title: 'مشخصات بازی', description: 'عنوان، تصویر کاور و توضیحات معرفی بازی را بررسی و تکمیل کنید.', fields: ['title', 'slug', 'alternate_titles', 'image', 'short_description', 'description'] },
-  { title: 'تصاویر و ویدئوها', description: 'تصاویر و ویدئوها را بررسی کنید و موارد اضافی را حذف کنید.', fields: ['screenshots','videos','twitch_videos'] },
+  { title: 'تصاویر و ویدئوها', description: 'تصاویر و ویدئوها را بررسی کنید و موارد اضافی را حذف کنید.', fields: ['gameplay', 'trailer', 'screenshots', 'videos', 'twitch_videos'] },
   { title: 'انتشار و شرکت‌ها', description: 'اطلاعات انتشار، سازنده و ناشر بازی.', fields: ['status', 'release_date', 'official_website', 'developer_ids', 'publisher_ids'] },
   { title: 'دسته‌بندی', description: 'می‌توانید چند ژانر، حالت و سری انتخاب کنید.', fields: ['platform_ids', 'tags', 'theme_ids', 'genre_ids', 'game_mode_ids', 'game_series_ids'] },
 ];
@@ -47,6 +63,7 @@ export function formValues(_definition, record = {}) {
   return Object.fromEntries(definition.fields.map(field => {
     let value = record[field.key] ?? field.default ?? (['multiple', 'list'].includes(field.type) ? [] : '');
     if (field.type === 'json') value = JSON.stringify(record[field.key] ?? (['rating','playtime','capability_status'].includes(field.key) ? {} : []), null, 2);
+    if (field.key === 'pc_requirements') value = JSON.stringify(record.pc_requirements ?? null, null, 2);
     if (['checkbox', 'switch'].includes(field.type)) value = Boolean(record[field.key]);
     if (field.type === 'multiple') value = value.map(id);
     if (field.type === 'relation') value = id(value);

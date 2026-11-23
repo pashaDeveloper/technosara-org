@@ -41,10 +41,23 @@ test('title-only Steam lookup selects the exact game and fetches its required sp
     calls.push(url);
     if (url.includes('storesearch')) return Response.json({ items: [{ id: 1, name: 'Forza Horizon 5 Deluxe' }, { id: 1551360, name: 'Forza Horizon 5' }] });
     assert.ok(url.includes('appids=1551360'));
-    return Response.json({ 1551360: { success: true, data: { steam_appid: 1551360, pc_requirements: { minimum: 'Storage: 110 GB available space' } } } });
+    return Response.json({ 1551360: { success: true, data: { steam_appid: 1551360, pc_requirements: {
+      minimum: '<strong>Minimum:</strong><br><ul><li>Memory: 8 GB RAM</li><li>Storage: 110 GB available space</li></ul>',
+      recommended: '<strong>Recommended:</strong><br><ul><li>Memory: 16 GB RAM</li></ul>',
+    } } } });
   });
   assert.equal(calls.length, 2);
   assert.equal(result.results[0].rows[0].bytes, 110000000000);
+  const { pc_requirements } = result.results[0];
+  assert.deepEqual(pc_requirements, {
+    minimum: {
+      memory_text: '8 GB RAM', memory_bytes: 8000000000,
+      storage_text: '110 GB available space', storage_bytes: 110000000000,
+    },
+    recommended: { memory_text: '16 GB RAM', memory_bytes: 16000000000 },
+    source_url: 'https://store.steampowered.com/app/1551360/',
+  });
+  assert.deepEqual(gamebrainValues({ pc_requirements: JSON.stringify(pc_requirements) }).pc_requirements.toObject(), pc_requirements);
 });
 
 test('title-only Xbox lookup does not confuse editions or fetch Steam', async () => {

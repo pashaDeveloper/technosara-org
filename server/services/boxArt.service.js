@@ -102,7 +102,7 @@ async function thegamesdb(title, system, key, fetcher) {
   if (!result) throw fail('کاور جلوی جعبه برای این عنوان و کنسول پیدا نشد.', 404);
   return result;
 }
-async function read({ title, platform_id }, fetcher = fetch, env = process.env) {
+async function read({ title, platform_id, xbox_url }, fetcher = fetch, env = process.env) {
   if (typeof title !== 'string' || title.trim().length < 2 || title.length > 200 || !normalize(title)) throw fail('ابتدا نام کامل انگلیسی بازی را انتخاب کنید.');
   if (!require('mongoose').isObjectIdOrHexString(platform_id)) throw fail('پلتفرم کاور معتبر نیست.');
   const platform = await Platform.findById(platform_id).lean();
@@ -110,6 +110,14 @@ async function read({ title, platform_id }, fetcher = fetch, env = process.env) 
   let system = systemFor(platform);
   if (!system && platform.parent_id) system = systemFor(await Platform.findById(platform.parent_id).lean());
   if (!system) throw fail('کاور فیزیکی برای این پلتفرم قابل دریافت نیست.');
+  if (xbox_url && ['xboxone', 'xboxseries'].includes(system)) {
+    try {
+      const source = await require('./gameMedia.service').read({ provider: 'xbox', url: xbox_url, media: 'box' }, fetcher);
+      const url = source.box_images[0];
+      if (url) return { provider: 'xbox', side: 'front', title: source.title,
+        low_quality: url, high_quality: url, source_url: source.source_url };
+    } catch { /* Continue with the configured cover archive. */ }
+  }
   if (env.THEGAMESDB_API_KEY?.trim()) return thegamesdb(title.trim(), system, env.THEGAMESDB_API_KEY.trim(), fetcher);
   return libretro(title.trim(), system, fetcher);
 }

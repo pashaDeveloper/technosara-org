@@ -9,13 +9,22 @@ function imageUrl(value) {
   } catch { return null; }
 }
 const unique = rows => [...new Set(rows.map(imageUrl).filter(Boolean))];
-function xboxImages(data) {
+function xboxImages(data, media) {
   const product = data.Product;
   const local = product?.LocalizedProperties?.find(row => row.Language === 'en-US') || product?.LocalizedProperties?.[0];
   if (!local) throw fail('تصاویر این محصول در Xbox موجود نیست.', 404);
   const images = local.Images || [];
   const byRole = roles => roles.flatMap(role => images.filter(row => row.ImagePurpose === role).map(row => row.Uri));
-  return { title: local.ProductTitle, card_images: unique(byRole(['Tile', 'SquareTitle', 'BoxArt', 'Poster'])), banner_images: unique(byRole(['SuperHeroArt', 'TitledHeroArt', 'Hero', 'BrandedKeyArt', 'FeaturePromotionalArt'])) };
+  if (media === 'box') {
+    const boxes = images.filter(row => ['BoxArt', 'Poster'].includes(row.ImagePurpose) &&
+      (!row.Width || !row.Height || row.Height > row.Width));
+    return { title: local.ProductTitle, box_images: unique(boxes.map(row => row.Uri)) };
+  }
+  const videos = (local.Videos || []).map(row => ({
+    url: imageUrl(row.Uri), title: row.Title || row.Name, role: row.VideoPurpose,
+    thumbnail: imageUrl(row.ThumbnailUri),
+  })).filter(row => row.url);
+  return { title: local.ProductTitle, videos, card_images: unique(byRole(['Tile', 'SquareTitle', 'BoxArt', 'Poster'])), banner_images: unique(byRole(['SuperHeroArt', 'TitledHeroArt', 'Hero', 'BrandedKeyArt', 'FeaturePromotionalArt'])) };
 }
 function sonyImages(html, source) {
   const cache = sonyCache(html);
@@ -24,7 +33,12 @@ function sonyImages(html, source) {
   const product = productId ? products.find(row => row.id === productId) : products.find(row => row.type === 'GAME');
   const concept = Object.values(cache).find(row => row.__typename === 'Concept' && (!product?.concept?.__ref || cache[product.concept.__ref] === row));
   const dereference = row => row?.__ref ? cache[row.__ref] || {} : row || {};
-  const images = [...(product?.media || []), ...(concept?.media || [])].map(dereference).filter(row => row.type === 'IMAGE' || !row.type);
+  const media = [...(product?.media || []), ...(concept?.media || [])].map(dereference);
+  const images = media.filter(row => row.type === 'IMAGE' || !row.type);
+  const videos = media.filter(row => row.type === 'VIDEO').map(row => ({
+    url: imageUrl(row.url), title: row.name || row.title, role: row.role,
+    thumbnail: imageUrl(row.thumbnailUrl),
+  })).filter(row => row.url);
   const card = images.filter(row => ['MASTER', 'BOX_ART', 'PORTRAIT_BANNER'].includes(row.role)).map(row => row.url);
   const banner = images.filter(row => ['BACKGROUND', 'HERO', 'GAMEHUB_COVER_ART', 'BANNER', 'KEY_ART'].includes(row.role)).map(row => row.url);
   let title = product?.name || concept?.name || '';
@@ -36,9 +50,9 @@ function sonyImages(html, source) {
       card.push(...[row.image || []].flat().map(value => typeof value === 'string' ? value : value?.url));
     }
   }
-  return { title, card_images: unique(card), banner_images: unique(banner) };
+  return { title, videos, card_images: unique(card), banner_images: unique(banner) };
 }
-async function read({ provider, url }, fetcher = fetch) {
+async function read({ provider, url, media }, fetcher = fetch) {
   const source = productUrl(provider, url);
   let response;
   try { response = await fetcher(source.request, { signal: AbortSignal.timeout(20000), redirect: 'error', headers: { Accept: provider === 'xbox' ? 'application/json' : 'text/html' } }); }
@@ -52,8 +66,10 @@ async function read({ provider, url }, fetcher = fetch) {
   }
   const text = Buffer.concat(chunks).toString('utf8');
   let result;
-  try { result = provider === 'xbox' ? xboxImages(JSON.parse(text)) : sonyImages(text, source.source); }
+  try { result = provider === 'xbox' ? xboxImages(JSON.parse(text), media) : sonyImages(text, source.source); }
   catch (error) { if (error.status) throw error; throw fail('ساختار تصاویر فروشگاه معتبر نیست.', 502); }
+  if (provider === 'xbox' && media === 'box') return { ...result, source_url: source.source };
+  if (media === 'video') return { videos: result.videos, provider, source_url: source.source };
   if (!result.card_images.length && !result.banner_images.length) throw fail('تصویر قابل‌دریافتی برای این نسخه پیدا نشد.', 404);
   return { ...result, provider, source_url: source.source };
 }

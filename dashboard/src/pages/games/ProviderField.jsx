@@ -2,7 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import ScreenshotGallery from './ScreenshotGallery';
 import MediaFileUpload from './MediaFileUpload';
 import { selectProviderStores } from './providerStoreUtils';
+import { parseGameMetrics } from './gameFormUtils';
 import { toast } from 'react-hot-toast';
+import { FiUpload } from 'react-icons/fi';
+import { importGameMedia, isCloudinaryMedia } from './mediaUploadUtils';
 import Dropdown from '../../components/shared/select/Dropdown';
 import PlatformInput from '../platforms/components/PlatformInput';
 
@@ -68,14 +71,22 @@ function put(row, path, value) {
 const safeUrl = value => {
   try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) && !url.username && !url.password ? url.href : ''; } catch { return ''; }
 };
-export function VideoPreview({ url, thumbnail }) {
+const videoFilePath = /\.(?:mp4|m4v|webm|ogg|ogv|mov)$/i;
+const videoPageHost = /(?:^|\.)(?:youtube\.com|youtu\.be|youtube-nocookie\.com|twitch\.tv)$/i;
+function directVideoUrl(value) {
+  const safe = safeUrl(value);
+  if (!safe || isCloudinaryMedia(safe)) return '';
+  const url = new URL(safe);
+  return url.protocol === 'https:' && !url.port && !videoPageHost.test(url.hostname.replace(/\.$/, '')) && videoFilePath.test(url.pathname) ? safe : '';
+}
+export function VideoPreview({ url, thumbnail, autoPlay = false }) {
   const safe = safeUrl(url);
   if (!safe) return null;
   const parsed = new URL(safe);
   const youtube = ['www.youtube.com', 'youtube.com', 'www.youtube-nocookie.com', 'youtube-nocookie.com', 'youtu.be'].includes(parsed.hostname);
   const id = youtube ? (parsed.hostname === 'youtu.be' ? parsed.pathname.slice(1) : parsed.pathname.startsWith('/embed/') ? parsed.pathname.split('/')[2] : parsed.searchParams.get('v')) : null;
-  if (id && /^[\w-]{11}$/.test(id)) return <iframe className="aspect-video w-full rounded-lg" src={`https://www.youtube-nocookie.com/embed/${id}`} title="پیش‌نمایش ویدئو" loading="lazy" allowFullScreen />;
-  if (/\.(webm|mp4|ogg)$/i.test(parsed.pathname)) return <video className="aspect-video w-full rounded-lg bg-black" controls preload="none" src={safe} />;
+  if (id && /^[\w-]{11}$/.test(id)) return <iframe className="aspect-video w-full rounded-lg" src={`https://www.youtube-nocookie.com/embed/${id}${autoPlay ? '?autoplay=1' : ''}`} title="پیش‌نمایش ویدئو" loading="lazy" allow="autoplay" allowFullScreen />;
+  if (videoFilePath.test(parsed.pathname)) return <video className="aspect-video w-full rounded-lg bg-black" controls preload="none" src={safe} poster={safeUrl(thumbnail) || undefined} />;
   return <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-slate-900">
     {safeUrl(thumbnail) && <img src={safeUrl(thumbnail)} alt="" loading="lazy" className="h-full w-full object-cover" />}
     <a href={safe} target="_blank" rel="noreferrer" aria-label="مشاهده ویدئو در منبع" title="مشاهده ویدئو در منبع" className="absolute bottom-2 right-2 flex h-8 w-8 items-center justify-center rounded-md bg-black/65 text-white hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"><VideoEyeIcon aria-hidden="true" className="h-5 w-5" /></a>
@@ -123,6 +134,16 @@ function EmptyProviderSkeleton({ name, label }) {
 export default function ProviderField({ name, label, value, onChange, stores, platforms, gameTitle, disabled, onBusyChange, onPendingChange }) {
   const clearedStores = useRef(new Set());
   const [editingIndex, setEditingIndex] = useState(null);
+  const [importingVideo, setImportingVideo] = useState(null);
+  const videoRequest = useRef(null);
+  const currentRows = useRef([]);
+  const reportBusy = useRef(onBusyChange);
+  reportBusy.current = onBusyChange;
+  useEffect(() => () => {
+    if (!videoRequest.current) return;
+    videoRequest.current.abort();
+    reportBusy.current?.(false);
+  }, []);
   const storeKey = row => JSON.stringify([row.url, row.source, row.store_name]);
   useEffect(() => {
     if (!['official_stores', 'offers'].includes(name) || !stores?.data?.data?.length) return;
@@ -134,8 +155,35 @@ export default function ProviderField({ name, label, value, onChange, stores, pl
   }, [name, value, stores?.data, onChange]);
   const objectField = ['rating', 'playtime'].includes(name);
   let data;
-  try { data = JSON.parse(value || (objectField ? '{}' : '[]')); } catch { data = objectField ? {} : []; }
+  try { data = objectField ? parseGameMetrics(value) : JSON.parse(value || '[]'); } catch { data = objectField ? {} : []; }
+  currentRows.current = data;
   const update = next => onChange(JSON.stringify(next));
+  const rowVideoUrl = row => name === 'videos' ? row : row?.url;
+  async function uploadVideo(index, url) {
+    if (!url || disabled || videoRequest.current) return;
+    if (!gameTitle?.trim()) { toast.error('ابتدا نام بازی را وارد کنید.'); return; }
+    const controller = new AbortController();
+    videoRequest.current = controller;
+    setImportingVideo(index);
+    reportBusy.current?.(true);
+    try {
+      const file = await importGameMedia(url, gameTitle, 'video', {}, controller.signal);
+      const rows = currentRows.current;
+      if (controller.signal.aborted || directVideoUrl(rowVideoUrl(rows[index])) !== url) return;
+      update(rows.map((row, i) => i !== index ? row : name === 'videos'
+        ? file.url
+        : { ...row, url: file.url, thumbnail_url: file.blur?.url || row.thumbnail_url }));
+      toast.success('ویدئو آپلود شد.');
+    } catch (error) {
+      if (!controller.signal.aborted) toast.error(error.message || 'آپلود مستقیم ویدئو ناموفق بود.');
+    } finally {
+      videoRequest.current = null;
+      if (!controller.signal.aborted) {
+        setImportingVideo(null);
+        reportBusy.current?.(false);
+      }
+    }
+  }
   const input = (label, value, change, type = 'text', extra = {}) => <label className="flex min-w-0 flex-col gap-1 text-sm"><span>{label}</span><PlatformInput dir="auto" type={type} value={value} onChange={event => change(event.target.value)} {...extra} /></label>;
   const number = value => value === '' ? undefined : Number(value);
   if (name === 'screenshots') return <ScreenshotGallery value={value} onChange={onChange} gameTitle={gameTitle} disabled={disabled} onBusyChange={onBusyChange} onPendingChange={onPendingChange} />;
@@ -188,15 +236,21 @@ export default function ProviderField({ name, label, value, onChange, stores, pl
   if (strings || name === 'twitch_videos') return <div className="min-w-0 space-y-3">
     <h3 className="font-medium">{label} <span className="text-sm text-slate-500">({data.length})</span></h3>
     {!data.length && <EmptyProviderSkeleton name={name} label={label} />}
-    <div className="flex gap-3 overflow-x-auto pb-3">{data.map((row, i) => <div key={i} className="relative w-72 shrink-0 sm:w-96">
+    <div className="flex gap-3 overflow-x-auto pb-3">{data.map((row, i) => {
+      const fileUrl = directVideoUrl(rowVideoUrl(row));
+      const uploading = importingVideo === i;
+      return <div key={i} className="relative w-72 shrink-0 sm:w-96">
       {name === 'screenshots' && safeUrl(row) && <a href={safeUrl(row)} target="_blank" rel="noreferrer"><ResolutionImage key={safeUrl(row)} src={safeUrl(row)} alt={`تصویر بازی ${i + 1}`} className="aspect-video w-full rounded-lg bg-slate-100 object-cover" /></a>}
       {name === 'videos' && <VideoPreview url={row} />}
       {name === 'twitch_videos' && <VideoPreview url={row.url} thumbnail={row.thumbnail_url} />}
       <div className="absolute right-2 top-2 z-10 flex gap-1">
-        <button type="button" aria-label={`حذف مورد ${i + 1} از ${label}`} title="حذف" className="flex h-8 w-8 items-center justify-center rounded-md bg-black/65 text-white transition-colors hover:bg-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500" onClick={() => { update(data.filter((_, j) => j !== i)); setEditingIndex(null); }}><ImageTrashIcon aria-hidden="true" className="h-4 w-4" /></button>
+        <button type="button" disabled={disabled || importingVideo !== null} aria-label={`حذف مورد ${i + 1} از ${label}`} title="حذف" className="flex h-8 w-8 items-center justify-center rounded-md bg-black/65 text-white transition-colors hover:bg-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 disabled:opacity-40" onClick={() => { update(data.filter((_, j) => j !== i)); setEditingIndex(null); }}><ImageTrashIcon aria-hidden="true" className="h-4 w-4" /></button>
+        {fileUrl && <button type="button" aria-label={`آپلود مستقیم ویدئو ${i + 1}`} title="آپلود مستقیم ویدئو" aria-busy={uploading} disabled={disabled || importingVideo !== null} onClick={() => uploadVideo(i, fileUrl)} className="flex h-8 w-8 items-center justify-center rounded-md bg-black/65 text-white hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 disabled:opacity-50"><FiUpload aria-hidden="true" className="h-4 w-4" /></button>}
         {name !== 'screenshots' && <button type="button" aria-label={`کپی آدرس ویدئو ${i + 1}`} title="کپی آدرس ویدئو" disabled={!safeUrl(name === 'videos' ? row : row.url)} className="flex h-8 w-8 items-center justify-center rounded-md bg-black/65 text-white transition-colors hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 disabled:opacity-40" onClick={() => copyVideoUrl(name === 'videos' ? row : row.url)}><CopyVideoIcon aria-hidden="true" className="h-5 w-5" /></button>}
       </div>
-    </div>)}</div>
+      {uploading && <span role="status" className="absolute bottom-3 right-2 rounded-md bg-black/75 px-2 py-1 text-xs text-white">در حال دریافت و آپلود ویدئو…</span>}
+    </div>;
+    })}</div>
   </div>;
   const replace = (i, row) => update(data.map((item, j) => j === i ? row : item));
   const badges = ['offers', 'official_stores'].includes(name);

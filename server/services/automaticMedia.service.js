@@ -3,20 +3,32 @@ const settingsService = require('./uploadSettings.service');
 const remote = require('./remoteImage.service');
 const compress = require('../utils/compressImage');
 const slug = value => String(value || '').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}_-]+/gu, '-').replace(/^-+|-+$/g, '').slice(0, 100) || 'untitled';
-async function saveImage(doc, game, kind, title, field, sourceField, role = '') {
-  const url = doc[field];
-  if (!url || doc.image_storage?.cloudinary?.image?.url === url) return;
+async function saveImage(doc, game, kind, title, field, sourceField, role = '', refreshSource) {
+  const url = refreshSource || doc[field];
+  if (!url || (!refreshSource && doc.image_storage?.cloudinary?.image?.url === url)) return;
   const settings = await settingsService.read();
-  const { buffer } = await remote.download(url);
-  const { full, preview } = await compress(buffer, settings);
+  const maxBytes = kind === 'trophy' && /^https:\/\/images-eds-ssl\.xboxlive\.com\//i.test(url) ? 20 * 1024 * 1024 : undefined;
+  const { buffer } = await remote.download(url, 0, maxBytes);
+  const { full, preview } = await compress(buffer, settings, false, false, maxBytes);
   const name = slug(title);
   const folder = `game/${slug(game.title || game.name)}/${kind}/${name}`;
   const filename = role ? `${role}-${name}` : name;
   const copies = await storage.uploadPair(folder, full, preview, storage.createClients('cloudinary'), 'cloudinary', undefined, filename);
-  const previous = { [field]: url, [sourceField]: doc[sourceField], preview_url: doc.preview_url, image_storage: doc.image_storage };
-  doc[sourceField] = url; doc[field] = copies.cloudinary.image.url; doc.preview_url = copies.cloudinary.preview.url; doc.image_storage = copies;
-  try { await doc.save(); }
+  const previous = { [field]: doc[field], [sourceField]: doc[sourceField], preview_url: doc.preview_url, image_storage: doc.image_storage };
+  if (refreshSource) previous.import_errors = doc.import_errors;
+  try {
+    if (refreshSource) await remote.download(copies.cloudinary.image.url);
+    doc[sourceField] = url; doc[field] = copies.cloudinary.image.url; doc.preview_url = copies.cloudinary.preview.url; doc.image_storage = copies;
+    if (refreshSource) doc.import_errors = (doc.import_errors || []).filter(error => error !== 'image');
+    await doc.save();
+  }
   catch (error) { Object.assign(doc, previous); await storage.removeReplacedCopies(copies, {}); throw error; }
+}
+async function refreshDlcCover(content, game, source, price) {
+  if (!content) throw Object.assign(new Error('ابتدا افزونه را به بازی متصل کنید.'), { status: 404 });
+  if (!source) throw Object.assign(new Error('فروشگاه برای این افزونه کاوری برنگرداند.'), { status: 422 });
+  await saveImage(content, game, 'dlc', content.title_en || content.title, 'image', 'source_image_url', '', source);
+  return { content: content.toObject(), title: content.title, price, ...require('./importCompletion').completion(content, 'dlc') };
 }
 const translations = new Map();
 async function persian(text) {
@@ -56,4 +68,4 @@ async function enrich(doc, game, kind, source = {}) {
   doc.import_errors = errors; await doc.save();
   if (errors.length) throw Object.assign(new Error('اطلاعات انگلیسی ذخیره شد؛ تکمیل ترجمه یا آپلود خودکار تصاویر ناموفق بود. تلاش مجدد موارد موفق را حفظ می‌کند.'), { status: 502 });
 }
-module.exports = { enrich, saveImage, persian, slug };
+module.exports = { enrich, saveImage, refreshDlcCover, persian, slug };

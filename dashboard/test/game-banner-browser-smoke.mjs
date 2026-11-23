@@ -12,13 +12,95 @@ import {Provider} from 'react-redux';
 import {configureStore} from '@reduxjs/toolkit';
 import {nabApi} from './src/services/nab';
 import StoreCoverPicker from './src/pages/games/StoreCoverPicker';
+import GameImageAsset from './src/pages/games/GameImageAsset';
 const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 const requests=[];let selected='';
-window.fetch=async(input,init)=>{const request=new Request(input,init);requests.push(request.url);return new Response(JSON.stringify({data:request.url.includes('media/source')?{card_images:['https://images.example/square','https://images.example/portrait','https://images.example/portrait-hd'],banner_images:['https://images.example/square','https://images.example/small','https://images.example/hd','https://images.example/4k']}:{url:'https://store.playstation.com/en-us/product/TEST'}}),{headers:{'Content-Type':'application/json'}});};
-window.Image=class{set src(value){this.naturalWidth=value.endsWith('square')?2048:value.endsWith('small')?800:value.endsWith('hd')?1920:3840;this.naturalHeight=value.endsWith('square')?2048:value.endsWith('4k')?2160:1080;if(value.includes('portrait')){this.naturalWidth=value.endsWith('hd')?800:400;this.naturalHeight=value.endsWith('hd')?1200:600;}setTimeout(()=>this.onload?.(),10);}};
+window.fetch=async(input,init)=>{const request=new Request(input,init);requests.push(request.url);return new Response(JSON.stringify({data:request.url.includes('media/source')?{card_images:['https://images.example/square','https://images.example/portrait','https://images.example/portrait-hd'],banner_images:['https://images.example/square-alt','https://images.example/square','https://images.example/4k']}:{url:'https://store.playstation.com/en-us/product/TEST'}}),{headers:{'Content-Type':'application/json'}});};
+window.Image=class{set src(value){const sizes={square:[2048,2048],'square-alt':[1600,1600],portrait:[400,600],'portrait-hd':[800,1200],'4k':[3840,2160]};[this.naturalWidth,this.naturalHeight]=sizes[value.split('/').pop()];setTimeout(()=>this.onload?.(),10);}};
 const store=configureStore({reducer:{[nabApi.reducerPath]:nabApi.reducer},middleware:get=>get().concat(nabApi.middleware)});
-const root=createRoot(document.getElementById('root'));root.render(<Provider store={store}><StoreCoverPicker kind="banner" auto title="Halo Infinite" officialStores="[]" offers="[]" onSelect={url=>{selected=url;}} /></Provider>);
-try{for(let i=0;i<100&&!selected;i++)await pause(40);if(selected!=='https://images.example/4k')throw Error('highest-quality wide banner not selected: '+selected);if(requests.filter(url=>url.includes('media/source')).length!==1)throw Error('unexpected source requests');selected='';root.render(<Provider store={store}><StoreCoverPicker key='portrait' kind='portrait' auto title='Halo Infinite' officialStores='[]' offers='[]' onSelect={url=>{selected=url;}} /></Provider>);for(let i=0;i<100&&!selected;i++)await pause(40);if(selected!=='https://images.example/portrait-hd')throw Error('highest-quality portrait not selected: '+selected);document.body.dataset.test='PASS';}catch(error){document.body.dataset.test='FAIL: '+error.message;}
+const root=createRoot(document.getElementById('root'));root.render(<Provider store={store}><StoreCoverPicker kind="detail" auto title="Halo Infinite" officialStores="[]" offers="[]" onSelect={url=>{selected=url;}} /></Provider>);
+const expectSelection=async(name)=>{
+  const expected='https://images.example/'+name;
+  for(let i=0;i<100&&selected!==expected;i++)await pause(40);
+  if(selected!==expected)throw Error('expected '+expected+', received '+selected);
+};
+const sourceRequests=()=>requests.filter(url=>url.includes('media/source')).length;
+const choose=async(button,name)=>{
+  for(let i=0;i<100&&button.disabled;i++)await pause(40);
+  if(button.disabled)throw Error('store button stayed disabled');
+  selected='';
+  button.click();
+  await expectSelection(name);
+};
+try{
+  await expectSelection('4k');
+  if(sourceRequests()!==1)throw Error('unexpected initial source requests');
+  const [sony,xbox]=document.querySelectorAll('button');
+  await choose(sony,'square');
+  await choose(xbox,'4k');
+  await choose(sony,'square-alt');
+  await choose(xbox,'square');
+  await choose(sony,'portrait-hd');
+  await choose(sony,'portrait');
+  await choose(sony,'4k');
+  await choose(sony,'square');
+  if(sourceRequests()!==2)throw Error('cycling fetched the same source again');
+  selected='';
+  root.render(<Provider store={store}><StoreCoverPicker key='portrait' kind='portrait' auto title='Halo Infinite' officialStores='[]' offers='[]' onSelect={url=>{selected=url;}} /></Provider>);
+  await expectSelection('portrait-hd');
+  const brokenStore='https://store.playstation.com/en-us/product/OLD';
+  const liveStore='https://store.playstation.com/en-us/product/NEW';
+  const storeRequests=[];
+  const fetchStore=window.fetch;
+  window.fetch=async(input,init)=>{
+    const request=new Request(input,init);
+    const body=await request.json();
+    storeRequests.push(body);
+    if(request.url.includes('store-descriptions'))return Response.json({data:{url:liveStore}});
+    if(body.url===brokenStore)return Response.json({description:'Store unavailable'},{status:502});
+    return Response.json({data:{card_images:['https://images.example/portrait']}});
+  };
+  selected='';
+  root.render(<Provider store={store}><StoreCoverPicker key="retry" kind="detail" auto title="Halo Infinite"
+    officialStores={JSON.stringify([{url:brokenStore}])} offers="[]" onSelect={url=>{selected=url;}} /></Provider>);
+  await expectSelection('portrait');
+  if(storeRequests.length!==3||storeRequests[1].url||storeRequests[2].url!==liveStore)throw Error('saved store lookup did not retry by title');
+  window.fetch=fetchStore;
+  const stored='https://res.cloudinary.com/demo/saved.webp';
+  const uploaded='https://res.cloudinary.com/demo/square.webp';
+  const originalFetch=window.fetch;
+  let pending=false, value=stored, imported;
+  window.fetch=async(input,init)=>{
+    const request=new Request(new URL(typeof input==='string'?input:input.url,location.origin),init);
+    if(!request.url.endsWith('/media/import'))return originalFetch(input,init);
+    imported=await request.json();
+    return Response.json({data:{detail_banner:[{url:uploaded,bytes:9000}]}});
+  };
+  function Asset(){
+    const [mirrored,setMirrored]=React.useState(false);
+    return <GameImageAsset fieldName="detail_banner" value={stored} onChange={url=>{value=url;}}
+    gameTitle="Halo Infinite" onPendingChange={state=>{pending=state;}}
+    mirrored={mirrored} onToggleMirror={()=>setMirrored(!mirrored)}
+    sourcePicker={stage=><button id="stage" onClick={()=>stage('https://images.example/4k')}>Stage</button>} />;
+  }
+  root.render(<Asset />);
+  for(let i=0;i<100&&!document.querySelector('#stage');i++)await pause(40);
+  document.querySelector('#stage').click();
+  const staged=()=>document.querySelector('img.object-contain[src="https://images.example/4k"]');
+  for(let i=0;i<100&&!staged();i++)await pause(40);
+  if(!pending||value!==stored||!staged())throw Error('wide candidate was not staged at its original aspect ratio');
+  const mirror=document.querySelector('button[aria-pressed="false"]');
+  mirror.click();
+  for(let i=0;i<100&&mirror.getAttribute('aria-pressed')!=='true';i++)await pause(40);
+  if(staged().style.transform!=='scaleX(-1)')throw Error('mirror did not flip the image');
+  mirror.click();
+  for(let i=0;i<100&&mirror.getAttribute('aria-pressed')!=='false';i++)await pause(40);
+  if(staged().style.transform)throw Error('mirror did not restore the image');
+  document.querySelector('button[title="آپلود تصویر"]').click();
+  for(let i=0;i<100&&value!==uploaded;i++)await pause(40);
+  if(value!==uploaded||pending||imported?.url!=='https://images.example/4k'||imported?.fieldName!=='detail_banner')throw Error('confirmed cover was not imported');
+  document.body.dataset.test='PASS';
+}catch(error){document.body.dataset.test='FAIL: '+error.message;}
 `;
 const bundle = await build({ plugins: [{ name: 'inline-css', setup(build) { build.onLoad({filter:/\.css\?inline$/}, async args => ({contents: 'export default '+JSON.stringify(await readFile(args.path.replace(/\?inline$/, ''), 'utf8')), loader:'js'})); build.onResolve({filter:/\.css\?inline$/}, args => ({path:resolve(args.resolveDir,args.path)})); } }], stdin: { contents: harness, resolveDir: resolve('.'), loader: 'jsx' }, jsx: 'automatic', alias: { '@': resolve('src') }, bundle: true, write: false, format: 'esm', define: { 'process.env.NODE_ENV': '"production"' } });
 const server = createServer((request, response) => {

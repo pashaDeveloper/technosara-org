@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import GameImageAsset, { UploadIcon } from './GameImageAsset';
+import { FiImage, FiUpload } from 'react-icons/fi';
+import SendButton from '../../components/shared/button/SendButton';
+import GameImageAsset from './GameImageAsset';
 import { isCloudinaryMedia } from './mediaUploadUtils';
 export default function ScreenshotGallery({ value, onChange, gameTitle, disabled, onBusyChange, onPendingChange }) {
   const rows = useRef([]), counter = useRef(0), assets = useRef(new Map()), batch = useRef(false), active = useRef(new Set());
@@ -28,10 +30,10 @@ export default function ScreenshotGallery({ value, onChange, gameTitle, disabled
     } finally { batch.current = false; setBatching(false); latest.current.onBusyChange?.(active.current.size > 0); }
   }
   return <section className="min-w-0 space-y-3">
-    <div className="flex items-center justify-between gap-2"><h3 className="font-medium">اسکرین‌شات‌ها ({rows.current.length})</h3>{(batching || pendingIds.size > 0 || rows.current.some(row => row.url && !isCloudinaryMedia(row.url))) && <button type="button" disabled={disabled || batching || !rows.current.length} className="flex items-center gap-1 rounded-lg bg-blue-600 px-3 py-2 text-xs text-white disabled:opacity-50" onClick={uploadAll}><UploadIcon />{batching ? `${completed} / ${rows.current.length}` : 'آپلود همه تصاویر'}</button>}</div>
+    <div className="flex flex-wrap items-center justify-between gap-2"><h3 className="font-medium">اسکرین‌شات‌ها ({rows.current.length})</h3>{(batching || pendingIds.size > 0 || rows.current.some(row => row.url && !isCloudinaryMedia(row.url))) && <SendButton type="button" label={batching ? `${completed} / ${rows.current.length}` : 'آپلود همه تصاویر'} icon={FiUpload} disabled={disabled || batching || !rows.current.length} onClick={uploadAll} />}</div>
     <div tabIndex={0} aria-label="گالری اسکرین‌شات‌ها؛ برای دیدن تصاویر بیشتر افقی اسکرول کنید" className="flex min-w-0 flex-nowrap items-start gap-4 overflow-x-auto overscroll-x-contain pb-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">{rows.current.map((row, index) => <div key={row.id} className="w-72 max-w-[85vw] shrink-0 space-y-2 rounded-xl border border-slate-200 p-3 dark:border-slate-700 sm:w-96">
       <GameImageAsset onRemove={() => update(rows.current.filter(item => item.id !== row.id))} wide ref={asset => { if (asset) assets.current.set(row.id, asset); else assets.current.delete(row.id); }} value={row.url} onChange={url => update(rows.current.map(item => item.id === row.id ? { ...item, url } : item))} label={`اسکرین‌شات ${index + 1}`} fieldName="screenshot" gameTitle={gameTitle} disabled={disabled || batching} onUploading={busy => uploadState(row.id, busy)} onPendingChange={pending => { setPendingIds(current => { if (current.has(row.id) === pending) return current; const next = new Set(current); pending ? next.add(row.id) : next.delete(row.id); return next; }); onPendingChange?.(`screenshot-${row.id}`, pending); }} />
     </div>)}</div>
-    <button type="button" disabled={disabled || batching} className="rounded-lg border border-blue-300 px-3 py-2 text-sm text-blue-600 disabled:opacity-50" onClick={() => update([...rows.current, { id: ++counter.current, url: '' }])}>+ افزودن تصویر</button>
+    <SendButton type="button" label="افزودن تصویر" icon={FiImage} disabled={disabled || batching} onClick={() => update([...rows.current, { id: ++counter.current, url: '' }])} />
   </section>;
 }

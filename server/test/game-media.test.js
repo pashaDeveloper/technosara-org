@@ -15,7 +15,7 @@ test('Xbox square tile candidates are included and separated from banners', () =
 
 test('Sony product images support selecting a card without including its banner', () => {
   const html = '<script type="application/ld+json">' + JSON.stringify({ '@type': 'Product', name: 'Game', image: ['https://images.example.com/card.jpg', 'javascript:invalid'] }) + '</script>';
-  assert.deepEqual(sonyImages(html, 'https://store.playstation.com/en-us/product/TEST'), { title: 'Game', card_images: ['https://images.example.com/card.jpg'], banner_images: [] });
+  assert.deepEqual(sonyImages(html, 'https://store.playstation.com/en-us/product/TEST'), { title: 'Game', videos: [], card_images: ['https://images.example.com/card.jpg'], banner_images: [] });
 });
 
 test('media source rejects untrusted product links before fetching', async () => {

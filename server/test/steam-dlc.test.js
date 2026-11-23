@@ -101,6 +101,34 @@ test('imports full data and a store product once, then preserves manual edits on
   assert.equal(second.created, false);
   assert.equal(savedContent.title, 'Manual title');
   assert.equal(creates, 1);
+
+  const oldCover = 'https://example.com/old.webp';
+  const newCover = 'https://example.com/new.webp';
+  savedContent.image = oldCover;
+  savedContent.import_errors = ['image', 'translation:title'];
+  const buffer = await require('sharp')({ create: { width: 8, height: 8, channels: 3, background: 'white' } }).png().toBuffer();
+  const storage = require('../utils/imageUpload');
+  t.mock.method(storage, 'createClients', () => ({}));
+  t.mock.method(storage, 'uploadPair', async () => ({ cloudinary: { image: { url: newCover }, preview: { url: 'https://example.com/preview.webp' } } }));
+  const cleanup = t.mock.method(storage, 'removeReplacedCopies', async () => {});
+  t.mock.method(require('../services/uploadSettings.service'), 'read', async () => ({ maxDimension: 64, quality: 80, previewSize: 16, previewQuality: 70 }));
+  let available = false;
+  t.mock.method(require('../services/remoteImage.service'), 'download', async url => {
+    assert.ok([child.header_image, newCover].includes(url));
+    if (url === newCover && !available) throw new Error('Cover unavailable');
+    return { buffer };
+  });
+  const refresh = () => service.importOne(gameId, { app_id: '20', parent_app_id: '10', refresh_cover: true }, id(), request);
+  await assert.rejects(refresh(), /Cover unavailable/);
+  assert.equal(savedContent.image, oldCover);
+  assert.equal(cleanup.mock.callCount(), 1);
+  available = true;
+  const refreshed = await refresh();
+  assert.equal(refreshed.content.image, newCover);
+  assert.equal(refreshed.content.source_image_url, child.header_image);
+  assert.equal(refreshed.content.title, 'Manual title');
+  assert.deepEqual(refreshed.content.import_errors, ['translation:title']);
+  assert.equal(creates, 1);
 });
 test('rejects unrelated parent and cross-game product ownership before writing', async t => {
   const gameId = id();

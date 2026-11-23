@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FiX } from 'react-icons/fi';
 import { Controller, useForm } from 'react-hook-form';
 import Dropdown from '../../components/shared/select/Dropdown';
 import ListTextField from '../../components/shared/ListTextField';
@@ -11,23 +12,29 @@ import { useAddCompanyMutation, useGetCompanyOptionsQuery } from '../../services
 import { useGetGenreOptionsQuery } from '../../services/genres/genreApi';
 import { useGetGameModeOptionsQuery } from '../../services/game-modes/gameModeApi';
 import { useGetGameSeriesOptionsQuery } from '../../services/game-series/gameSeriesApi';
-import { useGetGameCapabilityOptionsQuery, useGetGameMediaOptionsQuery, useGetGameThemeOptionsQuery, useGetGamePlatformOptionsQuery, useGetGameTagOptionsQuery } from '../../services/games/gameApi';
+import { useGetGameCapabilityOptionsQuery, useGetGameMediaOptionsQuery, useGetGameThemeOptionsQuery, useGetGamePlatformOptionsQuery, useGetGameTagOptionsQuery, useLocalizeGameTagsMutation } from '../../services/games/gameApi';
 import { definition, formValues, gameSteps } from './definitions';
-import { englishSlug, gameBody, providerFormValues, matchProviderOptions, providerOptionMatches } from './gameFormUtils';
+import { englishSlug, gameBody, providerFormValues, matchProviderOptions, providerOptionMatches, validateGameMetrics } from './gameFormUtils';
 import { useGamebrainLookup, GamebrainSuggestions } from './GamebrainLookup';
 
 import { useGetStoreOptionsQuery } from '../../services/store/storeApi';
 import PlatformCovers from './PlatformCovers';
 import GameStorage from './GameStorage';
+import GenreOrder from './GenreOrder';
+import GameTags, { gameTagLabels } from './GameTags';
 import MainCoverPicker from './MainCoverPicker';
 import MediaFileUpload from './MediaFileUpload';
+import GameVideoSource from './GameVideoSource';
 import StoreCoverPicker from './StoreCoverPicker';
 import StoreDescriptions from './StoreDescriptions';
+import StoreGameLookup, { storeProductId } from './StoreGameLookup';
 import GameDlcImport from './GameDlcImport';
 import GameTrophies from './GameTrophies';
 import GameCapabilities from './GameCapabilities';
 import ProviderField, { VideoPreview } from './ProviderField';
 import GameDetailPreview from './GameDetailPreview';
+import GameDescriptionEditor from './GameDescriptionEditor';
+import { plainDescription } from './GameDescriptionText';
 import { useTranslateTextMutation } from '../../services/translation/translationApi';
 import { toast } from 'react-hot-toast';
 import { gameSearchAliases } from './gameSearchAliases';
@@ -93,6 +100,20 @@ export default function GameForm({ record, isLoading, onSubmit }) {
   const themes = useGetGameThemeOptionsQuery();
   const platforms = useGetGamePlatformOptionsQuery();
   const tags = useGetGameTagOptionsQuery();
+  const [localizeGameTags] = useLocalizeGameTagsMutation();
+  const selectedTags = watch('tags');
+  const attemptedTagTranslations = useRef(new Set());
+  useEffect(() => {
+    const missing = (tags.data?.data || []).filter(tag =>
+      selectedTags?.includes(tag._id) && !tag.name_fa && !attemptedTagTranslations.current.has(tag._id)
+    );
+    if (!missing.length) return;
+    const ids = missing.map(tag => tag._id);
+    for (const id of ids) attemptedTagTranslations.current.add(id);
+    void (async () => {
+      for (let index = 0; index < ids.length; index += 5) await localizeGameTags(ids.slice(index, index + 5));
+    })();
+  }, [tags.data, selectedTags, localizeGameTags]);
   const [translate] = useTranslateTextMutation();
   const [translating, setTranslating] = useState(false);
   const [translationError, setTranslationError] = useState('');
@@ -129,6 +150,7 @@ export default function GameForm({ record, isLoading, onSubmit }) {
     if (!game) return;
     setValue('cover_media_id', '', { shouldDirty: true });
     setValue('storage_sizes', '[]', { shouldDirty: true });
+    setValue('pc_requirements', 'null', { shouldDirty: true });
     const saved = lookup.local?.record;
     const values = saved && (!lookup.local.created || saved.draft_completed) ? formValues(definition, saved) : providerFormValues(game);
     for (const [key,value] of Object.entries(values)) setValue(key,value,{shouldDirty:true,shouldValidate:true});
@@ -150,11 +172,16 @@ export default function GameForm({ record, isLoading, onSubmit }) {
     })();
     return () => {cancelled=true;};
   },[lookup.game,setValue,getValues,translate]);
+  const genreAutofill = useRef(null);
   useEffect(() => {
     const game=lookup.game; if(!game || (lookup.local?.record && (!lookup.local.created || lookup.local.record.draft_completed))) return;
+    if (genres.data && genreAutofill.current !== game) {
+      genreAutofill.current = game;
+      setValue('genre_ids', matchProviderOptions(game.genres, genres.data.data || []), { shouldDirty: true, shouldValidate: true });
+    }
     for(const [key,items,source] of [
       ['developer_ids',game.developer?[game.developer]:[],companies],
-      ['genre_ids',game.genres,genres],['game_mode_ids',game.play_modes,modes],['theme_ids',game.themes,themes],
+      ['game_mode_ids',game.play_modes,modes],['theme_ids',game.themes,themes],
       ['platform_ids',game.platforms,platforms],['tags',game.tags,tags],
     ]) if(source.data) setValue(key,matchProviderOptions(items,source.data.data || []),{shouldDirty:true,shouldValidate:true});
   },[lookup.game,companies.data,genres.data,modes.data,themes.data,platforms.data,tags.data,setValue]);
@@ -167,6 +194,7 @@ export default function GameForm({ record, isLoading, onSubmit }) {
   } : {};
   const [coverUploading, setCoverUploading] = useState(false);
   const pendingUploads = useRef(new Set());
+  const [pendingBanner, setPendingBanner] = useState('');
   function pendingUpload(key, pending) { if (pending) pendingUploads.current.add(key); else pendingUploads.current.delete(key); }
   const [capabilityLoading, setCapabilityLoading] = useState(false);
   const [storageLoading, setStorageLoading] = useState(false);
@@ -196,33 +224,71 @@ export default function GameForm({ record, isLoading, onSubmit }) {
     }
     input.onChange(next);
   }
+  function selectStoreEdition(provider, url) {
+    const hosts = provider === 'sony'
+      ? ['store.playstation.com', 'playstation.com', 'www.playstation.com']
+      : ['xbox.com', 'www.xbox.com'];
+    let rows;
+    try { rows = JSON.parse(getValues('official_stores') || '[]'); } catch { rows = []; }
+    if (!Array.isArray(rows)) rows = [];
+    const matches = row => { try { return hosts.includes(new URL(row.url).hostname); } catch { return false; } };
+    const existing = rows.find(matches);
+    const selected = { ...existing, name: existing?.name || (provider === 'sony' ? 'PlayStation' : 'Xbox'), url };
+    setValue('official_stores', JSON.stringify([selected, ...rows.filter(row => !matches(row))]), { shouldDirty: true, shouldValidate: true });
+  }
+  const [resourceSourceSelected, setResourceSourceSelected] = useState(false);
+  const apiStoreValue = watch('console_api_stores');
+  let apiStores = [];
+  let resourceStores = watch('official_stores');
+  try {
+    const selected = JSON.parse(apiStoreValue || '[]');
+    const official = JSON.parse(resourceStores || '[]');
+    if (Array.isArray(selected) && selected.length && Array.isArray(official)) {
+      apiStores = selected;
+      resourceStores = JSON.stringify([...selected, ...official.filter(row => !selected.some(store =>
+        storeProductId(store.provider, row?.url) ||
+        (store.provider === 'sony' && /^https:\/\/(?:store\.|www\.)?playstation\.com\//i.test(row?.url || ''))
+      ))]);
+    }
+  } catch {}
+  function officialProductUrl(provider) {
+    try {
+      return JSON.parse(watch('official_stores') || '[]')
+        .find(row => storeProductId(provider, row?.url))?.url || '';
+    } catch { return ''; }
+  }
+  function savedStoreId(provider, field) {
+    return watch(field) || storeProductId(provider, officialProductUrl(provider));
+  }
+  function applyStoreGame(game, enteredId) {
+    const options = { shouldDirty: true, shouldValidate: true };
+    const idField = game.provider === 'sony' ? 'playstation_product_id' : 'xbox_product_id';
+    setValue(idField, enteredId || storeProductId(game.provider, game.url), options);
+    const selected = { provider: game.provider, url: game.url, title: game.title };
+    setValue('console_api_stores', JSON.stringify([selected, ...apiStores.filter(row => row.provider !== game.provider)]), options);
+    setResourceSourceSelected(true);
+    lookup.setOpen(false);
+  }
   function hasPurchaseData(key) {
     try { const rows = JSON.parse(watch(key) || '[]'); return Array.isArray(rows) && rows.length > 0; } catch { return false; }
   }
   function renderField(field) {
     if (field.type === 'switch') return <Controller key={field.key} name={field.key} control={control} render={({ field: input }) => <StatusSwitch id={`game-${field.key}`} name={input.name} label={field.label} tone="light" className="!bg-transparent hover:!bg-transparent" checked={Boolean(input.value)} disabled={busy} onChange={event => input.onChange(event.target.checked)} />} />;
-    if (field.key === 'detail_poster') return <Controller name="detail_poster" control={control} render={({ field: input }) => <MainCoverPicker key={`${lookup.game?.id || savedId || "new"}-${field.key}`} onPendingChange={pending => pendingUpload(field.key, pending)} gameTitle={watch('title')} compact label="کاور عمودی جزئیات بازی" fieldName="detail_poster" value={input.value} disabled={busy} onUploading={setCoverUploading} onChange={input.onChange} sourcePicker={<StoreCoverPicker kind="portrait" compact auto={autoFetch && !persistence.recovering && !input.value} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={isLoading || lookup.loadingDetails || coverUploading} onSelect={value => setValue('detail_poster', value, { shouldDirty: true, shouldValidate: true })} />} />} />;
-    if (field.key === 'detail_banner') return <Controller name="detail_banner" control={control} render={({ field: input }) => <MainCoverPicker key={`${lookup.game?.id || savedId || "new"}-${field.key}`} onPendingChange={pending => pendingUpload(field.key, pending)} gameTitle={watch('title')} wide label="کاور جزئیات بازی" fieldName="detail_banner" value={input.value} disabled={busy} onUploading={setCoverUploading} onChange={input.onChange} sourcePicker={<StoreCoverPicker kind="banner" compact auto={autoFetch && !persistence.recovering && !input.value} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={isLoading || lookup.loadingDetails || coverUploading} onSelect={value => setValue('detail_banner', value, { shouldDirty: true, shouldValidate: true })} />} />} />;
+    if (field.key === 'detail_poster') return <Controller name="detail_poster" control={control} render={({ field: input }) => <MainCoverPicker key={`${lookup.game?.id || savedId || "new"}-${field.key}`} onPendingChange={pending => pendingUpload(field.key, pending)} gameTitle={watch('title')} compact label="کاور عمودی جزئیات بازی" fieldName="detail_poster" value={input.value} disabled={busy} onUploading={setCoverUploading} onChange={input.onChange} sourcePicker={<StoreCoverPicker onEditionSelect={selectStoreEdition} kind="portrait" compact auto={autoFetch && !persistence.recovering && !input.value} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={isLoading || lookup.loadingDetails || coverUploading} onSelect={value => setValue('detail_poster', value, { shouldDirty: true, shouldValidate: true })} />} />} />;
+    if (field.key === 'detail_banner') return <Controller name="detail_banner" control={control} render={({ field: input }) => <MainCoverPicker key={`${lookup.game?.id || savedId || "new"}-${field.key}`} onPendingChange={(pending, url) => { pendingUpload(field.key, pending); setPendingBanner(pending ? url : ''); }} gameTitle={watch('title')} label={field.label} fieldName="detail_banner" mirrored={watch("detail_banner_mirrored")} onToggleMirror={() => setValue("detail_banner_mirrored", !getValues("detail_banner_mirrored"), { shouldDirty: true })} value={input.value} disabled={busy} onUploading={setCoverUploading} onChange={input.onChange} sourcePicker={stageSource => <StoreCoverPicker onEditionSelect={selectStoreEdition} kind="detail" compact auto={autoFetch && !persistence.recovering && !input.value} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={busy} onSelect={stageSource} />} />} />;
     if (field.key === 'image') return <Controller name="image" control={control} render={({ field: input }) => <MainCoverPicker key={`${lookup.game?.id || savedId || "new"}-${field.key}`} onPendingChange={pending => pendingUpload(field.key, pending)} gameTitle={watch('title')}
       value={input.value || (media.data?.data || []).find(item => item._id === watch('cover_media_id'))?.url} disabled={busy} onUploading={setCoverUploading}
-      sourcePicker={<StoreCoverPicker auto={autoFetch && !persistence.recovering && !input.value} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={busy} onSelect={url => { input.onChange(url); setValue('cover_media_id', '', { shouldDirty: true }); }} />}
+      sourcePicker={<StoreCoverPicker onEditionSelect={selectStoreEdition} auto={autoFetch && !persistence.recovering && !input.value} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={busy} onSelect={url => { input.onChange(url); setValue('cover_media_id', '', { shouldDirty: true }); }} />}
       onChange={url => { input.onChange(url); setValue('cover_media_id', '', { shouldDirty: true }); }}
     />} />;
     if (field.type === 'checkbox') return <label key={field.key} className="flex gap-2"><input type="checkbox" {...register(field.key)} />{field.label}</label>;
     if (field.type === 'json') return <Controller key={field.key} name={field.key} control={control}
       rules={{ validate: value => {
         try {
+          if (field.key === 'rating') return validateGameMetrics(field.key, value) || 'امتیاز باید بین صفر و ده و تعدادها عدد صحیح نامنفی باشند.';
+          if (field.key === 'playtime') return validateGameMetrics(field.key, value) || 'زمان بازی باید نامنفی و تعداد گزارش‌ها عدد صحیح نامنفی باشد.';
           const parsed = JSON.parse(value);
           const validUrl = value => { try { const url = new URL(value); return ['http:', 'https:'].includes(url.protocol) && !url.username && !url.password; } catch { return false; } };
-          if (['rating','playtime'].includes(field.key)) {
-            if (!parsed || Array.isArray(parsed) || typeof parsed !== 'object') return 'اطلاعات معتبر وارد کنید.';
-            return Object.entries(parsed).every(([key, item]) => {
-              if (key === 'percentiles') return Array.isArray(item) && item.every(n => typeof n === 'number' && Number.isFinite(n) && n >= 0);
-              return typeof item === 'number' && Number.isFinite(item) && item >= 0 &&
-                (!(field.key === 'rating' && key.startsWith('mean')) || item <= 1) &&
-                (!(key.startsWith('count') || key === 'mentions') || Number.isSafeInteger(item));
-            }) || 'امتیاز باید بین صفر و ده و تعدادها عدد صحیح نامنفی باشند.';
-          }
           if (!Array.isArray(parsed)) return 'اطلاعات معتبر وارد کنید.';
           if (['screenshots','videos'].includes(field.key)) return parsed.every(validUrl) || 'نشانی معتبر برای همهٔ رسانه‌ها وارد کنید یا موارد خالی را حذف کنید.';
           if (['offers','official_stores','twitch_videos'].includes(field.key)) return parsed.every(item => item && validUrl(item.url)) || 'لینک معتبر برای هر مورد وارد کنید.';
@@ -241,16 +307,25 @@ export default function GameForm({ record, isLoading, onSubmit }) {
       render={({ field: input, fieldState }) => <ListTextField label={field.label} name={input.name} value={input.value} onChange={input.onChange} onBlur={input.onBlur} inputRef={input.ref} disabled={busy} error={fieldState.error?.message} inputComponent={PlatformInput} placeholder="مثلاً GTA V، جی تی ای ۵، Grand Theft Auto 5" />} />;
     if (['relation', 'multiple', 'select'].includes(field.type)) {
       const source = sources[field.key];
+      const defaultTags = field.key === 'tags' ? gameTagLabels({
+        title: watch('title'), name_fa: watch('name_fa'), platform_ids: watch('platform_ids'),
+      }, platforms.data?.data) : [];
       const unmatched = source?.data && !source.error && !source.isFetching
         ? providerOptionMatches(providerItems[field.key], source.data.data || []).filter(item => item.matches.length !== 1) : [];
-      const options = field.options || (source?.data?.data || []).map(item => ({ value: item._id, label: item.title || item.name || item.url }));
+      const options = field.options || (source?.data?.data || []).map(item => ({ value: item._id, label: item.name_fa || item.title || item.name || item.url }));
       return <div key={field.key}><Controller name={field.key} control={control} rules={{ required: field.required ? 'انتخاب این گزینه الزامی است' : false }} render={({ field: input, fieldState }) => <>
         <Dropdown label={field.label} inputComponent={PlatformInput} options={field.type === 'multiple' ? options.filter(item => !input.value.includes(item.value)) : options}
           selectedOption={field.type !== 'multiple' && input.value ? options.find(item => item.value === input.value) || { value: input.value, label: input.value } : undefined}
           value={field.type === 'multiple' ? '' : input.value} onChange={value => changeRelation(field.key, input, field.type === 'multiple' ? value ? [...input.value, value] : input.value : value)} onBlur={input.onBlur} inputRef={input.ref}
           disabled={busy || source?.isFetching || Boolean(source?.error)} error={fieldState.error?.message} />
-        {field.type === 'multiple' && <div className="mt-2 flex flex-wrap gap-2">{input.value.map(value => <button key={value} type="button" disabled={busy} className="rounded-lg bg-blue-50 px-3 py-2 text-sm text-blue-700 dark:bg-blue-900 dark:text-blue-100" aria-label={'حذف ' + (options.find(item => item.value === value)?.label || value)} onClick={() => changeRelation(field.key, input, input.value.filter(id => id !== value))}>{options.find(item => item.value === value)?.label || value} ×</button>)}</div>}
+        {field.key === 'genre_ids' ? <GenreOrder value={input.value} options={options} disabled={busy}
+          onChange={next => changeRelation(field.key, input, next)} /> :
+          field.type === 'multiple' && <div className="mt-2 flex flex-wrap gap-2">{input.value.map(value => <button key={value} type="button" disabled={busy} className="max-w-full rounded-lg bg-blue-50 px-3 py-2 text-sm text-blue-700 [overflow-wrap:anywhere] dark:bg-blue-900 dark:text-blue-100" aria-label={'حذف ' + (options.find(item => item.value === value)?.label || value)} onClick={() => changeRelation(field.key, input, input.value.filter(id => id !== value))}>{options.find(item => item.value === value)?.label || value} ×</button>)}</div>}
       </>} />
+      {defaultTags.length > 0 && <details className="mt-2 min-w-0 rounded-lg border border-slate-200 dark:border-slate-700">
+        <summary className="cursor-pointer px-3 py-2 text-sm">تگ‌های پیش‌فرض ({defaultTags.length.toLocaleString('fa-IR')})</summary>
+        <GameTags labels={defaultTags} className="max-h-48 space-y-1 overflow-y-auto px-3 pb-2 text-sm [&>li]:rounded [&>li]:bg-slate-100 [&>li]:px-2 [&>li]:py-1 [&>li]:[overflow-wrap:anywhere] dark:[&>li]:bg-slate-800" />
+      </details>}
       {source?.error && <p role="alert" className="mt-2 text-sm text-red-500">دریافت گزینه‌ها ناموفق بود. <button type="button" onClick={source.refetch}>تلاش دوباره</button></p>}
       {!!unmatched.length && <div role="status" className="mt-2 rounded-lg bg-amber-50 p-3 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-200">
         <ul className="list-inside list-disc space-y-1">{unmatched.map((item, index) => <li key={`${item.label}-${index}`}>
@@ -264,13 +339,68 @@ export default function GameForm({ record, isLoading, onSubmit }) {
       {field.key === 'developer_ids' && developerError && <p role="alert" className="mt-2 text-sm text-red-500">{developerError}</p>}
       </div>;
     }
+    if (['gameplay', 'trailer'].includes(field.key)) {
+      const key = field.key;
+      const listField = key === 'gameplay' ? 'gameplay_videos' : 'trailers';
+      const readSaved = (primary = key, list = listField) => {
+        const rows = JSON.parse(getValues(list) || '[]');
+        return [...new Set([getValues(primary), ...rows].filter(Boolean))];
+      };
+      const otherSaved = key === 'gameplay' ? readSaved('trailer', 'trailers') : readSaved('gameplay', 'gameplay_videos');
+      const sourceKeys = JSON.parse(watch('video_source_keys') || '[]');
+      const readSourceKeys = () => JSON.parse(getValues('video_source_keys') || '[]');
+      const visibleSaved = () => key === 'gameplay' ? readSaved() : readSaved().filter(url => !otherSaved.includes(url));
+      const shown = visibleSaved();
+      let screenshots = [];
+      try {
+        const rows = JSON.parse(watch('screenshots') || '[]');
+        if (Array.isArray(rows)) screenshots = rows;
+      } catch {}
+      const thumbnailImages = [...new Set([watch('detail_banner'), ...screenshots].filter(url => /^https?:\/\//i.test(url || '')))];
+      const updateSourceKeys = rows => setValue('video_source_keys', JSON.stringify(rows), { shouldDirty: true });
+      const changeSaved = urls => {
+        setValue(key, urls[0] || '', { shouldDirty: true });
+        setValue(listField, JSON.stringify(urls), { shouldDirty: true });
+      };
+      return <GameVideoSource key={JSON.stringify([key, watch('title'), watch('id'), watch('official_stores'), watch('offers')])}
+        kind={key} title={watch('title')} gamebrainId={watch('id')} stores={watch('official_stores')}
+        offers={watch('offers')} disabled={busy} onBusyChange={setCoverUploading} saved={shown}
+        otherSaved={otherSaved} sourceKeys={sourceKeys} thumbnailImages={thumbnailImages}
+        onThumbnailChange={(url, thumbnail) => {
+          const currentKeys = readSourceKeys();
+          const source = currentKeys.find(row => row.url === url);
+          updateSourceKeys([...currentKeys.filter(row => row.url !== url), { ...source, url, thumbnail }]);
+        }}
+        onSelect={(url, sourceKey, thumbnail, previousUrl) => {
+          const currentKeys = readSourceKeys();
+          const current = visibleSaved();
+          if (otherSaved.includes(url) || currentKeys.some(row => row.key === sourceKey && row.url !== previousUrl)) return;
+          const next = previousUrl ? current.map(value => value === previousUrl ? url : value) : [...current, url];
+          changeSaved([...new Set(next)]);
+          updateSourceKeys([...currentKeys.filter(row => row.url !== previousUrl), { url, key: sourceKey, thumbnail }]);
+        }}
+        onRemove={url => {
+          changeSaved(visibleSaved().filter(value => value !== url));
+          updateSourceKeys(readSourceKeys().filter(row => row.url !== url));
+        }} />;
+    }
+    const editingDescription = ['short_description', 'description'].includes(field.key);
     return <React.Fragment key={field.key}>
       <div className="flex flex-col gap-1.5">
-        <div className="flex items-center justify-between gap-2">
+        <div className={`flex items-center gap-2 ${field.key === 'title' ? 'justify-start' : 'justify-between'}`}>
         <label className="text-sm" htmlFor={`game-${field.key}`}>{field.label}{field.required ? ' *' : ''}</label>
-      {['short_description', 'description'].includes(field.key) && <div className="flex items-center gap-2"><button type="button" title="بازگردانی توضیحات Gamebrain" aria-label={`بازگردانی ${field.label} به Gamebrain`} disabled={busy || !currentSource.current?.[field.key]?.trim()} onClick={() => resetDescription(field.key)} className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 disabled:opacity-40 dark:bg-slate-800 dark:text-slate-300"><svg className={resettingText === field.key ? 'animate-spin' : ''} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 10a9 9 0 1 1 1 7M3 4v6h6" /></svg></button><StoreDescriptions fieldKey={field.key} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={busy} onApply={(key, value) => setValue(key, value, { shouldDirty: true, shouldValidate: true })} /></div>}
+      {field.key === 'title' && <StoreGameLookup key={savedId || 'new'} query={watch('title')} disabled={busy} onApply={applyStoreGame}
+        savedIds={{ sony: savedStoreId('sony', 'playstation_product_id'), xbox: savedStoreId('xbox', 'xbox_product_id') }} />}
+      {editingDescription && <div className="flex items-center gap-2"><button type="button" title="بازگردانی توضیحات Gamebrain" aria-label={`بازگردانی ${field.label} به Gamebrain`} disabled={busy || !currentSource.current?.[field.key]?.trim()} onClick={() => resetDescription(field.key)} className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 disabled:opacity-40 dark:bg-slate-800 dark:text-slate-300"><svg className={resettingText === field.key ? 'animate-spin' : ''} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 10a9 9 0 1 1 1 7M3 4v6h6" /></svg></button><StoreDescriptions fieldKey={field.key} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} disabled={busy} onApply={(key, value) => setValue(key, value, { shouldDirty: true, shouldValidate: true })} /></div>}
         </div>
-        <PlatformInput as={field.type === 'textarea' ? 'textarea' : 'input'} id={`game-${field.key}`}
+        {editingDescription ? <Controller name={field.key} control={control}
+          rules={{ maxLength: { value: 10000, message: '\u0645\u062a\u0646 \u0628\u06cc\u0634 \u0627\u0632 \u062d\u062f \u0637\u0648\u0644\u0627\u0646\u06cc \u0627\u0633\u062a' } }}
+          render={({ field: input }) => field.key === 'description'
+            ? <GameDescriptionEditor id={`game-${field.key}`} label={field.label}
+              value={input.value} onChange={input.onChange} onBlur={input.onBlur} disabled={busy} />
+            : <PlatformInput {...input} as="textarea" id={`game-${field.key}`} rows={4} dir="auto"
+              value={plainDescription(input.value ?? '')} disabled={busy} aria-invalid={Boolean(errors[field.key])} />} />
+        : <PlatformInput as={field.type === 'textarea' ? 'textarea' : 'input'} id={`game-${field.key}`}
           type={field.type} rows={field.type === 'textarea' ? 4 : undefined} dir={field.dir || 'rtl'} aria-invalid={Boolean(errors[field.key])}
           {...(field.key === 'title' ? {
             role: 'combobox', autoComplete: 'off', 'aria-autocomplete': 'list',
@@ -290,13 +420,17 @@ export default function GameForm({ record, isLoading, onSubmit }) {
               }
               return true;
             },
-            maxLength: { value: ['description','short_description'].includes(field.key) ? 10000 : field.key === 'slug' ? 100 : 500, message: 'متن بیش از حد طولانی است' },
+            maxLength: { value: field.key === 'slug' ? 100 : 500, message: 'متن بیش از حد طولانی است' },
             ...(field.key === 'slug' ? { pattern: { value: /^[a-z0-9]+(?:-[a-z0-9]+)*$/, message: 'کد را با حروف کوچک انگلیسی، عدد و خط تیره وارد کنید.' } } : {}),
-          })} />
+          })} />}
         {errors[field.key] && <span role="alert" className="text-sm text-red-500">{errors[field.key].message}</span>}
       </div>
       {field.key === 'image' && /^https?:\/\//.test(watch('image') || '') && <img src={watch('image')} alt={field.label} className="max-h-64 w-full rounded-lg object-contain" />}
-      {field.key === 'micro_trailer' && <><MediaFileUpload gameTitle={watch('title')} kind="micro_trailer" disabled={busy} onBusyChange={setCoverUploading} onUploaded={file => setValue('micro_trailer', file.url, { shouldDirty: true, shouldValidate: true })} /><VideoPreview url={watch('micro_trailer')} /></>}
+      {field.key === 'micro_trailer' && <>
+        <MediaFileUpload gameTitle={watch('title')} kind={field.key} disabled={busy}
+          onBusyChange={setCoverUploading} onUploaded={file => setValue(field.key, file.url, { shouldDirty: true, shouldValidate: true })} />
+        <VideoPreview url={watch(field.key)} />
+      </>}
       {field.key === 'title' && <GamebrainSuggestions lookup={lookup} />}
     </React.Fragment>;
   }
@@ -309,7 +443,10 @@ export default function GameForm({ record, isLoading, onSubmit }) {
       const dlc = await dlcImport.current?.save(id);
       // Trophy imports are independent and never gate saving the game.
       return { failed: dlc?.failed || 0 };
-    }, savedId))(event);
+    }, savedId), invalidFields => {
+      const messages = new Set(Object.values(invalidFields).map(field => field?.message).filter(Boolean));
+      for (const message of messages) toast.error(message, { id: message });
+    })(event);
   }}>
     <header>
       {persistence.recovering && <p role="status" className="mb-3 text-sm text-slate-500">{'\u062f\u0631 \u062d\u0627\u0644 \u0628\u0627\u0632\u06cc\u0627\u0628\u06cc \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u2026'}</p>}
@@ -333,15 +470,15 @@ export default function GameForm({ record, isLoading, onSubmit }) {
           const fullWidth = ['textarea', 'json', 'list'].includes(field.type) || ['official_website', 'cover_media_id', 'image'].includes(key);
           return <div key={key} className={`min-w-0 ${fullWidth ? 'sm:col-span-2' : ''}`}>{renderField(field)}</div>;
         })}</div>
-        {item.fields.includes('platform_ids') && <div className="mt-5"><Controller name="platform_covers" control={control} render={({ field: input }) => <PlatformCovers key={lookup.game?.id || savedId || "new"} onPendingChange={pendingUpload} value={input.value} onChange={input.onChange} selectedIds={watch('platform_ids') || []} platforms={platforms} media={media} disabled={busy} onUploading={setCoverUploading} title={watch('title')} />} /><Controller name="storage_sizes" control={control} render={({ field: input }) => <GameStorage autoFetch={autoFetch} ready={!isLoading && !persistence.recovering && !translating && !lookup.loadingDetails} onBusyChange={setStorageLoading} value={input.value} onChange={input.onChange} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} selectedIds={watch('platform_ids') || []} platforms={platforms} disabled={busy} />} /></div>}
+        {item.fields.includes('platform_ids') && <div className="mt-5"><Controller name="platform_covers" control={control} render={({ field: input }) => <PlatformCovers key={lookup.game?.id || savedId || "new"} onPendingChange={pendingUpload} value={input.value} onChange={input.onChange} selectedIds={watch('platform_ids') || []} platforms={platforms} media={media} disabled={busy} onUploading={setCoverUploading} title={watch('title')} xboxUrl={officialProductUrl('xbox')} />} /><Controller name="storage_sizes" control={control} render={({ field: input }) => <GameStorage requirements={watch('pc_requirements')} onRequirementsChange={value => setValue('pc_requirements', value, { shouldDirty: true })} autoFetch={autoFetch} ready={!isLoading && !persistence.recovering && !translating && !lookup.loadingDetails} onBusyChange={setStorageLoading} value={input.value} onChange={input.onChange} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} selectedIds={watch('platform_ids') || []} platforms={platforms} disabled={busy} />} /></div>}
       </section>)}
     </fieldset>
     <GameCapabilities autoFetch={autoFetch && !persistence.recovering} control={control} getValues={getValues} setValue={setValue} watch={watch} providerGame={lookup.game} storedGame={storedGame} modes={modes} platforms={platforms} disabled={busy} onBusyChange={setCapabilityLoading} />
-    <GameDlcImport onPreviewChange={setPreviewDlc} autoFetch={autoFetch && !persistence.recovering && (!storedResources.dlc?.length || !storedResources.dlc.some(item => item.provider === 'playstation') || (/xbox\.com/i.test(`${watch('official_stores')} ${watch('offers')}`) && !storedResources.dlc.some(item => item.provider === 'xbox')))} storedItems={storedResources.dlc || []} ref={dlcImport} key={savedId || 'new'} gameId={savedId} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} onBusyChange={setDlcBusy} disabled={isLoading || lookup.loadingDetails || coverUploading} />
-    <GameTrophies onPreviewChange={setPreviewTrophies} autoFetch={autoFetch && !persistence.recovering && !storedResources.trophies?.length} storedLists={storedResources.trophies || []} ref={trophies} gameId={savedId} title={watch('title')} officialStores={watch('official_stores')} offers={watch('offers')} onBusyChange={setTrophyBusy} disabled={busy} />
+    <GameDlcImport onPreviewChange={setPreviewDlc} autoFetch={autoFetch && !persistence.recovering && (!storedResources.dlc?.length || !storedResources.dlc.some(item => item.provider === 'playstation') || (/xbox\.com/i.test(`${resourceStores} ${watch('offers')}`) && !storedResources.dlc.some(item => item.provider === 'xbox')))} storedItems={storedResources.dlc || []} ref={dlcImport} key={savedId || 'new'} gameId={savedId} title={watch('title')} officialStores={resourceStores} offers={watch('offers')} onBusyChange={setDlcBusy} disabled={isLoading || lookup.loadingDetails || coverUploading} />
+    <GameTrophies onPreviewChange={setPreviewTrophies} autoFetch={autoFetch && !persistence.recovering && (!storedResources.trophies?.length || resourceSourceSelected)} storedLists={storedResources.trophies || []} ref={trophies} gameId={savedId} title={watch('title')} apiStores={apiStores} officialStores={resourceStores} offers={watch('offers')} onBusyChange={setTrophyBusy} disabled={busy} />
     <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-5 dark:border-slate-700">
       <fieldset disabled={busy || dlcBusy}><SendButton isLoading={isLoading || dlcBusy} /></fieldset>
-      <Link to={'/games' + listQuery} className="text-sm text-slate-500 hover:underline">{'انصراف'}</Link>
+      <Link to={'/games' + listQuery} className="inline-flex items-center gap-2 rounded-md border border-slate-300 px-4 py-2 text-slate-600 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"><FiX aria-hidden="true" className="size-6 shrink-0" />انصراف</Link>
     </div>
-  </form><div className="relative z-20 min-w-0 space-y-4 md:col-start-1 md:row-start-1 md:sticky md:top-5 md:self-start"><GameDetailPreview resources={{ ...storedResources, trophies: previewTrophies ?? storedResources.trophies, dlc: previewDlc ?? storedResources.dlc }} game={watch()} platforms={platforms} genres={genres} companies={companies} modes={modes} media={media} /></div></div>;
+  </form><div className="relative z-20 min-w-0 space-y-4 md:col-start-1 md:row-start-1 md:sticky md:top-5 md:self-start"><GameDetailPreview pendingBanner={pendingBanner} resources={{ ...storedResources, trophies: previewTrophies ?? storedResources.trophies, dlc: previewDlc ?? storedResources.dlc }} game={watch()} tags={tags} platforms={platforms} genres={genres} companies={companies} modes={modes} media={media} /></div></div>;
 }

@@ -16,10 +16,27 @@ const gameApi = nabApi.enhanceEndpoints({ addTagTypes: ['Game'] }).injectEndpoin
     }),
     getGameThemeOptions: builder.query({ query: () => '/themes/all' }),
     getGameCapabilityOptions: builder.query({ query: () => '/games/capabilities' }),
+    fetchGameVideoSources: builder.mutation({ query: body => ({ url: '/games/media/video-source', method: 'POST', body }) }),
     fetchGameCapabilitySources: builder.mutation({ query: body => ({ url: '/games/capabilities/source', method: 'POST', body }) }),
     getGameFeatureOptions: builder.query({ query: () => '/features/all' }),
     getGamePlatformOptions: builder.query({ query: () => '/platforms/all' }),
     getGameTagOptions: builder.query({ query: () => '/game-tags/all' }),
+    localizeGameTags: builder.mutation({
+      query: ids => ({ url: '/game-tags/localize', method: 'PATCH', body: { ids } }),
+      async onQueryStarted(_ids, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(gameApi.util.updateQueryData('getGameTagOptions', undefined, options => {
+            const translations = new Map(data.data.map(tag => [tag._id, tag.name_fa]));
+            for (const option of options.data) {
+              if (translations.has(option._id)) option.name_fa = translations.get(option._id);
+            }
+          }));
+        } catch {
+          // Keep existing labels if the translation service is unavailable.
+        }
+      },
+    }),
     getGameMediaOptions: builder.query({ query: () => '/media/all' }),
     addGame: builder.mutation({
       query: (body) => ({ url: '/games', method: 'POST', body }),
@@ -36,4 +53,4 @@ const gameApi = nabApi.enhanceEndpoints({ addTagTypes: ['Game'] }).injectEndpoin
   }),
 });
 
-export const { useFetchGameCapabilitySourcesMutation, useGetGameCapabilityOptionsQuery, useGetGameFeatureOptionsQuery, useGetGamePlatformOptionsQuery, useGetGameTagOptionsQuery, useGetGameThemeOptionsQuery, useGetGameMediaOptionsQuery, useGetGameQuery, useGetGamesQuery, useGetGameOptionsQuery, useAddGameMutation, useUpdateGameMutation, useDeleteGameMutation } = gameApi;
+export const { useFetchGameVideoSourcesMutation, useFetchGameCapabilitySourcesMutation, useGetGameCapabilityOptionsQuery, useGetGameFeatureOptionsQuery, useGetGamePlatformOptionsQuery, useGetGameTagOptionsQuery, useLocalizeGameTagsMutation, useGetGameThemeOptionsQuery, useGetGameMediaOptionsQuery, useGetGameQuery, useGetGamesQuery, useGetGameOptionsQuery, useAddGameMutation, useUpdateGameMutation, useDeleteGameMutation } = gameApi;

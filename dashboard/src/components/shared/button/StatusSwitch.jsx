@@ -17,6 +17,7 @@ const toneStyles = {
 
 const StatusSwitch = ({
   checked,
+  compact = false,
   defaultChecked,
   disabled = false,
   dir = "rtl",
@@ -88,12 +89,12 @@ const StatusSwitch = ({
         type="button"
       >
         <span
-          className={`relative flex h-7 w-12 items-center rounded-full border-2 p-1 transition-all duration-200 ${
+          className={`relative flex ${compact ? "h-5 w-9" : "h-7 w-12"} items-center rounded-full border-2 p-1 transition-all duration-200 ${
             isOn ? "border-emerald-500 bg-emerald-500" : "border-zinc-700 bg-zinc-800"
           }`}
         >
           <span
-            className={`absolute top-1/2 block h-5 w-5 -translate-y-1/2 rounded-full bg-white shadow transition-all duration-200 ${
+            className={`absolute top-1/2 block ${compact ? "h-3 w-3" : "h-5 w-5"} -translate-y-1/2 rounded-full bg-white shadow transition-all duration-200 ${
               isRtl
                 ? isOn
                   ? "right-1"

@@ -13,8 +13,12 @@
 	margin-right: auto;
 }
 
+.ck.ck-content {
+	font-family: 'Vazir', Tahoma, sans-serif;
+	font-size: 14px;
+}
+
 .ck-content {
-	font-family: 'Lato';
 	line-height: 1.6;
 	word-break: break-word;
 }

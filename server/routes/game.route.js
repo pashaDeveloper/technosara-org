@@ -4,6 +4,10 @@ const authorize = require("../middleware/authorize.middleware");
 const gameController = require("../controllers/game.controller");
 
 const router = express.Router();
+router.get('/:id/resources', verify, authorize('superAdmin', 'admin'), async (req, res, next) => {
+  try { res.json({ data: await require('../services/savedGameResources.service').read(req.params.id) }); }
+  catch (error) { next(error); }
+});
 router.patch('/:id/autosave', verify, authorize('superAdmin', 'admin'), async (req, res, next) => {
   try { res.json({ data: await require('../services/gameAutosave.service').save(req.params.id, req.body) }); }
   catch (error) { next(error); }
@@ -26,9 +30,16 @@ router.post('/lookup/:providerId', verify, authorize('superAdmin', 'admin'), asy
 router.post('/media/import', verify, authorize('superAdmin', 'admin'), async (req, res, next) => {
   try {
     const field = req.body.fieldName;
-    if (!['thumbnail', 'detail_banner', 'detail_poster', 'detail_gif', 'screenshot', 'cover', 'logo'].includes(field)) return res.status(400).json({ description: 'نوع تصویر معتبر نیست.' });
+    const video = ['video', 'trailer', 'gameplay', 'micro_trailer'].includes(field);
+    if (!video && !['thumbnail', 'detail_banner', 'detail_poster', 'detail_gif', 'screenshot', 'cover', 'logo'].includes(field)) return res.status(400).json({ description: 'نوع رسانه معتبر نیست.' });
     if (!String(req.body.gameTitle || '').trim()) return res.status(400).json({ description: 'ابتدا نام بازی را وارد کنید.' });
-    req.files = { [field]: [await require('../services/remoteImage.service').download(req.body.url)] };
+    const remote = require('../services/remoteImage.service');
+    const steamVideo = video ? require('../services/steamVideoDownload.service') : null;
+    const url = req.body.url;
+    const file = await (steamVideo?.steamStreamUrl(url) ? steamVideo.downloadSteamVideo(url)
+      : video ? remote.downloadVideo(url) : remote.download(url));
+    if (req.aborted || res.destroyed) return;
+    req.files = { [field]: [file] };
     require('../middleware/upload.middleware')('games', 'cloudinary').fields([{ name: field, maxCount: 1 }])(req, res, next);
   } catch (error) { next(error); }
 }, (req, res) => { req.commitUploads(); res.json({ acknowledgement: true, data: req.uploadedFiles }); });
@@ -39,6 +50,10 @@ router.post('/storage/source', verify, authorize('superAdmin', 'admin'), async (
 router.post('/media/upload', verify, authorize('superAdmin', 'admin'), require('../middleware/upload.middleware')('games', 'cloudinary').fields(['thumbnail', 'detail_banner', 'detail_gif', 'detail_poster', 'screenshot', 'cover', 'logo', 'video', 'trailer', 'gameplay', 'micro_trailer'].map(name => ({ name, maxCount: 1 }))), (req, res) => {
   req.commitUploads?.();
   res.json({ acknowledgement: true, data: req.uploadedFiles });
+});
+router.post('/media/video-source', verify, authorize('superAdmin', 'admin'), async (req, res, next) => {
+  try { res.json({ data: await require('../services/gameVideoSources.service').read(req.body) }); }
+  catch (error) { next(error); }
 });
 router.post('/media/source', verify, authorize('superAdmin', 'admin'), async (req, res, next) => {
   try { res.json({ data: await require('../services/gameMedia.service').read(req.body) }); }
@@ -98,9 +113,13 @@ router.post('/:id/dlc/import', verify, authorize('superAdmin', 'admin'), async (
 router.post('/store-descriptions', verify, authorize('superAdmin', 'admin'), async (req, res, next) => {
   try {
     const service = require('../services/storeDescriptions.service');
-    res.json({ data: await service.resolveDescription(req.body) });
+    const data = req.body.suggest === true ? await service.suggestTitles(req.body.title) : await service.resolveDescription(req.body);
+    res.json({ data });
   }
-  catch (error) { next(error); }
+  catch (error) {
+    if (error.status === 409 && error.candidates?.length) return res.status(409).json({ description: error.message, candidates: error.candidates });
+    next(error);
+  }
 });
 
 router.get(

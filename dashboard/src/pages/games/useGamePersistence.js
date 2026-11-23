@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gameBody } from './gameFormUtils';
 import { definition, formValues } from './definitions';
 
-export const progressFields = ['status', 'release_date', 'official_website', 'developer_ids', 'publisher_ids', 'platform_ids', 'genre_ids', 'theme_ids', 'tags', 'game_mode_ids', 'game_series_ids', 'feature_ids', 'alternate_titles', 'short_description', 'description', 'storage_sizes', 'platform_capabilities', 'capability_status', 'has_persian_subtitles', 'image', 'detail_banner', 'detail_poster', 'detail_gif', 'screenshots', 'platform_covers', 'cover_media_id', 'official_stores', 'offers'];
+export const progressFields = ['status', 'release_date', 'official_website', 'developer_ids', 'publisher_ids', 'platform_ids', 'genre_ids', 'theme_ids', 'tags', 'game_mode_ids', 'game_series_ids', 'feature_ids', 'alternate_titles', 'short_description', 'description', 'storage_sizes', 'pc_requirements', 'platform_capabilities', 'capability_status', 'has_persian_subtitles', 'has_dubbing', 'has_game_pass', 'has_ps_plus', 'image', 'detail_banner', 'detail_banner_mirrored', 'detail_poster', 'detail_gif', 'screenshots', 'videos', 'gameplay', 'trailer', 'gameplay_videos', 'trailers', 'video_source_keys', 'micro_trailer', 'twitch_videos', 'platform_covers', 'cover_media_id', 'official_stores', 'console_api_stores', 'playstation_product_id', 'xbox_product_id', 'offers'];
 export function progressBody(values) {
   const body = gameBody(values);
   return Object.fromEntries(progressFields.map(key => [key, body[key]]));
@@ -54,7 +54,7 @@ export function useGamePersistence({ storedGame, values, getValues, setValue, re
   }, [id]);
   let serialized;
   try { serialized = JSON.stringify(progressBody(values)); } catch { serialized = ''; }
-  if (session.current?.id === id && ready && !recovering && serialized) session.current.latestBody = JSON.parse(serialized);
+  if (session.current && session.current.id === id && ready && !recovering && serialized) session.current.latestBody = JSON.parse(serialized);
   useEffect(() => {
     const current = session.current;
     if (!current || current.id !== id || !ready || recovering || !serialized) return;

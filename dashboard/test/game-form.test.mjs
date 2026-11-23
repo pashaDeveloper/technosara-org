@@ -1,8 +1,22 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { definition, formValues } from '../src/pages/games/definitions.js';
-import { gameBody } from '../src/pages/games/gameFormUtils.js';
+import { gameBody, validateGameMetrics } from '../src/pages/games/gameFormUtils.js';
 import { providerFormValues, matchProviderOptions, providerOptionMatches } from '../src/pages/games/gameFormUtils.js';
+
+test('game ratings are optional while supplied scores and counts are validated', () => {
+  for (const empty of ['', ' ', 'null', '{}']) {
+    assert.equal(validateGameMetrics('rating', empty), true);
+    assert.deepEqual(gameBody({ ...formValues(definition), rating: empty }).rating, {});
+  }
+  const partial = '{"mean":null,"mean_players":"","mean_critics":0,"count":12}';
+  assert.equal(validateGameMetrics('rating', partial), true);
+  assert.deepEqual(gameBody({ ...formValues(definition), rating: partial }).rating, { mean_critics: 0, count: 12 });
+  assert.equal(validateGameMetrics('rating', '{"mean":1,"count":0}'), true);
+  assert.equal(validateGameMetrics('rating', '{"mean":1.01}'), false);
+  assert.equal(validateGameMetrics('rating', '{"count":1.5}'), false);
+  assert.equal(validateGameMetrics('rating', '{"count":-1}'), false);
+});
 
 test('Gamebrain full and short descriptions stay distinct through autofill, edit and submission', () => {
   const source = { id: 42, name: 'Example', short_description: 'Brief introduction.', description: 'Full introduction.\n\nGameplay details.\n\nStory and features.' };
@@ -97,4 +111,26 @@ test('saved publication, companies, storage and platform capabilities survive re
   const body=gameBody(formValues(definition,record));
   for(const field of ['status','developer_ids','publisher_ids','storage_sizes','platform_capabilities']) assert.deepEqual(body[field],record[field],field);
   assert.equal(body.release_date,'2026-01-02');
+});
+
+test('multiple gameplay videos and trailers survive reopening and submission', () => {
+  const gameplay = 'https://example.com/gameplay.mp4';
+  const trailer = 'https://example.com/trailer.mp4';
+  const record = {
+    gameplay, trailer,
+    gameplay_videos: [gameplay, 'https://example.com/gameplay-2.mp4'],
+    trailers: [trailer, 'https://example.com/stream.m3u8'],
+  };
+  const body = gameBody(formValues(definition, record));
+  for (const [key, value] of Object.entries(record)) assert.deepEqual(body[key], value);
+});
+
+test('console product IDs are restored in existing game forms and sent on save', () => {
+  const record = { playstation_product_id: 'PPSA15304', xbox_product_id: '9NNX1VVR3KNQ' };
+  const values = formValues(definition, record);
+  const body = gameBody(values);
+  for (const [key, value] of Object.entries(record)) {
+    assert.equal(values[key], value);
+    assert.equal(body[key], value);
+  }
 });

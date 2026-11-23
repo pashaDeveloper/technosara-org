@@ -2,6 +2,12 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { steamFormLinks, runDlcBatch, consoleFormSource, dlcKey } from '../src/pages/games/dlcFormUtils.js';
 
+test('chosen official edition takes precedence over older offer links', () => {
+  const chosen = 'https://store.playstation.com/en-us/product/UP1004-CHOSEN0000';
+  const result = consoleFormSource('Game', [{ url: chosen }], [{ url: 'https://store.playstation.com/en-us/product/UP1004-OLD0000000' }]);
+  assert.deepEqual(result.official_stores, [{ url: chosen }]);
+});
+
 test('console discovery uses title and console links, ignoring unavailable Steam products', () => {
   const result = consoleFormSource(' Grand Theft Auto V ', [{ url: 'https://store.steampowered.com/app/379480' }, { url: 'https://www.xbox.com/en-US/play/games/XXX/C496CLVXMJP8' }, { url: 'https://www.xbox.com/en-US/games/store/game/C496CLVXMJP8' }]);
   assert.equal(result.title, 'Grand Theft Auto V');

@@ -1,9 +1,25 @@
 import { definition, providerFields, formValues } from './definitions.js';
 export const englishSlug = value => value.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+export function parseGameMetrics(value) {
+  const parsed = JSON.parse(value?.trim() || 'null');
+  if (parsed == null) return {};
+  if (typeof parsed !== 'object' || Array.isArray(parsed)) throw new TypeError('Expected a metrics object');
+  return Object.fromEntries(Object.entries(parsed).filter(([, item]) => item != null && item !== '' && item !== 'null'));
+}
+
+export function validateGameMetrics(kind, value) {
+  return Object.entries(parseGameMetrics(value)).every(([key, item]) => {
+    if (key === 'percentiles' && kind === 'playtime') return Array.isArray(item) && item.every(n => Number.isFinite(n) && n >= 0);
+    return Number.isFinite(item) && item >= 0 &&
+      (kind !== 'rating' || !key.startsWith('mean') || item <= 1) &&
+      (!(key.startsWith('count') || key === 'mentions') || Number.isSafeInteger(item));
+  });
+}
+
 export function gameBody(values) {
   const body = Object.fromEntries(definition.fields.map(field => {
     let value = values[field.key];
-    if (field.type === 'json') value = JSON.parse(value || 'null');
+    if (field.type === 'json') value = ['rating', 'playtime'].includes(field.key) ? parseGameMetrics(value) : JSON.parse(value || 'null');
     if (field.type === 'number') value = value === '' ? null : Number(value);
     if (typeof value === 'string') value = value.trim();
     if (field.type === 'multiple') value = [...new Set(value || [])];
@@ -38,6 +54,7 @@ export function providerFormValues(game) {
  const result = Object.fromEntries([...providerFields.map(field => field.key), 'short_description', 'description', 'release_date'].map(key => [key, defaults[key]]));
  result.detail_poster = '';
  result.detail_banner = '';
+ result.detail_banner_mirrored = false;
  result.detail_gif = '';
  result.title = game.name;
  result.slug = englishSlug(game.name || '');

@@ -27,7 +27,7 @@ function validateStates(value, group) {
   const states = parse(value);
   if (!states || typeof states !== 'object' || Array.isArray(states)) throw invalid();
   for (const [key, state] of Object.entries(states)) {
-    if (!definitions.some(item => item.key === key && (group === 'platform' ? item.group === group : item.group !== 'platform')) || ![true, false, null].includes(state)) throw invalid();
+    if (!definitions.some(item => item.key === key && (group !== 'platform' || item.group === 'platform')) || ![true, false, null].includes(state)) throw invalid();
   }
   return Object.fromEntries(Object.entries(states).map(([key, state]) => [key, state === true]));
 }
@@ -58,8 +58,12 @@ async function capabilityValues(body, existing = {}) {
     for (const item of definitions.filter(item => group === 'mode' ? item.group === group : item.group !== 'mode')) {
       const states = values.capability_status || existing.capability_status || {};
       const platforms = values.platform_capabilities || existing.platform_capabilities || [];
-      if (item.group === 'platform' && ![...platforms, ...(existing.platform_capabilities || [])].some(row => row.status?.[item.key] !== undefined)) continue;
-      const state = item.group === 'platform' ? platforms.some(row => row.status?.[item.key] === true) : states[item.key];
+      const readState = status => status?.get?.(item.key) ?? status?.[item.key];
+      let state = readState(states);
+      if (state === undefined && item.group === 'platform' &&
+          [...platforms, ...(existing.platform_capabilities || [])].some(row => readState(row.status) !== undefined)) {
+        state = platforms.some(row => readState(row.status) === true);
+      }
       if (state === undefined) continue;
       const found = rows.filter(row => matches(row, item));
       for (const row of found) ids.delete(String(row._id));
@@ -77,4 +81,24 @@ async function capabilityValues(body, existing = {}) {
   }
   return values;
 }
-module.exports = { definitions, infer, validateStates, capabilityValues, matches };
+async function capabilityFilter(key) {
+  if (!key) return {};
+  if (['has_persian_subtitles', 'has_dubbing', 'has_game_pass', 'has_ps_plus'].includes(key)) return { [key]: true };
+  const item = definitions.find(item => item.key === key);
+  if (!item) throw invalid();
+  const field = `capability_status.${key}`;
+  const stored = { [field]: true };
+  const previous = [];
+  if (item.group === 'platform') previous.push({ [`platform_capabilities.status.${key}`]: true });
+  const fieldName = item.group === 'mode' ? 'game_mode_ids' : 'feature_ids';
+  const Model = item.group === 'mode' ? require('../models/gameMode.model') : require('../models/feature.model');
+  const rows = await Model.find({ isDeleted: false });
+  const ids = rows.filter(row => matches(row, item)).map(row => row._id);
+  if (ids.length) previous.push({ [fieldName]: { $in: ids } });
+  if (!previous.length) return stored;
+  return { $and: [{ $or: [
+    stored,
+    ...previous.map(condition => ({ [field]: { $exists: false }, ...condition })),
+  ] }] };
+}
+module.exports = { definitions, infer, validateStates, capabilityValues, matches, capabilityFilter };

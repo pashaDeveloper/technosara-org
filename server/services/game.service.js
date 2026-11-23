@@ -1,6 +1,7 @@
 const { validateGameIdentity } = require("../utils/gameIdentity");
 const { gameClassificationValues, gameClassificationFilters } = require('../utils/gameClassifications');
 const Game = require("../models/game.model");
+const { filterScreenshots } = require('../utils/gameScreenshots');
 const { alternateTitleValues, gameTitleSearch } = require('../utils/gameTitles');
 
 /* add new game */
@@ -23,6 +24,9 @@ exports.addGame = async (req, res) => {
       release_date: body.release_date,
       official_website: body.official_website,
       has_persian_subtitles: body.has_persian_subtitles,
+      has_dubbing: body.has_dubbing,
+      has_game_pass: body.has_game_pass,
+      has_ps_plus: body.has_ps_plus,
       developer_ids: typeof body.developer_ids === "string" ? JSON.parse(body.developer_ids || "[]") : body.developer_ids,
       publisher_ids: typeof body.publisher_ids === "string" ? JSON.parse(body.publisher_ids || "[]") : body.publisher_ids,
       cover_media_id: body.cover_media_id,
@@ -30,6 +34,7 @@ exports.addGame = async (req, res) => {
       creator: req.admin._id
     });
 
+    if (body.screenshots !== undefined) game.screenshots = await filterScreenshots(game.screenshots);
     await game.save();
 
     res.status(201).json({
@@ -73,6 +78,9 @@ exports.getGames = async (req, res) => {
       else query._id = filter;
       if (query.$and) delete query._id;
     }
+    const { $and: capabilityConditions, ...capabilityFields } = await require('../utils/gameCapabilities').capabilityFilter(req.query.capability);
+    Object.assign(query, capabilityFields);
+    if (capabilityConditions) query.$and = [...(query.$and || []), ...capabilityConditions];
     if (search) {
       Object.assign(query, gameTitleSearch(search));
     }
@@ -129,7 +137,7 @@ exports.getGame = async (req, res) => {
 exports.updateGame = async (req, res) => {
   const { body } = req;
   await validateGameIdentity(body);
-  const existingCapabilities = await Game.findById(req.params.id).select('capability_status platform_capabilities game_mode_ids feature_ids');
+  const existingCapabilities = await Game.findById(req.params.id).select('capability_status platform_capabilities game_mode_ids feature_ids screenshots');
   const updatedGame = {
     auto_draft: false,
     ...await gameClassificationValues(body),
@@ -145,13 +153,18 @@ exports.updateGame = async (req, res) => {
     description: body.description,
     release_date: body.release_date,
     official_website: body.official_website,
-    ...(Object.hasOwn(body, 'has_persian_subtitles') ? { has_persian_subtitles: body.has_persian_subtitles } : {}),
+    ...Object.fromEntries(['has_persian_subtitles', 'has_dubbing', 'has_game_pass', 'has_ps_plus']
+      .filter(key => Object.hasOwn(body, key))
+      .map(key => [key, body[key]])),
     developer_ids: typeof body.developer_ids === "string" ? JSON.parse(body.developer_ids || "[]") : body.developer_ids,
     publisher_ids: typeof body.publisher_ids === "string" ? JSON.parse(body.publisher_ids || "[]") : body.publisher_ids,
     cover_media_id: body.cover_media_id,
     genre_ids: typeof body.genre_ids === "string" ? JSON.parse(body.genre_ids || "[]") : body.genre_ids
   };
 
+  if (updatedGame.screenshots !== undefined) {
+    updatedGame.screenshots = await filterScreenshots(updatedGame.screenshots, existingCapabilities?.screenshots);
+  }
   const game = await Game.findByIdAndUpdate(req.params.id, updatedGame, { runValidators: true });
   if (!game) return res.status(404).json({ acknowledgement: false, message: 'بازی پیدا نشد' });
   const previous = game.toObject ? game.toObject() : game;

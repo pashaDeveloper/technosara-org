@@ -2,6 +2,11 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const mongoose = require('mongoose');
 const service = require('../services/consoleDlc.service');
+test('DLC discovery prefers the selected official edition over stale offers', () => {
+  const url = 'https://store.playstation.com/en-us/product/UP1004-CHOSEN0000';
+  const rows = service.inputLinks({ official_stores: [{ url }], offers: [{ url: 'https://store.playstation.com/en-us/product/UP1004-OLD0000000' }] });
+  assert.deepEqual(rows.map(row => row.url), [url]);
+});
 const Content = require('../models/gameContent.model');
 const Game = require('../models/game.model');
 const Product = require('../models/storeProduct.model');
@@ -108,6 +113,27 @@ test('imports into GameContent and StoreProduct once and preserves manual edits 
   assert.equal((await service.importOne(gameId, body, null, fixture().fetcher)).created, false);
   assert.equal(content.title, 'Manual');
   assert.equal(creations, 1);
+  Game.findById.mock.mockImplementation(() => ({ lean: async () => ({ _id: gameId }) }));
+  const refresh = t.mock.method(require('../services/automaticMedia.service'), 'refreshDlcCover', async (saved, game, image) => {
+    assert.equal(saved, content);
+    assert.equal(game._id, gameId);
+    assert.ok(image.startsWith('https://'));
+    return { refreshed: true };
+  });
+  const requests = [];
+  const fetcher = (url, options) => {
+    requests.push(url);
+    return fixture().fetcher(url, options);
+  };
+  const repair = { provider: 'xbox', app_id: childId, refresh_cover: true };
+  assert.deepEqual(await service.importOne(gameId, repair, null, fetcher), { refreshed: true });
+  assert.equal(requests.length, 1);
+  assert.match(requests[0], /displaycatalog\.mp\.microsoft\.com/);
+  await assert.rejects(service.importOne(new mongoose.Types.ObjectId(), repair, null, fetcher), { status: 409 });
+  assert.equal(refresh.mock.callCount(), 1);
+  const sony = fixture({ sonyProductOverride: { ...sonyProduct, media: [{ role: 'MASTER', url: sonyRow.boxArt.url }] } });
+  assert.deepEqual(await service.importOne(gameId, { provider: 'playstation', app_id: sonyId, refresh_cover: true }, null, sony.fetcher), { refreshed: true });
+  assert.deepEqual(sony.calls.map(({ u }) => u.href), [`https://store.playstation.com/en-us/product/${sonyId}`]);
 });
 
 test('official PlayStation page is used instead of a guessed apostrophe slug', async()=>{
@@ -115,4 +141,15 @@ test('official PlayStation page is used instead of a guessed apostrophe slug', a
   calls.push(url);if(new URL(url).hostname==='www.playstation.com')return new Response('<a href="https://store.playstation.com/en-us/concept/201930">Store</a>');return f.fetcher(url,options);
  });
  assert.equal(result.errors.length,0);assert.equal(result.items.length,1);assert.ok(calls.includes('https://www.playstation.com/en-us/games/assassins-creed-black-flag-resynced/'));
+});
+
+test('selected API source takes priority over existing links for the same console', () => {
+  const { inputLinks } = require('../services/consoleDlc.service');
+  const chosen = 'https://www.xbox.com/en-US/games/store/game/9NNX1VVR3KNQ';
+  const previous = 'https://www.xbox.com/en-US/games/store/game/9NKX70BBCDRN';
+  const playstation = 'https://store.playstation.com/ja-jp/product/JP0101-PPSA15304_00-MGSDELTAMAINGAME';
+  assert.deepEqual(inputLinks({
+    console_api_stores: [{ provider: 'xbox', url: chosen }],
+    official_stores: [{ url: previous }, { url: playstation }],
+  }).map(row => row.url), [chosen, playstation]);
 });
