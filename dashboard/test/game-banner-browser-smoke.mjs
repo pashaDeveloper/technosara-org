@@ -105,7 +105,7 @@ try{
 const bundle = await build({ plugins: [{ name: 'inline-css', setup(build) { build.onLoad({filter:/\.css\?inline$/}, async args => ({contents: 'export default '+JSON.stringify(await readFile(args.path.replace(/\?inline$/, ''), 'utf8')), loader:'js'})); build.onResolve({filter:/\.css\?inline$/}, args => ({path:resolve(args.resolveDir,args.path)})); } }], stdin: { contents: harness, resolveDir: resolve('.'), loader: 'jsx' }, jsx: 'automatic', alias: { '@': resolve('src') }, bundle: true, write: false, format: 'esm', define: { 'process.env.NODE_ENV': '"production"' } });
 const server = createServer((request, response) => {
   if(request.url.startsWith('/game-preview/')){const file=request.url.endsWith('reference.png')?'reference.png':'bo6.jpg';response.setHeader('Content-Type',file.endsWith('png')?'image/png':'image/jpeg');readFile(resolve('public/game-preview',file)).then(data=>response.end(data));return;}
-  if(request.url==='/cover.jpg'){response.setHeader('Content-Type','image/jpeg');readFile(resolve('../client/edge-game-detail/bo6.jpg')).then(data=>response.end(data));return;}
+  if(request.url==='/cover.jpg'){response.setHeader('Content-Type','image/jpeg');readFile(resolve('public/game-preview/bo6.jpg')).then(data=>response.end(data));return;}
   response.setHeader('Content-Type', request.url === '/app.js' ? 'text/javascript' : 'text/html');
   response.end(request.url === '/app.js' ? bundle.outputFiles[0].text : '<html><body><div id="root"></div><script type="module" src="/app.js"></script></body></html>');
 });

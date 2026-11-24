@@ -60,7 +60,7 @@ const server = createServer((request, response) => {
   if(request.url==='/fonts/vazir/Vazir.woff2'){response.setHeader('Content-Type','font/woff2');readFile(resolve('public/fonts/vazir/Vazir.woff2')).then(data=>response.end(data));return;}
   if(request.url.startsWith('/game-preview/')){const file=request.url.endsWith('reference.png')?'reference.png':'bo6.jpg';response.setHeader('Content-Type',file.endsWith('png')?'image/png':'image/jpeg');readFile(resolve('public/game-preview',file)).then(data=>response.end(data));return;}
   if(request.url==='/banner.jpg'){response.setHeader('Content-Type','image/svg+xml');response.end('<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000"><rect width="1000" height="1000" fill="steelblue"/></svg>');return;}
-  if(request.url==='/cover.jpg'){response.setHeader('Content-Type','image/jpeg');readFile(resolve('../client/edge-game-detail/bo6.jpg')).then(data=>response.end(data));return;}
+  if(request.url==='/cover.jpg'){response.setHeader('Content-Type','image/jpeg');readFile(resolve('public/game-preview/bo6.jpg')).then(data=>response.end(data));return;}
   response.setHeader('Content-Type', request.url === '/app.js' ? 'text/javascript' : 'text/html');
   response.end(request.url === '/app.js' ? bundle.outputFiles[0].text : '<html><body><div id="root"></div><script type="module" src="/app.js"></script></body></html>');
 });
