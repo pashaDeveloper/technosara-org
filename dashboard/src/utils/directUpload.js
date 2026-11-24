@@ -1,3 +1,4 @@
+import { apiUrl } from './apiUrl.js';
 import React from 'react';
 import { toast } from 'react-hot-toast';
 
@@ -55,7 +56,8 @@ export const uploadFilesToArvan = async ({
   try {
     const result = await new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      xhr.open('POST', `/api${endpoint || `/upload/${folder}`}`);
+      xhr.open('POST', apiUrl(endpoint || `/upload/${folder}`));
+      xhr.withCredentials = true;
       xhr.timeout = 240000;
       if (token) xhr.setRequestHeader('Authorization', `Bearer ${token}`);
       xhr.upload.onprogress = event => {
@@ -100,7 +102,8 @@ export const deleteUploadedFileFromArvan = async (file) => {
   }
 
   const token = localStorage.getItem("accessToken");
-  const response = await fetch('/api/upload', {
+  const response = await fetch(apiUrl('/upload'), {
+    credentials: 'include',
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

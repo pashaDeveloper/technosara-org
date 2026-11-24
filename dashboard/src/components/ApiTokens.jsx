@@ -1,3 +1,4 @@
+import { apiUrl } from '../utils/apiUrl.js';
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useSelector } from 'react-redux';
@@ -5,8 +6,8 @@ const healthLabels = { valid: 'معتبر', expired: 'منقضی شده', invali
 const healthColors = { valid: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300', expired: 'bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300', invalid_or_expired: 'bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300' };
 
 async function request(method = 'GET', body) {
-  const response = await fetch('/api/admin/api-tokens', {
-    method, credentials: 'same-origin', cache: 'no-store',
+  const response = await fetch(apiUrl('/admin/api-tokens'), {
+    method, credentials: 'include', cache: 'no-store',
     headers: { Authorization: `Bearer ${localStorage.getItem('accessToken') || ''}`, ...(body && { 'Content-Type': 'application/json' }) },
     ...(body && { body: JSON.stringify(body) }),
   });

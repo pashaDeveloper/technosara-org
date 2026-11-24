@@ -3,15 +3,19 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, __dirname, 'API_')
-  const target = process.env.API_BASE || env.API_BASE || 'http://127.0.0.1:8080'
+  const apiBase = (process.env.API_BASE || env.API_BASE || '').trim().replace(/\/+$/, '')
+  const target = apiBase || 'http://127.0.0.1:8080'
   const proxy = {
     '/api': { target, changeOrigin: true },
     '/uploads': { target, changeOrigin: true }
   }
 
   return {
+    define: {
+      __DASHBOARD_API_BASE__: JSON.stringify(command === 'build' ? apiBase : ''),
+    },
     plugins: [react()],
     resolve: {
       alias: {

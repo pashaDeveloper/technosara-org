@@ -1,3 +1,4 @@
+import { apiUrl } from '../../utils/apiUrl.js';
 import { useEffect, useRef, useState } from 'react';
 import { gameBody } from './gameFormUtils';
 import { definition, formValues } from './definitions';
@@ -8,7 +9,7 @@ export function progressBody(values) {
   return Object.fromEntries(progressFields.map(key => [key, body[key]]));
 }
 async function request(id, action, method, body, keepalive = false) {
-  const response = await fetch(`/api/games/${id}/${action}`, { method, keepalive: keepalive && (!body || new TextEncoder().encode(JSON.stringify(body)).length < 60000), headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('accessToken')}` }, ...(body ? { body: JSON.stringify(body) } : {}) });
+  const response = await fetch(apiUrl(`/games/${id}/${action}`), { method, credentials: 'include', keepalive: keepalive && (!body || new TextEncoder().encode(JSON.stringify(body)).length < 60000), headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('accessToken')}` }, ...(body ? { body: JSON.stringify(body) } : {}) });
   const result = await response.json();
   if (!response.ok || result.acknowledgement === false) throw new Error(result.description || result.message || 'ذخیرهٔ خودکار ناموفق بود.');
   return result.data;

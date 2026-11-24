@@ -1,10 +1,11 @@
+import { apiUrl } from '../utils/apiUrl.js';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { preferCloudinaryImages } from '../utils/cloudinaryDisplay';
 import { canonicalBody, localizedNames, usesLegacyNames } from '../utils/canonicalNames';
 
 const rawBaseQuery = fetchBaseQuery({
-  baseUrl: '/api',
-  credentials: 'same-origin',
+  baseUrl: apiUrl(),
+  credentials: 'include',
   prepareHeaders: (headers) => {
     const token = localStorage.getItem('accessToken');
     if (token) headers.set('Authorization', `Bearer ${token}`);

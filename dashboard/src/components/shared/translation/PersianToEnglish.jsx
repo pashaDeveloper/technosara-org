@@ -1,3 +1,4 @@
+import { apiUrl } from '../../../utils/apiUrl.js';
 import React, { useEffect, useId, useRef, useState } from 'react';
 
 export function AutoPersianToEnglish({ sourceText = '', initialSource = '', disabled = false, onBusyChange, onTranslated }) {
@@ -23,7 +24,7 @@ export function AutoPersianToEnglish({ sourceText = '', initialSource = '', disa
       setStatus('در حال ترجمه…');
       timeout = setTimeout(() => controller.abort(), 20000);
       try {
-        const response = await fetch('/api/translations', {
+        const response = await fetch(apiUrl('/translations'), {
           method: 'POST', credentials: 'include', signal: controller.signal,
           headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text }),
         });
@@ -86,7 +87,7 @@ export default function PersianToEnglish({ initialText = '', sourceText, compact
     const timeout = setTimeout(() => controller.abort(), 20000);
     let result;
     try {
-      const response = await fetch('/api/translations', {
+      const response = await fetch(apiUrl('/translations'), {
         method: 'POST', credentials: 'include', signal: controller.signal,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: text.trim() }),

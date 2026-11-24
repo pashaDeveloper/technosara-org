@@ -1,3 +1,4 @@
+import { apiUrl } from '../../utils/apiUrl.js';
 import React, { useEffect, useRef, useState } from 'react';
 import { readApiResponse } from '../../utils/apiResponse';
 import ZoomableImage from '../../components/shared/gallery/ZoomableImage';
@@ -8,7 +9,7 @@ const fields = {
   video: [['videoQuality', 'کیفیت ویدئو', 10, 90, 1]],
 };
 async function request(path = '', options = {}) {
-  const response = await fetch(`/api/upload-settings${path}`, { credentials: 'same-origin', cache: 'no-store', ...options,
+  const response = await fetch(apiUrl(`/upload-settings${path}`), { credentials: 'include', cache: 'no-store', ...options,
     headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}`, ...options.headers } });
   return readApiResponse(response);
 }
