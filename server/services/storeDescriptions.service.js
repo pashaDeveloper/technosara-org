@@ -94,7 +94,7 @@ async function descriptions(provider, value, fetcher = fetch) {
   return { ...result, provider, url: urls.source };
 }
 function searchTerms(value) {
-  return String(value || '').replace(/[™®©]/g, '').normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  return String(value || '').replace(/[™®©]/g, ' ').normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 }
 function normalizeTitle(value) {
   return searchTerms(value).replace(/^the /, '').replace(/\bpart (i|ii|iii|iv)\b/g, (_, roman) => `part ${{ i: 1, ii: 2, iii: 3, iv: 4 }[roman]}`);
@@ -114,8 +114,30 @@ async function sonyTitleRows(title, fetcher, market = 'US') {
 }
 async function xboxTitleRows(title, fetcher) {
   const query = encodeURIComponent(title.trim());
-    const data = JSON.parse(await readStore(`https://displaycatalog.mp.microsoft.com/v7.0/productFamilies/games/products?query=${query}&market=US&languages=en-US&fieldsTemplate=details`, 'xbox', fetcher));
-    return (data.Products || []).filter(row => /^[A-Za-z0-9]{12}$/.test(row.ProductId)).map(row => ({ title: row.LocalizedProperties?.[0]?.ProductTitle, url: `https://www.xbox.com/en-US/games/store/game/${row.ProductId}` }));
+  const catalog = 'https://displaycatalog.mp.microsoft.com/v7.0';
+  const data = JSON.parse(await readStore(`${catalog}/productFamilies/games/products?query=${query}&market=US&languages=en-US&fieldsTemplate=details`, 'xbox', fetcher));
+  const validId = id => /^[A-Za-z0-9]{12}$/.test(id);
+  const name = row => (row.LocalizedProperties?.find(locale => locale.Language === 'en-US') || row.LocalizedProperties?.[0])?.ProductTitle;
+  const toRow = row => ({ title: name(row), url: `https://www.xbox.com/en-US/games/store/game/${row.ProductId}` });
+  const products = (data.Products || []).filter(row => validId(row.ProductId));
+  const rows = products.map(toRow);
+  const key = normalizeTitle(title);
+  if (rows.some(row => normalizeTitle(row.title) === key)) return rows;
+
+  // The search page can list a bundle while omitting the base game it references.
+  const existingIds = new Set(products.map(row => row.ProductId));
+  const relatedIds = new Set(products.filter(row => normalizeTitle(name(row)).startsWith(key + ' '))
+    .flatMap(row => (row.MarketProperties || []).flatMap(market => market.RelatedProducts || []))
+    .filter(row => row.RelationshipType === 'Parent' && validId(row.RelatedProductId) && !existingIds.has(row.RelatedProductId))
+    .map(row => row.RelatedProductId));
+  const ids = [...relatedIds].slice(0, 10).join(',');
+  if (!ids) return rows;
+  try {
+    const related = JSON.parse(await readStore(`${catalog}/products?bigIds=${ids}&market=US&languages=en-US&fieldsTemplate=details`, 'xbox', fetcher));
+    return [...rows, ...(related.Products || []).filter(row => relatedIds.has(row.ProductId) && normalizeTitle(name(row)) === key).map(toRow)];
+  } catch {
+    return rows;
+  }
 }
 
 async function suggestTitles(title, fetcher = fetch) {
@@ -268,4 +290,4 @@ async function resolveDescription({ provider, url, title, product_id }, fetcher 
   if (provider === 'sony' && sonyContentId.test(key)) return descriptions(provider, sonyProductLink(key.toUpperCase()), fetcher);
   return byTitle(provider, title, fetcher);
 }
-module.exports = { descriptions, byTitle, suggestTitles, resolveDescription, selectTitle, productUrl, parseXbox, parseSony };
+module.exports = { descriptions, byTitle, suggestTitles, resolveDescription, selectTitle, productUrl, parseXbox, parseSony, xboxTitleRows };

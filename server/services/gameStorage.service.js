@@ -1,4 +1,4 @@
-const { productUrl, selectTitle } = require('./storeDescriptions.service');
+const { productUrl, selectTitle, xboxTitleRows } = require('./storeDescriptions.service');
 const { steamId, details } = require('./steamDlc.service');
 const { normalizePcRequirements } = require('../utils/pcRequirements');
 const fail = (message, status = 400) => Object.assign(new Error(message), { status });
@@ -83,8 +83,7 @@ async function read(input, fetcher = fetch) {
         const match = selectTitle(rows, input.title);
         return { provider, id: steamId(match.url), source: match.url };
       }
-      const data = await request(`https://displaycatalog.mp.microsoft.com/v7.0/productFamilies/games/products?query=${query}&market=US&languages=en-US&fieldsTemplate=details`, fetcher);
-      const rows = (data.Products || []).filter(row => /^[a-z0-9]{12}$/i.test(row.ProductId)).map(row => ({ title: row.LocalizedProperties?.find(row => row.Language === 'en-US')?.ProductTitle || row.LocalizedProperties?.[0]?.ProductTitle, url: `https://www.xbox.com/en-US/games/store/game/${row.ProductId}` }));
+      const rows = await xboxTitleRows(input.title, fetcher);
       return { provider, ...productUrl('xbox', selectTitle(rows, input.title).url) };
     } catch (error) { return { provider, error: error.message, rows: [] }; }
   }));

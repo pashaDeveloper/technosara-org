@@ -203,3 +203,21 @@ test('partial game-name search returns exact selectable titles with official pro
   });
   assert.deepEqual(rows, [{ title: 'Forza Horizon 5', url: 'https://www.xbox.com/en-US/games/store/game/9NNX1VVR3KNQ', provider: 'xbox' }]);
 });
+
+test('Xbox suggestions promote an exact base game omitted from the search page', async () => {
+  const { suggestTitles } = require('../services/storeDescriptions.service');
+  const baseId = '9MX6HKF5647G';
+  const fetcher = async url => {
+    if (!url.includes('displaycatalog')) return Response.json({ links: [] });
+    if (url.includes('/productFamilies/')) return Response.json({ Products: [{
+      ProductId: '9NCQG87CH81N',
+      LocalizedProperties: [{ ProductTitle: 'Borderlands®4 Super Deluxe Edition' }],
+      MarketProperties: [{ RelatedProducts: [{ RelationshipType: 'Parent', RelatedProductId: baseId }] }],
+    }] });
+    assert.equal(new URL(url).searchParams.get('bigIds'), baseId);
+    return Response.json({ Products: [{ ProductId: baseId, LocalizedProperties: [{ ProductTitle: 'Borderlands®4' }] }] });
+  };
+  const results = await suggestTitles('Borderlands 4', fetcher);
+  assert.equal(results[0].title, 'Borderlands®4');
+  assert.match(results[0].url, new RegExp(baseId + '$'));
+});
