@@ -15,7 +15,7 @@ function sourceUrl(provider, urls) {
   return urls.find(value => { try { return hosts[provider]?.includes(new URL(value).hostname); } catch { return false; } }) || '';
 }
 
-export default function StoreDescriptions({ title, officialStores, offers, disabled, onApply, fieldKey }) {
+export default function StoreDescriptions({ title, officialStores, offers, selectedXboxUrl, disabled, onApply, fieldKey }) {
   const [fetchDescription] = useFetchStoreDescriptionsMutation();
   const [translate] = useTranslateTextMutation();
   const [loading, setLoading] = useState('');
@@ -24,14 +24,15 @@ export default function StoreDescriptions({ title, officialStores, offers, disab
     ++generation.current;
     setLoading('');
     return () => { ++generation.current; };
-  }, [title, officialStores, offers]);
+  }, [title, officialStores, offers, selectedXboxUrl]);
   const urls = [...links(officialStores), ...links(offers)];
   async function load(provider) {
-    const url = sourceUrl(provider, urls);
+    const selectedUrl = provider === 'xbox' ? selectedXboxUrl : '';
+    const source = selectedUrl ? { url: selectedUrl } : { url: sourceUrl(provider, urls), title };
     const version = ++generation.current;
     setLoading(provider);
     try {
-      const response = await fetchDescription({ provider, url, title }).unwrap();
+      const response = await fetchDescription({ provider, ...source }).unwrap();
       if (version !== generation.current) return;
       const text = response.data?.[fieldKey];
       if (!text) { toast.error('این توضیح در منبع موجود نیست.'); return; }

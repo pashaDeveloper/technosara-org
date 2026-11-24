@@ -7,7 +7,7 @@ import { nabApi } from '../../services/nab';
 const api = nabApi.injectEndpoints({ endpoints: builder => ({
   fetchPhysicalBoxArt: builder.mutation({ query: body => ({ url: '/games/media/boxart', method: 'POST', body }) }),
 }) });
-export default function BoxArtButton({ title, platformId, xboxUrl, disabled, onApply, onBusyChange }) {
+export default function BoxArtButton({ title, platformId, xboxUrl, exactXbox, disabled, onApply, onBusyChange }) {
   const [fetchCover] = api.useFetchPhysicalBoxArtMutation();
   const [loading, setLoading] = useState(false);
   const [candidates, setCandidates] = useState([]);
@@ -16,14 +16,14 @@ export default function BoxArtButton({ title, platformId, xboxUrl, disabled, onA
   useEffect(() => {
     ++generation.current; locked.current = false; setLoading(false); setCandidates([]);
     return () => { ++generation.current; if (locked.current) latest.current.onBusyChange?.(false); locked.current = false; };
-  }, [title, platformId, xboxUrl]);
+  }, [title, platformId, xboxUrl, exactXbox]);
   async function load() {
     if (disabled || locked.current) return;
     if (!title?.trim()) { toast.error('ابتدا نام بازی را انتخاب کنید.'); return; }
     const version = ++generation.current;
     locked.current = true; setLoading(true); latest.current.onBusyChange?.(true);
     try {
-      const response = await fetchCover({ title, platform_id: platformId, xbox_url: xboxUrl || undefined }).unwrap();
+      const response = await fetchCover({ title, platform_id: platformId, xbox_url: xboxUrl || undefined, exact_xbox: exactXbox || undefined }).unwrap();
       if (version !== generation.current) return;
       const result = response.data;
       if (result?.candidates?.length) { setCandidates(result.candidates); return; }

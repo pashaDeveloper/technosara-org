@@ -7,6 +7,7 @@ const api = nabApi.injectEndpoints({ endpoints: builder => ({
   fetchCardCoverSource: builder.mutation({ query: body => ({ url: '/games/media/source', method: 'POST', body }) }),
   resolveCardCoverStore: builder.mutation({ query: body => ({ url: '/games/store-descriptions', method: 'POST', body }) }),
 }) });
+export const { useFetchCardCoverSourceMutation } = api;
 function links(value) { try { return JSON.parse(value || '[]').map(row => row.url).filter(Boolean); } catch { return []; } }
 
 function coverSize(url, kind) {
@@ -29,7 +30,7 @@ function coverSize(url, kind) {
   });
 }
 
-export default function StoreCoverPicker({ title, officialStores, offers, disabled, onSelect, onEditionSelect, kind = 'card', auto = false, compact = false }) {
+export default function StoreCoverPicker({ title, officialStores, offers, selectedXboxUrl, disabled, onSelect, onEditionSelect, kind = 'card', auto = false, compact = false }) {
   const [fetchImages] = api.useFetchCardCoverSourceMutation();
   const [resolveStore] = api.useResolveCardCoverStoreMutation();
   const [loading, setLoading] = useState('');
@@ -37,24 +38,25 @@ export default function StoreCoverPicker({ title, officialStores, offers, disabl
   const dialog = useRef(null);
   const detailOptions = useRef({});
   useEffect(() => { if (selection) dialog.current?.showModal(); }, [selection]);
-  useEffect(() => { setSelection(null); }, [title, officialStores, offers]);
+  useEffect(() => { setSelection(null); }, [title, officialStores, offers, selectedXboxUrl]);
   const generation = useRef(0);
   const attempted = useRef('');
-  useEffect(() => { ++generation.current; setLoading(''); return () => { ++generation.current; }; }, [title, officialStores, offers]);
+  useEffect(() => { ++generation.current; setLoading(''); return () => { ++generation.current; }; }, [title, officialStores, offers, selectedXboxUrl]);
   useEffect(() => {
     if (!auto || disabled || !title?.trim() || title.trim().length < 2) return;
-    const key = JSON.stringify([title, officialStores, offers]);
+    const key = JSON.stringify([title, officialStores, offers, selectedXboxUrl]);
     if (attempted.current === key) return;
     let cancelled = false;
     const scheduledGeneration = generation.current;
     const timer = setTimeout(async () => {
       if (kind === 'detail' && scheduledGeneration !== generation.current) return;
       attempted.current = key;
-      const found = await load('sony', true);
-      if (!found && !cancelled) await load('xbox', true);
+      const provider = selectedXboxUrl ? 'xbox' : 'sony';
+      const found = await load(provider, true);
+      if (!found && !cancelled && !selectedXboxUrl) await load('xbox', true);
     }, 1000);
     return () => { cancelled = true; clearTimeout(timer); ++generation.current; setLoading(''); };
-  }, [auto, disabled, kind, title, officialStores, offers]);
+  }, [auto, disabled, kind, title, officialStores, offers, selectedXboxUrl]);
   async function load(provider, silent = false, selectedUrl = '') {
     if (!title?.trim() || title.trim().length < 2) {
       toast.error('ابتدا نام بازی را انتخاب یا وارد کنید.');
@@ -63,7 +65,8 @@ export default function StoreCoverPicker({ title, officialStores, offers, disabl
     const version = ++generation.current;
     setLoading(provider);
     try {
-      let url = selectedUrl || [...links(officialStores), ...links(offers)].find(value => {
+      const exactUrl = selectedUrl || (provider === 'xbox' ? selectedXboxUrl : '');
+      let url = exactUrl || [...links(officialStores), ...links(offers)].find(value => {
         try { return (provider === 'sony' ? ['store.playstation.com', 'www.playstation.com'] : ['xbox.com', 'www.xbox.com']).includes(new URL(value).hostname); } catch { return false; }
       });
       const sourceKey = JSON.stringify([title, url || '']);
@@ -74,7 +77,7 @@ export default function StoreCoverPicker({ title, officialStores, offers, disabl
         onSelect(previous.urls[previous.index]);
         return true;
       }
-      const usesSavedProduct = Boolean(url && !selectedUrl && new URL(url).hostname !== 'www.playstation.com');
+      const usesSavedProduct = Boolean(url && !exactUrl && new URL(url).hostname !== 'www.playstation.com');
       if (!url || new URL(url).hostname === 'www.playstation.com') {
         const result = await resolveStore({ provider, url: url || '', title }).unwrap();
         url = result.data?.url;

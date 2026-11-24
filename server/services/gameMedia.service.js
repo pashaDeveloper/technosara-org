@@ -15,6 +15,7 @@ function xboxImages(data, media) {
   if (!local) throw fail('تصاویر این محصول در Xbox موجود نیست.', 404);
   const images = local.Images || [];
   const byRole = roles => roles.flatMap(role => images.filter(row => row.ImagePurpose === role).map(row => row.Uri));
+  if (media === 'screenshots') return { title: local.ProductTitle, screenshots: unique(byRole(['Screenshot'])) };
   if (media === 'box') {
     const boxes = images.filter(row => ['BoxArt', 'Poster'].includes(row.ImagePurpose) &&
       (!row.Width || !row.Height || row.Height > row.Width));
@@ -69,6 +70,7 @@ async function read({ provider, url, media }, fetcher = fetch) {
   try { result = provider === 'xbox' ? xboxImages(JSON.parse(text), media) : sonyImages(text, source.source); }
   catch (error) { if (error.status) throw error; throw fail('ساختار تصاویر فروشگاه معتبر نیست.', 502); }
   if (provider === 'xbox' && media === 'box') return { ...result, source_url: source.source };
+  if (provider === 'xbox' && media === 'screenshots') return { ...result, provider, source_url: source.source };
   if (media === 'video') return { videos: result.videos, provider, source_url: source.source };
   if (!result.card_images.length && !result.banner_images.length) throw fail('تصویر قابل‌دریافتی برای این نسخه پیدا نشد.', 404);
   return { ...result, provider, source_url: source.source };

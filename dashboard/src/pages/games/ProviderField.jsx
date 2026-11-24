@@ -131,7 +131,7 @@ function EmptyProviderSkeleton({ name, label }) {
   </div>;
 }
 
-export default function ProviderField({ name, label, value, onChange, stores, platforms, gameTitle, disabled, onBusyChange, onPendingChange }) {
+export default function ProviderField({ name, label, value, onChange, stores, platforms, gameTitle, selectedXboxUrl, disabled, onBusyChange, onPendingChange }) {
   const clearedStores = useRef(new Set());
   const [editingIndex, setEditingIndex] = useState(null);
   const [importingVideo, setImportingVideo] = useState(null);
@@ -186,7 +186,7 @@ export default function ProviderField({ name, label, value, onChange, stores, pl
   }
   const input = (label, value, change, type = 'text', extra = {}) => <label className="flex min-w-0 flex-col gap-1 text-sm"><span>{label}</span><PlatformInput dir="auto" type={type} value={value} onChange={event => change(event.target.value)} {...extra} /></label>;
   const number = value => value === '' ? undefined : Number(value);
-  if (name === 'screenshots') return <ScreenshotGallery value={value} onChange={onChange} gameTitle={gameTitle} disabled={disabled} onBusyChange={onBusyChange} onPendingChange={onPendingChange} />;
+  if (name === 'screenshots') return <ScreenshotGallery value={value} onChange={onChange} gameTitle={gameTitle} selectedXboxUrl={selectedXboxUrl} disabled={disabled} onBusyChange={onBusyChange} onPendingChange={onPendingChange} />;
   if (['offers', 'official_stores'].includes(name)) {
     if (!Array.isArray(data) || !data.length) return null;
     return <div className="space-y-3"><h3 className="font-medium">{label} <span className="text-xs text-slate-500">({new Intl.NumberFormat('fa-IR').format(data.length)})</span></h3><div className="flex flex-wrap gap-2">{data.map((row, index) => {

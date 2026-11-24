@@ -18,6 +18,20 @@ test('Sony product images support selecting a card without including its banner'
   assert.deepEqual(sonyImages(html, 'https://store.playstation.com/en-us/product/TEST'), { title: 'Game', videos: [], card_images: ['https://images.example.com/card.jpg'], banner_images: [] });
 });
 
+test('Xbox screenshots use the selected product and exclude other artwork', async () => {
+  const url = 'https://www.xbox.com/en-US/games/store/game/9MX6HKF5647G';
+  const result = await read({ provider: 'xbox', url, media: 'screenshots' }, async (request) => {
+    assert.equal(new URL(request).pathname, '/v7.0/products/9MX6HKF5647G');
+    return Response.json({ Product: { LocalizedProperties: [{ Language: 'en-US', ProductTitle: 'Borderlands 4', Images: [
+      { ImagePurpose: 'Screenshot', Uri: '//images.example.com/screenshot.jpg' },
+      { ImagePurpose: 'Screenshot', Uri: 'https://images.example.com/screenshot.jpg' },
+      { ImagePurpose: 'BoxArt', Uri: 'https://images.example.com/box.jpg' },
+    ] }] } });
+  });
+  assert.deepEqual(result.screenshots, ['https://images.example.com/screenshot.jpg']);
+  assert.equal(result.source_url, url);
+});
+
 test('media source rejects untrusted product links before fetching', async () => {
   await assert.rejects(read({ provider: 'xbox', url: 'https://example.com/ABCDEFGHIJKL' }, () => { throw new Error('must not fetch'); }), error => error.status === 400);
 });

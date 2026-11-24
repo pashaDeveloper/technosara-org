@@ -16,7 +16,7 @@ const supportsCover = platform => [platform?.code, platform?.value, platform?.sl
   return /^(xbox|playstation|ps[1-5]|psp|psvita|nintendoswitch|switch|ایکسباکس|پلیاستیشن|نینتندوسوییچ|نینتندوسوئیچ|سوییچ|سوئیچ)/.test(name);
 });
 
-export default function PlatformCovers({ value, onChange, selectedIds, platforms, disabled, onUploading, onPendingChange, title, xboxUrl }) {
+export default function PlatformCovers({ value, onChange, selectedIds, platforms, disabled, onUploading, onPendingChange, title, xboxUrl, exactXbox }) {
   const [uploading, setUploading] = useState(false);
   const [pendingKeys, setPendingKeys] = useState(() => new Set());
   const assets = useRef(new Map());
@@ -90,7 +90,7 @@ export default function PlatformCovers({ value, onChange, selectedIds, platforms
       const cover = covers.find(row => row.platform_id === platformId) || {};
       return <div key={platformId} className={`w-[23rem] shrink-0 space-y-3 rounded-xl border-r-4 p-4 ${colorFor(platformId)}`}>
         <div className="flex flex-wrap items-center justify-between gap-2"><h3 className="font-medium">{platform?.name || platform?.name_en || platformId}</h3>
-          <BoxArtButton title={title} platformId={platformId} xboxUrl={xboxUrl} disabled={disabled || uploading || Boolean(cover.low_quality && cover.high_quality)} onBusyChange={onUploading} onApply={result => {
+          <BoxArtButton title={title} platformId={platformId} xboxUrl={xboxUrl} exactXbox={exactXbox} disabled={disabled || uploading || Boolean(cover.low_quality && cover.high_quality)} onBusyChange={onUploading} onApply={result => {
             const current = latest.current.covers.find(row => row.platform_id === platformId) || {};
             if (!current.low_quality) setCover(platformId, 'low_quality', result.low_quality || result.high_quality);
             if (!current.high_quality) setCover(platformId, 'high_quality', result.high_quality);

@@ -13,7 +13,7 @@ function Toggle({ item, value, onChange, disabled, id }) {
     <StatusSwitch compact id={id} label={item.label} tone="light" className="!gap-2 !rounded-lg !px-2 !py-1.5 !bg-transparent hover:!bg-transparent" checked={value === true} disabled={disabled} onChange={event => onChange(event.target.checked)} />
   </div>;
 }
-export default function GameCapabilities({ control, getValues, setValue, watch, providerGame, storedGame, modes, platforms, disabled, onBusyChange, autoFetch = true }) {
+export default function GameCapabilities({ control, getValues, setValue, watch, officialStores, offers, providerGame, storedGame, modes, platforms, disabled, onBusyChange, autoFetch = true }) {
   const catalog = useGetGameCapabilityOptionsQuery();
   const features = useGetGameFeatureOptionsQuery();
   const [fetchSources] = useFetchGameCapabilitySourcesMutation();
@@ -40,8 +40,6 @@ export default function GameCapabilities({ control, getValues, setValue, watch, 
   const selectedPlatforms = watch('platform_ids') || [];
   const platformKey = JSON.stringify(selectedPlatforms);
   const title = watch('title');
-  const officialStores = watch('official_stores');
-  const offers = watch('offers');
   const platformRows = platforms.data?.data || [];
   const capabilityPlatforms = platformRows.filter(row => selectedPlatforms.includes(row._id) && Boolean(capabilityPlatform(row)));
   const families = capabilityPlatforms.map(capabilityPlatform);
