@@ -2,9 +2,10 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 
-export default function HorizontalScroll({ children, className = "", label, scrollbarClassName = "" }) {
+export default function HorizontalScroll({ children, className = "", label, scrollbarClassName = "", railRef }) {
   const railId = useId();
-  const rail = useRef(null);
+  const internalRail = useRef(null);
+  const rail = railRef ?? internalRail;
   const track = useRef(null);
   const dragging = useRef(null);
   const [thumb, setThumb] = useState({ width: 100, position: 0 });
@@ -23,7 +24,7 @@ export default function HorizontalScroll({ children, className = "", label, scro
     observer.observe(element);
     for (const child of element.children) observer.observe(child);
     return () => { element.removeEventListener("scroll", update); observer.disconnect(); };
-  }, [children]);
+  }, [children, rail]);
 
   const move = (event) => {
     if (!dragging.current) return;

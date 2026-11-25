@@ -2,29 +2,38 @@
 
 import Link from "next/link";
 import { useGetGamesQuery, useGetGameFiltersQuery } from "@/services/genre/genreApi";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import PlatformBadges from "../games/PlatformBadges";
 import GameCard from "../shared/GameCard";
 import HorizontalScroll from "../shared/HorizontalScroll";
-import { HiOutlineArrowLeft } from "react-icons/hi";
+import { HiOutlineChevronLeft } from "react-icons/hi";
 
 export default function GameCatalog() {
   const [platform, setPlatform] = useState("");
   const { currentData, isLoading, isFetching, isError, refetch } = useGetGamesQuery({ limit: 12, ...(platform ? { platform } : {}) });
   const options = useGetGameFiltersQuery();
   const games = currentData?.data || [];
+  const rail = useRef(null);
+
+  const advance = (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const element = rail.current;
+    if (!element) return;
+    const remaining = element.scrollWidth - element.clientWidth - Math.abs(element.scrollLeft);
+    if (remaining <= 2) return;
+    event.preventDefault();
+    element.scrollBy({
+      left: -Math.min(remaining, element.clientWidth * 0.85),
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    });
+  };
 
   return (
     <section dir="rtl" aria-label="بازی‌ها" className="mt-8 flex min-w-0 max-w-full flex-col gap-5">
-      <header className="flex flex-wrap items-center gap-3 md:flex-nowrap">
-        <PlatformBadges platforms={options.data?.data?.platforms} value={platform} onChange={setPlatform} className="min-w-0 flex-1 basis-full md:basis-auto" />
-        <Link href={platform ? `/games?platform=${encodeURIComponent(platform)}` : "/games"} aria-label="نمایش همه بازی‌ها" title="نمایش همه بازی‌ها" className="mr-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition-colors hover:border-gray-400 hover:bg-gray-50 md:mr-0">
-          <HiOutlineArrowLeft aria-hidden="true" className="h-5 w-5" />
-        </Link>
-      </header>
+      <PlatformBadges platforms={options.data?.data?.platforms} value={platform} onChange={setPlatform} className="w-full" />
       {isLoading || isFetching || (!isError && !games.length) ? (
         <div aria-hidden="true" className="flex gap-3 overflow-x-auto scrollbar-hide motion-reduce:[&>*]:animate-none">
-          {Array.from({ length: 7 }, (_, index) => <div key={index} className="h-64 w-36 shrink-0 animate-pulse rounded-lg bg-gray-100 md:w-40" />)}
+          {Array.from({ length: 7 }, (_, index) => <div key={index} className="aspect-square w-44 shrink-0 animate-pulse rounded-lg bg-gray-100 md:w-56" />)}
         </div>
       ) : isError ? (
         <div role="status" className="rounded-xl border p-8 text-center text-sm text-gray-500">
@@ -32,9 +41,16 @@ export default function GameCatalog() {
           <button type="button" onClick={refetch} className="mt-3 text-sky-600">تلاش دوباره</button>
         </div>
       ) : (
-        <HorizontalScroll label="فهرست بازی‌ها؛ برای دیدن موارد بیشتر افقی پیمایش کنید" className="games-scroll flex w-full min-w-0 snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain pb-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500">
-          {games.map((game) => <GameCard key={game._id} game={game} compact />)}
-        </HorizontalScroll>
+        <div className="relative min-w-0">
+          <HorizontalScroll railRef={rail} label="فهرست بازی‌ها؛ برای دیدن موارد بیشتر افقی پیمایش کنید" className="games-scroll flex w-full min-w-0 snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain pb-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500">
+            {games.map((game) => <GameCard key={game._id} game={game} compact />)}
+          </HorizontalScroll>
+          <Link href={platform ? `/games?platform=${encodeURIComponent(platform)}` : "/games"} onClick={advance}
+            aria-label="بازی‌های بعدی یا نمایش همه در انتهای ردیف"
+            className="absolute left-0 top-[88px] z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-white text-gray-600 shadow-sm transition-colors hover:bg-pink-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500 md:top-28">
+            <HiOutlineChevronLeft aria-hidden="true" className="h-5 w-5" />
+          </Link>
+        </div>
       )}
     </section>
   );

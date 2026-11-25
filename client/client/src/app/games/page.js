@@ -41,8 +41,8 @@ export default function Games() {
           <div aria-busy={games.isFetching} className="col-span-12 min-w-0 md:col-span-8 lg:col-span-9">
             <PlatformBadges platforms={options.data?.data?.platforms} value={filters.platform || ""} onChange={(value) => change("platform", value)} />
             {games.isFetching || (!games.isError && !games.currentData?.data?.length) ? (
-              <div aria-hidden="true" className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 motion-reduce:[&>*]:animate-none">
-                {Array.from({ length: 6 }, (_, index) => <div key={index} className="h-32 animate-pulse rounded-xl bg-gray-100 md:h-80" />)}
+              <div aria-hidden="true" className="grid grid-cols-2 gap-3 md:gap-6 lg:grid-cols-3 motion-reduce:[&>*]:animate-none">
+                {Array.from({ length: 6 }, (_, index) => <div key={index} className="aspect-square animate-pulse rounded-lg bg-gray-100" />)}
               </div>
             ) : games.isError ? (
               <div role="alert" className="rounded-xl border p-8 text-center text-sm">
@@ -50,7 +50,7 @@ export default function Games() {
                 <button type="button" onClick={games.refetch} className="mt-4 text-pink-600">تلاش دوباره</button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+              <div className="grid grid-cols-2 gap-3 md:gap-6 lg:grid-cols-3">
                 {games.currentData.data.map((game) => <GameCard key={game._id} game={game} />)}
               </div>
             )}
