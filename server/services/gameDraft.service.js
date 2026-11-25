@@ -35,7 +35,7 @@ function draftValues(source, creator) {
     if (!doc.validateSync([key])) values[key] = doc.get(key);
   }
   const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 120) || 'game';
-  return { ...values, id, name, title: name, slug: `${slug}-${id}`, status: source.release_date && new Date(source.release_date) > new Date() ? 'upcoming' : 'released', publication_status: 'draft', auto_draft: true, creator, gamebrain_source: source };
+  return { ...values, id, name, title: name, slug: `${slug}-${id}`, status: source.release_date && new Date(source.release_date) > new Date() ? 'upcoming' : 'released', auto_draft: true, creator, gamebrain_source: source };
 }
 async function select(value, creator) {
   const id = sourceId(value);

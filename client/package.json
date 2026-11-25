@@ -1,0 +1,7 @@
+{
+  "name": "technosara-client",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix ./client run dev --"
+  }
+}

@@ -59,14 +59,55 @@ exports.addGame = async (req, res) => {
 };
 
 /* get all games */
-exports.getGames = async (req, res) => {
+const storefrontFields = {
+  genre: ['genre_ids', 'genre'],
+  developer: ['developer_ids', 'company'],
+  theme: ['theme_ids', 'theme'],
+  age: ['content_rating_ids', 'contentRating'],
+  platform: ['platform_ids', 'platform']
+};
+const published = { publication_status: 'published' };
+const visiblePlatform = { isSHow: true };
+const Platform = require('../models/platform.model');
+
+exports.getStorefrontFilters = async () => {
+  const groups = await Promise.all(Object.entries(storefrontFields).map(async ([key, [field, model]]) => {
+    const options = key === 'platform'
+      ? await Platform.find(visiblePlatform).select('name name_fa name_en').sort({ sort_order: 1, name: 1 }).lean()
+      : await require(`../models/${model}.model`).find({ _id: { $in: await Game.distinct(field, published) } })
+        .select('name name_fa name_en').sort({ name: 1 }).lean();
+    return [key === 'age' ? 'ages' : `${key}s`, options.map(option => ({
+      id: option._id, title: option.name_fa || option.name || option.name_en
+    }))];
+  }));
+  return Object.fromEntries(groups);
+};
+
+exports.getGames = async (req, res, { storefront = false } = {}) => {
   try {
-    const { page = 1, limit = 5, search = "" } = req.query;
-    const pageNum = parseInt(page) || 1;
-    const limitNum = parseInt(limit) || 5;
+    const { page = 1, limit, search = "" } = req.query;
+    const pageNum = storefront ? Math.max(1, parseInt(page) || 1) : parseInt(page) || 1;
+    const limitNum = storefront ? Math.min(100, Math.max(1, parseInt(limit) || 24)) : parseInt(limit) || 5;
     const skip = (pageNum - 1) * limitNum;
 
     const query = gameClassificationFilters(req.query);
+    if (storefront) {
+      Object.assign(query, published);
+      for (const [key, [field]] of Object.entries(storefrontFields)) {
+        const value = req.query[key];
+        if (value === undefined) continue;
+        if (typeof value !== 'string' || !require('mongoose').isObjectIdOrHexString(value)) {
+          return res.status(400).json({ message: 'شناسه فیلتر معتبر نیست' });
+        }
+        query[field] = value;
+      }
+      const platformIds = await Platform.distinct('_id', visiblePlatform);
+      if (query.platform_ids) {
+        query.platform_ids = { $in: platformIds.filter(id => String(id) === query.platform_ids.toLowerCase()) };
+      } else if (platformIds.length) {
+        query.platform_ids = { $in: platformIds };
+      }
+    }
     if (req.query.collection_id) {
       if (!require('mongoose').isObjectIdOrHexString(req.query.collection_id)) return res.status(400).json({ message: 'شناسه کالکشن معتبر نیست' });
       const collection = await require('../models/collection.model').findById(req.query.collection_id).select('game_ids');
@@ -88,19 +129,22 @@ exports.getGames = async (req, res) => {
       query.status = req.query.status;
     }
 
-    const games = await Game.find(query)
+    const gamesQuery = Game.find(query)
       .skip(skip)
       .limit(limitNum)
-      .sort({ createdAt: -1 })
+      .sort(storefront ? { release_date: -1, _id: -1 } : { createdAt: -1, _id: -1 })
+      .populate({ path: "cover_media_id", select: "url" });
+    if (storefront) gamesQuery.select("title short_description image cover_media_id rating");
+    else gamesQuery
       .populate({ path: "platform_ids", select: "name name_en code" })
       .populate({ path: "developer_ids", select: "name name_fa name_en slug" })
       .populate({ path: "publisher_ids", select: "name name_fa name_en slug" })
-      .populate({ path: "cover_media_id", select: "url" })
       .populate({ path: "genre_ids", select: "name name_fa name_en slug" })
       .populate({ path: "game_mode_ids", select: "name name_fa name_en slug" })
       .populate({ path: "game_series_ids", select: "name name_en short_name slug" })
       .populate({ path: "theme_ids", select: "name name_fa name_en slug value" })
       .populate({ path: "creator", select: "name avatar" });
+    const games = await gamesQuery;
     const total = await Game.countDocuments(query);
 
     res.status(200).json({

@@ -7,7 +7,7 @@ const { promisify } = require("util");
 async function verifyUser(req, res, next) {
   try {
     // catch the token from user header
-    const token = req.headers?.authorization?.split(" ")[1];
+    const token = /^Bearer\s+(\S+)$/i.exec(req.get("authorization") || "")?.[1];
 
     // no token explicitly give error
     if (!token) {

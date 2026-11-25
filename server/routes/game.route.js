@@ -126,11 +126,20 @@ router.get(
   "/all",
   gameController.getGameOptions,
 );
+router.get('/storefront', (req, res) => require('../services/game.service').getGames(req, res, { storefront: true }));
+router.get('/storefront/filters', async (req, res, next) => {
+  try { res.json({ data: await require('../services/game.service').getStorefrontFilters() }); }
+  catch (error) { next(error); }
+});
 router.get(
   "/",
   gameController.getGames,
 );
-router.get("/:id/catalog", async (req, res, next) => { try { res.json({ data: await require("../services/catalog.service").detail(req.params.id) }); } catch (error) { next(error); } });
+router.get("/:id/catalog", async (req, res, next) => {
+  if (!require('mongoose').isObjectIdOrHexString(req.params.id)) return res.status(404).json({ message: 'Game not found' });
+  try { res.json({ data: await require("../services/catalog.service").detail(req.params.id) }); }
+  catch (error) { next(error); }
+});
 router.get(
   "/:id",
   gameController.getGame,

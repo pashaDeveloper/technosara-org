@@ -31,7 +31,12 @@ export const definition = { fields: [
   field('title', 'عنوان بازی', 'text', { required: true, dir: 'ltr' }),
   field('slug', 'اسلاگ', 'text', { required: true, dir: 'ltr' }),
   field('alternate_titles', 'عنوان‌های جایگزین برای جست‌وجو', 'list'),
-  field('status', 'وضعیت انتشار', 'select', { required: true, default: 'released', options: statuses }),
+  field('status', 'وضعیت عرضهٔ بازی', 'select', { required: true, default: 'released', options: statuses }),
+  field('publication_status', 'وضعیت انتشار در سایت', 'select', { required: true, default: 'published', options: [
+    { value: 'draft', label: 'پیش‌نویس' },
+    { value: 'published', label: 'منتشرشده در سایت' },
+    { value: 'archived', label: 'بایگانی‌شده' },
+  ] }),
   field('release_date', 'تاریخ انتشار', 'date', { dir: 'ltr' }),
   field('official_website', 'وب‌سایت رسمی', 'url', { dir: 'ltr' }),
   field('developer_ids', 'توسعه‌دهنده', 'multiple'), field('publisher_ids', 'ناشر', 'multiple'),
@@ -50,7 +55,7 @@ export const definition = { fields: [
 export const gameSteps = [
   { title: 'مشخصات بازی', description: 'عنوان، تصویر کاور و توضیحات معرفی بازی را بررسی و تکمیل کنید.', fields: ['title', 'slug', 'alternate_titles', 'image', 'short_description', 'description'] },
   { title: 'تصاویر و ویدئوها', description: 'تصاویر و ویدئوها را بررسی کنید و موارد اضافی را حذف کنید.', fields: ['gameplay', 'trailer', 'screenshots', 'videos', 'twitch_videos'] },
-  { title: 'انتشار و شرکت‌ها', description: 'اطلاعات انتشار، سازنده و ناشر بازی.', fields: ['status', 'release_date', 'official_website', 'developer_ids', 'publisher_ids'] },
+  { title: 'انتشار و شرکت‌ها', description: 'اطلاعات انتشار، سازنده و ناشر بازی.', fields: ['publication_status', 'status', 'release_date', 'official_website', 'developer_ids', 'publisher_ids'] },
   { title: 'دسته‌بندی', description: 'می‌توانید چند ژانر، حالت و سری انتخاب کنید.', fields: ['platform_ids', 'tags', 'theme_ids', 'genre_ids', 'game_mode_ids', 'game_series_ids'] },
 ];
 for (const item of providerFields) if (providerLabels[item.key]) item.label = providerLabels[item.key];

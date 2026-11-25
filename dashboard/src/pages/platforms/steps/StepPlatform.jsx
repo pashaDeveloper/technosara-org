@@ -64,6 +64,7 @@ export default function StepPlatform() {
       release_date: values.release_date?.trim() || null,
       discontinued_date: values.discontinued_date?.trim() || null,
       website_url: values.website_url?.trim() || null,
+      isSHow: values.isSHow,
       logo: values.logo?.trim() || null,
       thumbnail: values.thumbnail?.trim() || null,
     };

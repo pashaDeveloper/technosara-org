@@ -5,7 +5,7 @@ const Game = require('../models/game.model');
 const drafts = require('../services/gameDraft.service');
 const api = require('../services/gamebrain.service');
 
-test('automatic draft preserves all source data, omits media assets and stays unpublished', async t => {
+test('automatic game creation preserves source data, omits media assets and publishes by default', async t => {
   const source = { id: 42, name: 'A Game', description: 'Original Gamebrain text', short_description: 'Short', image: 'https://example.com/image.jpg', screenshots: ['https://example.com/shot.jpg'], videos: ['https://example.com/video.mp4'], future_field: { enabled: false }, rating: { mean: 0.8 } };
   let inserted;
   t.mock.method(api, 'details', async () => source);
@@ -18,7 +18,7 @@ test('automatic draft preserves all source data, omits media assets and stays un
     return { lean: async () => ({ ...inserted, _id: new mongoose.Types.ObjectId() }) };
   });
   const result = await drafts.select('42', new mongoose.Types.ObjectId());
-  assert.equal(result.local.created, true); assert.equal(inserted.publication_status, 'draft'); assert.equal(inserted.auto_draft, true);
+  assert.equal(result.local.created, true); assert.equal(inserted.publication_status, 'published'); assert.equal(inserted.auto_draft, true);
   assert.deepEqual(inserted.gamebrain_source, source); assert.equal(inserted.description, source.description);
   assert.equal(inserted.short_description, source.short_description);
   assert.equal(inserted.image, undefined); assert.ok(!inserted.screenshots?.length); assert.ok(!inserted.videos?.length);

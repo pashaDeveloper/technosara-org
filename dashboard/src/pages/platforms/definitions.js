@@ -14,6 +14,7 @@ export const definition = {
       ] }), field('parent_id', 'پلتفرم والد', 'parent'),
       field('release_date', 'تاریخ عرضه (میلادی)', 'date'), field('discontinued_date', 'تاریخ توقف تولید (میلادی)', 'date'),
       field('website_url', 'وب‌سایت', 'url'), field('logo', 'نشانی لوگو', 'url'), field('thumbnail', 'تصویر پلتفرم', 'url'),
+      field('isSHow', 'نمایش در فیلتر بازی‌ها', 'checkbox', { default: false }),
     ],
   };
 

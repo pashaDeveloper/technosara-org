@@ -80,7 +80,8 @@ const schema = new mongoose.Schema({
   is_active: {
     type: Boolean,
     default: true
-  }
+  },
+  isSHow: { type: Boolean, default: false }
 }, {
   timestamps: true
 });

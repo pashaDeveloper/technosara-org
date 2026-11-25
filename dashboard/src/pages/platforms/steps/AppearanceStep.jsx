@@ -2,11 +2,17 @@ import React from 'react';
 import PlatformInput from '../components/PlatformInput';
 import { definition } from '../definitions';
 
-const fields = definition.fields.filter(field => field.key === 'website_url');
+const fields = definition.fields.filter(field => ['website_url', 'isSHow'].includes(field.key));
 
 export default function AppearanceStep({ register, errors, getValues, parents, countries, id }) {
   return <>
           {fields.map(field => {
+            if (field.type === 'checkbox') return (
+              <label key={field.key} className="flex items-center gap-2 text-sm">
+                <input type="checkbox" {...register(field.key)} />
+                {field.label}
+              </label>
+            );
             let choices = field.options;
             if (field.type === 'parent') choices = (parents.data?.data || []).filter(item => item._id !== id).map(item => ({ value: item._id, label: item.name }));
             const rules = {

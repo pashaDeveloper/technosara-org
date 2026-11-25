@@ -519,7 +519,7 @@ const schema = new mongoose.Schema({
   publication_status: {
     type: String,
     enum: ['draft', 'published', 'archived'],
-    default: 'draft'
+    default: 'published'
   },
   official_website: {
     type: String,

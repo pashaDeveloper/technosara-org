@@ -53,8 +53,6 @@ router.post('/games', async (req, res, next) => {
     const admin = await require('../models/admin.model').findOne({ _id: id, status: 'active' });
     if (!admin) return res.status(403).json({ message: 'Bot panel administrator is inactive or missing' });
     req.admin = { _id: admin._id, role: admin.role };
-    // Bot-created games remain drafts until reviewed in the panel.
-    req.body.publication_status = 'draft';
     return require('../controllers/game.controller').addGame(req, res, next);
   } catch (error) { next(error); }
 });

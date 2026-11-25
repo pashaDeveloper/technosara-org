@@ -37,6 +37,7 @@ exports.addPlatform = async (req, res) => {
       website_url: body.website_url,
       sort_order: body.sort_order,
       is_active: body.is_active,
+      isSHow: body.isSHow,
       creator: req.admin._id
     });
 
@@ -134,7 +135,8 @@ exports.updatePlatform = async (req, res) => {
     logo: body.logo,
     website_url: body.website_url,
     sort_order: body.sort_order,
-    is_active: body.is_active
+    is_active: body.is_active,
+    ...(body.isSHow !== undefined ? { isSHow: body.isSHow } : {})
   };
 
   const saved = await Platform.findByIdAndUpdate(req.params.id, updatedPlatform, { runValidators: true });

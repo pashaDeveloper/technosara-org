@@ -1,0 +1,52 @@
+[
+  {
+    "file": "ps5-slim.png",
+    "url": "https://gmedia.playstation.com/is/image/SIEPDC/ps5-slim-edition-left-image-block-01-en-24jun24?wid=1600&fmt=png-alpha",
+    "sourcePage": "https://www.playstation.com/en-us/ps5/"
+  },
+  {
+    "file": "ps5-digital.png",
+    "url": "https://gmedia.playstation.com/is/image/SIEPDC/ps5-slim-digital-edition-right-image-block-01-en-24jun24?wid=1600&fmt=png-alpha",
+    "sourcePage": "https://www.playstation.com/en-us/ps5/"
+  },
+  {
+    "file": "xbox-series-x.png",
+    "url": "https://cms-assets.xboxservices.com/assets/bc/40/bc40fdf3-85a6-4c36-af92-dca2d36fc7e5.png?n=642227_Hero-Gallery-0_A1_857x676.png",
+    "sourcePage": "https://www.xbox.com/en-us/consoles/xbox-series-x"
+  },
+  {
+    "file": "xbox-series-s.png",
+    "url": "https://cms-assets.xboxservices.com/assets/bf/b0/bfb06f23-4c87-4c58-b4d9-ed25d3a739b9.png?n=389964_Hero-Gallery-0_A1_857x676.png",
+    "sourcePage": "https://www.xbox.com/en-us/consoles/xbox-series-s"
+  },
+  {
+    "file": "switch-oled-console.png",
+    "url": "https://assets.nintendo.com/image/upload/q_100/f_png/w_1600/ncom/en_US/products/hardware/nintendo-switch-oled-model-white-set/115461-switch-oled-white-console-front-1200x675",
+    "sourcePage": "https://www.nintendo.com/us/store/products/nintendo-switch-oled-model-white-set/"
+  },
+  {
+    "file": "gta-v.jpg",
+    "url": "https://image.api.playstation.com/vulcan/ap/rnd/202202/2816/K6mmm89oNII1iI1aqaClO0wh.png",
+    "sourcePage": "https://www.playstation.com/en-us/games/grand-theft-auto-v/"
+  },
+  {
+    "file": "red-dead-redemption-2.jpg",
+    "url": "https://image.api.playstation.com/cdn/UP1004/CUSA03041_00/Hpl5MtwQgOVF9vJqlfui6SDB5Jl4oBSq.png",
+    "sourcePage": "https://www.playstation.com/en-us/games/red-dead-redemption-2/"
+  },
+  {
+    "file": "god-of-war.jpg",
+    "url": "https://image.api.playstation.com/vulcan/img/rnd/202011/1021/X3WIAh63yKhRRiMohLoJMeQu.png",
+    "sourcePage": "https://www.playstation.com/en-us/games/god-of-war/"
+  },
+  {
+    "file": "forza-horizon-5-cover.jpg",
+    "url": "https://store-images.s-microsoft.com/image/apps.18975.13718773309227929.bebdcc0e-1ed5-4778-8732-f4ef65a2f445.125d6b3b-492f-4e5f-8037-7ade230c8224?w=2160&h=2160&format=jpg",
+    "sourcePage": "https://www.xbox.com/en-us/games/forza-horizon-5"
+  },
+  {
+    "file": "elden-ring.jpg",
+    "url": "https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/phvVT0qZfcRms5qDAk0SI3CM.png",
+    "sourcePage": "https://www.playstation.com/en-us/games/elden-ring/"
+  }
+]

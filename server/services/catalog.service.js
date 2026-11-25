@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Game = require('../models/game.model');
+const retailReferences = require('../models/retailReferences.models');
 const resources = {
   'filter-options': require('../models/filterOption.model'),
   'sorting-options': require('../models/sortingOption.model'),
@@ -9,6 +10,10 @@ const resources = {
   editions: require('../models/edition.model'),
   'game-platforms': require('../models/gamePlatform.model'),
   'store-products': require('../models/storeProduct.model'),
+  'retail-products': require('../models/retailProduct.model'),
+  'retail-brands': retailReferences.brands,
+  'retail-categories': retailReferences.categories,
+  'retail-stores': retailReferences.stores,
   'game-contents': require('../models/gameContent.model'),
   'achievement-groups': require('../models/achievementGroup.model'),
   'achievements': require('../models/achievement.model'),
@@ -16,7 +21,7 @@ const resources = {
   'age-ratings': require('../models/ageRating.model'),
 };
 // Load targets before validating references, including when this service is used by a worker.
-for (const file of ['platform', 'store', 'gameContent', 'company', 'admin', 'feature', 'media', 'ageRating', 'achievement', 'achievementGroup', 'genre', 'gameMode', 'gameSeries']) {
+for (const file of ['platform', 'store', 'brand', 'gameContent', 'company', 'admin', 'feature', 'media', 'ageRating', 'achievement', 'achievementGroup', 'genre', 'gameMode', 'gameSeries']) {
   if (file !== 'feature') require(`../models/${file}.model`);
 }
 const readOnly = new Set();
@@ -96,7 +101,13 @@ async function assertDeletable(Model, id, { cascadingModels = [] } = {}) {
   }
 }
 async function detail(id, { internal = false } = {}) {
-  const game = await Game.findById(id).populate('genre_ids game_mode_ids game_series_ids theme_ids developer_ids publisher_ids cover_media_id').lean();
+  const gameQuery = Game.findById(id).populate('genre_ids game_mode_ids game_series_ids theme_ids developer_ids publisher_ids cover_media_id');
+  const achievementsQuery = mongoose.model('Achievement').find({ game_id: id });
+  if (!internal) {
+    gameQuery.populate('platform_ids', 'code name');
+    achievementsQuery.populate('platform_id', 'code name');
+  }
+  const game = await gameQuery.lean();
   if (!game || (!internal && game.publication_status !== 'published')) throw fail('Game not found', 404);
   const query = { game_id: id };
   const [editions, game_platforms, contents, media, age_ratings, groups, achievements, store_products, news] = await Promise.all([
@@ -104,7 +115,8 @@ async function detail(id, { internal = false } = {}) {
     mongoose.model('GamePlatform').find(query).populate('platform_id').lean(),
     mongoose.model('GameContent').find({ $or: [{ game_id: id }, { 'items.game_id': id }], ...(!internal ? { publication_status: 'published' } : {}) }).lean(),
     mongoose.model('Media').find(query).sort({ sort_order: 1 }).lean(),
-    mongoose.model('AgeRating').find(query).lean(), mongoose.model('AchievementGroup').find(query).lean(), mongoose.model('Achievement').find(query).lean(),
+    mongoose.model('AgeRating').find(query).lean(), mongoose.model('AchievementGroup').find(query).lean(),
+    achievementsQuery.lean(),
     mongoose.model('StoreProduct').find(query).populate('store_id').lean(),
     mongoose.model('News').find(query).sort({ published: -1 }).lean(),
   ]);
