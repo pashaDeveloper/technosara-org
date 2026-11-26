@@ -2,7 +2,7 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const Game = require('../models/game.model');
 const gamebrain = require('../services/gamebrain.service');
-const { fillSimilarIds, catalogSimilar } = require('../services/gameSimilar.service');
+const { fillSimilarIds, catalogSimilar, adminSimilar } = require('../services/gameSimilar.service');
 
 test('saving a game keeps unique recommendation IDs even before those games exist locally', async t => {
   const lookup = t.mock.method(gamebrain, 'similar', async (id, params) => {
@@ -43,4 +43,23 @@ test('catalog suggestions resolve published games on each read in provider order
   assert.deepEqual(await catalogSimilar(game), [cached, first]);
   records = [first, later];
   assert.deepEqual(await catalogSimilar(game), [{ ...later, image: cached.image }, first]);
+});
+
+test('admin suggestions mark draft, published, and unregistered games separately', async t => {
+  t.mock.method(Game, 'findOne', () => ({ select: () => ({ lean: async () => ({
+    id: 123,
+    similar_previews: [44, 75, 86].map(id => ({ id, title: `Preview ${id}`, image: `https://example.test/${id}.webp` })),
+  }) }) }));
+  t.mock.method(Game, 'find', query => {
+    assert.deepEqual(query, { id: { $in: [44, 75, 86] } });
+    return { select: () => ({ lean: async () => [
+      { id: 75, title: 'Draft', publication_status: 'draft' },
+      { id: 44, title: 'Published', publication_status: 'published' },
+    ] }) };
+  });
+  const rows = await adminSimilar('123', { ids: [44, 75, 86] });
+  assert.deepEqual(rows.map(({ title, registered, published }) => [title, registered, published]), [
+    ['Published', true, true], ['Draft', true, false], ['Preview 86', false, false],
+  ]);
+  assert.equal(rows[2].image, 'https://example.test/86.webp');
 });

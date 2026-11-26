@@ -5,6 +5,7 @@ router.get('/filters', controller.getFilters);
 router.get('/games', controller.getGames);
 router.get('/games/suggestions', controller.getSuggestions);
 router.get('/games/:id/similar', controller.getSimilar);
+router.post('/games/:id/similar', controller.getSimilarForForm);
 router.get('/games/:id/news', controller.getNews);
 router.get('/games/:id', controller.getGame);
 module.exports = router;

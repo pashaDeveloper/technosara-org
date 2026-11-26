@@ -17,7 +17,7 @@ function preview(id, row) {
   return { id, title: title.trim().slice(0, 300), ...(image && { image }) };
 }
 
-async function fillSimilarIds(values, previous) {
+async function fillSimilarIds(values, previous, { requireRecommendations = false } = {}) {
   const sourceId = Object.hasOwn(values, 'id') ? values.id : previous?.id;
   const changedSource = Boolean(previous && previous.id !== sourceId);
   if (Object.hasOwn(values, 'similar_ids')) values.similar_ids = similarIds(values.similar_ids, sourceId);
@@ -44,7 +44,8 @@ async function fillSimilarIds(values, previous) {
       results = response.results;
       ids = similarIds(results.map(row => Number(row?.id)), sourceId).slice(0, 10);
       values.similar_ids = ids;
-    } catch {
+    } catch (error) {
+      if (requireRecommendations) throw error;
       // Leave the field unset so the next save can retry.
       delete values.similar_ids;
       if (changedSource) values.$unset = { similar_ids: 1, similar_previews: 1 };
@@ -68,6 +69,36 @@ async function fillSimilarIds(values, previous) {
   }
 }
 
+async function adminSimilar(source, input) {
+  const id = Number(source);
+  const ids = input?.ids;
+  const fail = message => Object.assign(new Error(message), { status: 400 });
+  if (!/^\d{1,15}$/.test(source) || id <= 0) throw fail('شناسهٔ GameBrain معتبر نیست.');
+  if (ids !== undefined && (!Array.isArray(ids) || ids.length > 50 || ids.some(value => !Number.isSafeInteger(value) || value < 1))) {
+    throw fail('شناسه‌های بازی‌های مشابه معتبر نیستند.');
+  }
+
+  const stored = await Game.findOne({ id }).select('id similar_previews').lean();
+  const values = { id, ...(ids?.length && { similar_ids: ids }) };
+  await fillSimilarIds(values, stored, { requireRecommendations: !ids?.length });
+  const ordered = values.similar_ids || [];
+  if (!ordered.length) return [];
+  const local = await Game.find({ id: { $in: ordered } }).select('id title name_fa image publication_status').lean();
+  const byId = new Map(local.map(row => [row.id, row]));
+  const previews = new Map((values.similar_previews || []).map(row => [row.id, row]));
+  return ordered.map(id => {
+    const record = byId.get(id);
+    const cached = previews.get(id);
+    return {
+      id,
+      title: record?.name_fa || record?.title || cached?.title,
+      image: record?.image || cached?.image,
+      registered: Boolean(record),
+      published: record?.publication_status === 'published',
+    };
+  });
+}
+
 async function catalogSimilar(game) {
   const ids = similarIds(game.similar_ids, game.id);
   if (!ids.length) return [];
@@ -83,4 +114,4 @@ async function catalogSimilar(game) {
   });
 }
 
-module.exports = { fillSimilarIds, catalogSimilar };
+module.exports = { fillSimilarIds, catalogSimilar, adminSimilar };
