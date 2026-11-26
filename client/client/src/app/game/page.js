@@ -1,22 +1,24 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { FiX } from "react-icons/fi";
 import Main from "@/components/shared/layouts/Main";
 import GameHero, { GameHeading } from "@/components/games/details/GameHero";
 import GameGallery from "@/components/games/details/GameGallery";
 import GameDescription from "@/components/games/details/GameDescription";
 import GameRatings from "@/components/games/details/GameRatings";
 import GameComments from "@/components/games/details/GameComments";
-import GameInfo from "@/components/games/details/GameInfo";
+import GameInfoSheet, { DesktopGameInfo } from "@/components/games/details/GameInfoSheet";
+import { imageUrl } from "@/components/games/details/gameDetailMedia";
 import { useGetGameQuery } from "@/services/genre/genreApi";
 import "./game-detail.css";
 
 function MobileGameInfo({ game }) {
   const dialogRef = useRef(null);
   const animationRef = useRef(null);
+  const swipeStart = useRef(null);
 
   useEffect(() => {
     const mobile = window.matchMedia("(max-width: 600px)");
@@ -60,17 +62,26 @@ function MobileGameInfo({ game }) {
     <div className="edge-mobile-game-info">
       <button type="button" className="edge-mobile-info-trigger" aria-haspopup="dialog"
         onClick={open}>اطلاعات بازی</button>
-      <dialog ref={dialogRef} className="edge-mobile-info-dialog" aria-labelledby="mobile-game-info-title"
+      <dialog ref={dialogRef} dir="rtl" aria-label="اطلاعات بازی"
+        className="edge-mobile-info-dialog fixed inset-x-0 bottom-0 top-auto m-0 h-[91dvh] max-h-none w-full max-w-none overflow-hidden rounded-t-3xl border-0 bg-[#eef1f6] p-0 text-neutral-900 shadow-2xl backdrop:bg-neutral-950/45"
         onCancel={(event) => { event.preventDefault(); close(); }}
+        onClick={(event) => { if (event.target === event.currentTarget) close(); }}
         onClose={() => { animationRef.current?.cancel(); animationRef.current = null; }}>
-        <div className="edge-mobile-info-screen">
-          <header>
-            <h2 id="mobile-game-info-title">اطلاعات بازی</h2>
-            <button type="button" aria-label="بستن اطلاعات بازی" onClick={close}>
-              <FiX aria-hidden="true" />
+        <div className="flex h-full min-h-0 flex-col">
+          <div className="flex h-8 shrink-0 touch-pan-x items-center justify-center"
+            onTouchStart={(event) => { swipeStart.current = event.touches[0]?.clientY ?? null; }}
+            onTouchEnd={(event) => {
+              const end = event.changedTouches[0]?.clientY;
+              if (swipeStart.current !== null && end - swipeStart.current > 65) close();
+              swipeStart.current = null;
+            }}
+            onTouchCancel={() => { swipeStart.current = null; }}>
+            <button type="button" aria-label="بستن اطلاعات بازی" onClick={close}
+              className="grid h-full w-16 place-items-center">
+              <span aria-hidden="true" className="h-1 w-10 rounded-full bg-neutral-300" />
             </button>
-          </header>
-          <div className="edge-mobile-info-content"><GameInfo game={game} /></div>
+          </div>
+          <GameInfoSheet game={game} />
         </div>
       </dialog>
     </div>
@@ -107,7 +118,7 @@ function GameDetailSkeleton({ loading }) {
 
 export default function GameDetail() {
   const id = useSearchParams().get("game_id");
-  const { currentData, isFetching, error, refetch } = useGetGameQuery(id, { skip: !id });
+  const { currentData, isFetching, error, refetch } = useGetGameQuery(id, { skip: !id, refetchOnMountOrArgChange: true });
   const game = currentData?.data;
   const missing = !id || error?.status === 404;
 
@@ -127,8 +138,34 @@ export default function GameDetail() {
                     <GameRatings rating={game.rating} />
                     <GameComments reviews={game.reviews} />
                   </div>
+                  {game.similar_games?.length > 0 && (
+                    <section aria-labelledby="similar-games-title" className="mt-6">
+                      <h2 id="similar-games-title" className="mb-3 text-base font-semibold">بازی‌های مشابه</h2>
+                      <ul className="flex flex-wrap gap-2">
+                        {game.similar_games.map(similar => {
+                          const cover = imageUrl(similar.image);
+                          const card = (
+                            <>
+                              <span className="relative block aspect-square overflow-hidden rounded-t-lg bg-slate-100">
+                                {cover && <Image src={cover} alt="" fill sizes="128px" unoptimized className="object-cover" />}
+                              </span>
+                              <bdi className="block break-words p-2 text-sm">{similar.name_fa || similar.title}</bdi>
+                            </>
+                          );
+                          return (
+                            <li key={similar.id} className="w-32 overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+                              {similar._id ? (
+                                <Link href={`/game?game_id=${encodeURIComponent(similar._id)}`} className="block hover:text-blue-800">{card}</Link>
+                              ) : card}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </section>
+                  )}
                 </GameDescription>
               </section>
+              <DesktopGameInfo game={game} />
             </div>
           </GameHero>
           <MobileGameInfo game={game} />

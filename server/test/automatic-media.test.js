@@ -12,8 +12,8 @@ async function fixtures(t) {
   t.mock.method(settings, 'read', async () => ({ ...settings.defaults, previewSize: 32 }));
   t.mock.method(remote, 'download', async () => ({ buffer }));
   t.mock.method(translation, 'translatePersian', async text => ({ translation: `ترجمه فارسی ${text}` }));
-  t.mock.method(storage, 'createClients', () => ({ cloudinary: {
-    async put(key, body) { calls.push(key); files.set(key, body); return { key, url: `https://res.cloudinary.com/test/${key}` }; },
+  t.mock.method(storage, 'createClients', () => ({ arvan: {
+    async put(key, body) { calls.push(key); files.set(key, body); return { key, url: `https://fixture.arvanstorage.ir/test/${key}` }; },
     async remove(key) { files.delete(key); },
   } }));
   return { files, calls };
@@ -28,7 +28,7 @@ test('trophy stores English first, persists Persian separately, and names icon a
   assert.equal(doc.locked_description_en, 'Keep playing'); assert.ok(doc.locked_description_fa);
   assert.equal(doc.snapshots[0].icon_url, 'https://example.com/trophy.png'); assert.equal(doc.snapshots[0].name_en, 'Master Hunter');
   assert.match(doc.icon_url, /game\/halo-infinite\/trophy\/master-hunter\/master-hunter-/);
-  assert.equal((await sharp(files.get(doc.image_storage.cloudinary.preview.key)).metadata()).width, 32);
+  assert.equal((await sharp(files.get(doc.image_storage.arvan.preview.key)).metadata()).width, 32);
   await service.enrich(doc, { title: 'Halo Infinite' }, 'trophy'); assert.equal(calls.length, 2);
 });
 test('DLC cover and every screenshot upload automatically in named DLC folders', async t => {
@@ -48,7 +48,7 @@ test('translation failure preserves English and successful cloud images for retr
   const doc = document({ name: 'Unique Retry Trophy', description: 'English preserved', icon_url: 'https://example.com/icon.png' });
   await assert.rejects(service.enrich(doc, { title: 'Game' }, 'trophy'), { status: 502 });
   assert.equal(doc.description_en, 'English preserved'); assert.ok(doc.import_errors.includes('translation:description'));
-  assert.match(doc.icon_url, /res.cloudinary.com/);
+  assert.match(doc.icon_url, /fixture.arvanstorage.ir/);
   translation.translatePersian.mock.mockImplementation(async () => ({ translation: 'فارسی' }));
   await service.enrich(doc, { title: 'Game' }, 'trophy'); assert.equal(calls.length, 2); assert.equal(doc.description_fa, 'فارسی'); assert.deepEqual(doc.import_errors, []);
 });

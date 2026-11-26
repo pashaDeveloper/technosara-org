@@ -13,13 +13,30 @@ function keyFromUrl(value) {
     return path;
   } catch { return null; }
 }
+function arvanKeyFromUrl(value) {
+  try {
+    const base = new URL(process.env.ARVAN_PUBLIC_BASE_URL);
+    const url = new URL(value);
+    const prefix = base.pathname.replace(/\/$/, '') + '/';
+    if (url.origin !== base.origin || !url.pathname.startsWith(prefix)) return null;
+    const key = decodeURIComponent(url.pathname.slice(prefix.length));
+    return /^game\/[\p{L}\p{N}_-]+\/(?:screenshot\/)?[\p{L}\p{N}_-]+-[\w-]{12}\.webp$/u.test(key) ? key : null;
+  } catch { return null; }
+}
 async function cleanup(previous, current) {
-  const retained = new Set(urls(current).map(keyFromUrl).filter(Boolean));
-  const removed = [...new Set(urls(previous).map(keyFromUrl).filter(key => key && !retained.has(key)))];
+  const existing = urls(current);
+  const old = urls(previous);
   const failures = [];
-  for (const key of removed) {
-    try { await storage.removeReplacedCopies({ cloudinary: { image: { key }, preview: { key: `${key}-preview-64` } } }, {}); }
-    catch { failures.push(key); }
+  for (const [provider, keyFor, previewFor] of [
+    ['arvan', arvanKeyFromUrl, key => key.replace(/\.webp$/, '-preview-64.webp')],
+    ['cloudinary', keyFromUrl, key => `${key}-preview-64`],
+  ]) {
+    const retained = new Set(existing.map(keyFor).filter(Boolean));
+    const removed = new Set(old.map(keyFor).filter(key => key && !retained.has(key)));
+    for (const key of removed) {
+      try { await storage.removeReplacedCopies({ [provider]: { image: { key }, preview: { key: previewFor(key) } } }, {}); }
+      catch { failures.push(key); }
+    }
   }
   return failures;
 }

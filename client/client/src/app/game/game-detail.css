@@ -100,9 +100,29 @@
   gap: 24px;
   align-items: start;
 }
-.game-detail .edge-detail-layout:not(:has(> .edge-sidebar)) {
+.game-detail .edge-detail-layout:not(:has(> .edge-sidebar, > .edge-desktop-game-info)) {
   grid-template-columns: minmax(0, 1fr);
   grid-template-areas: "content" "gallery" "introduction";
+}
+.game-detail .edge-detail-layout:has(> .edge-desktop-game-info) {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-areas: "content content" "gallery gallery" "introduction game-info";
+}
+@media (min-width: 1001px) {
+  .game-detail .edge-detail-layout:has(> .edge-desktop-game-info) {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 6fr) minmax(0, 3fr) minmax(0, 1.5fr);
+    column-gap: 0;
+    grid-template-areas:
+      "content content content content"
+      "gallery gallery gallery gallery"
+      ". introduction game-info .";
+  }
+  .game-detail .edge-game-introduction {
+    margin-inline-end: 12px;
+  }
+  .game-detail .edge-desktop-game-info {
+    margin-inline-start: 12px;
+  }
 }
 .game-detail .edge-main {
   grid-area: content;
@@ -116,7 +136,59 @@
 .game-detail .edge-mobile-game-info {
   display: none;
 }
+.game-detail .edge-desktop-game-info {
+  grid-area: game-info;
+  min-width: 0;
+  display: grid;
+  gap: 16px;
+  padding: clamp(18px, 2.5vw, 28px);
+  border-radius: 16px;
+  background: #eef1f6;
+  color: #161e2d;
+}
+.game-detail .edge-game-info-card * {
+  font-weight: 400;
+}
+.game-detail .edge-game-resource-list {
+  font-family: system-ui, "Segoe UI", Tahoma, sans-serif;
+}
+.game-detail .edge-game-info-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #99bdf0;
+  border-radius: 12px;
+  background: #f3f7fc;
+}
+.game-detail .edge-game-info-card > h3 {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+.game-detail .edge-game-info-overview {
+  overflow: hidden;
+  padding: 0;
+}
+.game-detail .edge-game-info-overview > section:first-child,
+.game-detail .edge-mobile-specs-panel > section:first-child {
+  border: 0;
+  border-radius: 0;
+}
+.game-detail .edge-game-info-overview > section:first-child > h3 {
+  font-size: 16px;
+  line-height: 1.5;
+}
 @media (max-width: 600px) {
+  .game-detail .edge-desktop-game-info {
+    display: none;
+  }
+  .game-detail .edge-mobile-specs-frame {
+    padding-inline: clamp(14px, 4.7vw, 28px);
+    padding-block-start: 2px;
+    background: #eef1f6;
+  }
+  .game-detail .edge-mobile-info-dialog .edge-game-info-overview dl > div {
+    min-height: 46px;
+    padding-block: 9px;
+  }
   html:has(.edge-mobile-info-dialog[open]) {
     overflow: hidden;
   }
@@ -137,57 +209,6 @@
     color: #fff;
     font-weight: 400;
     cursor: pointer;
-  }
-  .game-detail .edge-mobile-info-dialog {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100dvh;
-    max-width: none;
-    max-height: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: #fff;
-    color: var(--preview-text);
-    cursor: auto;
-  }
-  .game-detail .edge-mobile-info-dialog :is(a[href], button:enabled, [role="tab"]) {
-    cursor: pointer !important;
-  }
-  .game-detail .edge-mobile-info-screen {
-    display: grid;
-    grid-template-rows: auto minmax(0, 1fr);
-    height: 100%;
-    padding-top: env(safe-area-inset-top, 0px);
-  }
-  .game-detail .edge-mobile-info-screen > header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-inline: 14px;
-    border-bottom: 1px solid var(--game-pink-border);
-    background: var(--game-pink-surface);
-  }
-  .game-detail .edge-mobile-info-screen > header button {
-    display: grid;
-    width: 44px;
-    height: 44px;
-    place-items: center;
-    color: var(--game-pink-ink);
-    font-size: 20px;
-  }
-  .game-detail .edge-mobile-info-screen > header h2 {
-    font-weight: 400;
-  }
-  .game-detail .edge-mobile-info-content {
-    padding: 14px 14px calc(14px + env(safe-area-inset-bottom, 0px));
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    scrollbar-width: none;
-  }
-  .game-detail .edge-mobile-info-content::-webkit-scrollbar {
-    display: none;
   }
 }
 .game-detail .edge-detail-layout > .edge-gallery-panel {

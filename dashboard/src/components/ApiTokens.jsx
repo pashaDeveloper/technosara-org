@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 const healthLabels = { valid: 'معتبر', expired: 'منقضی شده', invalid_or_expired: 'نامعتبر یا منقضی', quota: 'محدودیت سهمیه', subscription: 'نیاز به اشتراک', forbidden: 'دسترسی محدود', unavailable: 'خطای اتصال', unverified: 'بررسی نشده', missing: 'تنظیم نشده' };
 const healthColors = { valid: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300', expired: 'bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300', invalid_or_expired: 'bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300' };
 
-async function request(method = 'GET', body) {
-  const response = await fetch(apiUrl('/admin/api-tokens'), {
+async function request(method = 'GET', body, suffix = '') {
+  const response = await fetch(apiUrl(`/admin/api-tokens${suffix}`), {
     method, credentials: 'include', cache: 'no-store',
     headers: { Authorization: `Bearer ${localStorage.getItem('accessToken') || ''}`, ...(body && { 'Content-Type': 'application/json' }) },
     ...(body && { body: JSON.stringify(body) }),
@@ -20,6 +20,7 @@ export default function ApiTokens() {
   const panel = useRef(), trigger = useRef();
   const [panelOpen, setPanelOpen] = useState(false);
   const [services, setServices] = useState([]), [values, setValues] = useState({});
+  const [arvanFields, setArvanFields] = useState([]), [arvanValues, setArvanValues] = useState({});
   const [busy, setBusy] = useState(false), [savingKey, setSavingKey] = useState(''), [message, setMessage] = useState('');
   const [loaded, setLoaded] = useState(false);
   const [checking, setChecking] = useState(false);
@@ -33,14 +34,34 @@ export default function ApiTokens() {
     return () => { document.removeEventListener('keydown', onKey); document.removeEventListener('pointerdown', onPointer); };
   }, [panelOpen, busy]);
   if (admin?.role !== 'superAdmin') return null;
+  function showArvan(fields) {
+    setArvanFields(fields);
+    setArvanValues(Object.fromEntries(fields.map(field => [field.key, field.value || ''])));
+  }
   async function open() {
-    setMessage(''); setValues({}); setLoaded(false); setServices([]);
+    setMessage(''); setValues({}); setLoaded(false); setServices([]); setArvanFields([]); setArvanValues({});
     setPanelOpen(true); setBusy(true);
-    try { setServices(await request()); setLoaded(true); setChecking(true); setServices(await request('POST')); }
+    try {
+      const [tokens, arvan] = await Promise.allSettled([request(), request('GET', undefined, '/arvan')]);
+      if (arvan.status === 'fulfilled') showArvan(arvan.value);
+      else setMessage(arvan.reason.message);
+      if (tokens.status === 'rejected') throw tokens.reason;
+      setServices(tokens.value); setLoaded(true); setChecking(true); setServices(await request('POST'));
+    }
     catch (error) { setMessage(error.message); }
     finally { setBusy(false); setChecking(false); }
   }
-  function close() { if (busy) return; setValues({}); setMessage(''); setPanelOpen(false); trigger.current?.focus(); }
+  function close() { if (busy) return; setValues({}); setArvanValues({}); setMessage(''); setPanelOpen(false); trigger.current?.focus(); }
+  async function saveArvan(event) {
+    event.preventDefault();
+    if (busy) return;
+    setBusy(true); setSavingKey('arvan'); setMessage('');
+    try {
+      showArvan(await request('PATCH', arvanValues, '/arvan'));
+      setMessage('تنظیمات آروان ذخیره شد و برای آپلودهای جدید اعمال می‌شود.');
+    } catch (error) { setMessage(error.message); }
+    finally { setBusy(false); setSavingKey(''); }
+  }
   async function save(event, key) {
     event.preventDefault(); const value = values[key] || ''; if (busy || !value.trim()) return;
     setBusy(true); setSavingKey(key); setMessage('');
@@ -57,6 +78,26 @@ export default function ApiTokens() {
       {services.some(row => ['expired', 'invalid_or_expired'].includes(row.health)) && <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950 dark:text-red-300">توکن‌های نیازمند تعویض: {services.filter(row => ['expired', 'invalid_or_expired'].includes(row.health)).map(row => row.name).join('، ')}</div>}
       {checking && <p role="status" className="mb-3 text-sm text-blue-600">در حال بررسی اعتبار توکن‌ها…</p>}
       {!loaded && busy && <p role="status" className="py-6 text-center text-sm">در حال دریافت سرویس‌ها…</p>}
+      {arvanFields.length > 0 && (
+        <form onSubmit={saveArvan} className="mb-4 space-y-3 rounded-xl border border-gray-200 p-4 dark:border-gray-700">
+          <h3 className="font-medium">فضای ابری آروان</h3>
+          <p className="text-xs text-gray-500">مشخصات اتصال S3 باکت را وارد کنید. آدرس عمومی فایل‌ها باید به ریشهٔ همان باکت اشاره کند.</p>
+          {arvanFields.map(field => (
+            <label key={field.key} className="block space-y-1 text-sm">
+              <span>{field.label}</span>
+              <input type={field.secret ? 'password' : 'text'} dir="ltr" autoComplete={field.secret ? 'new-password' : 'off'}
+                spellCheck={false} maxLength={512} required={!field.secret || !field.configured}
+                value={arvanValues[field.key] || ''} disabled={busy}
+                placeholder={field.secret && field.configured ? 'برای جایگزینی کلید جدید وارد کنید' : undefined}
+                onChange={event => setArvanValues(current => ({ ...current, [field.key]: event.target.value }))}
+                className="w-full rounded-lg border border-gray-300 bg-transparent dark:border-gray-600" />
+            </label>
+          ))}
+          <button type="submit" disabled={busy} className="rounded-lg bg-blue-600 px-3 py-2 text-sm text-white disabled:opacity-50">
+            {savingKey === 'arvan' ? 'در حال ذخیره…' : 'ذخیرهٔ تنظیمات آروان'}
+          </button>
+        </form>
+      )}
       <ul className="space-y-3">{services.map(row => <li key={row.key} className="rounded-xl border border-gray-200 p-4 dark:border-gray-700">
         <form onSubmit={event => save(event, row.key)} className="space-y-3">
           <div className="flex items-center justify-between gap-3"><h3 dir="ltr" className="font-medium">{row.name}</h3><span className={`rounded-full px-2 py-1 text-xs ${healthColors[row.health] || 'bg-amber-50 text-amber-700 dark:bg-amber-950 dark:text-amber-300'}`}>{checking && row.configured && row.health === 'unverified' ? 'در حال بررسی…' : healthLabels[row.health] || (row.configured ? 'بررسی نشده' : 'تنظیم نشده')}</span></div>

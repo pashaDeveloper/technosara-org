@@ -16,6 +16,7 @@ import { useGetGameCapabilityOptionsQuery, useGetGameMediaOptionsQuery, useGetGa
 import { definition, formValues, gameSteps } from './definitions';
 import { englishSlug, gameBody, providerFormValues, matchProviderOptions, providerOptionMatches, validateGameMetrics } from './gameFormUtils';
 import { useGamebrainLookup, GamebrainSuggestions } from './GamebrainLookup';
+import GamebrainSimilar from './GamebrainSimilar';
 
 import { useGetStoreOptionsQuery } from '../../services/store/storeApi';
 import PlatformCovers from './PlatformCovers';
@@ -522,6 +523,9 @@ export default function GameForm({ record, isLoading, onSubmit }) {
         {item.fields.includes('platform_ids') && <div className="mt-5"><Controller name="platform_covers" control={control} render={({ field: input }) => <PlatformCovers key={lookup.game?.id || savedId || "new"} onPendingChange={pendingUpload} value={input.value} onChange={input.onChange} selectedIds={watch('platform_ids') || []} platforms={platforms} media={media} disabled={busy} onUploading={setCoverUploading} title={watch('title')} xboxUrl={selectedXboxUrl || officialProductUrl('xbox')} exactXbox={Boolean(selectedXboxUrl)} />} /><Controller name="storage_sizes" control={control} render={({ field: input }) => <GameStorage requirements={watch('pc_requirements')} onRequirementsChange={value => setValue('pc_requirements', value, { shouldDirty: true })} autoFetch={autoFetch} ready={!isLoading && !persistence.recovering && !translating && !lookup.loadingDetails} onBusyChange={setStorageLoading} value={input.value} onChange={input.onChange} title={watch('title')} officialStores={resourceStores} offers={resourceOffers} selectedIds={watch('platform_ids') || []} platforms={platforms} disabled={busy} />} /></div>}
       </section>)}
     </fieldset>
+    <Controller name="similar_ids" control={control} render={({ field }) => (
+      <GamebrainSimilar key={watch('id')} gamebrainId={watch('id')} value={field.value} onChange={field.onChange} disabled={busy || persistence.recovering} />
+    )} />
     <GameCapabilities officialStores={resourceStores} offers={resourceOffers} autoFetch={autoFetch && !persistence.recovering} control={control} getValues={getValues} setValue={setValue} watch={watch} providerGame={lookup.game} storedGame={storedGame} modes={modes} platforms={platforms} disabled={busy} onBusyChange={setCapabilityLoading} />
     <GameDlcImport onPreviewChange={setPreviewDlc} autoFetch={autoFetch && !persistence.recovering && (!storedResources.dlc?.length || !storedResources.dlc.some(item => item.provider === 'playstation') || (/xbox\.com/i.test(`${resourceStores} ${watch('offers')}`) && !storedResources.dlc.some(item => item.provider === 'xbox')))} storedItems={storedResources.dlc || []} ref={dlcImport} key={savedId || 'new'} gameId={savedId} title={watch('title')} officialStores={resourceStores} offers={resourceOffers} onBusyChange={setDlcBusy} disabled={isLoading || lookup.loadingDetails || coverUploading} />
     <GameTrophies onPreviewChange={setPreviewTrophies} autoFetch={autoFetch && !persistence.recovering && (!storedResources.trophies?.length || resourceSourceSelected)} storedLists={storedResources.trophies || []} ref={trophies} gameId={savedId} title={watch('title')} apiStores={apiStores} officialStores={resourceStores} offers={resourceOffers} onBusyChange={setTrophyBusy} disabled={busy} />

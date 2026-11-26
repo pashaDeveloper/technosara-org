@@ -1,6 +1,6 @@
 import { apiUrl } from '../utils/apiUrl.js';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { preferCloudinaryImages } from '../utils/cloudinaryDisplay';
+import { preferStoredImages } from '../utils/cloudinaryDisplay';
 import { canonicalBody, localizedNames, usesLegacyNames } from '../utils/canonicalNames';
 
 const rawBaseQuery = fetchBaseQuery({
@@ -19,7 +19,7 @@ export const nabApi = createApi({
     const legacy = usesLegacyNames(typeof args === 'string' ? args : args.url);
     const input = legacy && typeof args === 'object' ? { ...args, body: canonicalBody(args.body) } : args;
     const result = await rawBaseQuery(input, api, extraOptions);
-    return result.data === undefined ? result : { ...result, data: preferCloudinaryImages(legacy ? localizedNames(result.data) : result.data) };
+    return result.data === undefined ? result : { ...result, data: preferStoredImages(legacy ? localizedNames(result.data) : result.data) };
   },
   tagTypes: [
     "User", "Setup",

@@ -2,7 +2,6 @@ const express = require("express");
 const verify = require("../middleware/verifyAdmin.middleware");
 const authorize = require("../middleware/authorize.middleware");
 const arvanUpload = require("../middleware/arvanUpload.middleware");
-const cloudinaryUpload = require("../middleware/cloudinaryUpload.middleware");
 const companyController = require("../controllers/company.controller");
 
 const router = express.Router();
@@ -27,7 +26,6 @@ router.post(
   verify,
   authorize("superAdmin", "admin"),
   arvanUpload("company").fields(companyUploadFields),
-  cloudinaryUpload("company").fields(companyUploadFields),
   companyController.createCompany,
 );
 router.patch(
@@ -35,7 +33,6 @@ router.patch(
   verify,
   authorize("superAdmin", "admin"),
   arvanUpload("company").fields(companyUploadFields),
-  cloudinaryUpload("company").fields(companyUploadFields),
   companyController.updateCompany,
 );
 router.delete(

@@ -109,7 +109,7 @@ test('imports full data and a store product once, then preserves manual edits on
   const buffer = await require('sharp')({ create: { width: 8, height: 8, channels: 3, background: 'white' } }).png().toBuffer();
   const storage = require('../utils/imageUpload');
   t.mock.method(storage, 'createClients', () => ({}));
-  t.mock.method(storage, 'uploadPair', async () => ({ cloudinary: { image: { url: newCover }, preview: { url: 'https://example.com/preview.webp' } } }));
+  t.mock.method(storage, 'uploadPair', async () => ({ arvan: { image: { url: newCover }, preview: { url: 'https://example.com/preview.webp' } } }));
   const cleanup = t.mock.method(storage, 'removeReplacedCopies', async () => {});
   t.mock.method(require('../services/uploadSettings.service'), 'read', async () => ({ maxDimension: 64, quality: 80, previewSize: 16, previewQuality: 70 }));
   let available = false;

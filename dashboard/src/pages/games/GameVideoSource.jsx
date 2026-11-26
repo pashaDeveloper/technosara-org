@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useFetchGameVideoSourcesMutation } from '../../services/games/gameApi';
-import { importGameMedia, isCloudinaryMedia } from './mediaUploadUtils';
+import { importGameMedia, isStoredMedia } from './mediaUploadUtils';
 import { VideoPreview } from './ProviderField';
 import { FiCheck, FiDownload, FiImage, FiPlay, FiTrash2, FiUpload, FiX } from 'react-icons/fi';
 import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/popover';
@@ -51,7 +51,7 @@ function savedVideoSource(value, metadata) {
   const source = { url: value, key: metadata?.key || value, thumbnail: metadata?.thumbnail };
   try {
     const url = new URL(value);
-    if (url.protocol !== 'https:' || url.port || url.username || url.password || isCloudinaryMedia(value)) return source;
+    if (url.protocol !== 'https:' || url.port || url.username || url.password || isStoredMedia(value)) return source;
     const steam = /^\/store_trailers\/(\d+\/\d+)\/[a-f0-9]+\/\d+\/hls_264_master\.m3u8$/i.exec(url.pathname);
     const steamStream = /^video\.(?:akamai|fastly|cloudflare)\.steamstatic\.com$/.test(url.hostname) && Boolean(steam);
     if (steamStream && !metadata?.key) source.key = `steam:${steam[1]}`;
@@ -171,10 +171,10 @@ export default function GameVideoSource({ kind, title, gamebrainId, stores, offe
   for (const [index, url] of saved.entries()) {
     if (cards.some(video => video.savedUrl === url)) continue;
     const metadata = sourceKeys.find(row => row.url === url);
-    const title = isCloudinaryMedia(url) ? 'ویدئوی آپلودشده' : 'لینک ذخیره‌شده';
+    const title = isStoredMedia(url) ? 'ویدئوی آپلودشده' : 'لینک ذخیره‌شده';
     cards.push({ ...savedVideoSource(url, metadata), savedUrl: url, title: `${title} ${index + 1}` });
   }
-  const canUpload = video => (video.direct || video.steamStream) && !isCloudinaryMedia(video.savedUrl);
+  const canUpload = video => (video.direct || video.steamStream) && !isStoredMedia(video.savedUrl);
   const uploadable = cards.filter(canUpload);
 
   const actions = <div className="flex flex-wrap gap-2">
@@ -195,7 +195,7 @@ export default function GameVideoSource({ kind, title, gamebrainId, stores, offe
       {cards.map(video => {
         const { savedUrl } = video;
         const added = saved.includes(savedUrl);
-        const uploaded = added && isCloudinaryMedia(savedUrl);
+        const uploaded = added && isStoredMedia(savedUrl);
         const failure = !uploaded && uploadErrors[video.key];
         const thumbnail = pendingThumbnails[video.key] || video.thumbnail;
         const eligible = canUpload(video);

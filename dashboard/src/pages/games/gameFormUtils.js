@@ -51,7 +51,7 @@ export function matchProviderOptions(items, rows) {
 }
 export function providerFormValues(game) {
  const defaults = formValues(definition);
- const result = Object.fromEntries([...providerFields.map(field => field.key), 'short_description', 'description', 'release_date'].map(key => [key, defaults[key]]));
+ const result = Object.fromEntries([...providerFields.map(field => field.key), 'short_description', 'description', 'release_date', 'similar_ids'].map(key => [key, defaults[key]]));
  result.detail_poster = '';
  result.detail_banner = '';
  result.detail_banner_mirrored = false;

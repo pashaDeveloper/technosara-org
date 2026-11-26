@@ -40,6 +40,30 @@ test('token settings reject unrelated env keys and multiline injection without c
   assert.deepEqual(env, {});
 });
 
+test('Arvan settings are saved together and never return either S3 key', async t => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'technosara-arvan-settings-'));
+  const file = path.join(dir, '.env');
+  t.after(async () => { await fs.unlink(file); await fs.rmdir(dir); });
+  const env = {};
+  const service = createService(file, env);
+  const fields = {
+    ARVAN_S3_ENDPOINT: 'https://s3.ir-thr-at1.arvanstorage.ir',
+    ARVAN_S3_BUCKET: 'test-bucket',
+    ARVAN_PUBLIC_BASE_URL: 'https://assets.example.test',
+    ARVAN_S3_REGION: 'us-east-1',
+    ARVAN_S3_ACCESS_KEY: 'test-access-key',
+    ARVAN_S3_SECRET_KEY: 'test-secret-key',
+  };
+  const status = await service.updateArvan(fields);
+  assert.deepEqual(require('dotenv').parse(await fs.readFile(file)), fields);
+  assert.deepEqual(env, fields);
+  assert.ok(status.every(row => row.configured));
+  assert.ok(status.filter(row => row.secret).every(row => !Object.hasOwn(row, 'value')));
+  assert.throws(() => service.updateArvan({ ...fields, ARVAN_S3_ENDPOINT: 'https://example.test' }), { status: 400 });
+  await service.updateArvan({ ...fields, ARVAN_S3_ACCESS_KEY: '', ARVAN_S3_SECRET_KEY: '' });
+  assert.deepEqual(require('dotenv').parse(await fs.readFile(file)), fields);
+});
+
 test('API token routes restrict reads and updates to the owner', async t => {
   const express = require('express');
   const jwt = require('jsonwebtoken');
@@ -53,13 +77,15 @@ test('API token routes restrict reads and updates to the owner', async t => {
   const app = express(); app.use(express.json()); app.use('/api/admin', require('../routes/admin.route'));
   const server = app.listen(0, '127.0.0.1'); await new Promise(resolve => server.once('listening', resolve));
   t.after(() => new Promise(resolve => server.close(resolve)));
-  const request = (role, method = 'GET') => fetch(`http://127.0.0.1:${server.address().port}/api/admin/api-tokens`, {
+  const request = (role, method = 'GET', suffix = '') => fetch(`http://127.0.0.1:${server.address().port}/api/admin/api-tokens${suffix}`, {
     method, headers: { 'Content-Type': 'application/json', ...(role && { Authorization: `Bearer ${jwt.sign({ role }, process.env.TOKEN_SECRET)}` }) },
     ...(method === 'PATCH' && { body: JSON.stringify({ key: 'GAMEBRAIN_API_KEY', value: 'new-secret' }) }),
   });
   assert.equal((await request()).status, 401);
   assert.equal((await request('admin')).status, 403);
   assert.equal((await request('admin', 'PATCH')).status, 403);
+  assert.equal((await request('admin', 'PATCH', '/arvan')).status, 403);
+  assert.equal((await request('superAdmin', 'GET', '/arvan')).status, 200);
   assert.equal(updates.length, 0);
   const response = await request('superAdmin', 'PATCH');
   assert.equal(response.status, 200);

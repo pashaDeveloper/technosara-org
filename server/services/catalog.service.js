@@ -110,7 +110,7 @@ async function detail(id, { internal = false } = {}) {
   const game = await gameQuery.lean();
   if (!game || (!internal && game.publication_status !== 'published')) throw fail('Game not found', 404);
   const query = { game_id: id };
-  const [editions, game_platforms, contents, media, age_ratings, groups, achievements, store_products, news] = await Promise.all([
+  const [editions, game_platforms, contents, media, age_ratings, groups, achievements, store_products, news, similar_games] = await Promise.all([
     mongoose.model('Edition').find(query).lean(),
     mongoose.model('GamePlatform').find(query).populate('platform_id').lean(),
     mongoose.model('GameContent').find({ $or: [{ game_id: id }, { 'items.game_id': id }], ...(!internal ? { publication_status: 'published' } : {}) }).lean(),
@@ -119,6 +119,7 @@ async function detail(id, { internal = false } = {}) {
     achievementsQuery.lean(),
     mongoose.model('StoreProduct').find(query).populate('store_id').lean(),
     mongoose.model('News').find(query).sort({ published: -1 }).lean(),
+    require('./gameSimilar.service').catalogSimilar(game),
   ]);
 
   if (!game.genres) game.genres = (game.genre_ids || []).filter(item => item.value || item.value).map(item => ({ value: item.value || item.value, name: item.name }));
@@ -126,6 +127,6 @@ async function detail(id, { internal = false } = {}) {
   game.series = game.game_series_ids;
   game.developers = game.developer_ids || [];
   game.publisher = game.publisher_ids || [];
-  return { ...game, editions, game_platforms, contents, media, age_ratings, achievement_groups: groups, achievements, store_products, news };
+  return { ...game, editions, game_platforms, contents, media, age_ratings, achievement_groups: groups, achievements, store_products, news, similar_games };
 }
 module.exports = { resources, readOnly, fail, writable, validateReferences, filters, list, save, detail, assertDeletable };

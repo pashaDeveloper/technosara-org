@@ -128,7 +128,7 @@ test("six resource routes save images and roll back failed creates and updates",
     assert.equal(created.status, 201, name + ": " + await created.text());
     const record = await Model.findOne({ name: values.name });
     assert.ok(record);
-    assert.deepEqual(Object.keys(name === "admin" ? record.avatar.copies : record.image_storage).sort(), ["arvan", "cloudinary"]);
+    assert.deepEqual(Object.keys(name === "admin" ? record.avatar.copies : record.image_storage).sort(), ["arvan"]);
     const stored = name === "admin" ? record.avatar.copies : record.image_storage;
     assert.match(stored.arvan.image.key, new RegExp("^" + name + "/[^/]+/[A-Za-z0-9_-]{12}\\.webp$"));
     assert.equal(stored.arvan.preview.key, stored.arvan.image.key.replace(".webp", "-preview-64.webp"));

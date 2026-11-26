@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import ProfileImageSelector from '../../components/shared/gallery/ProfileImageSelector';
 import ZoomableImage from '../../components/shared/gallery/ZoomableImage';
 import { uploadFilesToArvan, getUploadErrorMessage } from '../../utils/directUpload';
-import { importGameImage, isCloudinaryMedia, mediaBytes } from './mediaUploadUtils';
+import { importGameImage, isStoredMedia, mediaBytes } from './mediaUploadUtils';
 export function UploadIcon() { return <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 16V3m-5 5 5-5 5 5M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5" /></svg>; }
 function DeviceIcon() { return <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="13" rx="2" /><path d="M8 21h8m-4-5v5" /></svg>; }
 function DeleteIcon() { return <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7" /></svg>; }
@@ -61,7 +61,7 @@ export default forwardRef(function GameImageAsset({ value, onChange, onRemove, o
     latest.current.onPendingChange?.(true, url);
   }
   async function upload({ ignoreDisabled = false, silent = false } = {}) {
-    if (!pending && (isCloudinaryMedia(value) || uploaded?.url === value)) return null;
+    if (!pending && (isStoredMedia(value) || uploaded?.url === value)) return null;
     if (lock.current || (!ignoreDisabled && disabled) || (!pending && !value)) return null;
     if (!gameTitle?.trim()) { setError('ابتدا نام بازی را انتخاب کنید.'); throw new Error('نام بازی موجود نیست.'); }
     lock.current = true; setBusy(true); setError(''); setProgress(0); latest.current.onUploading?.(true);
@@ -74,7 +74,7 @@ export default forwardRef(function GameImageAsset({ value, onChange, onRemove, o
     finally { lock.current = false; if (mounted.current) { setBusy(false); latest.current.onUploading?.(false); } }
   }
   useImperativeHandle(ref, () => ({ upload }));
-  const displayed = pending?.url || value, finished = !pending && (isCloudinaryMedia(value) || uploaded?.url === value);
+  const displayed = pending?.url || value, finished = !pending && (isStoredMedia(value) || uploaded?.url === value);
   const detailBanner = fieldName === 'detail_banner';
   const aspectClass = wide || detailBanner ? 'aspect-video' : portrait ? 'aspect-[2/3]' : 'aspect-square';
   const deviceLabel = displayed ? 'تغییر از دستگاه' : 'انتخاب از دستگاه';

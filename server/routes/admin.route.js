@@ -2,7 +2,6 @@ const express = require("express");
 const verify = require("../middleware/verifyAdmin.middleware");
 const authorize = require("../middleware/authorize.middleware");
 const arvanUpload = require("../middleware/arvanUpload.middleware");
-const cloudinaryUpload = require("../middleware/cloudinaryUpload.middleware");
 const adminController = require("../controllers/admin.controller");
 
 const router = express.Router();
@@ -25,6 +24,16 @@ router.patch('/api-tokens', ...ownerAccess, async (req, res, next) => {
     res.json({ data: await require('../services/apiTokens.service').update(req.body) });
   } catch (error) { next(error); }
 });
+router.get('/api-tokens/arvan', ...ownerAccess, (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  res.json({ data: require('../services/apiTokens.service').arvanStatus() });
+});
+router.patch('/api-tokens/arvan', ...ownerAccess, async (req, res, next) => {
+  try {
+    res.set('Cache-Control', 'no-store');
+    res.json({ data: await require('../services/apiTokens.service').updateArvan(req.body) });
+  } catch (error) { next(error); }
+});
 
 router.get(
   "/setup",
@@ -33,7 +42,6 @@ router.get(
 router.post(
   "/sign-up",
   arvanUpload("admin").fields(adminUploadFields),
-  cloudinaryUpload("admin").fields(adminUploadFields),
   adminController.signUp,
 );
 router.post(
@@ -49,7 +57,6 @@ router.patch(
   ["/me", "/update-information"],
   ...adminAccess,
   arvanUpload("admin").fields(adminUploadFields),
-  cloudinaryUpload("admin").fields(adminUploadFields),
   adminController.updateAdmin,
 );
 router.get(
@@ -73,7 +80,6 @@ router.patch(
   "/account/me",
   ...adminAccess,
   arvanUpload("admin").fields(adminUploadFields),
-  cloudinaryUpload("admin").fields(adminUploadFields),
   adminController.updateAccount,
 );
 router.get(
@@ -94,14 +100,12 @@ router.delete(
 router.post(
   ["/setup/2", "/account/register"],
   arvanUpload("admin").fields(adminUploadFields),
-  cloudinaryUpload("admin").fields(adminUploadFields),
   adminController.signUp,
 );
 router.post(
   "/users",
   ...ownerAccess,
   arvanUpload("admin").fields(adminUploadFields),
-  cloudinaryUpload("admin").fields(adminUploadFields),
   adminController.signUp,
 );
 router.delete(

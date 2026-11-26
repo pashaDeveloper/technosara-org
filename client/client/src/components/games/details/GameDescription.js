@@ -1,5 +1,4 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import GameInfo from "./GameInfo";
 
 function descriptionText(description) {
   const hasTags = /<\/?[a-z][^>]*>/i.test(description);
@@ -70,7 +69,7 @@ export default function GameDescription({ game, children }) {
       className="mb-8 [margin-inline:calc(-1*var(--game-body-gutter))] bg-white px-[var(--game-body-gutter)] py-6"
       aria-labelledby={description ? "game-description-title" : undefined}
     >
-      <div className="mx-auto max-w-[1200px] min-[900px]:grid min-[900px]:grid-cols-[minmax(0,1fr)_minmax(260px,27%)] min-[900px]:items-start min-[900px]:gap-8">
+      <div className="mx-auto max-w-[1200px]">
         <div className="min-w-0">
           {description && <>
             <h2 id="game-description-title" dir="auto" className="mb-3 text-start text-[clamp(26px,4vw,40px)] font-extrabold text-gray-900">
@@ -79,7 +78,7 @@ export default function GameDescription({ game, children }) {
             <div ref={textFrameRef} id="game-description-text">
               <div
                 ref={textRef}
-                className="columns-1 gap-8 text-[15px] leading-[1.9] text-gray-700 [overflow-wrap:anywhere] min-[601px]:columns-2 data-[expanded=false]:max-h-[14lh] data-[expanded=false]:overflow-hidden data-[fade=true]:[mask-image:linear-gradient(to_bottom,#000_12lh,transparent_14lh)]"
+                className="text-[15px] leading-[1.9] text-gray-700 [overflow-wrap:anywhere] data-[expanded=false]:max-h-[14lh] data-[expanded=false]:overflow-hidden data-[fade=true]:[mask-image:linear-gradient(to_bottom,#000_12lh,transparent_14lh)]"
                 data-expanded={expanded}
                 data-fade={!expanded && overflowing}
               >
@@ -100,9 +99,6 @@ export default function GameDescription({ game, children }) {
           </>}
           {children}
         </div>
-        <aside className="mt-6 hidden min-w-0 min-[601px]:block min-[900px]:col-start-2 min-[900px]:mt-0" aria-label="اطلاعات بازی">
-          <GameInfo game={game} />
-        </aside>
       </div>
     </section>
   );

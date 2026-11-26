@@ -378,6 +378,14 @@ const schema = new mongoose.Schema({
     }],
     default: undefined
   },
+  similar_previews: {
+    type: [new mongoose.Schema({
+      id: { type: Number, required: true },
+      title: { type: String, required: true, maxlength: 300 },
+      image: String,
+    }, { _id: false })],
+    default: undefined
+  },
   name: {
     type: String,
     trim: true,

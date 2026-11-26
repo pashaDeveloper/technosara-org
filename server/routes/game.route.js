@@ -40,14 +40,14 @@ router.post('/media/import', verify, authorize('superAdmin', 'admin'), async (re
       : video ? remote.downloadVideo(url) : remote.download(url));
     if (req.aborted || res.destroyed) return;
     req.files = { [field]: [file] };
-    require('../middleware/upload.middleware')('games', 'cloudinary').fields([{ name: field, maxCount: 1 }])(req, res, next);
+    require('../middleware/upload.middleware')('games', 'arvan').fields([{ name: field, maxCount: 1 }])(req, res, next);
   } catch (error) { next(error); }
 }, (req, res) => { req.commitUploads(); res.json({ acknowledgement: true, data: req.uploadedFiles }); });
 router.post('/storage/source', verify, authorize('superAdmin', 'admin'), async (req, res, next) => {
   try { res.json({ data: await require('../services/gameStorage.service').read(req.body) }); }
   catch (error) { next(error); }
 });
-router.post('/media/upload', verify, authorize('superAdmin', 'admin'), require('../middleware/upload.middleware')('games', 'cloudinary').fields(['thumbnail', 'detail_banner', 'detail_gif', 'detail_poster', 'screenshot', 'cover', 'logo', 'video', 'trailer', 'gameplay', 'micro_trailer'].map(name => ({ name, maxCount: 1 }))), (req, res) => {
+router.post('/media/upload', verify, authorize('superAdmin', 'admin'), require('../middleware/upload.middleware')('games', 'arvan').fields(['thumbnail', 'detail_banner', 'detail_gif', 'detail_poster', 'screenshot', 'cover', 'logo', 'video', 'trailer', 'gameplay', 'micro_trailer'].map(name => ({ name, maxCount: 1 }))), (req, res) => {
   req.commitUploads?.();
   res.json({ acknowledgement: true, data: req.uploadedFiles });
 });

@@ -5,7 +5,7 @@ const compress = require('../utils/compressImage');
 const slug = value => String(value || '').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}_-]+/gu, '-').replace(/^-+|-+$/g, '').slice(0, 100) || 'untitled';
 async function saveImage(doc, game, kind, title, field, sourceField, role = '', refreshSource) {
   const url = refreshSource || doc[field];
-  if (!url || (!refreshSource && doc.image_storage?.cloudinary?.image?.url === url)) return;
+  if (!url || (!refreshSource && ['arvan', 'cloudinary'].some(provider => doc.image_storage?.[provider]?.image?.url === url))) return;
   const settings = await settingsService.read();
   const maxBytes = kind === 'trophy' && /^https:\/\/images-eds-ssl\.xboxlive\.com\//i.test(url) ? 20 * 1024 * 1024 : undefined;
   const { buffer } = await remote.download(url, 0, maxBytes);
@@ -13,12 +13,12 @@ async function saveImage(doc, game, kind, title, field, sourceField, role = '', 
   const name = slug(title);
   const folder = `game/${slug(game.title || game.name)}/${kind}/${name}`;
   const filename = role ? `${role}-${name}` : name;
-  const copies = await storage.uploadPair(folder, full, preview, storage.createClients('cloudinary'), 'cloudinary', undefined, filename);
+  const copies = await storage.uploadPair(folder, full, preview, storage.createClients('arvan'), 'arvan', undefined, filename);
   const previous = { [field]: doc[field], [sourceField]: doc[sourceField], preview_url: doc.preview_url, image_storage: doc.image_storage };
   if (refreshSource) previous.import_errors = doc.import_errors;
   try {
-    if (refreshSource) await remote.download(copies.cloudinary.image.url);
-    doc[sourceField] = url; doc[field] = copies.cloudinary.image.url; doc.preview_url = copies.cloudinary.preview.url; doc.image_storage = copies;
+    if (refreshSource) await remote.download(copies.arvan.image.url);
+    doc[sourceField] = url; doc[field] = copies.arvan.image.url; doc.preview_url = copies.arvan.preview.url; doc.image_storage = copies;
     if (refreshSource) doc.import_errors = (doc.import_errors || []).filter(error => error !== 'image');
     await doc.save();
   }
@@ -59,7 +59,7 @@ async function enrich(doc, game, kind, source = {}) {
   if (kind === 'dlc') {
     const copies = { ...doc.screenshot_storage };
     for (const [index, url] of (doc.screenshots || []).entries()) {
-      if (copies[index]?.cloudinary?.image?.url === url) continue;
+      if (['arvan', 'cloudinary'].some(provider => copies[index]?.[provider]?.image?.url === url)) continue;
       const imageDoc = { image: url, async save() { const old = doc.screenshots[index]; doc.screenshots[index] = this.image; copies[index] = this.image_storage; doc.screenshot_storage = copies; doc.markModified?.('screenshot_storage'); try { await doc.save(); } catch (error) { doc.screenshots[index] = old; delete copies[index]; throw error; } } };
       try { await saveImage(imageDoc, game, kind, doc.title_en, 'image', 'source_image_url', 'screenshot'); }
       catch { errors.push(`screenshot:${index}`); }

@@ -5,7 +5,7 @@ import { selectProviderStores } from './providerStoreUtils';
 import { parseGameMetrics } from './gameFormUtils';
 import { toast } from 'react-hot-toast';
 import { FiUpload } from 'react-icons/fi';
-import { importGameMedia, isCloudinaryMedia } from './mediaUploadUtils';
+import { importGameMedia, isStoredMedia } from './mediaUploadUtils';
 import Dropdown from '../../components/shared/select/Dropdown';
 import PlatformInput from '../platforms/components/PlatformInput';
 
@@ -75,7 +75,7 @@ const videoFilePath = /\.(?:mp4|m4v|webm|ogg|ogv|mov)$/i;
 const videoPageHost = /(?:^|\.)(?:youtube\.com|youtu\.be|youtube-nocookie\.com|twitch\.tv)$/i;
 function directVideoUrl(value) {
   const safe = safeUrl(value);
-  if (!safe || isCloudinaryMedia(safe)) return '';
+  if (!safe || isStoredMedia(safe)) return '';
   const url = new URL(safe);
   return url.protocol === 'https:' && !url.port && !videoPageHost.test(url.hostname.replace(/\.$/, '')) && videoFilePath.test(url.pathname) ? safe : '';
 }

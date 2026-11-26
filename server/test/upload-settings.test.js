@@ -2,7 +2,6 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const express = require('express');
 const sharp = require('sharp');
-const { Writable } = require('stream');
 const settings = require('../services/uploadSettings.service');
 const storage = require('../utils/imageUpload');
 
@@ -88,25 +87,33 @@ test('game uploads use role and game folders and global preview settings; invali
 });
 
 test('video upload compresses the stored asset, generates a preview, and registers cleanup', async t => {
-  const cloudinary = require('cloudinary').v2;
-  for (const key of ['CLOUD_NAME', 'API_KEY', 'API_SECRET']) { const previous = process.env[key]; process.env[key] = 'test'; t.after(() => { if (previous === undefined) delete process.env[key]; else process.env[key] = previous; }); }
-  let options, removed;
-  t.mock.method(cloudinary.uploader, 'upload_stream', (values, callback) => {
-    options = values;
-    return new Writable({ write(chunk, encoding, done) { done(); }, final(done) { callback(null, { public_id: values.public_id, secure_url: 'https://example.com/video.mp4', bytes: 80, width: 320, height: 200, eager: [{ secure_url: 'https://example.com/preview.jpg' }] }); done(); } });
+  const { execFileSync } = require('node:child_process');
+  const { path: ffmpeg } = require('@ffmpeg-installer/ffmpeg');
+  const input = execFileSync(ffmpeg, ['-v', 'error', '-f', 'lavfi', '-i', 'color=s=320x240:d=0.2',
+    '-c:v', 'libvpx', '-f', 'webm', 'pipe:1'], { windowsHide: true });
+  const uploads = new Map();
+  const removed = [];
+  t.mock.method(storage, 'createClients', provider => {
+    assert.equal(provider, 'arvan');
+    return { arvan: {
+      async put(key, body, type = 'image/webp') {
+        uploads.set(key, { body, type });
+        return { key, url: 'https://example.com/' + key };
+      },
+      async remove(key) { removed.push(key); },
+    } };
   });
-  t.mock.method(cloudinary.uploader, 'destroy', async (key, values) => { removed = { key, ...values }; return { result: 'ok' }; });
   const cleanup = [];
-  const file = await storage.uploadVideo({ mimetype: 'video/mp4', buffer: Buffer.alloc(100) }, 'My Game', 'trailer', settings.defaults, job => cleanup.push(job));
-  assert.match(options.public_id, /^game\/my-game\/my-game-trailer-/);
-  assert.equal(options.resource_type, 'video'); assert.equal(options.transformation[0].quality, settings.defaults.videoQuality);
-  assert.equal(options.transformation[0].fetch_format, 'mp4'); assert.equal(options.eager[0].width, settings.defaults.previewSize);
-  assert.equal(file.resource_type, 'video'); assert.equal(file.blur.url, 'https://example.com/preview.jpg');
-  await cleanup[0](); assert.equal(removed.resource_type, 'video'); assert.equal(removed.key, file.key);
-  const gameplay = await storage.uploadVideo({ mimetype: 'video/mp4', buffer: Buffer.alloc(100) }, 'My Game', 'gameplay', settings.defaults, job => cleanup.push(job));
-  assert.match(gameplay.key, /^game\/my-game\/my-game-game-play-/);
-  await cleanup[1]();
-  assert.equal(removed.key, gameplay.key);
+  const file = await storage.uploadVideo({ mimetype: 'video/webm', buffer: input }, 'My Game', 'trailer', settings.defaults, job => cleanup.push(job));
+  assert.match(file.key, /^game\/my-game\/my-game-trailer-[\w-]+\.mp4$/);
+  assert.equal(file.storage, 'arvan');
+  assert.equal(uploads.get(file.key).type, 'video/mp4');
+  assert.equal(uploads.get(file.key).body.toString('ascii', 4, 8), 'ftyp');
+  const preview = await sharp(uploads.get(file.blur.public_id).body).metadata();
+  assert.equal(preview.format, 'webp');
+  assert.equal(preview.width, settings.defaults.previewSize);
+  await Promise.all(cleanup.map(job => job()));
+  assert.deepEqual(removed, [file.key, file.blur.public_id]);
   await assert.rejects(storage.uploadVideo({ mimetype: 'text/plain' }, 'Test', 'video', settings.defaults, () => {}), { status: 400 });
 });
 

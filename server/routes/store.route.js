@@ -2,7 +2,6 @@ const express = require("express");
 const verify = require("../middleware/verifyAdmin.middleware");
 const authorize = require("../middleware/authorize.middleware");
 const arvanUpload = require("../middleware/arvanUpload.middleware");
-const cloudinaryUpload = require("../middleware/cloudinaryUpload.middleware");
 const storeController = require("../controllers/store.controller");
 
 const router = express.Router();
@@ -24,7 +23,6 @@ router.post(
   verify,
   authorize("superAdmin", "admin"),
   arvanUpload("store").fields(storeUploadFields),
-  cloudinaryUpload("store").fields(storeUploadFields),
   storeController.createStore,
 );
 router.patch(
@@ -38,7 +36,6 @@ router.patch(
   verify,
   authorize("superAdmin", "admin"),
   arvanUpload("store").fields(storeUploadFields),
-  cloudinaryUpload("store").fields(storeUploadFields),
   storeController.updateStore,
 );
 router.delete(

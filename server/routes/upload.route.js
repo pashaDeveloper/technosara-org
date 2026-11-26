@@ -4,7 +4,7 @@ router.use(require('../middleware/verifyAdmin.middleware'), require('../middlewa
 router.post('/:folder', (req, res, next) => {
   if (!allowed.has(req.params.folder)) return res.status(400).json({ acknowledgement: false, description: 'پوشه آپلود معتبر نیست.' });
   const fields = ['avatar', 'thumbnail', 'image', 'logo', 'gallery', 'images', 'cover', 'banner', 'poster'].map(name => ({ name, maxCount: name === 'gallery' || name === 'images' ? 10 : 1 }));
-  require('../middleware/upload.middleware')(req.params.folder, 'cloudinary').fields(fields)(req, res, next);
+  require('../middleware/upload.middleware')(req.params.folder, 'arvan').fields(fields)(req, res, next);
 }, (req, res) => {
   req.commitUploads();
   res.json({ acknowledgement: true, data: req.uploadedFiles });

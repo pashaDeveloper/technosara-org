@@ -78,8 +78,7 @@ Create/update routes for admin, company, genre, person and platform accept multi
 | Person | photo | person |
 | Platform | logo | platform |
 
-Set IMAGE_UPLOAD_PROVIDER to arvan (default), cloudinary, or both. A route can override this with upload("companies", "both").fields(companyUploadFields).
-Arvan uses ARVAN_S3_ENDPOINT, ARVAN_S3_BUCKET, ARVAN_S3_ACCESS_KEY, ARVAN_S3_SECRET_KEY and ARVAN_PUBLIC_BASE_URL. Cloudinary uses CLOUD_NAME, API_KEY and API_SECRET.
+New catalog and game media uploads use Arvan Object Storage. A super admin can set the S3 endpoint, bucket, public file URL, region and keys in the API Tokens panel. The settings take effect on the current server after saving. Cloudinary credentials are only needed for cleanup of existing Cloudinary objects.
 
 Each field accepts one PNG, JPEG or WebP image up to 5 MB. The middleware saves WebP images and 64px previews. Existing JSON data-image inputs are also accepted. Multipart array/object fields must be JSON strings.
 

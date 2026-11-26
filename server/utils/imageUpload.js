@@ -1,12 +1,15 @@
 const { S3Client, PutObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3');
 const cloudinary = require('cloudinary').v2;
 const { randomBytes } = require('crypto');
+const missingArvanBucket = 'باکت آروان پیدا نشد. نام باکت و آدرس S3 را در پنل توکن‌های API بررسی کنید.';
+const isMissingBucket = error => error?.name === 'NoSuchBucket' || error?.Code === 'NoSuchBucket';
 
 function providers(selection) {
   const required = [ ...(selection !== 'cloudinary' ? ['ARVAN_S3_BUCKET', 'ARVAN_PUBLIC_BASE_URL', 'ARVAN_S3_ENDPOINT', 'ARVAN_S3_ACCESS_KEY', 'ARVAN_S3_SECRET_KEY'] : []), ...(selection !== 'arvan' ? ['CLOUD_NAME', 'API_KEY', 'API_SECRET'] : []) ];
   const missing = required.filter(key => !process.env[key]?.trim());
   if (missing.length) throw Object.assign(new Error(`تنظیمات ذخیره تصاویر ناقص است: ${missing.join(', ')}`), { status: 503 });
-  const s3 = new S3Client({
+  const [bucket, publicBase, acl] = [process.env.ARVAN_S3_BUCKET, process.env.ARVAN_PUBLIC_BASE_URL, process.env.ARVAN_S3_ACL || 'public-read'];
+  const s3 = selection === 'cloudinary' ? null : new S3Client({
     endpoint: process.env.ARVAN_S3_ENDPOINT,
     region: process.env.ARVAN_S3_REGION || 'us-east-1',
     forcePathStyle: process.env.ARVAN_S3_FORCE_PATH_STYLE !== 'false',
@@ -15,14 +18,14 @@ function providers(selection) {
     requestHandler: { connectionTimeout: 10000, requestTimeout: 60000 },
     maxAttempts: 2,
   });
-  cloudinary.config({ cloud_name: process.env.CLOUD_NAME, api_key: process.env.API_KEY, api_secret: process.env.API_SECRET });
+  if (selection !== 'arvan') cloudinary.config({ cloud_name: process.env.CLOUD_NAME, api_key: process.env.API_KEY, api_secret: process.env.API_SECRET });
   const clients = {
     arvan: {
-      async put(key, body) {
-        await s3.send(new PutObjectCommand({ Bucket: process.env.ARVAN_S3_BUCKET, Key: key, Body: body, ContentType: 'image/webp', ACL: process.env.ARVAN_S3_ACL || 'public-read' }));
-        return { key, url: `${process.env.ARVAN_PUBLIC_BASE_URL.replace(/\/$/, '')}/${key}` };
+      async put(key, body, contentType = 'image/webp') {
+        await s3.send(new PutObjectCommand({ Bucket: bucket, Key: key, Body: body, ContentType: contentType, ACL: acl }));
+        return { key, url: `${publicBase.replace(/\/$/, '')}/${key.split('/').map(encodeURIComponent).join('/')}` };
       },
-      remove: key => s3.send(new DeleteObjectCommand({ Bucket: process.env.ARVAN_S3_BUCKET, Key: key })),
+      remove: key => s3.send(new DeleteObjectCommand({ Bucket: bucket, Key: key })),
     },
     cloudinary: {
       put: (key, body) => new Promise((resolve, reject) => {
@@ -63,6 +66,7 @@ async function uploadPair(folder, full, preview, clients, selection = 'both', tr
       if (result.status !== 'rejected') return [];
       const name = jobs[index].provider === 'arvan' ? 'ابر آروان' : 'Cloudinary';
       const cause = result.reason;
+      if (jobs[index].provider === 'arvan' && isMissingBucket(cause)) return [missingArvanBucket];
       const denied = cause?.name === 'AccessDenied' || cause?.$metadata?.httpStatusCode === 403 || cause?.http_code === 403;
       return [denied ? `${name}: دسترسی ذخیره فایل رد شد (403)؛ مجوز نوشتن و تنظیمات فضای ذخیره‌سازی را بررسی کنید.` : `${name}: آپلود فایل ناموفق بود؛ دوباره تلاش کنید.`];
     }))];
@@ -233,31 +237,29 @@ module.exports.createClients = providers;
 module.exports.uploadPair = uploadPair;
 module.exports.uploadVideo = async function (file, title, kind, settings, track) {
   if (!['video/mp4', 'video/webm', 'video/ogg', 'video/quicktime'].includes(file.mimetype)) throw badRequest('فرمت ویدئو معتبر نیست.');
-  providers('cloudinary');
+  const { arvan } = module.exports.createClients('arvan');
   const slug = String(title).normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}_-]+/gu, '-').replace(/^-+|-+$/g, '').slice(0, 80);
   if (!slug) throw badRequest('نام بازی معتبر نیست.');
-  const path = `game/${slug}`;
   const videoName = kind === 'gameplay' ? 'game-play' : kind;
   const prefix = ['gameplay', 'trailer'].includes(kind) ? `${slug}-${videoName}` : videoName;
-  const key = `${path}/${prefix}-${randomBytes(9).toString('base64url')}`;
-  track(async () => {
-    const result = await cloudinary.uploader.destroy(key, { resource_type: 'video', invalidate: true });
-    if (!['ok', 'not found'].includes(result?.result)) throw new Error('Video cleanup failed');
-  });
-  const preview = { width: settings.previewSize, height: settings.previewSize, crop: 'fill', quality: settings.previewQuality, format: 'jpg', start_offset: '0' };
-  if (settings.blur) preview.effect = `blur:${settings.blur * 100}`;
-  const result = await new Promise((resolve, reject) => {
-    const stream = cloudinary.uploader.upload_stream({
-      public_id: key, asset_folder: path, resource_type: 'video', overwrite: false, timeout: 180000,
-      transformation: [{ width: settings.maxDimension, height: settings.maxDimension, crop: 'limit', quality: settings.videoQuality, video_codec: 'h264', fetch_format: 'mp4' }],
-      eager: [preview], eager_async: false,
-    }, (error, response) => error ? reject(Object.assign(new Error('آپلود یا فشرده‌سازی ویدئو ناموفق بود.'), { status: 502 })) : resolve(response));
-    stream.on('error', reject);
-    stream.end(file.buffer);
-  });
-  if (!result.width || !result.height || !result.eager?.[0]?.secure_url) throw Object.assign(new Error('ویدئو یا پیش‌نمایش آن معتبر نیست.'), { status: 502 });
-  return { url: result.secure_url, key: result.public_id, public_id: result.public_id, storage: 'cloudinary', resource_type: 'video', bytes: result.bytes, original_bytes: file.buffer.length,
-    blur: { url: result.eager[0].secure_url, public_id: result.public_id, width: settings.previewSize, height: settings.previewSize, amount: settings.blur } };
+  const key = `game/${slug}/${prefix}-${randomBytes(9).toString('base64url')}`;
+  const { video, preview } = await require('./prepareUploadVideo')(file.buffer, settings);
+  const videoKey = `${key}.mp4`;
+  const previewKey = `${key}-preview.webp`;
+  track(() => arvan.remove(videoKey));
+  track(() => arvan.remove(previewKey));
+  const results = await Promise.allSettled([
+    arvan.put(videoKey, video, 'video/mp4'),
+    arvan.put(previewKey, preview),
+  ]);
+  if (results.some(result => result.status === 'rejected')) {
+    const missing = results.some(result => result.status === 'rejected' && isMissingBucket(result.reason));
+    throw Object.assign(new Error(missing ? missingArvanBucket : 'آپلود ویدئو روی فضای ابری آروان ناموفق بود.'), { status: 502 });
+  }
+  const [full, poster] = results.map(result => result.value);
+  return { url: full.url, key: full.key, public_id: full.key, storage: 'arvan', resource_type: 'video',
+    bytes: video.length, original_bytes: file.buffer.length,
+    blur: { url: poster.url, public_id: poster.key, width: settings.previewSize, height: settings.previewSize, amount: settings.blur } };
 };
 
 // Call only after the database write and upload commit have succeeded.

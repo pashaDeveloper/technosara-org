@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 import SendButton from '../../components/shared/button/SendButton';
 import BoxArtButton from './BoxArtButton';
 import GameImageAsset from './GameImageAsset';
-import { isCloudinaryMedia } from './mediaUploadUtils';
+import { isStoredMedia } from './mediaUploadUtils';
 
 const qualities = [['low_quality', 'کاور کم‌کیفیت'], ['high_quality', 'کاور باکیفیت']];
 const colors = ['border-blue-400 bg-blue-50 dark:bg-blue-950', 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950', 'border-violet-400 bg-violet-50 dark:bg-violet-950', 'border-amber-400 bg-amber-50 dark:bg-amber-950'];
@@ -45,7 +45,7 @@ export default function PlatformCovers({ value, onChange, selectedIds, platforms
     return qualities.flatMap(([quality]) => {
       const key = `platform-${platformId}-${quality}`;
       const url = cover?.[quality];
-      return pendingKeys.has(key) || (url && !isCloudinaryMedia(url)) ? [key] : [];
+      return pendingKeys.has(key) || (url && !isStoredMedia(url)) ? [key] : [];
     });
   });
   function uploadState(busy) {

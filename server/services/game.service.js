@@ -3,15 +3,18 @@ const { gameClassificationValues, gameClassificationFilters } = require('../util
 const Game = require("../models/game.model");
 const { filterScreenshots } = require('../utils/gameScreenshots');
 const { alternateTitleValues, gameTitleSearch } = require('../utils/gameTitles');
+const { fillSimilarIds } = require('./gameSimilar.service');
 
 /* add new game */
 exports.addGame = async (req, res) => {
   try {
     const { body } = req;
     await validateGameIdentity(body);
+    const providerValues = require('../utils/gamebrainValues').gamebrainValues(body);
+    await fillSimilarIds(providerValues);
     const game = new Game({
       ...await gameClassificationValues(body),
-      ...require('../utils/gamebrainValues').gamebrainValues(body),
+      ...providerValues,
       ...alternateTitleValues(body),
       ...await require('../utils/gameCapabilities').capabilityValues(body),
       status: body.status,
@@ -181,11 +184,14 @@ exports.getGame = async (req, res) => {
 exports.updateGame = async (req, res) => {
   const { body } = req;
   await validateGameIdentity(body);
-  const existingCapabilities = await Game.findById(req.params.id).select('capability_status platform_capabilities game_mode_ids feature_ids screenshots');
+  const existingCapabilities = await Game.findById(req.params.id).select('id similar_ids similar_previews capability_status platform_capabilities game_mode_ids feature_ids screenshots');
+  if (!existingCapabilities) return res.status(404).json({ acknowledgement: false, message: 'بازی پیدا نشد' });
+  const providerValues = require('../utils/gamebrainValues').gamebrainValues(body);
+  await fillSimilarIds(providerValues, existingCapabilities);
   const updatedGame = {
     auto_draft: false,
     ...await gameClassificationValues(body),
-    ...require('../utils/gamebrainValues').gamebrainValues(body),
+    ...providerValues,
     ...alternateTitleValues(body),
     ...await require('../utils/gameCapabilities').capabilityValues(body, existingCapabilities || {}),
     status: body.status,

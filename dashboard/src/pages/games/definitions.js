@@ -31,6 +31,7 @@ export const definition = { fields: [
   field('title', 'عنوان بازی', 'text', { required: true, dir: 'ltr' }),
   field('slug', 'اسلاگ', 'text', { required: true, dir: 'ltr' }),
   field('alternate_titles', 'عنوان‌های جایگزین برای جست‌وجو', 'list'),
+  field('similar_ids', 'بازی‌های مشابه', 'similar', { default: [] }),
   field('status', 'وضعیت عرضهٔ بازی', 'select', { required: true, default: 'released', options: statuses }),
   field('publication_status', 'وضعیت انتشار در سایت', 'select', { required: true, default: 'published', options: [
     { value: 'draft', label: 'پیش‌نویس' },
