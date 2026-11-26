@@ -15,8 +15,12 @@ const api = nabApi.enhanceEndpoints({ addTagTypes: ['Game'] }).injectEndpoints({
 
         const legacy = await baseQuery({ url, params: { limit: 10 } });
         if (legacy.error) return legacy;
+        const results = legacy.data?.data?.results;
+        if (!Array.isArray(results)) {
+          return { error: { status: 'CUSTOM_ERROR', error: 'Invalid GameBrain response' } };
+        }
         const rows = new Map();
-        for (const row of legacy.data?.data?.results || []) {
+        for (const row of results) {
           const gameId = Number(row?.id);
           if (Number.isSafeInteger(gameId) && gameId > 0 && gameId !== id && !rows.has(gameId)) {
             rows.set(gameId, { id: gameId, title: row.name || row.title, image: row.image });
