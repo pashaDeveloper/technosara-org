@@ -4,6 +4,23 @@ import { useEffect, useRef, useState } from "react";
 import Rows from "@/components/shared/skeletonLoading/Rows";
 import { HiOutlineAdjustments, HiOutlineX, HiOutlineCheck, HiOutlineSearch } from "react-icons/hi";
 
+const languageOptions = [
+  { id: "has_persian_subtitles", title: "زیرنویس دارد" },
+  { id: "has_dubbing", title: "دوبله دارد" },
+];
+
+function LanguageFilters({ filter, onChange }) {
+  return <fieldset className="flex flex-col gap-y-2.5">
+    <legend className="sr-only">زیرنویس و دوبله</legend>
+    {languageOptions.map(({ id, title }) => (
+      <label key={id} className="flex cursor-pointer items-center gap-x-1.5 text-sm">
+        <input type="checkbox" checked={filter[id] === "true"} onChange={(event) => onChange(id, event.target.checked ? "true" : "")} className="rounded-secondary border-gray-300 text-gray-500 focus:ring-gray-400" />
+        {title}
+      </label>
+    ))}
+  </fieldset>;
+}
+
 export default function GameFilters({ options, filter, onChange, reset, isLoading, isError, refetch, resultCount = 0, resultsLoading = false }) {
   const [active, setActive] = useState(null);
   const dialog = useRef(null);
@@ -15,6 +32,7 @@ export default function GameFilters({ options, filter, onChange, reset, isLoadin
     { key: "developer", title: "شرکت سازنده", options: options?.developers, query },
     { key: "theme", title: "تم", options: options?.themes, query },
     { key: "age", title: "رده سنی", options: options?.ages, query },
+    { key: "language", title: "زیرنویس و دوبله" },
   ];
 
 
@@ -49,8 +67,8 @@ export default function GameFilters({ options, filter, onChange, reset, isLoadin
         </div>
         {groups.map((group) => (
           <section key={group.key} className="flex max-h-96 flex-col gap-y-4 overflow-y-auto rounded-xl border px-4 py-2 scrollbar-hide">
-            <h2 className="text-lg">انتخاب {group.title}</h2>
-            {group.query.isLoading ? <Rows count={2} /> : group.query.isError ? (
+            <h2 className="text-lg">{group.key === "language" ? group.title : `انتخاب ${group.title}`}</h2>
+            {group.key === "language" ? <LanguageFilters filter={filter} onChange={onChange} /> : group.query.isLoading ? <Rows count={2} /> : group.query.isError ? (
               <button type="button" onClick={group.query.refetch} className="py-3 text-sm text-pink-600">تلاش دوباره</button>
             ) : !group.options?.length ? <Rows count={2} /> : (
               <fieldset className="flex flex-col gap-y-2.5">
@@ -90,12 +108,12 @@ export default function GameFilters({ options, filter, onChange, reset, isLoadin
                   setTab(groups[next].key);
                   document.getElementById(`tab-${groups[next].key}`)?.focus();
                 }} className={`flex shrink-0 items-center gap-1.5 border-b-2 px-3 py-3 text-sm font-bold transition-colors ${tab === group.key ? "border-pink-600 text-pink-600" : "border-transparent text-gray-500 hover:text-gray-700"}`}>
-                {group.title}{filter[group.key] && <span aria-label="فیلتر فعال" className="h-1.5 w-1.5 rounded-full bg-pink-500" />}
+                {group.title}{(group.key === "language" ? languageOptions.some(({ id }) => filter[id] === "true") : filter[group.key]) && <span aria-label="فیلتر فعال" className="h-1.5 w-1.5 rounded-full bg-pink-500" />}
               </button>
             ))}
           </div>
           <div id={`panel-${tab}`} role="tabpanel" aria-labelledby={`tab-${tab}`} tabIndex={0} className="min-h-[240px] min-w-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5">
-            {isLoading ? <Rows count={2} /> : isError ? (
+            {tab === "language" ? <LanguageFilters filter={filter} onChange={onChange} /> : isLoading ? <Rows count={2} /> : isError ? (
               <div role="status" className="py-6 text-center text-sm"><p>دریافت فیلترها انجام نشد.</p><button type="button" onClick={refetch} className="mt-3 text-pink-600">تلاش دوباره</button></div>
             ) : <>
               {tab === "developer" && <label className="mb-5 flex items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-3">

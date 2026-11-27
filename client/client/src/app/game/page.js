@@ -63,7 +63,7 @@ function MobileGameInfo({ game }) {
       <button type="button" className="edge-mobile-info-trigger" aria-haspopup="dialog"
         onClick={open}>اطلاعات بازی</button>
       <dialog ref={dialogRef} dir="rtl" aria-label="اطلاعات بازی"
-        className="edge-mobile-info-dialog fixed inset-x-0 bottom-0 top-auto m-0 h-[91dvh] max-h-none w-full max-w-none overflow-hidden rounded-t-3xl border-0 bg-[#eef1f6] p-0 text-neutral-900 shadow-2xl backdrop:bg-neutral-950/45"
+        className="edge-mobile-info-dialog fixed inset-x-0 bottom-0 top-auto m-0 h-[91dvh] max-h-none w-full max-w-none overflow-hidden rounded-t-3xl border-0 bg-[var(--game-pink-surface)] p-0 text-neutral-900 shadow-2xl backdrop:bg-neutral-950/45"
         onCancel={(event) => { event.preventDefault(); close(); }}
         onClick={(event) => { if (event.target === event.currentTarget) close(); }}
         onClose={() => { animationRef.current?.cancel(); animationRef.current = null; }}>
@@ -78,7 +78,7 @@ function MobileGameInfo({ game }) {
             onTouchCancel={() => { swipeStart.current = null; }}>
             <button type="button" aria-label="بستن اطلاعات بازی" onClick={close}
               className="grid h-full w-16 place-items-center">
-              <span aria-hidden="true" className="h-1 w-10 rounded-full bg-neutral-300" />
+              <span aria-hidden="true" className="h-1 w-10 rounded-full bg-pink-300" />
             </button>
           </div>
           <GameInfoSheet game={game} />

@@ -95,6 +95,9 @@ exports.getGames = async (req, res, { storefront = false } = {}) => {
 
     const query = gameClassificationFilters(req.query);
     if (storefront) {
+      for (const field of ['has_persian_subtitles', 'has_dubbing']) {
+        if (req.query[field] === 'true') query[field] = true;
+      }
       Object.assign(query, published);
       for (const [key, [field]] of Object.entries(storefrontFields)) {
         const value = req.query[key];

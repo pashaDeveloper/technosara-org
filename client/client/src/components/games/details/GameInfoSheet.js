@@ -14,8 +14,8 @@ const trophyDotColors = ["bg-cyan-500", "bg-amber-400", "bg-slate-400", "bg-oran
 const resourcePageSize = 8;
 const resourcePhoto = "h-[52px] w-[52px] rounded-lg";
 const resourceRow = "flex min-h-[73px] items-center gap-3 px-4 py-2.5";
-const resourceList = "edge-game-resource-list overflow-hidden rounded-lg border border-slate-200 bg-white";
-const resourceHeader = "flex min-h-[41px] flex-wrap items-center justify-between gap-2 border-b border-slate-200 bg-slate-50 px-4 text-xs text-slate-900";
+const resourceList = "edge-game-resource-list overflow-hidden rounded-lg border border-pink-100 bg-white";
+const resourceHeader = "flex min-h-[41px] flex-wrap items-center justify-between gap-2 border-b border-pink-100 bg-pink-50 px-4 text-xs text-slate-900";
 
 function TrophyCup({ grade, className = "" }) {
   return (
@@ -32,17 +32,17 @@ const requirementFields = [
 ];
 const availability = value => value === true ? "دارد" : value === false ? "ندارد" : "";
 
-function SubscriptionStatus({ available }) {
-  const subscribed = available === true;
+function AvailabilityStatus({ available }) {
+  const isAvailable = available === true;
 
   return (
     <span className="inline-flex align-middle">
-      <span className="sr-only">{subscribed ? "دارد" : "ندارد"}</span>
+      <span className="sr-only">{isAvailable ? "دارد" : "ندارد"}</span>
       <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"
-        className={subscribed ? "text-emerald-700" : "text-red-700"}
+        className={isAvailable ? "text-emerald-700" : "text-pink-500"}
         fill="none" stroke="currentColor" strokeWidth="2">
         <circle cx="12" cy="12" r="10" />
-        <path strokeLinecap="round" strokeLinejoin="round" d={subscribed ? "m8 12.5 3 3 5-6" : "m9 9 6 6m0-6-6 6"} />
+        <path strokeLinecap="round" strokeLinejoin="round" d={isAvailable ? "m8 12.5 3 3 5-6" : "m9 9 6 6m0-6-6 6"} />
       </svg>
     </span>
   );
@@ -50,10 +50,10 @@ function SubscriptionStatus({ available }) {
 
 function Segments({ label, options, value, onChange }) {
   return (
-    <div role="group" aria-label={label} className="mb-4 grid grid-cols-2 gap-1.5 rounded-lg border border-slate-200 bg-slate-200/50 p-1">
+    <div role="group" aria-label={label} className="mb-4 grid grid-cols-2 gap-1.5 rounded-lg border border-pink-100 bg-pink-200/50 p-1">
       {options.map(([key, title, Icon]) => (
         <button key={key} type="button" aria-pressed={value === key} onClick={() => onChange(key)}
-          className="flex min-h-[40px] items-center justify-center gap-1.5 rounded-md px-1 text-xs font-semibold text-slate-600 aria-pressed:bg-white aria-pressed:text-slate-900 aria-pressed:shadow-sm">
+          className="flex min-h-[40px] items-center justify-center gap-1.5 rounded-md px-1 text-xs font-semibold text-slate-600 aria-pressed:bg-white aria-pressed:text-pink-800 aria-pressed:shadow-sm">
           {Icon && <Icon aria-hidden="true" />}{title}
         </button>
       ))}
@@ -61,9 +61,9 @@ function Segments({ label, options, value, onChange }) {
   );
 }
 
-const rowClass = "rounded-[10px] border border-slate-300 bg-white";
-const listClass = `${rowClass} divide-y divide-slate-200 overflow-hidden`;
-const listHeading = "bg-slate-50 px-3 py-2.5 text-xs font-bold text-slate-950";
+const rowClass = "rounded-[10px] border border-pink-200 bg-white";
+const listClass = `${rowClass} divide-y divide-pink-100 overflow-hidden`;
+const listHeading = "bg-pink-50 px-3 py-2.5 text-xs font-bold text-slate-950";
 
 function SpecValue({ label, value }) {
   const [expanded, setExpanded] = useState(false);
@@ -107,7 +107,7 @@ function SpecValue({ label, value }) {
         : expanded ? "whitespace-pre-line [overflow-wrap:anywhere]" : "truncate"}>
         {tags ? value.map((item, index) => (
           <span key={`${item}-${index}`} dir="ltr"
-            className="inline-flex max-w-full items-baseline gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-slate-700">
+            className="inline-flex max-w-full items-baseline gap-1 rounded-full bg-pink-100 px-2 py-0.5 text-slate-700">
             <span aria-hidden="true" className="text-sky-700">#</span><bdi className="min-w-0 [overflow-wrap:anywhere]">{item}</bdi>
           </span>
         )) : Array.isArray(value) ? value.join("، ") : value}
@@ -119,7 +119,7 @@ function SpecValue({ label, value }) {
             previousHeight.current = line.current.getBoundingClientRect().height;
             setExpanded(open => !open);
           }}
-          className="absolute bottom-0 left-1/2 z-10 grid h-3.5 w-3.5 -translate-x-1/2 translate-y-1/2 place-items-center rounded-full border border-slate-300 bg-white text-[11px] leading-none text-slate-600 hover:bg-slate-100 group-last:translate-y-0">
+          className="absolute bottom-0 left-1/2 z-10 grid h-3.5 w-3.5 -translate-x-1/2 translate-y-1/2 place-items-center rounded-full border border-pink-200 bg-white text-[11px] leading-none text-slate-600 hover:bg-pink-100 group-last:translate-y-0">
           <span aria-hidden="true">{expanded ? "−" : "+"}</span>
         </button>
       )}
@@ -131,11 +131,11 @@ function Rows({ rows, title, specs = false }) {
   return (
     <section className={listClass}>
       {title && <h3 className={listHeading}>{title}</h3>}
-      <dl className="divide-y divide-slate-200">
+      <dl className="divide-y divide-pink-100">
         {rows.filter(([, value]) => Array.isArray(value) ? value.length > 0 : value).map(([label, value, Icon], index) => (
           <div key={specs ? label : index} className={`grid min-h-9 items-center gap-2.5 px-3 py-1.5 text-xs ${specs ? "group relative grid-cols-[auto_minmax(0,1fr)] last:[&:has(button)]:pb-4" : "grid-cols-[minmax(0,2fr)_minmax(0,3fr)]"}`}>
             <dt className="flex min-w-0 items-center gap-2 font-medium text-slate-900">
-              {!specs && Icon && <span className="grid size-5 shrink-0 place-items-center rounded bg-slate-100 text-slate-600"><Icon aria-hidden="true" /></span>}
+              {!specs && Icon && <span className="grid size-5 shrink-0 place-items-center rounded bg-pink-100 text-slate-600"><Icon aria-hidden="true" /></span>}
               <span className={specs ? "truncate text-[13px]" : undefined}>{label}</span>
             </dt>
             {specs ? (
@@ -157,8 +157,8 @@ function Placeholder() {
     <div aria-hidden="true" className={`${listClass} motion-safe:animate-pulse`}>
       {[0, 1, 2].map(index => (
         <div key={index} className="flex h-9 items-center justify-between gap-3 px-3">
-          <div className="h-3 w-20 rounded bg-slate-200" />
-          <div className="h-3 w-24 rounded bg-slate-100" />
+          <div className="h-3 w-20 rounded bg-pink-200" />
+          <div className="h-3 w-24 rounded bg-pink-100" />
         </div>
       ))}
     </div>
@@ -182,8 +182,10 @@ function Overview({ game, showTitle = true }) {
     ["حالت بازی", game.modeNames],
     ["چندنفرهٔ محلی", availability(game.capability_status?.local_multiplayer)],
     ["چندنفرهٔ آنلاین", availability(game.capability_status?.online_multiplayer)],
-    ["گیم پس", <SubscriptionStatus key="game-pass" available={game.has_game_pass} />],
-    ["پلاس", <SubscriptionStatus key="ps-plus" available={game.has_ps_plus} />],
+    ["زیرنویس فارسی", <AvailabilityStatus key="subtitles" available={game.has_persian_subtitles} />],
+    ["دوبله", <AvailabilityStatus key="dubbing" available={game.has_dubbing} />],
+    ["گیم پس", <AvailabilityStatus key="game-pass" available={game.has_game_pass} />],
+    ["پلاس", <AvailabilityStatus key="ps-plus" available={game.has_ps_plus} />],
   ];
   const offers = asArray(game.offers).filter(item => /^https?:\/\//i.test(item?.store_url) && imageUrl(item.store_url));
   return (
@@ -192,7 +194,7 @@ function Overview({ game, showTitle = true }) {
       {offers.length > 0 && (
         <section className={`${listClass} mt-3`}>
           <h3 className={listHeading}>خرید بازی</h3>
-          <ul className="divide-y divide-slate-200">
+          <ul className="divide-y divide-pink-100">
             {offers.map(offer => (
               <li key={offer._id}>
                 <a href={imageUrl(offer.store_url)} target="_blank" rel="noopener noreferrer" className="flex min-h-9 items-center justify-between gap-2 px-3 py-1.5 text-xs">
@@ -212,7 +214,7 @@ function ResourceIcon({ item, trophy }) {
   const src = imageUrl(item.image || item.icon_url);
   const Icon = trophy ? FiAward : FiPackage;
   return (
-    <span className={`relative grid shrink-0 place-items-center overflow-hidden bg-neutral-100 text-xl text-neutral-500 ${resourcePhoto}`}>
+    <span className={`relative grid shrink-0 place-items-center overflow-hidden bg-pink-100 text-xl text-neutral-500 ${resourcePhoto}`}>
       {src ? <Image src={src} alt="" fill unoptimized className="object-cover" /> : <Icon aria-hidden="true" />}
     </span>
   );
@@ -225,19 +227,19 @@ function ResourceList({ rows, trophy, isXbox, page, setPage }) {
         <p className="sr-only">{trophy ? "تروفی‌ای برای این پلتفرم ثبت نشده است." : "بستهٔ الحاقی برای این پلتفرم ثبت نشده است."}</p>
         <div dir="rtl" aria-hidden="true" className={`${resourceList} motion-safe:animate-pulse`}>
           <div className={resourceHeader}>
-            {trophy && <span className="h-3 w-20 rounded bg-slate-200" />}
-            <span className={`ms-auto h-2.5 rounded bg-slate-200 ${trophy ? "w-24" : "w-10"}`} />
+            {trophy && <span className="h-3 w-20 rounded bg-pink-200" />}
+            <span className={`ms-auto h-2.5 rounded bg-pink-200 ${trophy ? "w-24" : "w-10"}`} />
           </div>
-          <div className="divide-y divide-slate-200">
+          <div className="divide-y divide-pink-100">
             {[0, 1, 2].map(index => (
               <div key={index} className={resourceRow}>
-                <span className={`h-2.5 w-4 shrink-0 rounded bg-slate-200 ${trophy ? "order-last" : ""}`} />
-                <span className={`${resourcePhoto} shrink-0 bg-slate-200`} />
+                <span className={`h-2.5 w-4 shrink-0 rounded bg-pink-200 ${trophy ? "order-last" : ""}`} />
+                <span className={`${resourcePhoto} shrink-0 bg-pink-200`} />
                 <div className="min-w-0 flex-1 space-y-2">
-                  <div className="h-3 w-3/5 rounded bg-slate-200" />
-                  <div className="h-2.5 w-4/5 rounded bg-slate-100" />
+                  <div className="h-3 w-3/5 rounded bg-pink-200" />
+                  <div className="h-2.5 w-4/5 rounded bg-pink-100" />
                 </div>
-                {trophy && <span className="h-3 w-8 shrink-0 rounded bg-slate-100" />}
+                {trophy && <span className="h-3 w-8 shrink-0 rounded bg-pink-100" />}
               </div>
             ))}
           </div>
@@ -269,7 +271,7 @@ function ResourceList({ rows, trophy, isXbox, page, setPage }) {
           )) : <span dir="rtl">{formatNumber.format(rows.length)} مورد</span>}
         </div>
       </div>
-      <ol className="divide-y divide-slate-200" start={start + 1}>
+      <ol className="divide-y divide-pink-100" start={start + 1}>
         {rows.slice(start, start + resourcePageSize).map((item, index) => {
           const title = item.title_fa || item.name_fa || item.title || item.name;
           const description = item.description_fa || item.short_description || item.description;
@@ -304,12 +306,12 @@ function ResourceList({ rows, trophy, isXbox, page, setPage }) {
       {pageCount > 1 && (
         <nav dir="rtl" aria-label={trophy ? "صفحه‌های تروفی" : "صفحه‌های بسته‌های الحاقی"} className="flex items-center justify-center gap-2 px-2.5 py-2">
           <button type="button" aria-label="صفحهٔ قبلی" disabled={currentPage === 0} onClick={() => setPage(currentPage - 1)}
-            className="grid h-8 w-8 place-items-center rounded-full border border-slate-200 text-slate-700 enabled:hover:bg-slate-100 disabled:opacity-40">
+            className="grid h-8 w-8 place-items-center rounded-full border border-pink-100 text-slate-700 enabled:hover:bg-pink-100 disabled:opacity-40">
             <FiArrowRight aria-hidden="true" />
           </button>
           <span className="sr-only" aria-live="polite">{formatNumber.format(currentPage + 1)} از {formatNumber.format(pageCount)}</span>
           <button type="button" aria-label="صفحهٔ بعدی" disabled={currentPage === pageCount - 1} onClick={() => setPage(currentPage + 1)}
-            className="grid h-8 w-8 place-items-center rounded-full border border-slate-200 text-slate-700 enabled:hover:bg-slate-100 disabled:opacity-40">
+            className="grid h-8 w-8 place-items-center rounded-full border border-pink-100 text-slate-700 enabled:hover:bg-pink-100 disabled:opacity-40">
             <FiArrowLeft aria-hidden="true" />
           </button>
         </nav>
@@ -386,7 +388,7 @@ export default function GameInfoSheet({ game }) {
   return (
     <div className="edge-mobile-specs-frame flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain pb-[max(1.5rem,env(safe-area-inset-bottom))]">
       <section className="edge-game-info-card edge-game-info-overview shrink-0">
-        <div role="tablist" aria-label="بخش‌های اطلاعات بازی" className="grid grid-cols-4 divide-x divide-x-reverse divide-slate-200 border-b border-slate-200 bg-slate-50">
+        <div role="tablist" aria-label="بخش‌های اطلاعات بازی" className="grid grid-cols-4 divide-x divide-x-reverse divide-pink-100 border-b border-pink-100 bg-pink-50">
           {mobileTabs.map(([key, label], index) => (
             <button key={key} id={`${id}-${key}`} type="button" role="tab"
               aria-selected={active === index} aria-controls={`${id}-panel`} tabIndex={active === index ? 0 : -1}
@@ -399,7 +401,7 @@ export default function GameInfoSheet({ game }) {
                 setActive(next);
                 event.currentTarget.parentElement.children[next]?.focus();
               }}
-              className="min-h-[44px] min-w-0 px-1 text-xs text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-500 aria-selected:bg-blue-50 aria-selected:text-blue-800">
+              className="min-h-[44px] min-w-0 px-1 text-xs text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pink-500 aria-selected:bg-pink-100 aria-selected:text-pink-800">
               {label}
             </button>
           ))}

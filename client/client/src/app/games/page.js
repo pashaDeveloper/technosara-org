@@ -11,7 +11,7 @@ import PlatformBadges from "@/components/games/PlatformBadges";
 export default function Games() {
   const router = useRouter();
   const params = useSearchParams();
-  const filters = Object.fromEntries(["genre", "developer", "theme", "age", "platform"]
+  const filters = Object.fromEntries(["genre", "developer", "theme", "age", "platform", "has_persian_subtitles", "has_dubbing"]
     .map((key) => [key, params.get(key) || ""]).filter(([, value]) => value));
   const page = Math.max(1, Number.parseInt(params.get("page"), 10) || 1);
   const limit = 24;
@@ -40,7 +40,7 @@ export default function Games() {
           <GameFilters options={options.data?.data} filter={filters} onChange={change} reset={reset} isLoading={options.isLoading} isError={options.isError} refetch={options.refetch} resultCount={total} resultsLoading={games.isFetching} />
           <div aria-busy={games.isFetching} className="col-span-12 min-w-0 md:col-span-8 lg:col-span-9">
             <PlatformBadges platforms={options.data?.data?.platforms} value={filters.platform || ""} onChange={(value) => change("platform", value)} />
-            {games.isFetching || (!games.isError && !games.currentData?.data?.length) ? (
+            {games.isFetching ? (
               <div aria-hidden="true" className="grid grid-cols-2 gap-3 md:gap-6 lg:grid-cols-3 motion-reduce:[&>*]:animate-none">
                 {Array.from({ length: 6 }, (_, index) => <div key={index} className="aspect-square animate-pulse rounded-lg bg-gray-100" />)}
               </div>
@@ -49,6 +49,8 @@ export default function Games() {
                 <p>دریافت بازی‌ها انجام نشد.</p>
                 <button type="button" onClick={games.refetch} className="mt-4 text-pink-600">تلاش دوباره</button>
               </div>
+            ) : !games.currentData?.data?.length ? (
+              <p role="status" className="rounded-xl border p-8 text-center text-sm">بازی‌ای پیدا نشد.</p>
             ) : (
               <div className="grid grid-cols-2 gap-3 md:gap-6 lg:grid-cols-3">
                 {games.currentData.data.map((game) => <GameCard key={game._id} game={game} />)}
